@@ -234,7 +234,7 @@
             z-index: 1001;
         }
 
-        /* Hero Section Ultra Moderno */
+        /* Hero Section Ultra Moderno - REAJUSTADO */
         .hero {
             height: 100vh;
             min-height: 700px;
@@ -270,11 +270,13 @@
             gap: 80px;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
 
         .hero-text {
             flex: 1;
             animation: fadeInUp 1s ease both;
+            overflow: hidden;
         }
 
         .hero-text h1 {
@@ -282,12 +284,18 @@
             margin-bottom: 25px;
             color: var(--azul-escuro);
             line-height: 1.1;
+            overflow: hidden;
+        }
+
+        .hero-text .typing-container {
+            display: inline-block;
+            position: relative;
         }
 
         .highlight {
             color: var(--laranja);
             position: relative;
-            display: inline-block;
+            display: inline;
         }
 
         .highlight::after {
@@ -326,6 +334,8 @@
             perspective: 1000px;
             opacity: 0;
             animation: fadeInRight 1s ease 1s both;
+            display: flex;
+            justify-content: center;
         }
 
         .hero-image-container {
@@ -337,6 +347,7 @@
             border-radius: var(--borda-arredondada);
             overflow: hidden;
             border: 15px solid var(--branco);
+            max-width: 100%;
         }
 
         .hero-image-container img {
@@ -607,7 +618,6 @@
 
         .portfolio-container {
             position: relative;
-            overflow: hidden;
         }
 
         .portfolio-slider {
@@ -620,7 +630,6 @@
             display: flex;
             gap: 30px;
             transition: transform 0.5s ease;
-            padding-bottom: 20px; /* Adicionado para evitar cortar sombra */
         }
 
         .portfolio-slide {
@@ -630,7 +639,6 @@
             overflow: hidden;
             box-shadow: var(--sombra);
             transition: var(--transicao);
-            flex-shrink: 0;
         }
 
         .portfolio-slide:hover {
@@ -1077,7 +1085,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -1157,6 +1165,16 @@
             }
         }
 
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--laranja) }
+        }
+
         /* Responsivo */
         @media (max-width: 1200px) {
             .hero-text h1 {
@@ -1169,6 +1187,8 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 40px;
+                padding-top: 40px;
+                padding-bottom: 40px;
             }
 
             .hero-buttons {
@@ -1177,6 +1197,7 @@
 
             .hero-text h1 {
                 font-size: 3rem;
+                line-height: 1.2;
             }
 
             .hero-text p {
@@ -1199,6 +1220,11 @@
 
             .section-title h2 {
                 font-size: 2rem;
+            }
+
+            .highlight::after {
+                bottom: 3px;
+                height: 10px;
             }
         }
 
@@ -1227,21 +1253,32 @@
                 display: block;
             }
 
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 70px;
+                padding-bottom: 50px;
+            }
+
             .hero-text h1 {
                 font-size: 2.5rem;
+                margin-bottom: 20px;
             }
 
             .hero-text p {
                 font-size: 1.1rem;
+                margin-bottom: 30px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
+                margin-top: 30px;
             }
 
             .hero-image {
                 width: 100%;
+                margin-top: 30px;
             }
 
             .portfolio-slide {
@@ -1252,39 +1289,15 @@
                 padding: 70px 0;
             }
 
-            .portfolio-slider {
-                padding: 20px 10px;
-            }
-
-            .portfolio-slide-track {
-                padding-bottom: 10px;
+            .highlight::after {
+                height: 8px;
+                bottom: 2px;
             }
         }
 
         @media (max-width: 576px) {
-            .hero {
-                padding-top: 70px;
-                height: auto;
-                min-height: 100vh;
-            }
-
             .hero-text h1 {
                 font-size: 2rem;
-                margin-bottom: 15px;
-            }
-
-            .highlight::after {
-                height: 8px;
-                bottom: 3px;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-            }
-
-            .hero-buttons {
-                margin-top: 30px;
             }
 
             .portfolio-slide {
@@ -1304,34 +1317,18 @@
                 font-size: 14px;
             }
 
-            .section-title h2::after {
-                width: 60px;
-                height: 3px;
-                bottom: -8px;
+            .highlight::after {
+                height: 6px;
+                bottom: 1px;
             }
 
-            .contact-form {
-                padding: 30px 20px;
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
             }
 
-            .service-card, .testimonial-card {
-                padding: 25px 20px;
-            }
-
-            .service-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-            }
-
-            .feature-icon, .contact-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
-
-            .portfolio-slider-nav {
-                margin-top: 30px;
+            .tech-bubble {
+                display: none;
             }
         }
 
@@ -1340,30 +1337,13 @@
                 font-size: 1.8rem;
             }
 
-            .hero-buttons .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-
-            .section-title p {
+            .hero-text p {
                 font-size: 1rem;
             }
 
-            .portfolio-slider-dot {
-                width: 10px;
-                height: 10px;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-                bottom: 20px;
-                right: 20px;
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
             }
         }
     </style>
@@ -1397,7 +1377,11 @@
         
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>Soluções digitais <span class="highlight">sob medida</span> para seu negócio</h1>
+                <h1>
+                    <div class="typing-container">
+                        Soluções digitais <span class="highlight">sob medida</span> para seu negócio
+                    </div>
+                </h1>
                 <p>Desenvolvemos sites e sistemas personalizados com tecnologia de ponta que impulsionam seus resultados e elevam sua marca.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Começar Projeto</a>
@@ -2041,7 +2025,7 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Efeito parallax 3D na imagem
+        // Efeito parallax 3D na imagem (apenas desktop)
         const heroImageContainer = document.querySelector('.hero-image-container');
         if (window.innerWidth > 992) {
             document.addEventListener('mousemove', (e) => {
@@ -2062,24 +2046,31 @@
             });
         }, 1500);
 
-        // Efeito de digitação no título (opcional)
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-
+        // Efeito de digitação no título (melhorado para mobile)
+        const heroTitle = document.querySelector('.hero-text h1 .typing-container');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
         let i = 0;
         const typingSpeed = 50; // velocidade em ms
-
+        
         function typeWriter() {
             if (i < originalText.length) {
-                heroTitle.innerHTML += originalText.charAt(i);
+                // Adiciona o próximo caractere
+                heroTitle.textContent += originalText.charAt(i);
+                
+                // Força o navegador a recalcular o layout para evitar quebras
+                void heroTitle.offsetHeight;
+                
                 i++;
                 setTimeout(typeWriter, typingSpeed);
             }
         }
-
-        // Iniciar a animação de digitação
-        setTimeout(typeWriter, 300);
+        
+        // Inicia a animação após um pequeno delay para garantir que tudo esteja carregado
+        setTimeout(() => {
+            typeWriter();
+        }, 300);
 
         // Prevenir scroll horizontal em dispositivos móveis
         document.addEventListener('touchmove', function(e) {
@@ -2094,6 +2085,15 @@
         // Corrigir problema de viewport em iOS
         document.addEventListener('gesturestart', function(e) {
             e.preventDefault();
+        });
+
+        // Ajustar altura do hero no mobile após digitação
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                const heroSection = document.querySelector('.hero');
+                heroSection.style.height = 'auto';
+                heroSection.style.minHeight = '100vh';
+            }
         });
     </script>
 </body>
