@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Anphaweb - Soluções Digitais Avançadas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,12 +33,19 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--preto);
             background-color: var(--branco);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         h1, h2, h3, h4 {
@@ -223,6 +230,7 @@
             font-size: 1.5rem;
             color: var(--azul-escuro);
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section Ultra Moderno */
@@ -290,7 +298,6 @@
             background-color: rgba(255, 107, 53, 0.3);
             z-index: -1;
             border-radius: 6px;
-            animation: highlightPulse 3s ease infinite;
         }
 
         .hero-text p {
@@ -597,22 +604,25 @@
 
         .portfolio-container {
             position: relative;
+            overflow: hidden;
         }
 
         .portfolio-slider {
             position: relative;
             overflow: hidden;
             padding: 20px 0;
+            width: 100%;
         }
 
         .portfolio-slide-track {
             display: flex;
             gap: 30px;
             transition: transform 0.5s ease;
+            width: max-content;
         }
 
         .portfolio-slide {
-            min-width: calc(33.333% - 20px);
+            min-width: calc(100% - 40px);
             background-color: var(--branco);
             border-radius: var(--borda-arredondada);
             overflow: hidden;
@@ -1100,21 +1110,6 @@
             }
         }
 
-        @keyframes highlightPulse {
-            0% {
-                opacity: 0.3;
-                transform: scaleX(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scaleX(1.1);
-            }
-            100% {
-                opacity: 0.3;
-                transform: scaleX(1);
-            }
-        }
-
         @keyframes bubbleFloat {
             0% {
                 transform: translateY(0) rotate(0deg);
@@ -1192,17 +1187,18 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
+                width: 80%;
+                height: 100vh;
                 background-color: var(--branco);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 30px;
                 transition: var(--transicao);
-                z-index: 999;
+                z-index: 1000;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
@@ -1213,8 +1209,20 @@
                 display: block;
             }
 
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 120px 0 80px;
+            }
+
             .hero-text h1 {
                 font-size: 2.5rem;
+                margin-top: 0;
+            }
+
+            .hero-text h1 .highlight::after {
+                height: 8px;
+                bottom: 3px;
             }
 
             .hero-text p {
@@ -1228,14 +1236,19 @@
 
             .hero-image {
                 width: 100%;
+                margin-top: 30px;
             }
 
             .portfolio-slide {
-                min-width: calc(50% - 15px);
+                min-width: calc(100% - 40px);
             }
 
             .section {
                 padding: 70px 0;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1244,21 +1257,48 @@
                 font-size: 2rem;
             }
 
-            .portfolio-slide {
-                min-width: 100%;
-            }
-
             .section-title h2 {
                 font-size: 1.6rem;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
             }
 
             .btn {
                 padding: 12px 25px;
                 font-size: 14px;
+            }
+
+            .portfolio-slide {
+                min-width: calc(100% - 20px);
+            }
+
+            .portfolio-slider-nav {
+                margin-top: 20px;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .footer-col {
+                text-align: center;
+            }
+
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-contact-item {
+                justify-content: center;
+            }
+
+            .contact-social {
+                justify-content: center;
             }
         }
     </style>
@@ -1268,7 +1308,7 @@
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMmE1ZWU4IiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwWm0xMDEuOC0yNjEuN0wtMjE2LjQgMzU2Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTE5LjctMTkuN2MtNC43LTQuNy00LjctMTIuMyAwLTE3TDMwNi4xIDI1NiAxODkuNyAxMzkuN2MtNC43LTQuNy00LjctMTIuMyAwLTE3bDE5LjctMTkuN2M0LjctNC43IDEyLjMtNC43IDE3IDBsMTU0LjEgMTU0LjFjNC43IDQuNyA0LjcgMTIuMyAwIDE3WiIvPjwvc3ZnPg==" alt="Anphaweb Logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMmE1ZWU4IiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDgtMTEwLjUgMC0yMDAtODkuNS0yMDAtMjAwUzE0NS41IDU2IDI1NiA1NnMyMDAgODkuNSAyMDAgMjAwLTg5LjUgMjAwLTIwMCAyMDBabTEwMS44LTI2MS43TC0yMTYuNCAzNTZjLTQuNyA0LjctMTIuMyA0LjctMTcgMGwtMTkuNy0xOS43Yy00LjctNC43LTQuNy0xMi4zIDAtMTdMMzA2LjEgMjU2IDE4OS43IDEzOS43Yy00LjctNC43LTQuNy0xMi4zIDAtMTdsMTkuNy0xOS43YzQuNy00LjcgMTIuMy00LjcgMTcgMGwxNTQuMSAxNTQuMWM0LjcgNC43IDQuNyAxMi4zIDAgMTdaIi8+PC9zdmc+" alt="Anphaweb Logo">
                 Anpha<span>web</span>
             </a>
             <nav>
@@ -1792,12 +1832,25 @@
         const portfolioSlides = document.querySelectorAll('.portfolio-slide');
         const portfolioDots = document.querySelectorAll('.portfolio-slider-dot');
         let currentSlide = 0;
-        const slideWidth = portfolioSlides[0].offsetWidth + 30; // Largura do slide + gap
+        let slideWidth = portfolioSlides[0].offsetWidth + 30; // Largura do slide + gap
         const totalSlides = portfolioSlides.length;
 
         // Configuração inicial do slider
         function setupSlider() {
-            const slidesPerView = Math.min(3, Math.floor(window.innerWidth / 350));
+            const viewportWidth = window.innerWidth;
+            
+            if (viewportWidth >= 992) {
+                slideWidth = (portfolioSlider.offsetWidth / 3) - 20;
+            } else if (viewportWidth >= 768) {
+                slideWidth = (portfolioSlider.offsetWidth / 2) - 15;
+            } else {
+                slideWidth = portfolioSlider.offsetWidth - 40;
+            }
+            
+            portfolioSlides.forEach(slide => {
+                slide.style.minWidth = `${slideWidth}px`;
+            });
+            
             portfolioSlider.style.width = `${totalSlides * slideWidth}px`;
             
             portfolioDots.forEach((dot, index) => {
@@ -1938,15 +1991,17 @@
 
         // Efeito parallax 3D na imagem
         const heroImageContainer = document.querySelector('.hero-image-container');
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
-            heroImageContainer.style.transform = `rotateY(${-15 + xAxis}deg) rotateX(${5 + yAxis}deg) scale(1.03)`;
-        });
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+                heroImageContainer.style.transform = `rotateY(${-15 + xAxis}deg) rotateX(${5 + yAxis}deg) scale(1.03)`;
+            });
 
-        heroImageContainer.addEventListener('mouseleave', () => {
-            heroImageContainer.style.transform = 'rotateY(-15deg) rotateX(5deg) scale(1)';
-        });
+            heroImageContainer.addEventListener('mouseleave', () => {
+                heroImageContainer.style.transform = 'rotateY(-15deg) rotateX(5deg) scale(1)';
+            });
+        }
 
         // Mostrar bolhas de tecnologia
         setTimeout(() => {
@@ -1955,24 +2010,40 @@
             });
         }, 1500);
 
-        // Efeito de digitação no título (opcional)
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-
-        let i = 0;
-        const typingSpeed = 50; // velocidade em ms
-
-        function typeWriter() {
-            if (i < originalText.length) {
-                heroTitle.innerHTML += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, typingSpeed);
+        // Prevenir scroll horizontal
+        window.addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                if (window.scrollY !== 0) {
+                    window.scrollTo(0, window.scrollY);
+                }
             }
-        }
+        });
 
-        // Iniciar a animação de digitação
-        setTimeout(typeWriter, 300);
+        // Prevenir zoom em dispositivos móveis
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+
+        // Desativar animação de digitação em mobile
+        if (window.innerWidth > 768) {
+            const heroTitle = document.querySelector('.hero-text h1');
+            const originalText = heroTitle.innerHTML;
+            heroTitle.innerHTML = '';
+
+            let i = 0;
+            const typingSpeed = 50; // velocidade em ms
+
+            function typeWriter() {
+                if (i < originalText.length) {
+                    heroTitle.innerHTML += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, typingSpeed);
+                }
+            }
+
+            // Iniciar a animação de digitação
+            setTimeout(typeWriter, 300);
+        }
     </script>
 </body>
 </html>
