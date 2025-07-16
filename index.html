@@ -33,19 +33,12 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            position: relative;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--preto);
             background-color: var(--branco);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
         }
 
         h1, h2, h3, h4 {
@@ -162,7 +155,6 @@
             z-index: 1000;
             transition: var(--transicao);
             padding: 20px 0;
-            background-color: var(--branco);
         }
 
         header.scrolled {
@@ -231,10 +223,9 @@
             font-size: 1.5rem;
             color: var(--azul-escuro);
             cursor: pointer;
-            z-index: 1001;
         }
 
-        /* Hero Section Ultra Moderno - REAJUSTADO */
+        /* Hero Section Ultra Moderno */
         .hero {
             height: 100vh;
             min-height: 700px;
@@ -243,7 +234,6 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding-top: 80px;
         }
 
         .particles {
@@ -270,13 +260,11 @@
             gap: 80px;
             position: relative;
             z-index: 2;
-            width: 100%;
         }
 
         .hero-text {
             flex: 1;
             animation: fadeInUp 1s ease both;
-            overflow: hidden;
         }
 
         .hero-text h1 {
@@ -284,21 +272,15 @@
             margin-bottom: 25px;
             color: var(--azul-escuro);
             line-height: 1.1;
-            overflow: hidden;
         }
 
-        .hero-text .typing-container {
-            display: inline-block;
-            position: relative;
-        }
-
-        .highlight {
+        .hero-text h1 .highlight {
             color: var(--laranja);
             position: relative;
-            display: inline;
+            display: inline-block;
         }
 
-        .highlight::after {
+        .hero-text h1 .highlight::after {
             content: '';
             position: absolute;
             bottom: 5px;
@@ -334,8 +316,6 @@
             perspective: 1000px;
             opacity: 0;
             animation: fadeInRight 1s ease 1s both;
-            display: flex;
-            justify-content: center;
         }
 
         .hero-image-container {
@@ -347,7 +327,6 @@
             border-radius: var(--borda-arredondada);
             overflow: hidden;
             border: 15px solid var(--branco);
-            max-width: 100%;
         }
 
         .hero-image-container img {
@@ -1085,7 +1064,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -1165,16 +1144,6 @@
             }
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--laranja) }
-        }
-
         /* Responsivo */
         @media (max-width: 1200px) {
             .hero-text h1 {
@@ -1187,8 +1156,6 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 40px;
-                padding-top: 40px;
-                padding-bottom: 40px;
             }
 
             .hero-buttons {
@@ -1197,7 +1164,6 @@
 
             .hero-text h1 {
                 font-size: 3rem;
-                line-height: 1.2;
             }
 
             .hero-text p {
@@ -1221,28 +1187,22 @@
             .section-title h2 {
                 font-size: 2rem;
             }
-
-            .highlight::after {
-                bottom: 3px;
-                height: 10px;
-            }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 0;
+                top: 80px;
                 left: -100%;
                 width: 100%;
-                height: 100vh;
-                background-color: rgba(255, 255, 255, 0.98);
+                height: calc(100vh - 80px);
+                background-color: var(--branco);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 gap: 30px;
                 transition: var(--transicao);
-                z-index: 1000;
-                backdrop-filter: blur(5px);
+                z-index: 999;
             }
 
             .nav-links.active {
@@ -1253,32 +1213,21 @@
                 display: block;
             }
 
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                padding-top: 70px;
-                padding-bottom: 50px;
-            }
-
             .hero-text h1 {
                 font-size: 2.5rem;
-                margin-bottom: 20px;
             }
 
             .hero-text p {
                 font-size: 1.1rem;
-                margin-bottom: 30px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
-                margin-top: 30px;
             }
 
             .hero-image {
                 width: 100%;
-                margin-top: 30px;
             }
 
             .portfolio-slide {
@@ -1287,11 +1236,6 @@
 
             .section {
                 padding: 70px 0;
-            }
-
-            .highlight::after {
-                height: 8px;
-                bottom: 2px;
             }
         }
 
@@ -1310,35 +1254,6 @@
 
             .footer-container {
                 grid-template-columns: 1fr;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .highlight::after {
-                height: 6px;
-                bottom: 1px;
-            }
-
-            .hero-buttons .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .tech-bubble {
-                display: none;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
             }
 
             .btn {
@@ -1377,11 +1292,7 @@
         
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>
-                    <div class="typing-container">
-                        Soluções digitais <span class="highlight">sob medida</span> para seu negócio
-                    </div>
-                </h1>
+                <h1>Soluções digitais <span class="highlight">sob medida</span> para seu negócio</h1>
                 <p>Desenvolvemos sites e sistemas personalizados com tecnologia de ponta que impulsionam seus resultados e elevam sua marca.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Começar Projeto</a>
@@ -2025,19 +1936,17 @@
             particlesContainer.appendChild(particle);
         }
 
-        // Efeito parallax 3D na imagem (apenas desktop)
+        // Efeito parallax 3D na imagem
         const heroImageContainer = document.querySelector('.hero-image-container');
-        if (window.innerWidth > 992) {
-            document.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
-                heroImageContainer.style.transform = `rotateY(${-15 + xAxis}deg) rotateX(${5 + yAxis}deg) scale(1.03)`;
-            });
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+            heroImageContainer.style.transform = `rotateY(${-15 + xAxis}deg) rotateX(${5 + yAxis}deg) scale(1.03)`;
+        });
 
-            heroImageContainer.addEventListener('mouseleave', () => {
-                heroImageContainer.style.transform = 'rotateY(-15deg) rotateX(5deg) scale(1)';
-            });
-        }
+        heroImageContainer.addEventListener('mouseleave', () => {
+            heroImageContainer.style.transform = 'rotateY(-15deg) rotateX(5deg) scale(1)';
+        });
 
         // Mostrar bolhas de tecnologia
         setTimeout(() => {
@@ -2046,55 +1955,24 @@
             });
         }, 1500);
 
-        // Efeito de digitação no título (melhorado para mobile)
-        const heroTitle = document.querySelector('.hero-text h1 .typing-container');
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
+        // Efeito de digitação no título (opcional)
+        const heroTitle = document.querySelector('.hero-text h1');
+        const originalText = heroTitle.innerHTML;
+        heroTitle.innerHTML = '';
+
         let i = 0;
         const typingSpeed = 50; // velocidade em ms
-        
+
         function typeWriter() {
             if (i < originalText.length) {
-                // Adiciona o próximo caractere
-                heroTitle.textContent += originalText.charAt(i);
-                
-                // Força o navegador a recalcular o layout para evitar quebras
-                void heroTitle.offsetHeight;
-                
+                heroTitle.innerHTML += originalText.charAt(i);
                 i++;
                 setTimeout(typeWriter, typingSpeed);
             }
         }
-        
-        // Inicia a animação após um pequeno delay para garantir que tudo esteja carregado
-        setTimeout(() => {
-            typeWriter();
-        }, 300);
 
-        // Prevenir scroll horizontal em dispositivos móveis
-        document.addEventListener('touchmove', function(e) {
-            if (e.touches.length === 1) {
-                const touch = e.touches[0];
-                if (touch.clientX <= 10 || touch.clientX >= window.innerWidth - 10) {
-                    e.preventDefault();
-                }
-            }
-        }, { passive: false });
-
-        // Corrigir problema de viewport em iOS
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
-
-        // Ajustar altura do hero no mobile após digitação
-        window.addEventListener('resize', function() {
-            if (window.innerWidth <= 768) {
-                const heroSection = document.querySelector('.hero');
-                heroSection.style.height = 'auto';
-                heroSection.style.minHeight = '100vh';
-            }
-        });
+        // Iniciar a animação de digitação
+        setTimeout(typeWriter, 300);
     </script>
 </body>
 </html>
