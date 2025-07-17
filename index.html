@@ -162,11 +162,11 @@
             z-index: 1000;
             transition: var(--transicao);
             padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--sombra);
         }
 
         header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--sombra);
             padding: 15px 0;
         }
 
@@ -242,6 +242,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-top: 80px;
         }
 
         .particles {
@@ -1210,14 +1211,16 @@
             }
 
             .hero {
+                margin-top: 0;
+                padding-top: 80px;
                 height: auto;
                 min-height: auto;
-                padding: 120px 0 80px;
+                padding-bottom: 80px;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
-                margin-top: 0;
+                margin-top: 40px;
             }
 
             .hero-text h1 .highlight::after {
