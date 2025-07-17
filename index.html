@@ -3,1135 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anphaweb - Soluções Digitais Avançadas</title>
+    <title>Anphaweb - Criação de Sites e Sistemas Personalizados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anpha-blue': '#2563eb',
+                        'anpha-orange': '#f97316',
+                        'anpha-purple': '#7e22ce',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float-reverse 5s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'float-reverse': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(15px)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Reset e Estilos Globais */
-        :root {
-            --azul: #2a5ee8;
-            --laranja: #ff6b35;
-            --roxo: #6e3bdb;
-            --azul-escuro: #1a3a8f;
-            --laranja-escuro: #d45a2b;
-            --roxo-escuro: #4d2a9e;
-            --branco: #ffffff;
-            --cinza-claro: #f8f9fa;
-            --cinza-medio: #e9ecef;
-            --cinza-escuro: #495057;
-            --preto: #212529;
-            --sombra: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --borda-arredondada: 12px;
-            --transicao: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--preto);
-            background-color: var(--branco);
-            line-height: 1.6;
             overflow-x: hidden;
         }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 16px;
-            transition: var(--transicao);
-            cursor: pointer;
-            border: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-primary {
-            background-color: var(--laranja);
-            color: var(--branco);
-            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--laranja-escuro);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--azul-escuro);
-            border: 2px solid var(--azul);
-            box-shadow: 0 4px 15px rgba(42, 94, 232, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--azul);
-            color: var(--branco);
-            transform: translateY(-5px);
-        }
-
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--azul-escuro);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--cinza-escuro);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transicao);
-            padding: 20px 0;
-        }
-
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--sombra);
-            padding: 15px 0;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--azul-escuro);
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo span {
-            color: var(--laranja);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links li a {
-            font-weight: 500;
-            position: relative;
-            transition: var(--transicao);
-        }
-
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--laranja);
-            transition: var(--transicao);
-        }
-
-        .nav-links li a:hover {
-            color: var(--laranja);
-        }
-
-        .nav-links li a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--azul-escuro);
-            cursor: pointer;
-        }
-
-        /* Hero Section Ultra Moderno */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
+        
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(45deg, var(--azul), var(--roxo));
-            opacity: 0.5;
-            filter: blur(15px);
-            animation: floatParticle linear infinite;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 80px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text {
-            flex: 1;
-            animation: fadeInUp 1s ease both;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 25px;
-            color: var(--azul-escuro);
-            line-height: 1.1;
-        }
-
-        .hero-text h1 .highlight {
-            color: var(--laranja);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-text h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background-color: rgba(255, 107, 53, 0.3);
+            background: rgba(37, 99, 235, 0.2);
+            pointer-events: none;
             z-index: -1;
-            border-radius: 6px;
-            animation: highlightPulse 3s ease infinite;
         }
-
-        .hero-text p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            color: var(--cinza-escuro);
-            max-width: 600px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.4s both;
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 50px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.8s both;
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb, #7e22ce);
         }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            perspective: 1000px;
-            opacity: 0;
-            animation: fadeInRight 1s ease 1s both;
-        }
-
-        .hero-image-container {
-            position: relative;
-            transform-style: preserve-3d;
-            transform: rotateY(-15deg) rotateX(5deg);
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-            border-radius: var(--borda-arredondada);
-            overflow: hidden;
-            border: 15px solid var(--branco);
-        }
-
-        .hero-image-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
-
-        .hero-image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(42, 94, 232, 0.2), rgba(110, 59, 219, 0.2));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
-
-        .hero-image-container:hover {
-            transform: rotateY(-5deg) rotateX(2deg) scale(1.03);
-        }
-
-        .hero-image-container:hover::before {
-            opacity: 1;
-        }
-
-        .hero-image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .tech-bubble {
-            position: absolute;
-            background: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            font-weight: 600;
-            color: var(--azul-escuro);
-            z-index: 3;
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-
-        .tech-bubble.react {
-            width: 80px;
-            height: 80px;
-            top: -20px;
-            left: -20px;
-            animation: bubbleFloat 8s ease infinite;
-        }
-
-        .tech-bubble.node {
-            width: 70px;
-            height: 70px;
-            bottom: 30px;
-            left: -15px;
-            animation: bubbleFloat 10s ease 2s infinite;
-        }
-
-        .tech-bubble.js {
-            width: 60px;
-            height: 60px;
-            top: 50%;
-            right: -20px;
-            animation: bubbleFloat 9s ease 1s infinite;
-        }
-
-        /* Sobre */
-        .about {
-            background-color: var(--cinza-claro);
-            position: relative;
-        }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-image {
-            flex: 1;
-            position: relative;
-        }
-
-        .about-image img {
-            border-radius: var(--borda-arredondada);
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.02);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 5px solid var(--laranja);
-            border-radius: var(--borda-arredondada);
-            top: 20px;
-            left: 20px;
-            z-index: -1;
-            transition: var(--transicao);
-        }
-
-        .about-image:hover::before {
-            top: 15px;
-            left: 15px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--azul-escuro);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--cinza-escuro);
-        }
-
-        .about-features {
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            color: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .feature-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--azul-escuro);
-        }
-
-        .feature-content p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-        }
-
-        /* Serviços */
-        .services {
-            position: relative;
-        }
-
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--branco);
-            border-radius: var(--borda-arredondada);
-            padding: 30px;
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .service-card:hover {
+        
+        .card-hover:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            transition: var(--transicao);
-        }
-
-        .service-card:hover::before {
-            height: 10px;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            color: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            transition: var(--transicao);
-        }
-
+        
         .service-card:hover .service-icon {
             transform: rotateY(180deg);
-            background: linear-gradient(to right, var(--laranja), var(--laranja-escuro));
         }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--azul-escuro);
-        }
-
-        .service-card p {
-            color: var(--cinza-escuro);
-            margin-bottom: 20px;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--laranja);
-            font-weight: 600;
-            transition: var(--transicao);
-        }
-
-        .service-link i {
-            margin-left: 5px;
-            transition: var(--transicao);
-        }
-
-        .service-link:hover {
-            color: var(--laranja-escuro);
-        }
-
-        .service-link:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Portfólio */
-        .portfolio {
-            background-color: var(--cinza-claro);
-            position: relative;
-        }
-
-        .portfolio-container {
-            position: relative;
-        }
-
-        .portfolio-slider {
-            position: relative;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-
-        .portfolio-slide-track {
-            display: flex;
-            gap: 30px;
-            transition: transform 0.5s ease;
-        }
-
-        .portfolio-slide {
-            min-width: calc(33.333% - 20px);
-            background-color: var(--branco);
-            border-radius: var(--borda-arredondada);
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            transition: var(--transicao);
-        }
-
-        .portfolio-slide:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .portfolio-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transicao);
-        }
-
-        .portfolio-slide:hover .portfolio-image img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(42, 94, 232, 0.8), rgba(110, 59, 219, 0.8));
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
+        
+        .scroll-reveal {
             opacity: 0;
-            transition: var(--transicao);
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
-
-        .portfolio-slide:hover .portfolio-overlay {
+        
+        .scroll-reveal.active {
             opacity: 1;
+            transform: translateY(0);
         }
-
-        .portfolio-overlay-content h3 {
-            color: var(--branco);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-overlay-content p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 15px;
-        }
-
-        .portfolio-overlay-btn {
-            display: inline-flex;
-            align-items: center;
-            color: var(--branco);
-            font-weight: 600;
-            transition: var(--transicao);
-        }
-
-        .portfolio-overlay-btn i {
-            margin-left: 5px;
-        }
-
-        .portfolio-overlay-btn:hover {
-            color: var(--laranja);
-        }
-
-        .portfolio-content {
-            padding: 20px;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--azul-escuro);
-        }
-
-        .portfolio-content p {
-            color: var(--cinza-escuro);
-            font-size: 0.9rem;
-        }
-
-        .portfolio-slider-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 10px;
-        }
-
-        .portfolio-slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--cinza-medio);
-            cursor: pointer;
-            transition: var(--transicao);
-        }
-
-        .portfolio-slider-dot.active {
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            transform: scale(1.2);
-        }
-
-        /* Depoimentos */
-        .testimonials {
-            position: relative;
-        }
-
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(135deg, rgba(42, 94, 232, 0.05) 0%, rgba(110, 59, 219, 0.05) 100%);
-            z-index: -1;
-        }
-
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        
         .testimonial-card {
-            background-color: var(--branco);
-            border-radius: var(--borda-arredondada);
-            padding: 30px;
-            box-shadow: var(--sombra);
-            position: relative;
-            transition: var(--transicao);
+            transition: all 0.3s ease;
         }
-
+        
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
         }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(42, 94, 232, 0.1);
-            font-family: Georgia, serif;
-            line-height: 1;
-            z-index: 0;
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 20px;
-            color: var(--cinza-escuro);
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 3px solid var(--laranja);
-        }
-
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--azul-escuro);
-        }
-
-        .author-info p {
-            font-size: 0.9rem;
-            color: var(--laranja);
-        }
-
-        .testimonial-rating {
-            color: var(--laranja);
-            margin-top: 5px;
-        }
-
-        /* Contato */
-        .contact {
-            background-color: var(--cinza-claro);
-            position: relative;
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--azul-escuro);
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-            color: var(--cinza-escuro);
-        }
-
-        .contact-details {
-            margin-bottom: 40px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            color: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .contact-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--azul-escuro);
-        }
-
-        .contact-content a {
-            color: var(--laranja);
-            transition: var(--transicao);
-        }
-
-        .contact-content a:hover {
-            color: var(--laranja-escuro);
-            text-decoration: underline;
-        }
-
-        .contact-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--branco);
-            color: var(--azul);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transicao);
-        }
-
-        .social-link:hover {
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            color: var(--branco);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: var(--branco);
-            border-radius: var(--borda-arredondada);
-            padding: 40px;
-            box-shadow: var(--sombra);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--azul-escuro);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--cinza-medio);
-            border-radius: var(--borda-arredondada);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transicao);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--azul);
-            box-shadow: 0 0 0 3px rgba(42, 94, 232, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            font-size: 1rem;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
-            padding: 80px 0 30px;
-            position: relative;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--laranja);
-        }
-
-        .footer-col p {
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            opacity: 0.8;
-            transition: var(--transicao);
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--laranja);
-            transform: translateX(5px);
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .footer-contact-icon {
-            margin-right: 10px;
-            color: var(--laranja);
-        }
-
-        .footer-contact-text {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-shape {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, rgba(255, 107, 53, 0) 70%);
-            top: 50px;
-            right: 100px;
-            z-index: 0;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            color: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: var(--transicao);
+        
+        .whatsapp-btn {
             animation: pulse 2s infinite;
         }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
-
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-100px) scale(1);
-                opacity: 0;
-            }
-        }
-
-        @keyframes highlightPulse {
-            0% {
-                opacity: 0.3;
-                transform: scaleX(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scaleX(1.1);
-            }
-            100% {
-                opacity: 0.3;
-                transform: scaleX(1);
-            }
-        }
-
-        @keyframes bubbleFloat {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(10deg);
-                opacity: 0;
-            }
-        }
-
+        
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
@@ -1143,633 +104,921 @@
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
-
-        /* Responsivo */
-        @media (max-width: 1200px) {
-            .hero-text h1 {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-image {
-                width: 80%;
-                margin-top: 40px;
-            }
-
-            .about-container {
-                flex-direction: column;
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: var(--branco);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 30px;
-                transition: var(--transicao);
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-text p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .hero-image {
-                width: 100%;
-            }
-
-            .portfolio-slide {
-                min-width: calc(50% - 15px);
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .portfolio-slide {
-                min-width: 100%;
-            }
-
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMmE1ZWU4IiBkPSJNMjU2IDhDMTE5IDggOCAxMTkgOCAyNTZzMTExIDI0OCAyNDggMjQ4IDI0OC0xMTEgMjQ4LTI0OFMzOTMgOCAyNTYgOHptMCA0NDhjLTExMC41IDAtMjAwLTg5LjUtMjAwLTIwMFMxNDUuNSA1NiAyNTYgNTZzMjAwIDg5LjUgMjAwIDIwMC04OS41IDIwMC0yMDAgMjAwWm0xMDEuOC0yNjEuN0wtMjE2LjQgMzU2Yy00LjcgNC43LTEyLjMgNC43LTE3IDBsLTE5LjctMTkuN2MtNC43LTQuNy00LjctMTIuMyAwLTE3TDMwNi4xIDI1NiAxODkuNyAxMzkuN2MtNC43LTQuNy00LjctMTIuMyAwLTE3bDE5LjctMTkuN2M0LjctNC43IDEyLjMtNC43IDE3IDBsMTU0LjEgMTU0LjFjNC43IDQuNyA0LjcgMTIuMyAwIDE3WiIvPjwvc3ZnPg==" alt="Anphaweb Logo">
-                Anpha<span>web</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+<body class="bg-gray-50">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/SEUNUMERO" target="_blank" class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#about" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
+                        <a href="#services" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
+                        <a href="#contact" class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-700 hover:text-anpha-blue focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
-    </header>
-
-    <!-- Hero Section Ultra Moderno -->
-    <section class="hero" id="home">
-        <div class="particles" id="particles"></div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Início</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Sobre</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Serviços</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Portfólio</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Depoimentos</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="scroll-reveal">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
+                        Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus processos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            Solicitar Orçamento
+                        </a>
+                        <a href="#services" class="border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0 scroll-reveal">
+                    <div class="relative">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-anpha-purple rounded-full opacity-20 animate-pulse-slow"></div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow"></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Desenvolvimento Web" 
+                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Soluções digitais <span class="highlight">sob medida</span> para seu negócio</h1>
-                <p>Desenvolvemos sites e sistemas personalizados com tecnologia de ponta que impulsionam seus resultados e elevam sua marca.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Começar Projeto</a>
-                    <a href="#portfolio" class="btn btn-secondary">Ver Portfólio</a>
+        <!-- Floating elements -->
+        <div class="hidden lg:block">
+            <div class="absolute top-1/4 left-10 w-8 h-8 bg-anpha-blue rounded-full opacity-30 animate-float"></div>
+            <div class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse"></div>
+            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float"></div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Transformando Ideias em <span class="gradient-text">Realidade Digital</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Missão</h3>
+                    <p class="text-gray-600 text-center">
+                        Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos clientes, combinando tecnologia de ponta com design excepcional.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover" style="transition-delay: 0.2s">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Visão</h3>
+                    <p class="text-gray-600 text-center">
+                        Ser reconhecida como referência em desenvolvimento web e sistemas personalizados, destacando-nos pela excelência, inovação e satisfação dos clientes.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover" style="transition-delay: 0.4s">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Diferencial</h3>
+                    <p class="text-gray-600 text-center">
+                        Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e soluções escaláveis que acompanham o crescimento do seu negócio.
+                    </p>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-image-container">
-                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1506&q=80" alt="Desenvolvimento Web Moderno">
+            
+            <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Equipe Anphaweb" 
+                         class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                 </div>
-                <div class="tech-bubble react">React</div>
-                <div class="tech-bubble node">Node.js</div>
-                <div class="tech-bubble js">JavaScript</div>
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Nossa <span class="gradient-text">Expertise</span></h2>
+                    <p class="text-gray-600 mb-6">
+                        Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira estratégica para empresas que buscam presença online de alto impacto.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Equipe especializada em tecnologias modernas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Processos ágeis e transparentes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Foco em resultados e experiência do usuário</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Suporte contínuo e manutenção especializada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="mt-8 inline-block bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Fale Conosco
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Sobre -->
-    <section class="section about" id="about">
-        <div class="container about-container">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Equipe Anphaweb">
+    
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Soluções <span class="gradient-text">Completas</span> para Seu Negócio</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
             </div>
-            <div class="about-text">
-                <h2>Quem Somos</h2>
-                <p>A Anphaweb é uma agência digital especializada em criação de sites e sistemas personalizados. Combinamos design inovador, tecnologia avançada e estratégias de marketing digital para entregar soluções que realmente geram resultados.</p>
-                <p>Nossa missão é ajudar empresas de todos os tamanhos a estabelecerem uma presença digital impactante, aumentando sua visibilidade, credibilidade e conversões.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Inovação</h3>
-                            <p>Sempre buscamos as melhores tecnologias e tendências para entregar soluções modernas e eficientes.</p>
-                        </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Parceria</h3>
-                            <p>Trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e objetivos.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Resultados</h3>
-                            <p>Nosso foco está em entregar projetos que realmente gerem valor e crescimento para seu negócio.</p>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Sites Institucionais</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem visitantes em clientes.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design personalizado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Totalmente responsivo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO otimizado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integrações diversas
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Serviços -->
-    <section class="section services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nossos Serviços</h2>
-                <p>Oferecemos soluções completas para sua presença digital, desde sites institucionais até sistemas complexos sob medida.</p>
-            </div>
-            <div class="services-container">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Sites Institucionais</h3>
-                    <p>Criação de sites profissionais que representam sua marca com elegância e funcionalidade, otimizados para conversões e SEO.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.1s">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3>Lojas Virtuais</h3>
-                    <p>Desenvolvimento de e-commerces completos com integrações de pagamento, frete e gestão de produtos.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">E-commerce</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online com eficiência.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Plataformas robustas
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gateway de pagamento
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de estoque
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios avançados
+                        </li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.2s">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Landing Pages</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus resultados.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design persuasivo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Testes A/B integrados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Formulários otimizados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Analytics integrado
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.3s">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>Sistemas Personalizados</h3>
-                    <p>Soluções sob medida para automatizar processos, gerenciar dados e otimizar operações do seu negócio.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Sistemas Personalizados</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Desenvolvemos sistemas sob medida para automatizar processos e otimizar a gestão do seu negócio.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Análise de requisitos
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento ágil
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Banco de dados seguro
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Treinamento incluso
+                        </li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.4s">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Design Responsivo</h3>
-                    <p>Sites que se adaptam perfeitamente a qualquer dispositivo, garantindo a melhor experiência para seus usuários.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO e Marketing</h3>
-                    <p>Otimização para mecanismos de busca e estratégias digitais para aumentar sua visibilidade online.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Hospedagem e Suporte</h3>
-                    <p>Hospedagem de alta performance com suporte técnico especializado para manter seu site sempre no ar.</p>
-                    <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfólio -->
-    <section class="section portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nosso Portfólio</h2>
-                <p>Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos do mercado.</p>
-            </div>
-            <div class="portfolio-container">
-                <div class="portfolio-slider">
-                    <div class="portfolio-slide-track" id="portfolioSlider">
-                        <div class="portfolio-slide">
-                            <div class="portfolio-image">
-                                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Projeto 1">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-overlay-content">
-                                        <h3>Restaurante Gourmet</h3>
-                                        <p>Site institucional com cardápio digital e reservas online.</p>
-                                        <a href="#" class="portfolio-overlay-btn">Ver detalhes <i class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Restaurante Gourmet</h3>
-                                <p>Site institucional com integração de cardápio digital e sistema de reservas.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio-slide">
-                            <div class="portfolio-image">
-                                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projeto 2">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-overlay-content">
-                                        <h3>Loja de Moda</h3>
-                                        <p>E-commerce completo com integração de pagamentos e fretes.</p>
-                                        <a href="#" class="portfolio-overlay-btn">Ver detalhes <i class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Loja de Moda</h3>
-                                <p>Plataforma de e-commerce com design moderno e alta conversão.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio-slide">
-                            <div class="portfolio-image">
-                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Projeto 3">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-overlay-content">
-                                        <h3>Clínica Médica</h3>
-                                        <p>Site institucional com agendamento online e área do paciente.</p>
-                                        <a href="#" class="portfolio-overlay-btn">Ver detalhes <i class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Clínica Médica</h3>
-                                <p>Site com agendamento online e integração com prontuário eletrônico.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio-slide">
-                            <div class="portfolio-image">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projeto 4">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-overlay-content">
-                                        <h3>ERP Industrial</h3>
-                                        <p>Sistema de gestão integrada para indústria de médio porte.</p>
-                                        <a href="#" class="portfolio-overlay-btn">Ver detalhes <i class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>ERP Industrial</h3>
-                                <p>Sistema completo para gestão de produção, estoque e vendas.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio-slide">
-                            <div class="portfolio-image">
-                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Projeto 5">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-overlay-content">
-                                        <h3>Plataforma Educacional</h3>
-                                        <p>Sistema de cursos online com aulas ao vivo e gravadas.</p>
-                                        <a href="#" class="portfolio-overlay-btn">Ver detalhes <i class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="portfolio-content">
-                                <h3>Plataforma Educacional</h3>
-                                <p>Ambiente virtual de aprendizagem com diversas funcionalidades.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-slider-nav" id="portfolioSliderNav">
-                    <div class="portfolio-slider-dot active"></div>
-                    <div class="portfolio-slider-dot"></div>
-                    <div class="portfolio-slider-dot"></div>
-                    <div class="portfolio-slider-dot"></div>
-                    <div class="portfolio-slider-dot"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section class="section testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>O Que Nossos Clientes Dizem</h2>
-                <p>Veja a opinião de quem já contratou nossos serviços e transformou seu negócio digitalmente.</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"A Anphaweb transformou completamente nossa presença online. Nosso site agora é moderno, funcional e já gerou um aumento de 40% nas nossas vendas online."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente 1">
-                        <div class="author-info">
-                            <h4>Ana Carolina Silva</h4>
-                            <p>Diretora de Marketing</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"O sistema personalizado que desenvolveram para nossa empresa otimizou nossos processos e reduziu custos operacionais em 30%. Excelente atendimento e suporte!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 2">
-                        <div class="author-info">
-                            <h4>Roberto Almeida</h4>
-                            <p>CEO - Indústria Têxtil</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Trabalhamos com a Anphaweb no desenvolvimento do nosso e-commerce e os resultados superaram todas as expectativas. Profissionais extremamente competentes e dedicados."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 3">
-                        <div class="author-info">
-                            <h4>Juliana Mendes</h4>
-                            <p>Proprietária - Loja de Cosméticos</p>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section class="section contact" id="contact">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <h2>Vamos Conversar</h2>
-                <p>Entre em contato conosco para discutir seu projeto, tirar dúvidas ou solicitar um orçamento sem compromisso. Nossa equipe está pronta para ajudar!</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Endereço</h3>
-                            <p>Av. Paulista, 1000 - São Paulo/SP</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Telefone</h3>
-                            <a href="tel:+5511999999999">(11) 99999-9999</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-content">
-                            <h3>Email</h3>
-                            <a href="mailto:contato@anphaweb.com.br">contato@anphaweb.com.br</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-social">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form id="formContato">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="tel" id="telefone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="servico">Serviço de Interesse</label>
-                        <select id="servico" class="form-control" required>
-                            <option value="">Selecione...</option>
-                            <option value="site-institucional">Site Institucional</option>
-                            <option value="loja-virtual">Loja Virtual (E-commerce)</option>
-                            <option value="sistema-personalizado">Sistema Personalizado</option>
-                            <option value="design-responsivo">Design Responsivo</option>
-                            <option value="seo-marketing">SEO e Marketing Digital</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary submit-btn">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer>
-        <div class="footer-shape"></div>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Sobre Nós</h3>
-                    <p>A Anphaweb é especializada em criação de sites e sistemas personalizados, ajudando empresas a alcançarem seu potencial máximo no mundo digital.</p>
-                    <div class="contact-social">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#portfolio">Portfólio</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                        <li><a href="#">Blog</a></li>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Aplicativos Mobile</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta performance.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design UI/UX especializado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento nativo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integração com APIs
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Publicação nas lojas
+                        </li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Serviços</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Sites Institucionais</a></li>
-                        <li><a href="#">Lojas Virtuais</a></li>
-                        <li><a href="#">Sistemas Personalizados</a></li>
-                        <li><a href="#">Design Responsivo</a></li>
-                        <li><a href="#">SEO e Marketing</a></li>
-                        <li><a href="#">Hospedagem e Suporte</a></li>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.5s">
+                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Marketing Digital</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        Estratégias completas para aumentar sua visibilidade online e atrair mais clientes qualificados.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO técnico e de conteúdo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Campanhas de links patrocinados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de redes sociais
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios de performance
+                        </li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contato</h3>
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="footer-contact-text">
-                            Av. Paulista, 1000 - São Paulo/SP
+            </div>
+            
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente personalizadas para atender suas necessidades específicas.
+                </p>
+                <a href="#contact" class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale com um Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Nossos <span class="gradient-text">Trabalhos</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                    Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80" 
+                         alt="Projeto 1" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Site Institucional - Empresa X</h3>
+                            <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas internos.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
                         </div>
                     </div>
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="footer-contact-text">
-                            (11) 99999-9999
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Projeto 2" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">E-commerce - Loja Y</h3>
+                            <p class="text-gray-200 mb-4">Plataforma de vendas com integração de pagamentos e ERP.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
                         </div>
                     </div>
-                    <div class="footer-contact-item">
-                        <div class="footer-contact-icon">
-                            <i class="fas fa-envelope"></i>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Projeto 3" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Sistema de Gestão - Empresa Z</h3>
+                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
                         </div>
-                        <div class="footer-contact-text">
-                            contato@anphaweb.com.br
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                         alt="Projeto 4" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Landing Page - Campanha A</h3>
+                            <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Projeto 5" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">App Mobile - Startup B</h3>
+                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.5s">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Projeto 6" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Redesign - Portal C</h3>
+                            <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade.</p>
+                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Anphaweb. Todos os direitos reservados.</p>
+            
+            <div class="mt-16 text-center scroll-reveal">
+                <a href="#contact" class="bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Quero um Projeto Como Esses
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gradient-to-br from-anpha-blue to-anpha-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">O Que Nossos <span class="gradient-text">Clientes</span> Dizem</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ana Carolina</h4>
+                            <span class="text-sm text-gray-600">CEO - Empresa X</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card" style="transition-delay: 0.1s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ricardo Almeida</h4>
+                            <span class="text-sm text-gray-600">Diretor - Empresa Y</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas necessidades."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card" style="transition-delay: 0.2s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Fernanda Oliveira</h4>
+                            <span class="text-sm text-gray-600">Marketing - Empresa Z</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%, muito acima da média do setor."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 flex justify-center space-x-4 scroll-reveal">
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">CONTATO</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Vamos <span class="gradient-text">Conversar</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                    Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais personalizadas.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="scroll-reveal">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="(00) 00000-0000">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all">
+                                <option value="" disabled selected>Selecione um assunto</option>
+                                <option value="website">Desenvolvimento de Site</option>
+                                <option value="ecommerce">Loja Virtual</option>
+                                <option value="system">Sistema Personalizado</option>
+                                <option value="app">Aplicativo Mobile</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="Descreva sua necessidade..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-800">Endereço</h4>
+                                    <p class="text-gray-600">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">(11) 99999-9999<br>(11) 99999-9999</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-800">E-mail</h4>
+                                    <p class="text-gray-600">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-800">Horário de Atendimento</h4>
+                                    <p class="text-gray-600">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Siga-nos</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Dúvidas <span class="gradient-text">Comuns</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Quanto tempo leva para desenvolver um site?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma detalhado com todas as etapas do projeto.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.1s">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Quais são as formas de pagamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até 12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do projeto e o restante conforme marcos são alcançados.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.2s">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Vocês oferecem suporte após o lançamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes menores. Também oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do site.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.3s">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Meu site será otimizado para SEO?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço adicional a criação de estratégia de palavras-chave e produção de conteúdo otimizado.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.4s">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Posso atualizar o conteúdo do site sozinho?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Sim, a maioria dos sites que desenvolvemos inclui um painel administrativo (CMS) intuitivo que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem atualizações frequentes, mas também desenvolvemos sistemas personalizados conforme a necessidade do cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
+                </p>
+                <a href="#contact" class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span class="gradient-text">Transformar</span> Seu Negócio?</h2>
+                <p class="text-white opacity-90 text-xl mb-8 max-w-3xl mx-auto">
+                    Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus resultados.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-anpha-blue font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Solicitar Orçamento
+                    </a>
+                    <a href="https://wa.me/SEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-bold text-white mb-6">ANPHAWEB</h3>
+                    <p class="mb-6">
+                        Soluções digitais personalizadas para impulsionar seu negócio na era digital.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="scroll-reveal" style="transition-delay: 0.1s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors">Portfólio</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Depoimentos</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Serviços</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Sites Institucionais</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Landing Pages</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sistemas Personalizados</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Aplicativos Mobile</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-reveal" style="transition-delay: 0.3s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Contato</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-anpha-blue"></i>
+                            <span>Rua Exemplo, 123 - Centro<br>São Paulo/SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-anpha-blue"></i>
+                            <span>(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-anpha-blue"></i>
+                            <span>contato@anphaweb.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-anpha-blue"></i>
+                            <span>Seg-Sex: 09h às 18h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0 scroll-reveal">
+                    &copy; 2023 Anphaweb. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Política de Privacidade</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Termos de Serviço</a>
+                </div>
             </div>
         </div>
     </footer>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- JavaScript -->
+    
     <script>
-        // Menu Mobile
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
         });
-
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        
+        // FAQ toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                faqContent.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
             });
         });
-
-        // Header Scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll Suave
+        
+        // Scroll reveal animation
+        function scrollReveal() {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+                
+                if (elementPosition < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+        
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1783,196 +1032,48 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });
-
-        // Slider de Portfólio
-        const portfolioSlider = document.getElementById('portfolioSlider');
-        const portfolioSlides = document.querySelectorAll('.portfolio-slide');
-        const portfolioDots = document.querySelectorAll('.portfolio-slider-dot');
-        let currentSlide = 0;
-        const slideWidth = portfolioSlides[0].offsetWidth + 30; // Largura do slide + gap
-        const totalSlides = portfolioSlides.length;
-
-        // Configuração inicial do slider
-        function setupSlider() {
-            const slidesPerView = Math.min(3, Math.floor(window.innerWidth / 350));
-            portfolioSlider.style.width = `${totalSlides * slideWidth}px`;
+        
+        // Create particles
+        function createParticles() {
+            const container = document.body;
+            const particleCount = window.innerWidth < 768 ? 20 : 50;
             
-            portfolioDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                });
-            });
-        }
-
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            const offset = -currentSlide * slideWidth;
-            portfolioSlider.style.transform = `translateX(${offset}px)`;
-            
-            // Atualizar dots ativos
-            portfolioDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        // Auto-play do slider
-        let slideInterval = setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
-        }, 5000);
-
-        // Pausar auto-play quando o mouse estiver sobre o slider
-        portfolioSlider.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-
-        // Retomar auto-play quando o mouse sair do slider
-        portfolioSlider.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                goToSlide(currentSlide);
-            }, 5000);
-        });
-
-        // Ajustar slider quando a janela for redimensionada
-        window.addEventListener('resize', () => {
-            setupSlider();
-            goToSlide(currentSlide);
-        });
-
-        // Inicializar slider
-        setupSlider();
-        goToSlide(0);
-
-        // Animação ao rolar a página
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.service-card, .feature-item, .testimonial-card, .contact-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
                 
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        // Configurar elementos para animação
-        document.querySelectorAll('.service-card, .feature-item, .testimonial-card, .contact-item').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Formulário de Contato
-        const formContato = document.getElementById('formContato');
-        
-        formContato.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simular envio do formulário
-            const nome = document.getElementById('nome').value;
-            alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
-            
-            // Limpar formulário
-            formContato.reset();
-        });
-
-        // Máscara para telefone
-        const telefoneInput = document.getElementById('telefone');
-        
-        telefoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            if (value.length > 11) {
-                value = value.substring(0, 11);
-            }
-            
-            if (value.length > 0) {
-                value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
-            }
-            
-            if (value.length > 9) {
-                value = `${value.substring(0, 9)}-${value.substring(9)}`;
-            }
-            
-            e.target.value = value;
-        });
-
-        // Criar partículas flutuantes
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 20;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Tamanho aleatório entre 50px e 200px
-            const size = Math.random() * 150 + 50;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Posição inicial aleatória
-            particle.style.left = `${Math.random() * 100}%`;
-            
-            // Duração da animação entre 15s e 30s
-            const duration = Math.random() * 15 + 15;
-            particle.style.animationDuration = `${duration}s`;
-            
-            // Atraso inicial entre 0s e 15s
-            particle.style.animationDelay = `${Math.random() * 15}s`;
-            
-            // Opacidade aleatória entre 0.2 e 0.7
-            particle.style.opacity = Math.random() * 0.5 + 0.2;
-            
-            particlesContainer.appendChild(particle);
-        }
-
-        // Efeito parallax 3D na imagem
-        const heroImageContainer = document.querySelector('.hero-image-container');
-        document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
-            heroImageContainer.style.transform = `rotateY(${-15 + xAxis}deg) rotateX(${5 + yAxis}deg) scale(1.03)`;
-        });
-
-        heroImageContainer.addEventListener('mouseleave', () => {
-            heroImageContainer.style.transform = 'rotateY(-15deg) rotateX(5deg) scale(1)';
-        });
-
-        // Mostrar bolhas de tecnologia
-        setTimeout(() => {
-            document.querySelectorAll('.tech-bubble').forEach(bubble => {
-                bubble.style.opacity = '1';
-            });
-        }, 1500);
-
-        // Efeito de digitação no título (opcional)
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-
-        let i = 0;
-        const typingSpeed = 50; // velocidade em ms
-
-        function typeWriter() {
-            if (i < originalText.length) {
-                heroTitle.innerHTML += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, typingSpeed);
+                // Random size between 5 and 15px
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                container.appendChild(particle);
             }
         }
-
-        // Iniciar a animação de digitação
-        setTimeout(typeWriter, 300);
+        
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
     </script>
 </body>
 </html>
