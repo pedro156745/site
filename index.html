@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,12 +37,12 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
-        
+
         .particle {
             position: absolute;
             border-radius: 50%;
@@ -49,72 +50,76 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .gradient-text {
             background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #2563eb, #7e22ce);
         }
-        
+
         .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+
         .service-card:hover .service-icon {
             transform: rotateY(180deg);
         }
-        
+
         .scroll-reveal {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
-        
+
         .scroll-reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .testimonial-card {
             transition: all 0.3s ease;
         }
-        
+
         .testimonial-card:hover {
             transform: scale(1.05);
         }
-        
+
         .whatsapp-btn {
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
+
             70% {
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Particles Background -->
     <div id="particles-js"></div>
-    
+
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/SEUNUMERO" target="_blank" class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
+    <a href="https://wa.me/SEUNUMERO" target="_blank"
+        class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-40 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,18 +129,25 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="#home" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
-                        <a href="#about" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
-                        <a href="#services" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
-                        <a href="#portfolio" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
-                        <a href="#testimonials" class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
-                        <a href="#contact" class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
+                        <a href="#home"
+                            class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#about"
+                            class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
+                        <a href="#services"
+                            class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
+                        <a href="#portfolio"
+                            class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                        <a href="#testimonials"
+                            class="text-gray-700 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
+                        <a href="#contact"
+                            class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
                     </div>
                 </div>
                 <div class="md:hidden">
                     <button id="menu-toggle" class="text-gray-700 hover:text-anpha-blue focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
@@ -144,16 +156,22 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Início</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Sobre</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Serviços</a>
-                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Portfólio</a>
-                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Depoimentos</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Início</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Sobre</a>
+                <a href="#services"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Serviços</a>
+                <a href="#portfolio"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Portfólio</a>
+                <a href="#testimonials"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-anpha-blue hover:bg-gray-50">Depoimentos</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,157 +181,71 @@
                         Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
-                        Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus processos.
+                        Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus
+                        processos.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        <a href="#contact"
+                            class="bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
                             Solicitar Orçamento
                         </a>
-                        <a href="#services" class="border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        <a href="#services"
+                            class="border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
                             Nossos Serviços
                         </a>
                     </div>
                 </div>
                 <div class="mt-12 lg:mt-0 scroll-reveal">
                     <div class="relative">
-                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-anpha-purple rounded-full opacity-20 animate-pulse-slow"></div>
-                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow"></div>
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                             alt="Desenvolvimento Web" 
-                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <div
+                            class="absolute -top-10 -left-10 w-32 h-32 bg-anpha-purple rounded-full opacity-20 animate-pulse-slow">
+                        </div>
+                        <div
+                            class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Desenvolvimento Web"
+                            class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Floating elements -->
         <div class="hidden lg:block">
             <div class="absolute top-1/4 left-10 w-8 h-8 bg-anpha-blue rounded-full opacity-30 animate-float"></div>
-            <div class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse"></div>
-            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float"></div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Transformando Ideias em <span class="gradient-text">Realidade Digital</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+            <div
+                class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse">
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
-                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Missão</h3>
-                    <p class="text-gray-600 text-center">
-                        Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos clientes, combinando tecnologia de ponta com design excepcional.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover" style="transition-delay: 0.2s">
-                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Visão</h3>
-                    <p class="text-gray-600 text-center">
-                        Ser reconhecida como referência em desenvolvimento web e sistemas personalizados, destacando-nos pela excelência, inovação e satisfação dos clientes.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover" style="transition-delay: 0.4s">
-                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Diferencial</h3>
-                    <p class="text-gray-600 text-center">
-                        Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e soluções escaláveis que acompanham o crescimento do seu negócio.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
-                <div class="scroll-reveal">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Equipe Anphaweb" 
-                         class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                </div>
-                <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Nossa <span class="gradient-text">Expertise</span></h2>
-                    <p class="text-gray-600 mb-6">
-                        Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira estratégica para empresas que buscam presença online de alto impacto.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Equipe especializada em tecnologias modernas</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Processos ágeis e transparentes</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Foco em resultados e experiência do usuário</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Suporte contínuo e manutenção especializada</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="mt-8 inline-block bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
-                        Fale Conosco
-                    </a>
-                </div>
+            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float">
             </div>
         </div>
     </section>
-    
+
     <!-- Services Section -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Soluções <span class="gradient-text">Completas</span> para Seu Negócio</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Soluções <span
+                        class="gradient-text">Completas</span> para Seu Negócio</h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div
+                    class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Sites Institucionais</h3>
                     <p class="text-gray-600 text-center mb-6">
-                        Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem visitantes em clientes.
+                        Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem
+                        visitantes em clientes.
                     </p>
                     <ul class="space-y-2 text-gray-600">
                         <li class="flex items-center">
@@ -330,15 +262,18 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Service 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.1s">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">E-commerce</h3>
                     <p class="text-gray-600 text-center mb-6">
-                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online com eficiência.
+                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
+                        com eficiência.
                     </p>
                     <ul class="space-y-2 text-gray-600">
                         <li class="flex items-center">
@@ -355,15 +290,18 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Service 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.2s">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Landing Pages</h3>
                     <p class="text-gray-600 text-center mb-6">
-                        Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus resultados.
+                        Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
+                        resultados.
                     </p>
                     <ul class="space-y-2 text-gray-600">
                         <li class="flex items-center">
@@ -380,10 +318,12 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Service 4 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.3s">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.3s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Sistemas Personalizados</h3>
@@ -405,15 +345,18 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Service 5 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.4s">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.4s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Aplicativos Mobile</h3>
                     <p class="text-gray-600 text-center mb-6">
-                        Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta performance.
+                        Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
+                        performance.
                     </p>
                     <ul class="space-y-2 text-gray-600">
                         <li class="flex items-center">
@@ -430,10 +373,12 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Service 6 -->
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card" style="transition-delay: 0.5s">
-                    <div class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.5s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-search-dollar"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Marketing Digital</h3>
@@ -456,139 +401,423 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="mt-16 text-center scroll-reveal">
                 <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente personalizadas para atender suas necessidades específicas.
+                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
+                    personalizadas para atender suas necessidades específicas.
                 </p>
-                <a href="#contact" class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                <a href="#contact"
+                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
                     Fale com um Especialista
                 </a>
             </div>
         </div>
     </section>
-    
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Nossos <span class="gradient-text">Trabalhos</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Nossos <span
+                        class="gradient-text">Trabalhos</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
                     Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos.
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal">
-                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80" 
-                         alt="Projeto 1" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
+                        alt="Projeto 1"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Site Institucional - Empresa X</h3>
-                            <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas internos.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas
+                                internos.</p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 2 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.1s">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
-                         alt="Projeto 2" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                        alt="Projeto 2"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">E-commerce - Loja Y</h3>
                             <p class="text-gray-200 mb-4">Plataforma de vendas com integração de pagamentos e ERP.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 3 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.2s">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Projeto 3" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 3"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Sistema de Gestão - Empresa Z</h3>
-                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos.
+                            </p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 4 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.3s">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
-                         alt="Projeto 4" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+                        alt="Projeto 4"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Landing Page - Campanha A</h3>
                             <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 5 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.4s">
-                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Projeto 5" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 5"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">App Mobile - Startup B</h3>
-                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável.
+                            </p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 6 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal" style="transition-delay: 0.5s">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Projeto 6" 
-                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.5s">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 6"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Redesign - Portal C</h3>
                             <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade.</p>
-                            <a href="#" class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver detalhes →</a>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-16 text-center scroll-reveal">
-                <a href="#contact" class="bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                <a href="#contact"
+                    class="bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
                     Quero um Projeto Como Esses
                 </a>
             </div>
         </div>
     </section>
-    
+
+       <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span
+                        class="gradient-text">Transformar</span> Seu Negócio?</h2>
+                <p class="text-white opacity-90 text-xl mb-8 max-w-3xl mx-auto">
+                    Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus
+                    resultados.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact"
+                        class="bg-white hover:bg-gray-100 text-anpha-blue font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Solicitar Orçamento
+                    </a>
+                    <a href="https://wa.me/SEUNUMERO" target="_blank"
+                        class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Dúvidas <span
+                        class="gradient-text">Comuns</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Quanto tempo leva para desenvolver um site?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites
+                            institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas
+                            personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma
+                            detalhado com todas as etapas do projeto.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.1s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Quais são as formas de pagamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até
+                            12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento
+                            personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do
+                            projeto e o restante conforme marcos são alcançados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.2s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Vocês oferecem suporte após o lançamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos
+                            incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode
+                            contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes
+                            menores. Também oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do
+                            site.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.3s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Meu site será otimizado para SEO?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo
+                            estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema
+                            markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço
+                            adicional a criação de estratégia de palavras-chave e produção de conteúdo otimizado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.4s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
+                        <h3 class="font-medium text-gray-800">Posso atualizar o conteúdo do site sozinho?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-600">
+                            Sim, a maioria dos sites que desenvolvemos inclui um painel administrativo (CMS) intuitivo
+                            que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem
+                            precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem
+                            atualizações frequentes, mas também desenvolvemos sistemas personalizados conforme a
+                            necessidade do cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
+                </p>
+                <a href="#contact"
+                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Transformando Ideias em <span
+                        class="gradient-text">Realidade Digital</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
+                    <div
+                        class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Missão</h3>
+                    <p class="text-gray-600 text-center">
+                        Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos
+                        clientes, combinando tecnologia de ponta com design excepcional.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                    style="transition-delay: 0.4s">
+                    <div
+                        class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">Diferencial</h3>
+                    <p class="text-gray-600 text-center">
+                        Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e
+                        soluções escaláveis que acompanham o crescimento do seu negócio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Equipe Anphaweb"
+                        class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                </div>
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Nossa <span class="gradient-text">Expertise</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
+                        estratégica para empresas que buscam presença online de alto impacto.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Equipe especializada em tecnologias modernas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Processos ágeis e transparentes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Foco em resultados e experiência do usuário</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Suporte contínuo e manutenção especializada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="mt-8 inline-block bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 bg-gradient-to-br from-anpha-blue to-anpha-purple">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">O Que Nossos <span class="gradient-text">Clientes</span> Dizem</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">O Que Nossos <span
+                        class="gradient-text">Clientes</span> Dizem</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full">
+                </div>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
                 <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
+                                class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Ana Carolina</h4>
@@ -596,7 +825,8 @@
                         </div>
                     </div>
                     <p class="text-gray-600 italic mb-6">
-                        "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
+                        "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
+                        todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
                     </p>
                     <div class="flex text-anpha-orange">
                         <i class="fas fa-star"></i>
@@ -606,12 +836,14 @@
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card" style="transition-delay: 0.1s">
+                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                    style="transition-delay: 0.1s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
+                                class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Ricardo Almeida</h4>
@@ -619,7 +851,9 @@
                         </div>
                     </div>
                     <p class="text-gray-600 italic mb-6">
-                        "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas necessidades."
+                        "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
+                        operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
+                        necessidades."
                     </p>
                     <div class="flex text-anpha-orange">
                         <i class="fas fa-star"></i>
@@ -629,12 +863,14 @@
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card" style="transition-delay: 0.2s">
+                <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                    style="transition-delay: 0.2s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
+                                class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Fernanda Oliveira</h4>
@@ -642,7 +878,9 @@
                         </div>
                     </div>
                     <p class="text-gray-600 italic mb-6">
-                        "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%, muito acima da média do setor."
+                        "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
+                        landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
+                        muito acima da média do setor."
                     </p>
                     <div class="flex text-anpha-orange">
                         <i class="fas fa-star"></i>
@@ -653,47 +891,61 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-12 flex justify-center space-x-4 scroll-reveal">
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
             </div>
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Vamos <span class="gradient-text">Conversar</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Vamos <span
+                        class="gradient-text">Conversar</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
-                    Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais personalizadas.
+                    Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais
+                    personalizadas.
                 </p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="scroll-reveal">
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="Seu nome">
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all"
+                                    placeholder="Seu nome">
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="seu@email.com">
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all"
+                                    placeholder="seu@email.com">
                             </div>
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="(00) 00000-0000">
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all"
+                                placeholder="(00) 00000-0000">
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
-                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all">
+                            <select id="subject" name="subject"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all">
                                 <option value="" disabled selected>Selecione um assunto</option>
                                 <option value="website">Desenvolvimento de Site</option>
                                 <option value="ecommerce">Loja Virtual</option>
@@ -704,36 +956,42 @@
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all" placeholder="Descreva sua necessidade..."></textarea>
+                            <textarea id="message" name="message" rows="5"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all"
+                                placeholder="Descreva sua necessidade..."></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]">
+                            <button type="submit"
+                                class="w-full bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]">
                                 Enviar Mensagem
                             </button>
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg h-full">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Informações de Contato</h3>
-                        
+
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-800">Endereço</h4>
-                                    <p class="text-gray-600">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000</p>
+                                    <p class="text-gray-600">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
+                                    </p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
                                         <i class="fas fa-phone-alt"></i>
                                     </div>
                                 </div>
@@ -742,10 +1000,11 @@
                                     <p class="text-gray-600">(11) 99999-9999<br>(11) 99999-9999</p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                 </div>
@@ -754,10 +1013,11 @@
                                     <p class="text-gray-600">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mt-1">
-                                    <div class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
                                         <i class="fas fa-clock"></i>
                                     </div>
                                 </div>
@@ -767,20 +1027,24 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-8">
                             <h4 class="font-medium text-gray-800 mb-4">Siga-nos</h4>
                             <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-200 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-700 transition-colors">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -790,114 +1054,7 @@
             </div>
         </div>
     </section>
-    
-    <!-- FAQ Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Dúvidas <span class="gradient-text">Comuns</span></h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <h3 class="font-medium text-gray-800">Quanto tempo leva para desenvolver um site?</h3>
-                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-600">
-                            O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma detalhado com todas as etapas do projeto.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.1s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <h3 class="font-medium text-gray-800">Quais são as formas de pagamento?</h3>
-                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-600">
-                            Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até 12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do projeto e o restante conforme marcos são alcançados.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.2s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <h3 class="font-medium text-gray-800">Vocês oferecem suporte após o lançamento?</h3>
-                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-600">
-                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes menores. Também oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do site.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.3s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <h3 class="font-medium text-gray-800">Meu site será otimizado para SEO?</h3>
-                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-600">
-                            Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço adicional a criação de estratégia de palavras-chave e produção de conteúdo otimizado.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal" style="transition-delay: 0.4s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
-                        <h3 class="font-medium text-gray-800">Posso atualizar o conteúdo do site sozinho?</h3>
-                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
-                    </button>
-                    <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-600">
-                            Sim, a maioria dos sites que desenvolvemos inclui um painel administrativo (CMS) intuitivo que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem atualizações frequentes, mas também desenvolvemos sistemas personalizados conforme a necessidade do cliente.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-16 text-center scroll-reveal">
-                <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
-                </p>
-                <a href="#contact" class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Fale Conosco
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="py-20 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span class="gradient-text">Transformar</span> Seu Negócio?</h2>
-                <p class="text-white opacity-90 text-xl mb-8 max-w-3xl mx-auto">
-                    Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus resultados.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#contact" class="bg-white hover:bg-gray-100 text-anpha-blue font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
-                        Solicitar Orçamento
-                    </a>
-                    <a href="https://wa.me/SEUNUMERO" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -908,21 +1065,25 @@
                         Soluções digitais personalizadas para impulsionar seu negócio na era digital.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="scroll-reveal" style="transition-delay: 0.1s">
                     <h4 class="text-lg font-semibold text-white mb-6">Links Rápidos</h4>
                     <ul class="space-y-3">
@@ -934,7 +1095,7 @@
                         <li><a href="#contact" class="hover:text-white transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <h4 class="text-lg font-semibold text-white mb-6">Serviços</h4>
                     <ul class="space-y-3">
@@ -946,7 +1107,7 @@
                         <li><a href="#" class="hover:text-white transition-colors">Marketing Digital</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="scroll-reveal" style="transition-delay: 0.3s">
                     <h4 class="text-lg font-semibold text-white mb-6">Contato</h4>
                     <ul class="space-y-3">
@@ -969,70 +1130,71 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-500 text-sm mb-4 md:mb-0 scroll-reveal">
                     &copy; 2023 Anphaweb. Todos os direitos reservados.
                 </p>
                 <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
-                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Política de Privacidade</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Política de
+                        Privacidade</a>
                     <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Termos de Serviço</a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // FAQ toggle
         document.querySelectorAll('.faq-toggle').forEach(button => {
             button.addEventListener('click', () => {
                 const faqContent = button.nextElementSibling;
                 const icon = button.querySelector('i');
-                
+
                 faqContent.classList.toggle('hidden');
                 icon.classList.toggle('rotate-180');
             });
         });
-        
+
         // Scroll reveal animation
         function scrollReveal() {
             const elements = document.querySelectorAll('.scroll-reveal');
             const windowHeight = window.innerHeight;
-            
+
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const revealPoint = 150;
-                
+
                 if (elementPosition < windowHeight - revealPoint) {
                     element.classList.add('active');
                 }
             });
         }
-        
+
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
+
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
@@ -1041,39 +1203,40 @@
                 }
             });
         });
-        
+
         // Create particles
         function createParticles() {
             const container = document.body;
             const particleCount = window.innerWidth < 768 ? 20 : 50;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // Random size between 5 and 15px
                 const size = Math.random() * 10 + 5;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                
+
                 // Random position
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                
+
                 // Random animation duration and delay
                 const duration = Math.random() * 20 + 10;
                 const delay = Math.random() * 5;
                 particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-                
+
                 // Random opacity
                 particle.style.opacity = Math.random() * 0.3 + 0.1;
-                
+
                 container.appendChild(particle);
             }
         }
-        
+
         // Initialize particles on load
         window.addEventListener('load', createParticles);
     </script>
 </body>
+
 </html>
