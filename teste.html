@@ -843,7 +843,7 @@
                 </p>
                 <a href="#contact"
                     class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Fale Conosco
+                    Fale com um Especialista
                 </a>
             </div>
         </div>
@@ -1294,6 +1294,8 @@
         function initThreeJS() {
             // Cena
             scene = new THREE.Scene();
+            // Adiciona um efeito de névoa para profundidade
+            scene.fog = new THREE.Fog(0x0d1117, 1, 300); // Cor da névoa, início, fim
 
             // Câmera
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -1304,6 +1306,10 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
 
+            // Adiciona uma luz ambiente sutil para realçar os elementos
+            const ambientLight = new THREE.AmbientLight(0x404040, 2); // Cor, intensidade
+            scene.add(ambientLight);
+
             // Geometria: Pontos e Linhas
             const numPoints = 1000;
             const positions = new Float32Array(numPoints * 3);
@@ -1311,19 +1317,19 @@
             const geometry = new THREE.BufferGeometry();
 
             const pMaterial = new THREE.PointsMaterial({
-                color: 0x2563eb, // anpha-blue
-                size: 0.5,
+                color: 0x00FFFF, // Ciano vibrante para os pontos
+                size: 0.8, // Tamanho ligeiramente maior para os pontos
                 blending: THREE.AdditiveBlending,
                 transparent: true,
-                opacity: 0.8
+                opacity: 0.9 // Opacidade um pouco maior
             });
 
             const lMaterial = new THREE.LineBasicMaterial({
-                color: 0x7e22ce, // anpha-purple
-                linewidth: 0.5,
+                color: 0xAA00FF, // Magenta vibrante para as linhas
+                linewidth: 0.7, // Largura ligeiramente maior para as linhas
                 blending: THREE.AdditiveBlending,
                 transparent: true,
-                opacity: 0.3
+                opacity: 0.4 // Opacidade um pouco maior
             });
 
             for (let i = 0; i < numPoints; i++) {
@@ -1376,8 +1382,8 @@
         }
 
         function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - windowHalfX) * 0.1;
-            mouseY = (event.clientY - windowHalfY) * 0.1;
+            mouseX = (event.clientX - windowHalfX) * 0.2; // Multiplicador maior para mais movimento
+            mouseY = (event.clientY - windowHalfY) * 0.2; // Multiplicador maior para mais movimento
         }
 
         function onWindowResize() {
