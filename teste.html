@@ -20,9 +20,11 @@
                         'anpha-blue': '#2563eb',
                         'anpha-orange': '#f97316',
                         'anpha-purple': '#7e22ce',
-                        'dark-bg': '#1a202c', /* Nova cor de fundo escura */
-                        'dark-card': '#2d3748', /* Nova cor para cartões em fundo escuro */
-                        'dark-text': '#e2e8f0', /* Nova cor para texto em fundo escuro */
+                        'dark-bg': '#1a202c', /* Cor de fundo escura */
+                        'dark-card': '#2d3748', /* Cor para cartões em fundo escuro */
+                        'dark-text': '#e2e8f0', /* Cor para texto em fundo escuro */
+                        'dark-bg-transparent': 'rgba(26, 32, 44, 0.85)', /* Fundo escuro semi-transparente */
+                        'dark-card-transparent': 'rgba(45, 55, 72, 0.85)', /* Cartão escuro semi-transparente */
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -131,7 +133,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
     <!-- Canvas para o fundo 3D com Three.js -->
     <canvas id="three-bg"></canvas>
 
@@ -249,7 +251,7 @@
     </section>
 
     <!-- Seção de Serviços -->
-    <section id="services" class="py-20 bg-dark-bg text-dark-text">
+    <section id="services" class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
@@ -263,7 +265,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Cartão de Serviço 1: Sites Institucionais -->
                 <div
-                    class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
+                    class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-globe"></i>
@@ -290,7 +292,7 @@
                 </div>
 
                 <!-- Cartão de Serviço 2: E-commerce -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.1s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
@@ -318,7 +320,7 @@
                 </div>
 
                 <!-- Cartão de Serviço 3: Landing Pages -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.2s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
@@ -346,7 +348,7 @@
                 </div>
 
                 <!-- Cartão de Serviço 4: Sistemas Personalizados -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.3s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
@@ -373,7 +375,7 @@
                 </div>
 
                 <!-- Cartão de Serviço 5: Aplicativos Mobile -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.4s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
@@ -401,7 +403,7 @@
                 </div>
 
                 <!-- Cartão de Serviço 6: Marketing Digital -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.5s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
@@ -443,7 +445,7 @@
     </section>
 
     <!-- Seção de Portfólio -->
-    <section id="portfolio" class="py-20 bg-dark-bg text-dark-text">
+    <section id="portfolio" class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
@@ -580,7 +582,7 @@
     </section>
 
     <!-- Seção Sobre Nós -->
-    <section id="about" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-dark-text">
+    <section id="about" class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
@@ -594,7 +596,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Cartão de Missão -->
                 <div
-                    class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
+                    class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-bullseye"></i>
@@ -607,7 +609,7 @@
                 </div>
 
                 <!-- Cartão de Diferencial -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
                     style="transition-delay: 0.2s">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
@@ -621,7 +623,7 @@
                 </div>
 
                 <!-- Cartão de Transformação -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
                     style="transition-delay: 0.4s">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
@@ -732,7 +734,7 @@
     </section>
 
     <!-- Seção FAQ (Perguntas Frequentes) -->
-    <section class="py-20 bg-dark-bg text-dark-text">
+    <section class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
@@ -745,7 +747,7 @@
 
             <div class="max-w-3xl mx-auto space-y-4">
                 <!-- Item FAQ 1 -->
-                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal">
+                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
                         <h3 class="font-medium text-white">Quanto tempo leva para desenvolver um site?</h3>
@@ -762,7 +764,7 @@
                 </div>
 
                 <!-- Item FAQ 2 -->
-                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.1s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -780,7 +782,7 @@
                 </div>
 
                 <!-- Item FAQ 3 -->
-                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.2s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -799,7 +801,7 @@
                 </div>
 
                 <!-- Item FAQ 4 -->
-                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.3s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -817,7 +819,7 @@
                 </div>
 
                 <!-- Item FAQ 5 -->
-                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.4s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -851,7 +853,7 @@
 
 
     <!-- Seção de Depoimentos -->
-    <section id="testimonials" class="py-20 bg-gradient-to-br from-anpha-blue to-anpha-purple">
+    <section id="testimonials" class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
@@ -863,7 +865,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonial-carousel">
                 <!-- Depoimento 1 -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                             <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
@@ -888,7 +890,7 @@
                 </div>
 
                 <!-- Depoimento 2 -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
                     style="transition-delay: 0.1s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -915,7 +917,7 @@
                 </div>
 
                 <!-- Depoimento 3 -->
-                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
                     style="transition-delay: 0.2s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -955,7 +957,7 @@
     </section>
 
     <!-- Seção de Contato -->
-    <section id="contact" class="py-20 bg-dark-bg text-dark-text">
+    <section id="contact" class="py-20 bg-dark-bg-transparent text-dark-text">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
@@ -1025,7 +1027,7 @@
 
                 <!-- Informações de Contato -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <div class="bg-dark-card p-8 rounded-xl shadow-lg h-full">
+                    <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg h-full">
                         <h3 class="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
 
                         <div class="space-y-6">
@@ -1185,7 +1187,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-3 text-anpha-blue"></i>
-                            <span>Seg-Sex: 09h às 18h</span>
+                            <span>Seg-Mex: 09h às 18h</span>
                         </li>
                     </ul>
                 </div>
@@ -1285,8 +1287,8 @@
             showTestimonial(0);
         }
 
-        // --- Three.js Background Implementation ---
-        let scene, camera, renderer, points, lines;
+        // --- Three.js Background Implementation (Novo Efeito) ---
+        let scene, camera, renderer, particles;
         let mouseX = 0, mouseY = 0;
         const windowHalfX = window.innerWidth / 2;
         const windowHalfY = window.innerHeight / 2;
@@ -1294,87 +1296,81 @@
         function initThreeJS() {
             // Cena
             scene = new THREE.Scene();
-            // Adiciona um efeito de névoa para profundidade
-            scene.fog = new THREE.Fog(0x0d1117, 1, 300); // Cor da névoa, início, fim
+            scene.fog = new THREE.Fog(0x0d1117, 1, 300); // Névoa para profundidade
 
             // Câmera
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 100;
+            camera.position.z = 150; // Ajusta a posição da câmera para o novo efeito
 
             // Renderizador
             renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('three-bg') });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
 
-            // Adiciona uma luz ambiente sutil para realçar os elementos
-            const ambientLight = new THREE.AmbientLight(0x404040, 2); // Cor, intensidade
+            // Luz ambiente
+            const ambientLight = new THREE.AmbientLight(0x404040, 2);
             scene.add(ambientLight);
 
-            // Geometria: Pontos e Linhas
-            const numPoints = 1000;
-            const positions = new Float32Array(numPoints * 3);
-            const colors = new Float32Array(numPoints * 3);
-            const geometry = new THREE.BufferGeometry();
+            // Geometria de partículas para o efeito de fluxo
+            const particleCount = 2000; // Mais partículas para um efeito de fluxo denso
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
 
-            const pMaterial = new THREE.PointsMaterial({
-                color: 0x00FFFF, // Ciano vibrante para os pontos
-                size: 0.8, // Tamanho ligeiramente maior para os pontos
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                opacity: 0.9 // Opacidade um pouco maior
-            });
+            const pGeometry = new THREE.BufferGeometry();
 
-            const lMaterial = new THREE.LineBasicMaterial({
-                color: 0xAA00FF, // Magenta vibrante para as linhas
-                linewidth: 0.7, // Largura ligeiramente maior para as linhas
-                blending: THREE.AdditiveBlending,
-                transparent: true,
-                opacity: 0.4 // Opacidade um pouco maior
-            });
-
-            for (let i = 0; i < numPoints; i++) {
+            for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3;
-                // Posições aleatórias
-                positions[i3] = (Math.random() * 2 - 1) * 500;
-                positions[i3 + 1] = (Math.random() * 2 - 1) * 500;
-                positions[i3 + 2] = (Math.random() * 2 - 1) * 500;
+                // Posições iniciais aleatórias em um volume
+                positions[i3] = (Math.random() * 2 - 1) * 300;
+                positions[i3 + 1] = (Math.random() * 2 - 1) * 300;
+                positions[i3 + 2] = (Math.random() * 2 - 1) * 300;
 
-                // Cores (opcional, mas bom para gradientes ou variações)
-                colors[i3] = 0.5;
-                colors[i3 + 1] = 0.5;
-                colors[i3 + 2] = 0.5;
+                // Cores aleatórias entre azul e roxo para um efeito de energia
+                colors[i3] = 0.1 + Math.random() * 0.4; // R (mais azulado)
+                colors[i3 + 1] = 0.2 + Math.random() * 0.3; // G (sutil)
+                colors[i3 + 2] = 0.5 + Math.random() * 0.5; // B (mais roxeado/azulado)
+
+                sizes[i] = (Math.random() * 2 + 0.5); // Tamanhos variados para as partículas
             }
 
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            pGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            pGeometry.setAttribute('customColor', new THREE.BufferAttribute(colors, 3));
+            pGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-            points = new THREE.Points(geometry, pMaterial);
-            scene.add(points);
-
-            // Criar linhas entre pontos próximos (para o efeito de rede)
-            const lineGeometry = new THREE.BufferGeometry();
-            const maxConnections = 20; // Número máximo de conexões por ponto
-            const maxDistance = 50; // Distância máxima para conectar pontos
-            const linePositions = [];
-
-            for (let i = 0; i < numPoints; i++) {
-                const p1 = new THREE.Vector3(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
-                let connections = 0;
-                for (let j = i + 1; j < numPoints; j++) {
-                    const p2 = new THREE.Vector3(positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]);
-                    const distance = p1.distanceTo(p2);
-
-                    if (distance < maxDistance && connections < maxConnections) {
-                        linePositions.push(p1.x, p1.y, p1.z);
-                        linePositions.push(p2.x, p2.y, p2.z);
-                        connections++;
+            // ShaderMaterial para controle mais fino das partículas
+            const pMaterial = new THREE.ShaderMaterial({
+                uniforms: {
+                    color: { value: new THREE.Color(0xffffff) },
+                    pointTexture: { value: new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png') } // Textura para as partículas
+                },
+                vertexShader: `
+                    attribute float size;
+                    attribute vec3 customColor;
+                    varying vec3 vColor;
+                    void main() {
+                        vColor = customColor;
+                        vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+                        gl_PointSize = size * ( 300.0 / -mvPosition.z );
+                        gl_Position = projectionMatrix * mvPosition;
                     }
-                }
-            }
+                `,
+                fragmentShader: `
+                    uniform vec3 color;
+                    uniform sampler2D pointTexture;
+                    varying vec3 vColor;
+                    void main() {
+                        gl_FragColor = vec4( color * vColor, 1.0 );
+                        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord ); // Aplica a textura
+                    }
+                `,
+                blending: THREE.AdditiveBlending,
+                depthTest: false, // Desativa o teste de profundidade para que as partículas não se escondam
+                transparent: true
+            });
 
-            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-            lines = new THREE.LineSegments(lineGeometry, lMaterial);
-            scene.add(lines);
+            particles = new THREE.Points(pGeometry, pMaterial);
+            scene.add(particles);
 
             // Event listeners para interatividade com o mouse
             document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -1382,8 +1378,8 @@
         }
 
         function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - windowHalfX) * 0.2; // Multiplicador maior para mais movimento
-            mouseY = (event.clientY - windowHalfY) * 0.2; // Multiplicador maior para mais movimento
+            mouseX = (event.clientX - windowHalfX) * 0.2;
+            mouseY = (event.clientY - windowHalfY) * 0.2;
         }
 
         function onWindowResize() {
@@ -1396,19 +1392,25 @@
             requestAnimationFrame(animateThreeJS);
 
             // Movimento da câmera baseado no mouse
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.position.x += (mouseX - camera.position.x) * 0.02; // Movimento mais suave
+            camera.position.y += (-mouseY - camera.position.y) * 0.02;
             camera.lookAt(scene.position);
 
-            // Animação dos pontos e linhas
-            if (points) {
-                points.rotation.x += 0.0005;
-                points.rotation.y += 0.001;
+            // Animação das partículas: movê-las e reiniciá-las
+            const positions = particles.geometry.attributes.position.array;
+            const speeds = 0.5; // Velocidade de movimento das partículas
+
+            for (let i = 0; i < positions.length; i += 3) {
+                positions[i + 2] += speeds; // Move as partículas para frente (eixo Z)
+
+                // Se a partícula sair da tela, reinicia sua posição para o fundo
+                if (positions[i + 2] > camera.position.z) {
+                    positions[i + 2] = (Math.random() * 2 - 1) * 300 - 300; // Reposiciona no fundo
+                    positions[i] = (Math.random() * 2 - 1) * 300; // Nova posição X aleatória
+                    positions[i + 1] = (Math.random() * 2 - 1) * 300; // Nova posição Y aleatória
+                }
             }
-            if (lines) {
-                lines.rotation.x += 0.0005;
-                lines.rotation.y += 0.001;
-            }
+            particles.geometry.attributes.position.needsUpdate = true; // Notifica Three.js para atualizar a geometria
 
             renderer.render(scene, camera);
         }
