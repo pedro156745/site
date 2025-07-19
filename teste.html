@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anphaweb - Criação de Sites e Sistemas Personalizados</title>
+    <!-- Inclui o Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inclui Three.js para o fundo 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Configuração do Tailwind CSS para cores e animações personalizadas
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anpha-blue': '#2563eb',
+                        'anpha-orange': '#f97316',
+                        'anpha-purple': '#7e22ce',
+                        'dark-bg': '#1a202c', /* Nova cor de fundo escura */
+                        'dark-card': '#2d3748', /* Nova cor para cartões em fundo escuro */
+                        'dark-text': '#e2e8f0', /* Nova cor para texto em fundo escuro */
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float-reverse 5s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'float-reverse': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(15px)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Importa a fonte Poppins do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+            position: relative; /* Necessário para posicionar o canvas */
+            background-color: #0d1117; /* Cor de fundo padrão para combinar com o Three.js */
+        }
+
+        /* Estilo para o canvas do Three.js */
+        #three-bg {
+            position: fixed; /* Fixa o canvas no fundo */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Coloca o canvas atrás de tudo */
+            background-color: #0d1117; /* Cor de fundo escura para o efeito tecnológico */
+        }
+
+        /* Estilo para texto com gradiente */
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316); /* Gradiente de azul para roxo e laranja */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Estilo para fundo com gradiente */
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563eb, #7e22ce); /* Gradiente de azul para roxo */
+        }
+
+        /* Efeito de hover para cartões */
+        .card-hover:hover {
+            transform: translateY(-10px); /* Move o cartão para cima no hover */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+        }
+
+        /* Efeito de rotação para ícones de serviço no hover */
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg); /* Gira o ícone no eixo Y */
+        }
+
+        /* Estilos para animação de "scroll reveal" */
+        .scroll-reveal {
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Começa ligeiramente abaixo */
+            transition: all 0.6s ease; /* Transição suave para todos os atributos */
+        }
+
+        .scroll-reveal.active {
+            opacity: 1; /* Torna visível */
+            transform: translateY(0); /* Volta à posição original */
+        }
+
+        /* Efeito de hover para cartões de depoimento */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05); /* Aumenta ligeiramente o cartão no hover */
+        }
+
+        /* Animação de pulso para o botão do WhatsApp */
+        .whatsapp-btn {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra inicial transparente */
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); /* Sombra se expande e fica transparente */
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); /* Volta ao estado inicial */
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Canvas para o fundo 3D com Three.js -->
+    <canvas id="three-bg"></canvas>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/55SEUNUMERO" target="_blank"
+        class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navegação Principal -->
+    <nav class="fixed w-full bg-gray-900 shadow-md z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <!-- Logo/Nome da Empresa -->
+                    <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
+                </div>
+                <!-- Links de Navegação para Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home"
+                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#about"
+                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
+                        <a href="#services"
+                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
+                        <a href="#portfolio"
+                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                        <a href="#testimonials"
+                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
+                        <a href="#contact"
+                            class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
+                    </div>
+                </div>
+                <!-- Botão de Menu para Mobile -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-300 hover:text-anpha-blue focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile (oculto por padrão) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Início</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
+                <a href="#services"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
+                <a href="#portfolio"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
+                <a href="#testimonials"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Início) -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <!-- Conteúdo da Seção Hero -->
+                <div class="scroll-reveal">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+                        Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus
+                        processos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact"
+                            class="bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            Solicitar Orçamento
+                        </a>
+                        <a href="#services"
+                            class="border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagem da Seção Hero com efeitos -->
+                <div class="mt-12 lg:mt-0 scroll-reveal">
+                    <div class="relative">
+                        <div
+                            class="absolute -top-10 -left-10 w-32 h-32 bg-anpha-purple rounded-full opacity-20 animate-pulse-slow">
+                        </div>
+                        <div
+                            class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Desenvolvimento Web"
+                            class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Elementos flutuantes decorativos -->
+        <div class="hidden lg:block">
+            <div class="absolute top-1/4 left-10 w-8 h-8 bg-anpha-blue rounded-full opacity-30 animate-float"></div>
+            <div
+                class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse">
+            </div>
+            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section id="services" class="py-20 bg-dark-bg text-dark-text">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Soluções <span
+                        class="gradient-text">Completas</span> para Seu Negócio</h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cartão de Serviço 1: Sites Institucionais -->
+                <div
+                    class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Sites Institucionais</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem
+                        visitantes em clientes.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design personalizado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Totalmente responsivo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO otimizado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integrações diversas
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cartão de Serviço 2: E-commerce -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">E-commerce</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
+                        com eficiência.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Plataformas robustas
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gateway de pagamento
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de estoque
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios avançados
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cartão de Serviço 3: Landing Pages -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Landing Pages</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
+                        resultados.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design persuasivo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Testes A/B integrados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Formulários otimizados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Analytics integrado
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cartão de Serviço 4: Sistemas Personalizados -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.3s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Sistemas Personalizados</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Desenvolvemos sistemas sob medida para automatizar processos e otimizar a gestão do seu negócio.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Análise de requisitos
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento ágil
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Banco de dados seguro
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Treinamento incluso
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cartão de Serviço 5: Aplicativos Mobile -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.4s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Aplicativos Mobile</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
+                        performance.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design UI/UX especializado
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento nativo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integração com APIs
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Publicação nas lojas
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cartão de Serviço 6: Marketing Digital -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                    style="transition-delay: 0.5s">
+                    <div
+                        class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Marketing Digital</h3>
+                    <p class="text-gray-300 text-center mb-6">
+                        Estratégias completas para aumentar sua visibilidade online e atrair mais clientes qualificados.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO técnico e de conteúdo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Campanhas de links patrocinados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de redes sociais
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios de performance
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA para serviços personalizados -->
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
+                    personalizadas para atender suas necessidades específicas.
+                </p>
+                <a href="#contact"
+                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale com um Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Portfólio -->
+    <section id="portfolio" class="py-20 bg-dark-bg text-dark-text">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Nossos <span
+                        class="gradient-text">Trabalhos</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projeto 1 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
+                        alt="Projeto 1"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Site Institucional - Empresa X</h3>
+                            <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas
+                                internos.</p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                        alt="Projeto 2"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">E-commerce - Loja Y</h3>
+                            <p class="text-gray-200 mb-4">Plataforma de vendas com integração de pagamentos e ERP.</p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 3"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Sistema de Gestão - Empresa Z</h3>
+                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos.
+                            </p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 4 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+                        alt="Projeto 4"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Landing Page - Campanha A</h3>
+                            <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto.</p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 5 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 5"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">App Mobile - Startup B</h3>
+                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável.
+                            </p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 6 -->
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                    style="transition-delay: 0.5s">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Projeto 6"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-xl font-bold mb-2">Redesign - Portal C</h3>
+                            <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade.</p>
+                            <a href="#"
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
+                                detalhes →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA para projeto personalizado -->
+            <div class="mt-16 text-center scroll-reveal">
+                <a href="#contact"
+                    class="bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Quero um Projeto Como Esses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Nós -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-dark-text">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Transformando Ideias em <span
+                        class="gradient-text">Realidade Digital</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Cartão de Missão -->
+                <div
+                    class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
+                    <div
+                        class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Missão</h3>
+                    <p class="text-gray-300 text-center">
+                        Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos
+                        clientes, combinando tecnologia de ponta com design excepcional.
+                    </p>
+                </div>
+
+                <!-- Cartão de Diferencial -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Diferencial</h3>
+                    <p class="text-gray-300 text-center">
+                        Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e
+                        soluções escaláveis que acompanham o crescimento do seu negócio.
+                    </p>
+                </div>
+
+                <!-- Cartão de Transformação -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                    style="transition-delay: 0.4s">
+                    <div
+                        class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-white">Transformação</h3>
+                    <p class="text-gray-300 text-center">
+                        Transformamos sua presença digital com soluções modernas e personalizadas, que unem estratégia,
+                        criatividade e tecnologia para gerar resultados reais e posicionar sua marca de forma sólida no
+                        mercado.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
+                <!-- Imagem da Equipe -->
+                <div class="scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Equipe Anphaweb"
+                        class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                </div>
+                <!-- Texto sobre Expertise -->
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <h2 class="text-3xl font-bold text-white mb-6">Nossa <span class="gradient-text">Expertise</span>
+                    </h2>
+                    <p class="text-gray-300 mb-6">
+                        Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
+                        estratégica para empresas que buscam presença online de alto impacto.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-300 font-medium">Equipe especializada em tecnologias modernas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-300 font-medium">Processos ágeis e transparentes</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-300 font-medium">Foco em resultados e experiência do usuário</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                    <i class="fas fa-check text-anpha-blue"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-300 font-medium">Suporte contínuo e manutenção especializada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="mt-8 inline-block bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção CTA (Call to Action) -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span
+                        class="gradient-text">Transformar</span> Seu Negócio?</h2>
+                <p class="text-white opacity-90 text-xl mb-8 max-w-3xl mx-auto">
+                    Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus
+                    resultados.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact"
+                        class="bg-white hover:bg-gray-100 text-anpha-blue font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        Solicitar Orçamento
+                    </a>
+                    <a href="https://wa.me/55SEUNUMERO" target="_blank"
+                        class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção FAQ (Perguntas Frequentes) -->
+    <section class="py-20 bg-dark-bg text-dark-text">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Dúvidas <span
+                        class="gradient-text">Comuns</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Item FAQ 1 -->
+                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
+                        <h3 class="font-medium text-white">Quanto tempo leva para desenvolver um site?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites
+                            institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas
+                            personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma
+                            detalhado com todas as etapas do projeto.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 2 -->
+                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.1s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
+                        <h3 class="font-medium text-white">Quais são as formas de pagamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até
+                            12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento
+                            personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do
+                            projeto e o restante conforme marcos são alcançados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 3 -->
+                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.2s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
+                        <h3 class="font-medium text-white">Vocês oferecem suporte após o lançamento?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos
+                            incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode
+                            contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes
+                            menores. Também oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do
+                            site.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 4 -->
+                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.3s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
+                        <h3 class="font-medium text-white">Meu site será otimizado para SEO?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo
+                            estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema
+                            markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço
+                            adicional a criação de estratégia de palavras-chave e produção de conteúdo otimizado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item FAQ 5 -->
+                <div class="bg-dark-card border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                    style="transition-delay: 0.4s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
+                        <h3 class="font-medium text-white">Posso atualizar o conteúdo do site sozinho?</h3>
+                        <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-300">
+                            Sim, a maioria dos sites que desenvolvemos inclui um painel administrativo (CMS) intuitivo
+                            que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem
+                            precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem
+                            atualizações frequentes, mas também desenvolvemos sistemas personalizados conforme a
+                            necessidade do cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA para dúvidas não respondidas -->
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
+                </p>
+                <a href="#contact"
+                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção de Depoimentos -->
+    <section id="testimonials" class="py-20 bg-gradient-to-br from-anpha-blue to-anpha-purple">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">O Que Nossos <span
+                        class="gradient-text">Clientes</span> Dizem</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonial-carousel">
+                <!-- Depoimento 1 -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Ana Carolina</h4>
+                            <span class="text-sm text-gray-300">CEO - Empresa X</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
+                        todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                    style="transition-delay: 0.1s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Ricardo Almeida</h4>
+                            <span class="text-sm text-gray-300">Diretor - Empresa Y</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
+                        operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
+                        necessidades."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-dark-card p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                    style="transition-delay: 0.2s">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Fernanda Oliveira</h4>
+                            <span class="text-sm text-gray-300">Marketing - Empresa Z</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
+                        landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
+                        muito acima da média do setor."
+                    </p>
+                    <div class="flex text-anpha-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicadores do Carrossel (para futura implementação de carrossel JS) -->
+            <div class="mt-12 flex justify-center space-x-4 scroll-reveal" id="testimonial-dots">
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+                <button
+                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contact" class="py-20 bg-dark-bg text-dark-text">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-anpha-blue font-semibold">CONTATO</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Vamos <span
+                        class="gradient-text">Conversar</span></h2>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais
+                    personalizadas.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Formulário de Contato -->
+                <div class="scroll-reveal">
+                    <form class="space-y-6" action="YOUR_FORM_SUBMISSION_URL" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                    placeholder="Seu nome completo">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">E-mail</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                    placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Telefone (opcional)</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Assunto</label>
+                            <select id="subject" name="subject" required
+                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white">
+                                <option value="" disabled selected>Selecione um assunto</option>
+                                <option value="website">Desenvolvimento de Site</option>
+                                <option value="ecommerce">Loja Virtual</option>
+                                <option value="system">Sistema Personalizado</option>
+                                <option value="app">Aplicativo Mobile</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="support">Suporte e Manutenção</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                placeholder="Descreva sua necessidade em detalhes..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <div class="bg-dark-card p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-white">Endereço</h4>
+                                    <p class="text-gray-300">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-white">Telefone</h4>
+                                    <p class="text-gray-300">(11) 99999-9999<br>(11) 99999-9999</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-white">E-mail</h4>
+                                    <p class="text-gray-300">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-white">Horário de Atendimento</h4>
+                                    <p class="text-gray-300">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Links de Redes Sociais -->
+                        <div class="mt-8">
+                            <h4 class="font-medium text-white mb-4">Siga-nos</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Coluna 1: Logo e Descrição -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-bold text-white mb-6">ANPHAWEB</h3>
+                    <p class="mb-6">
+                        Soluções digitais personalizadas para impulsionar seu negócio na era digital.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Links Rápidos -->
+                <div class="scroll-reveal" style="transition-delay: 0.1s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition-colors">Portfólio</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Depoimentos</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Serviços -->
+                <div class="scroll-reveal" style="transition-delay: 0.2s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Serviços</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Sites Institucionais</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Landing Pages</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sistemas Personalizados</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Aplicativos Mobile</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Contato no Rodapé -->
+                <div class="scroll-reveal" style="transition-delay: 0.3s">
+                    <h4 class="text-lg font-semibold text-white mb-6">Contato</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-anpha-blue"></i>
+                            <span>Rua Exemplo, 123 - Centro<br>São Paulo/SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-anpha-blue"></i>
+                            <span>(11) 99999-9999</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-anpha-blue"></i>
+                            <span>contato@anphaweb.com.br</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-anpha-blue"></i>
+                            <span>Seg-Sex: 09h às 18h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Direitos Autorais e Links Legais -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0 scroll-reveal">
+                    &copy; 2023 Anphaweb. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Política de
+                        Privacidade</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica para alternar o menu mobile
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica para alternar o conteúdo das Perguntas Frequentes (FAQ)
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqContent = button.nextElementSibling; // Pega o próximo elemento irmão (o conteúdo da FAQ)
+                const icon = button.querySelector('i'); // Pega o ícone de seta
+
+                faqContent.classList.toggle('hidden'); // Alterna a visibilidade do conteúdo
+                icon.classList.toggle('rotate-180'); // Gira o ícone para indicar o estado
+            });
+        });
+
+        // Função para aplicar a animação de "scroll reveal"
+        function scrollReveal() {
+            const elements = document.querySelectorAll('.scroll-reveal'); // Seleciona todos os elementos com a classe .scroll-reveal
+            const windowHeight = window.innerHeight; // Altura da janela de visualização
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top; // Posição do elemento em relação ao topo da viewport
+                const revealPoint = 150; // Ponto a partir do qual o elemento deve ser revelado (150px antes de entrar na tela)
+
+                // Se o elemento estiver dentro da área de visualização, adiciona a classe 'active'
+                if (elementPosition < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                } else {
+                    // Opcional: remover a classe 'active' quando o elemento sai da tela para reativar a animação ao rolar para cima
+                    element.classList.remove('active');
+                }
+            });
+        }
+
+        // Adiciona listeners para o evento de scroll e load para ativar as animações
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+
+        // Lógica para o carrossel de depoimentos (simples, pode ser expandido com uma biblioteca)
+        const testimonialCarousel = document.getElementById('testimonial-carousel');
+        const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
+        const testimonialDotsContainer = document.getElementById('testimonial-dots');
+        let currentTestimonialIndex = 0;
+
+        function showTestimonial(index) {
+            testimonialCards.forEach((card, i) => {
+                card.style.display = (i === index) ? 'block' : 'none'; // Mostra apenas o cartão atual
+            });
+            updateDots(index);
+        }
+
+        function updateDots(index) {
+            testimonialDotsContainer.querySelectorAll('button').forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('bg-opacity-100');
+                    dot.classList.remove('bg-opacity-20');
+                } else {
+                    dot.classList.remove('bg-opacity-100');
+                    dot.classList.add('bg-opacity-20');
+                }
+            });
+        }
+
+        // Cria os botões de navegação (dots) para o carrossel
+        testimonialCards.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white', 'transition-all');
+            dot.classList.add(i === 0 ? 'bg-opacity-100' : 'bg-opacity-20');
+            dot.addEventListener('click', () => showTestimonial(i));
+            testimonialDotsContainer.appendChild(dot);
+        });
+
+        // Inicializa o carrossel mostrando o primeiro depoimento
+        if (testimonialCards.length > 0) {
+            showTestimonial(0);
+        }
+
+        // --- Three.js Background Implementation ---
+        let scene, camera, renderer, points, lines;
+        let mouseX = 0, mouseY = 0;
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        function initThreeJS() {
+            // Cena
+            scene = new THREE.Scene();
+
+            // Câmera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 100;
+
+            // Renderizador
+            renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('three-bg') });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Geometria: Pontos e Linhas
+            const numPoints = 1000;
+            const positions = new Float32Array(numPoints * 3);
+            const colors = new Float32Array(numPoints * 3);
+            const geometry = new THREE.BufferGeometry();
+
+            const pMaterial = new THREE.PointsMaterial({
+                color: 0x2563eb, // anpha-blue
+                size: 0.5,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            const lMaterial = new THREE.LineBasicMaterial({
+                color: 0x7e22ce, // anpha-purple
+                linewidth: 0.5,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                opacity: 0.3
+            });
+
+            for (let i = 0; i < numPoints; i++) {
+                const i3 = i * 3;
+                // Posições aleatórias
+                positions[i3] = (Math.random() * 2 - 1) * 500;
+                positions[i3 + 1] = (Math.random() * 2 - 1) * 500;
+                positions[i3 + 2] = (Math.random() * 2 - 1) * 500;
+
+                // Cores (opcional, mas bom para gradientes ou variações)
+                colors[i3] = 0.5;
+                colors[i3 + 1] = 0.5;
+                colors[i3 + 2] = 0.5;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            points = new THREE.Points(geometry, pMaterial);
+            scene.add(points);
+
+            // Criar linhas entre pontos próximos (para o efeito de rede)
+            const lineGeometry = new THREE.BufferGeometry();
+            const maxConnections = 20; // Número máximo de conexões por ponto
+            const maxDistance = 50; // Distância máxima para conectar pontos
+            const linePositions = [];
+
+            for (let i = 0; i < numPoints; i++) {
+                const p1 = new THREE.Vector3(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
+                let connections = 0;
+                for (let j = i + 1; j < numPoints; j++) {
+                    const p2 = new THREE.Vector3(positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]);
+                    const distance = p1.distanceTo(p2);
+
+                    if (distance < maxDistance && connections < maxConnections) {
+                        linePositions.push(p1.x, p1.y, p1.z);
+                        linePositions.push(p2.x, p2.y, p2.z);
+                        connections++;
+                    }
+                }
+            }
+
+            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+            lines = new THREE.LineSegments(lineGeometry, lMaterial);
+            scene.add(lines);
+
+            // Event listeners para interatividade com o mouse
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX - windowHalfX) * 0.1;
+            mouseY = (event.clientY - windowHalfY) * 0.1;
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animateThreeJS() {
+            requestAnimationFrame(animateThreeJS);
+
+            // Movimento da câmera baseado no mouse
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+
+            // Animação dos pontos e linhas
+            if (points) {
+                points.rotation.x += 0.0005;
+                points.rotation.y += 0.001;
+            }
+            if (lines) {
+                lines.rotation.x += 0.0005;
+                lines.rotation.y += 0.001;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Inicializa Three.js quando a janela carregar
+        window.onload = function () {
+            initThreeJS();
+            animateThreeJS();
+        };
+
+        // --- Fim da implementação Three.js ---
+    </script>
+</body>
+
+</html>
