@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anphaweb - Criação de Sites e Sistemas Personalizados</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js CDN para o fundo 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Configuração do Tailwind CSS com cores e animações personalizadas -->
     <script>
         tailwind.config = {
             theme: {
@@ -35,98 +41,113 @@
             }
         }
     </script>
+    <!-- Estilos CSS personalizados -->
     <style>
+        /* Importação da fonte Poppins do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Garante que o corpo não tenha scroll horizontal */
+            background-color: transparent; /* Garante que o fundo do corpo seja transparente para o canvas */
         }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, 0.2);
-            pointer-events: none;
-            z-index: -1;
+        /* Estilo para o canvas Three.js que serve como fundo */
+        #three-background {
+            position: fixed; /* Fixa o elemento na viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Ocupa 100% da largura da viewport */
+            height: 100vh; /* Ocupa 100% da altura da viewport */
+            z-index: -2; /* Garante que esteja atrás de todo o conteúdo */
+            pointer-events: none; /* Permite interações com elementos abaixo do canvas */
         }
 
+        /* Estilo para texto com gradiente */
         .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316); /* Gradiente de azul, roxo e laranja */
+            -webkit-background-clip: text; /* Recorta o fundo para o formato do texto (para navegadores WebKit) */
+            background-clip: text; /* Recorta o fundo para o formato do texto */
+            color: transparent; /* Torna a cor do texto transparente para que o gradiente seja visível */
         }
 
+        /* Estilo para fundo com gradiente (mantido para outros usos, mas removido das seções) */
         .gradient-bg {
-            background: linear-gradient(135deg, #2563eb, #7e22ce);
+            background: linear-gradient(135deg, #2563eb, #7e22ce); /* Gradiente diagonal de azul para roxo */
         }
 
+        /* Efeito de hover para cartões */
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-10px); /* Move o cartão para cima */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Adiciona sombra */
         }
 
+        /* Efeito de rotação 3D no ícone do serviço ao passar o mouse */
         .service-card:hover .service-icon {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg); /* Gira o ícone no eixo Y */
         }
 
+        /* Estilos para animação de revelação ao rolar */
         .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Começa ligeiramente abaixo */
+            transition: all 0.6s ease; /* Transição suave para todas as propriedades */
         }
 
         .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; /* Torna visível */
+            transform: translateY(0); /* Move para a posição original */
         }
 
+        /* Efeito de escala no cartão de depoimento ao passar o mouse */
         .testimonial-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Transição suave */
         }
 
         .testimonial-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
         }
 
+        /* Animação de pulso para o botão do WhatsApp */
         .whatsapp-btn {
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite; /* Aplica a animação de pulso */
         }
 
+        /* Definição da animação de pulso */
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra inicial transparente */
             }
 
             70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); /* Sombra se expande e fica transparente */
             }
 
             100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); /* Volta ao estado inicial */
             }
         }
     </style>
 </head>
 
-<body class="bg-gray-50">
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+<body class=""> <!-- Removido bg-gray-50 da tag body -->
+    <!-- Canvas para o fundo 3D do Three.js -->
+    <canvas id="three-background"></canvas>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/SEUNUMERO" target="_blank"
         class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navigation -->
+    <!-- Navegação Principal -->
     <nav class="fixed w-full bg-white shadow-md z-40 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
                     <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
                 </div>
+                <!-- Menu para desktop -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
                         <a href="#home"
@@ -143,6 +164,7 @@
                             class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
                     </div>
                 </div>
+                <!-- Botão de toggle para menu mobile -->
                 <div class="md:hidden">
                     <button id="menu-toggle" class="text-gray-700 hover:text-anpha-blue focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
+        <!-- Menu mobile (oculto por padrão) -->
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home"
@@ -172,7 +194,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Seção Hero (Início) -->
     <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
@@ -197,12 +219,14 @@
                 </div>
                 <div class="mt-12 lg:mt-0 scroll-reveal">
                     <div class="relative">
+                        <!-- Elementos flutuantes decorativos -->
                         <div
                             class="absolute -top-10 -left-10 w-32 h-32 bg-anpha-purple rounded-full opacity-20 animate-pulse-slow">
                         </div>
                         <div
                             class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow">
                         </div>
+                        <!-- Imagem da seção Hero -->
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                             alt="Desenvolvimento Web"
                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
@@ -211,7 +235,7 @@
             </div>
         </div>
 
-        <!-- Floating elements -->
+        <!-- Elementos flutuantes (decorativos, não parte do fundo 3D principal) -->
         <div class="hidden lg:block">
             <div class="absolute top-1/4 left-10 w-8 h-8 bg-anpha-blue rounded-full opacity-30 animate-float"></div>
             <div
@@ -222,8 +246,8 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <!-- Seção de Serviços -->
+    <section id="services" class="py-20"> <!-- Removido bg-white -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
@@ -235,7 +259,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
+                <!-- Cartão de Serviço 1: Sites Institucionais -->
                 <div
                     class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
                     <div
@@ -263,7 +287,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Cartão de Serviço 2: E-commerce -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.1s">
                     <div
@@ -291,7 +315,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 3 -->
+                <!-- Cartão de Serviço 3: Landing Pages -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.2s">
                     <div
@@ -319,7 +343,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 4 -->
+                <!-- Cartão de Serviço 4: Sistemas Personalizados -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.3s">
                     <div
@@ -346,7 +370,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 5 -->
+                <!-- Cartão de Serviço 5: Aplicativos Mobile -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.4s">
                     <div
@@ -374,7 +398,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 6 -->
+                <!-- Cartão de Serviço 6: Marketing Digital -->
                 <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
                     style="transition-delay: 0.5s">
                     <div
@@ -415,8 +439,8 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
+    <!-- Seção de Portfólio -->
+    <section id="portfolio" class="py-20"> <!-- Removido bg-gray-50 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
@@ -431,7 +455,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
+                <!-- Projeto 1 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal">
                     <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
                         alt="Projeto 1"
@@ -449,7 +473,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Projeto 2 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
                     style="transition-delay: 0.1s">
                     <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
@@ -467,7 +491,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Projeto 3 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
                     style="transition-delay: 0.2s">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -486,7 +510,7 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Projeto 4 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
                     style="transition-delay: 0.3s">
                     <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
@@ -504,10 +528,10 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+                <!-- Projeto 5 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
                     style="transition-delay: 0.4s">
-                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&alt="
                         alt="Projeto 5"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
@@ -523,7 +547,7 @@
                     </div>
                 </div>
 
-                <!-- Project 6 -->
+                <!-- Projeto 6 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
                     style="transition-delay: 0.5s">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -551,8 +575,8 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <!-- Seção Sobre Nós -->
+    <section id="about" class="py-20"> <!-- Removido bg-gradient-to-br from-gray-50 to-gray-100 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
@@ -564,6 +588,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Cartão Missão -->
                 <div
                     class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
                     <div
@@ -577,6 +602,7 @@
                     </p>
                 </div>
 
+                <!-- Cartão Diferencial -->
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
                     style="transition-delay: 0.4s">
                     <div
@@ -590,6 +616,7 @@
                     </p>
                 </div>
 
+                <!-- Cartão Transformação -->
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
                     style="transition-delay: 0.4s">
                     <div
@@ -621,44 +648,36 @@
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-gray-700 font-medium">Equipe especializada em tecnologias modernas</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Processos ágeis e transparentes</p>
+                                <p class="text-gray-700 font-medium">Processos ágéis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-gray-700 font-medium">Foco em resultados e experiência do usuário</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="flex-shrink-0 mt-1 w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-gray-700 font-medium">Suporte contínuo e manutenção especializada</p>
@@ -674,8 +693,8 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 gradient-bg">
+    <!-- Seção CTA (Chamada para Ação) -->
+    <section class="py-20"> <!-- Removido gradient-bg -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span
@@ -698,8 +717,8 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- Seção de Perguntas Frequentes (FAQ) -->
+    <section class="py-20"> <!-- Removido bg-gray-50 -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
@@ -711,7 +730,7 @@
             </div>
 
             <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ Item 1 -->
+                <!-- Item FAQ 1 -->
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 transition-colors">
@@ -728,7 +747,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
+                <!-- Item FAQ 2 -->
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.1s">
                     <button
@@ -746,7 +765,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
+                <!-- Item FAQ 3 -->
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.2s">
                     <button
@@ -765,7 +784,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
+                <!-- Item FAQ 4 -->
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.3s">
                     <button
@@ -783,7 +802,7 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 5 -->
+                <!-- Item FAQ 5 -->
                 <div class="bg-white border border-gray-200 rounded-xl overflow-hidden scroll-reveal"
                     style="transition-delay: 0.4s">
                     <button
@@ -816,8 +835,8 @@
     </section>
 
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gradient-to-br from-anpha-blue to-anpha-purple">
+    <!-- Seção de Depoimentos -->
+    <section id="testimonials" class="py-20"> <!-- Removido bg-gradient-to-br from-anpha-blue to-anpha-purple -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
@@ -828,7 +847,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
+                <!-- Depoimento 1 -->
                 <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -853,7 +872,7 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
+                <!-- Depoimento 2 -->
                 <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
                     style="transition-delay: 0.1s">
                     <div class="flex items-center mb-6">
@@ -880,7 +899,7 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 3 -->
+                <!-- Depoimento 3 -->
                 <div class="bg-white p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
                     style="transition-delay: 0.2s">
                     <div class="flex items-center mb-6">
@@ -908,6 +927,7 @@
                 </div>
             </div>
 
+            <!-- Botões de navegação dos depoimentos (indicadores) -->
             <div class="mt-12 flex justify-center space-x-4 scroll-reveal">
                 <button
                     class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
@@ -919,8 +939,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Seção de Contato -->
+    <section id="contact" class="py-20"> <!-- Removido bg-white -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
@@ -936,6 +956,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
+                <!-- Formulário de Contato -->
                 <div class="scroll-reveal">
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -985,17 +1006,16 @@
                     </form>
                 </div>
 
+                <!-- Informações de Contato e Redes Sociais -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg h-full">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Informações de Contato</h3>
 
                         <div class="space-y-6">
                             <div class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
+                                <div
+                                    class="flex-shrink-0 mt-1 w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-800">Endereço</h4>
@@ -1005,11 +1025,9 @@
                             </div>
 
                             <div class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
+                                <div
+                                    class="flex-shrink-0 mt-1 w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-800">Telefone</h4>
@@ -1018,11 +1036,9 @@
                             </div>
 
                             <div class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
+                                <div
+                                    class="flex-shrink-0 mt-1 w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-800">E-mail</h4>
@@ -1031,11 +1047,9 @@
                             </div>
 
                             <div class="flex items-start">
-                                <div class="flex-shrink-0 mt-1">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
+                                <div
+                                    class="flex-shrink-0 mt-1 w-10 h-10 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center text-anpha-blue">
+                                    <i class="fas fa-clock"></i>
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-gray-800">Horário de Atendimento</h4>
@@ -1071,7 +1085,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -1160,58 +1174,62 @@
         </div>
     </footer>
 
+    <!-- Scripts JavaScript -->
     <script>
-        // Mobile menu toggle
+        // Toggle do menu mobile
         document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden'); // Alterna a classe 'hidden' para mostrar/esconder o menu
         });
 
-        // FAQ toggle
+        // Toggle do FAQ (Perguntas Frequentes)
         document.querySelectorAll('.faq-toggle').forEach(button => {
             button.addEventListener('click', () => {
-                const faqContent = button.nextElementSibling;
-                const icon = button.querySelector('i');
+                const faqContent = button.nextElementSibling; // Pega o próximo elemento irmão (o conteúdo do FAQ)
+                const icon = button.querySelector('i'); // Pega o ícone de seta
 
-                faqContent.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
+                faqContent.classList.toggle('hidden'); // Alterna a visibilidade do conteúdo
+                icon.classList.toggle('rotate-180'); // Gira o ícone para indicar o estado
             });
         });
 
-        // Scroll reveal animation
+        // Animação de revelação ao rolar (Scroll Reveal)
         function scrollReveal() {
-            const elements = document.querySelectorAll('.scroll-reveal');
-            const windowHeight = window.innerHeight;
+            const elements = document.querySelectorAll('.scroll-reveal'); // Seleciona todos os elementos com a classe 'scroll-reveal'
+            const windowHeight = window.innerHeight; // Altura da janela do navegador
 
             elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const revealPoint = 150;
+                const elementPosition = element.getBoundingClientRect().top; // Posição do topo do elemento em relação à viewport
+                const revealPoint = 150; // Ponto a partir do qual o elemento deve ser revelado (150px antes do final da tela)
 
                 if (elementPosition < windowHeight - revealPoint) {
-                    element.classList.add('active');
+                    element.classList.add('active'); // Adiciona a classe 'active' para ativar a animação
+                } else {
+                    // Opcional: remover 'active' se o elemento sair da tela para cima
+                    // element.classList.remove('active');
                 }
             });
         }
 
-        window.addEventListener('scroll', scrollReveal);
-        window.addEventListener('load', scrollReveal);
+        window.addEventListener('scroll', scrollReveal); // Adiciona listener para o evento de rolagem
+        window.addEventListener('load', scrollReveal); // Adiciona listener para o carregamento da página (para elementos já visíveis)
 
-        // Smooth scrolling for anchor links
+        // Rolagem suave para links âncora
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Previne o comportamento padrão do link
 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                const targetId = this.getAttribute('href'); // Pega o ID do alvo (ex: "#home")
+                if (targetId === '#') return; // Ignora links vazios
 
-                const targetElement = document.querySelector(targetId);
+                const targetElement = document.querySelector(targetId); // Seleciona o elemento alvo
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                        top: targetElement.offsetTop - 80, // Rola até o elemento, com um offset para a barra de navegação fixa
+                        behavior: 'smooth' // Rolagem suave
                     });
 
-                    // Close mobile menu if open
+                    // Fecha o menu mobile se estiver aberto após clicar em um link
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
@@ -1220,38 +1238,180 @@
             });
         });
 
-        // Create particles
-        function createParticles() {
-            const container = document.body;
-            const particleCount = window.innerWidth < 768 ? 20 : 50;
+        // --- Animação de Fundo 3D com Three.js ---
+        let scene, camera, renderer, particles, lines;
+        let mouseX = 0, mouseY = 0;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+        // Função para inicializar o fundo 3D
+        function initThreeBackground() {
+            // Criação da cena Three.js
+            scene = new THREE.Scene();
 
-                // Random size between 5 and 15px
-                const size = Math.random() * 10 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
+            // Configuração da câmera (perspectiva)
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 100; // Posição inicial da câmera
 
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
+            // Configuração do renderizador WebGL
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.getElementById('three-background'), // Associa ao canvas HTML
+                alpha: true // Permite fundo transparente para ver o background do corpo HTML
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight); // Define o tamanho do renderizador para o tamanho da janela
+            renderer.setPixelRatio(window.devicePixelRatio); // Ajusta a resolução para telas de alta densidade de pixels
 
-                // Random animation duration and delay
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+            // Função auxiliar para criar uma textura circular para as partículas
+            function createCircleTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 64; // Tamanho da textura
+                canvas.height = 64;
+                const context = canvas.getContext('2d');
 
-                // Random opacity
-                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                // Desenha um círculo branco no centro do canvas
+                context.beginPath();
+                context.arc(32, 32, 30, 0, Math.PI * 2, false);
+                context.fillStyle = 'rgba(255, 255, 255, 1)'; // Branco opaco
+                context.fill();
 
-                container.appendChild(particle);
+                // Retorna a textura Three.js a partir do canvas
+                return new THREE.CanvasTexture(canvas);
             }
+
+            const circleTexture = createCircleTexture(); // Cria a textura circular
+
+            // Criação das Partículas (Pontos)
+            const particleCount = 500; // Número de partículas
+            const positions = new Float32Array(particleCount * 3); // Array para armazenar posições (x, y, z)
+            const colors = new Float32Array(particleCount * 3); // Array para armazenar cores (r, g, b)
+            const sizes = new Float32Array(particleCount); // Array para armazenar tamanhos
+
+            const particleGeometry = new THREE.BufferGeometry(); // Geometria para as partículas
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 3, // Tamanho base das partículas
+                vertexColors: true, // Habilita cores por vértice
+                blending: THREE.AdditiveBlending, // Modo de mistura para um efeito de brilho
+                transparent: true, // Habilita transparência
+                opacity: 0.7, // Opacidade das partículas
+                map: circleTexture // Aplica a textura circular
+            });
+
+            // Preenche as posições, cores e tamanhos das partículas aleatoriamente
+            for (let i = 0; i < particleCount; i++) {
+                // Posições aleatórias dentro de uma esfera imaginária
+                const x = (Math.random() * 2 - 1) * 300;
+                const y = (Math.random() * 2 - 1) * 300;
+                const z = (Math.random() * 2 - 1) * 300;
+
+                positions[i * 3] = x;
+                positions[i * 3 + 1] = y;
+                positions[i * 3 + 2] = z;
+
+                // Cores baseadas nos gradientes do site (anpha-blue, anpha-purple, anpha-orange)
+                const color = new THREE.Color();
+                if (Math.random() > 0.66) {
+                    color.set('#2563eb'); // anpha-blue
+                } else if (Math.random() > 0.33) {
+                    color.set('#7e22ce'); // anpha-purple
+                } else {
+                    color.set('#f97316'); // anpha-orange
+                }
+                colors[i * 3] = color.r;
+                colors[i * 3 + 1] = color.g;
+                colors[i * 3 + 2] = color.b;
+
+                sizes[i] = 3; // Tamanho inicial
+            }
+
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1)); // Adiciona atributo de tamanho
+
+            particles = new THREE.Points(particleGeometry, particleMaterial); // Cria o objeto de pontos
+            scene.add(particles); // Adiciona as partículas à cena
+
+            // Criação das Linhas (Conexões entre partículas)
+            const lineMaterial = new THREE.LineBasicMaterial({
+                vertexColors: true, // Habilita cores por vértice
+                transparent: true, // Habilita transparência
+                opacity: 0.15, // Opacidade das linhas
+                blending: THREE.AdditiveBlending // Modo de mistura para um efeito de brilho
+            });
+
+            const maxDistance = 70; // Distância máxima para conectar partículas
+            const tempLines = []; // Array temporário para armazenar as posições das linhas
+            const tempLineColors = []; // Array temporário para armazenar as cores das linhas
+
+            // Itera sobre as partículas para criar conexões baseadas na distância
+            for (let i = 0; i < particleCount; i++) {
+                for (let j = i + 1; j < particleCount; j++) {
+                    const p1 = new THREE.Vector3(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
+                    const p2 = new THREE.Vector3(positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]);
+
+                    // Se a distância entre duas partículas for menor que maxDistance, cria uma linha
+                    if (p1.distanceTo(p2) < maxDistance) {
+                        tempLines.push(p1.x, p1.y, p1.z);
+                        tempLines.push(p2.x, p2.y, p2.z);
+
+                        // Interpolação de cor entre as duas partículas conectadas
+                        const c1 = new THREE.Color(colors[i * 3], colors[i * 3 + 1], colors[i * 3 + 2]);
+                        const c2 = new THREE.Color(colors[j * 3], colors[j * 3 + 1], colors[j * 3 + 2]);
+                        tempLineColors.push(c1.r, c1.g, c1.b);
+                        tempLineColors.push(c2.r, c2.g, c2.b);
+                    }
+                }
+            }
+
+            const lineGeometry = new THREE.BufferGeometry(); // Geometria para as linhas
+            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(tempLines, 3));
+            lineGeometry.setAttribute('color', new THREE.Float32BufferAttribute(tempLineColors, 3));
+            lines = new THREE.LineSegments(lineGeometry, lineMaterial); // Cria o objeto de segmentos de linha
+            scene.add(lines); // Adiciona as linhas à cena
+
+            // Adiciona event listeners para interatividade do mouse e redimensionamento da janela
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
         }
 
-        // Initialize particles on load
-        window.addEventListener('load', createParticles);
+        // Função para lidar com o movimento do mouse para efeito de paralaxe
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX - windowHalfX) * 0.1;
+            mouseY = (event.clientY - windowHalfY) * 0.1;
+        }
+
+        // Função para lidar com o redimensionamento da janela
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+
+            camera.aspect = window.innerWidth / window.innerHeight; // Atualiza a proporção da câmera
+            camera.updateProjectionMatrix(); // Atualiza a matriz de projeção da câmera
+            renderer.setSize(window.innerWidth, window.innerHeight); // Redimensiona o renderizador
+        }
+
+        // Função de animação principal do Three.js
+        function animateThreeBackground() {
+            requestAnimationFrame(animateThreeBackground); // Solicita o próximo frame da animação
+
+            // Animação da câmera para um efeito de paralaxe sutil
+            camera.position.x += (mouseX - camera.position.x) * 0.005;
+            camera.position.y += (-mouseY - camera.position.y) * 0.005;
+            camera.lookAt(scene.position); // Faz a câmera olhar para o centro da cena
+
+            // Rotação sutil das partículas e linhas para um efeito dinâmico
+            particles.rotation.y += 0.0005;
+            particles.rotation.x += 0.0002;
+            lines.rotation.y += 0.0005;
+            lines.rotation.x += 0.0002;
+
+            renderer.render(scene, camera); // Renderiza a cena com a câmera
+        }
+
+        // Inicializa o fundo 3D e inicia a animação quando a janela carregar completamente
+        window.addEventListener('load', () => {
+            initThreeBackground();
+            animateThreeBackground();
+        });
     </script>
 </body>
 
