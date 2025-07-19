@@ -21,11 +21,13 @@
                         'anpha-orange': '#f97316',
                         'anpha-purple': '#7e22ce',
                         'dark-bg': '#0d1117', /* Fundo principal muito escuro */
-                        // As cores 'dark-section-bg' e 'dark-card-bg' não serão mais usadas diretamente para fundos de seção/card,
-                        // mas mantidas caso você queira adicionar alguma opacidade no futuro.
+                        // Aumentei a opacidade para melhor legibilidade do conteúdo sobre o fundo 3D
+                        'dark-section-bg': 'rgba(13, 17, 23, 0.95)', /* Fundo de seção semi-transparente */
+                        'dark-card-bg': 'rgba(45, 55, 72, 0.85)', /* Fundo de cartão semi-transparente */
                         'dark-text-light': '#e2e8f0', /* Texto claro para fundos escuros */
                         'dark-text-medium': '#a0aec0', /* Texto médio para detalhes */
-                        'dark-border': '#4a5568', /* Borda para elementos escuros (ainda pode ser usada para bordas de inputs, etc.) */
+                        'dark-border': '#4a5568', /* Borda para elementos escuros */
+                        'dark-header-text': '#f8fafc', /* Cor para títulos em seções escuras */
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -145,7 +147,7 @@
     </a>
 
     <!-- Navegação Principal -->
-    <nav class="fixed w-full bg-dark-bg shadow-lg z-40 transition-all duration-300">
+    <nav class="fixed w-full bg-dark-section-bg shadow-lg z-40 transition-all duration-300 border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
@@ -181,7 +183,7 @@
             </div>
         </div>
         <!-- Menu Mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-dark-bg shadow-lg">
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-section-bg shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home"
                     class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
@@ -256,7 +258,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Soluções <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Soluções <span
                         class="gradient-text">Completas</span> para Seu Negócio</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
@@ -271,7 +273,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Sites Institucionais</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sites Institucionais</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem
                         visitantes em clientes.
@@ -299,7 +301,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">E-commerce</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">E-commerce</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
                         com eficiência.
@@ -327,7 +329,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Landing Pages</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Landing Pages</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
                         resultados.
@@ -355,7 +357,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Sistemas Personalizados</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sistemas Personalizados</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Desenvolvemos sistemas sob medida para automatizar processos e otimizar a gestão do seu negócio.
                     </p>
@@ -382,7 +384,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Aplicativos Mobile</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Aplicativos Mobile</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
                         performance.
@@ -410,7 +412,7 @@
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Marketing Digital</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Estratégias completas para aumentar sua visibilidade online e atrair mais clientes qualificados.
                     </p>
@@ -450,7 +452,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Nossos <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Nossos <span
                         class="gradient-text">Trabalhos</span></h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
@@ -574,9 +576,13 @@
 
             <!-- CTA para projeto personalizado -->
             <div class="mt-16 text-center scroll-reveal">
+                <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
+                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
+                    personalizadas para atender suas necessidades específicas.
+                </p>
                 <a href="#contact"
-                    class="bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Quero um Projeto Como Esses
+                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
+                    Fale com um Especialista
                 </a>
             </div>
         </div>
@@ -587,7 +593,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Transformando Ideias em <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Transformando Ideias em <span
                         class="gradient-text">Realidade Digital</span></h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
@@ -602,7 +608,7 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Missão</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Missão</h3>
                     <p class="text-dark-text-medium text-center">
                         Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos
                         clientes, combinando tecnologia de ponta com design excepcional.
@@ -616,7 +622,7 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Diferencial</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Diferencial</h3>
                     <p class="text-dark-text-medium text-center">
                         Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e
                         soluções escaláveis que acompanham o crescimento do seu negócio.
@@ -630,7 +636,7 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-white">Transformação</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Transformação</h3>
                     <p class="text-dark-text-medium text-center">
                         Transformamos sua presença digital com soluções modernas e personalizadas, que unem estratégia,
                         criatividade e tecnologia para gerar resultados reais e posicionar sua marca de forma sólida no
@@ -649,7 +655,7 @@
                 </div>
                 <!-- Texto sobre Expertise -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <h2 class="text-3xl font-bold text-white mb-6">Nossa <span class="gradient-text">Expertise</span>
+                    <h2 class="text-3xl font-bold text-dark-header-text mb-6">Nossa <span class="gradient-text">Expertise</span>
                     </h2>
                     <p class="text-dark-text-medium mb-6">
                         Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
@@ -714,7 +720,7 @@
     <section class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mb-6">Pronto para <span
                         class="gradient-text">Transformar</span> Seu Negócio?</h2>
                 <p class="text-dark-text-medium text-xl mb-8 max-w-3xl mx-auto">
                     Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus
@@ -739,7 +745,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Dúvidas <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Dúvidas <span
                         class="gradient-text">Comuns</span></h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
@@ -858,101 +864,166 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">O Que Nossos <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">O Que Nossos <span
                         class="gradient-text">Clientes</span> Dizem</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full">
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonial-carousel">
-                <!-- Depoimento 1 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white">Ana Carolina</h4>
-                            <span class="text-sm text-dark-text-medium">CEO - Empresa X</span>
+            <!-- Carrossel de Depoimentos -->
+            <div id="testimonial-carousel-container" class="relative overflow-hidden">
+                <div id="testimonial-carousel-wrapper" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Depoimento 1 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark-header-text">Ana Carolina</h4>
+                                    <span class="text-sm text-dark-text-medium">CEO - Empresa X</span>
+                                </div>
+                            </div>
+                            <p class="text-dark-text-medium italic mb-6">
+                                "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
+                                todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
+                            </p>
+                            <div class="flex text-anpha-orange">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
                     </div>
-                    <p class="text-dark-text-medium italic mb-6">
-                        "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
-                        todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
-                    </p>
-                    <div class="flex text-anpha-orange">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+
+                    <!-- Depoimento 2 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark-header-text">Ricardo Almeida</h4>
+                                    <span class="text-sm text-dark-text-medium">Diretor - Empresa Y</span>
+                                </div>
+                            </div>
+                            <p class="text-dark-text-medium italic mb-6">
+                                "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
+                                operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
+                                necessidades."
+                            </p>
+                            <div class="flex text-anpha-orange">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 3 -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark-header-text">Fernanda Oliveira</h4>
+                                    <span class="text-sm text-dark-text-medium">Marketing - Empresa Z</span>
+                                </div>
+                            </div>
+                            <p class="text-dark-text-medium italic mb-6">
+                                "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
+                                landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
+                                muito acima da média do setor."
+                            </p>
+                            <div class="flex text-anpha-orange">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adicione mais depoimentos aqui, se desejar -->
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 4"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark-header-text">João Silva</h4>
+                                    <span class="text-sm text-dark-text-medium">Gerente de Projetos - Empresa A</span>
+                                </div>
+                            </div>
+                            <p class="text-dark-text-medium italic mb-6">
+                                "A equipe da Anphaweb demonstrou um conhecimento técnico impressionante e entregou um projeto
+                                complexo dentro do prazo e do orçamento. Recomendo fortemente!"
+                            </p>
+                            <div class="flex text-anpha-orange">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                    <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Cliente 5"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark-header-text">Mariana Costa</h4>
+                                    <span class="text-sm text-dark-text-medium">Empreendedora - Startup B</span>
+                                </div>
+                            </div>
+                            <p class="text-dark-text-medium italic mb-6">
+                                "Minha landing page superou as expectativas de conversão. O design é impecável e a performance
+                                é excelente. Um investimento que valeu a pena!"
+                            </p>
+                            <div class="flex text-anpha-orange">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Depoimento 2 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
-                    style="transition-delay: 0.1s">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white">Ricardo Almeida</h4>
-                            <span class="text-sm text-dark-text-medium">Diretor - Empresa Y</span>
-                        </div>
-                    </div>
-                    <p class="text-dark-text-medium italic mb-6">
-                        "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
-                        operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
-                        necessidades."
-                    </p>
-                    <div class="flex text-anpha-orange">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <!-- Depoimento 3 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
-                    style="transition-delay: 0.2s">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white">Fernanda Oliveira</h4>
-                            <span class="text-sm text-dark-text-medium">Marketing - Empresa Z</span>
-                        </div>
-                    </div>
-                    <p class="text-dark-text-medium italic mb-6">
-                        "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
-                        landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
-                        muito acima da média do setor."
-                    </p>
-                    <div class="flex text-anpha-orange">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
+                <!-- Botões de Navegação (Anterior/Próximo) -->
+                <button id="testimonial-prev"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full z-10 transition-all hidden md:block">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="testimonial-next"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-50 hover:bg-opacity-75 text-white p-3 rounded-full z-10 transition-all hidden md:block">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
-            <!-- Indicadores do Carrossel (para futura implementação de carrossel JS) -->
+            <!-- Indicadores do Carrossel (Dots) -->
             <div class="mt-12 flex justify-center space-x-4 scroll-reveal" id="testimonial-dots">
-                <button
-                    class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"></button>
-                <button
-                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
-                <button
-                    class="w-3 h-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-100 transition-all"></button>
+                <!-- Os dots serão gerados dinamicamente pelo JavaScript -->
             </div>
         </div>
     </section>
@@ -962,7 +1033,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Vamos <span
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Vamos <span
                         class="gradient-text">Conversar</span></h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
@@ -1012,12 +1083,6 @@
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-dark-text-medium mb-1">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" required
-                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
-                                placeholder="Descreva sua necessidade em detalhes..."></textarea>
-                        </div>
-                        <div>
                             <button type="submit"
                                 class="w-full bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-[1.02]">
                                 Enviar Mensagem
@@ -1029,7 +1094,7 @@
                 <!-- Informações de Contato -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <div class="p-8 rounded-xl shadow-lg h-full border border-dark-border bg-dark-card-bg">
-                        <h3 class="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
+                        <h3 class="text-2xl font-bold text-dark-header-text mb-6">Informações de Contato</h3>
 
                         <div class="space-y-6">
                             <div class="flex items-start">
@@ -1040,7 +1105,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium text-white">Endereço</h4>
+                                    <h4 class="font-medium text-dark-header-text">Endereço</h4>
                                     <p class="text-dark-text-medium">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
                                     </p>
                                 </div>
@@ -1054,7 +1119,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium text-white">Telefone</h4>
+                                    <h4 class="font-medium text-dark-header-text">Telefone</h4>
                                     <p class="text-dark-text-medium">(11) 99999-9999<br>(11) 99999-9999</p>
                                 </div>
                             </div>
@@ -1067,7 +1132,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium text-white">E-mail</h4>
+                                    <h4 class="font-medium text-dark-header-text">E-mail</h4>
                                     <p class="text-dark-text-medium">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
                                 </div>
                             </div>
@@ -1080,7 +1145,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-medium text-white">Horário de Atendimento</h4>
+                                    <h4 class="font-medium text-dark-header-text">Horário de Atendimento</h4>
                                     <p class="text-dark-text-medium">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
                                 </div>
                             </div>
@@ -1088,7 +1153,7 @@
 
                         <!-- Links de Redes Sociais -->
                         <div class="mt-8">
-                            <h4 class="font-medium text-white mb-4">Siga-nos</h4>
+                            <h4 class="font-medium text-dark-header-text mb-4">Siga-nos</h4>
                             <div class="flex space-x-4">
                                 <a href="#"
                                     class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
@@ -1249,22 +1314,72 @@
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
 
-        // Lógica para o carrossel de depoimentos (simples, pode ser expandido com uma biblioteca)
-        const testimonialCarousel = document.getElementById('testimonial-carousel');
-        const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
+        // --- Lógica para o Carrossel de Depoimentos ---
+        const testimonialCarouselWrapper = document.getElementById('testimonial-carousel-wrapper');
+        const testimonialCards = testimonialCarouselWrapper.querySelectorAll('.testimonial-card');
         const testimonialDotsContainer = document.getElementById('testimonial-dots');
-        let currentTestimonialIndex = 0;
+        const testimonialPrevBtn = document.getElementById('testimonial-prev');
+        const testimonialNextBtn = document.getElementById('testimonial-next');
 
-        function showTestimonial(index) {
-            // Esconde todos os depoimentos
-            testimonialCards.forEach(card => {
-                card.style.display = 'none';
-            });
-            // Mostra o depoimento atual
-            testimonialCards[index].style.display = 'block';
-            updateDots(index);
+        let currentTestimonialIndex = 0;
+        let testimonialsPerView = 1; // Padrão para mobile
+        let autoPlayInterval;
+
+        // Função para atualizar o número de depoimentos visíveis por vez com base no tamanho da tela
+        function updateTestimonialsPerView() {
+            if (window.innerWidth >= 1024) { // Largura para desktop (lg)
+                testimonialsPerView = 3;
+            } else if (window.innerWidth >= 768) { // Largura para tablet (md)
+                testimonialsPerView = 2;
+            } else { // Mobile
+                testimonialsPerView = 1;
+            }
+            showTestimonial(currentTestimonialIndex); // Reajusta a posição do carrossel
+            createDots(); // Recria os dots com base no novo número de slides
         }
 
+        // Função para exibir o depoimento atual
+        function showTestimonial(index) {
+            // Garante que o índice esteja dentro dos limites
+            if (index < 0) {
+                currentTestimonialIndex = Math.ceil(testimonialCards.length / testimonialsPerView) - 1;
+            } else if (index >= Math.ceil(testimonialCards.length / testimonialsPerView)) {
+                currentTestimonialIndex = 0;
+            } else {
+                currentTestimonialIndex = index;
+            }
+
+            // Calcula a translação necessária
+            const translateXValue = -currentTestimonialIndex * (100 / testimonialsPerView);
+            testimonialCarouselWrapper.style.transform = `translateX(${translateXValue}%)`;
+
+            updateDots(currentTestimonialIndex);
+        }
+
+        // Função para ir para o próximo depoimento
+        function nextTestimonial() {
+            showTestimonial(currentTestimonialIndex + 1);
+        }
+
+        // Função para ir para o depoimento anterior
+        function prevTestimonial() {
+            showTestimonial(currentTestimonialIndex - 1);
+        }
+
+        // Função para criar os indicadores (dots) do carrossel
+        function createDots() {
+            testimonialDotsContainer.innerHTML = ''; // Limpa os dots existentes
+            const totalSlides = Math.ceil(testimonialCards.length / testimonialsPerView);
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white', 'transition-all', 'duration-300');
+                dot.addEventListener('click', () => showTestimonial(i));
+                testimonialDotsContainer.appendChild(dot);
+            }
+            updateDots(currentTestimonialIndex);
+        }
+
+        // Função para atualizar o estado dos indicadores (dots)
         function updateDots(index) {
             testimonialDotsContainer.querySelectorAll('button').forEach((dot, i) => {
                 if (i === index) {
@@ -1277,19 +1392,41 @@
             });
         }
 
-        // Cria os botões de navegação (dots) para o carrossel
-        testimonialCards.forEach((_, i) => {
-            const dot = document.createElement('button');
-            dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-white', 'transition-all');
-            dot.classList.add(i === 0 ? 'bg-opacity-100' : 'bg-opacity-20');
-            dot.addEventListener('click', () => showTestimonial(i));
-            testimonialDotsContainer.appendChild(dot);
+        // Inicia o auto-play do carrossel
+        function startAutoPlay() {
+            // Limpa qualquer intervalo existente para evitar duplicação
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+            autoPlayInterval = setInterval(() => {
+                nextTestimonial();
+            }, 5000); // Muda a cada 5 segundos
+        }
+
+        // Para o auto-play
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Adiciona listeners para os botões de navegação
+        testimonialPrevBtn.addEventListener('click', () => {
+            stopAutoPlay(); // Para o auto-play ao interagir manualmente
+            prevTestimonial();
+            startAutoPlay(); // Reinicia o auto-play
+        });
+        testimonialNextBtn.addEventListener('click', () => {
+            stopAutoPlay(); // Para o auto-play ao interagir manualmente
+            nextTestimonial();
+            startAutoPlay(); // Reinicia o auto-play
         });
 
-        // Inicializa o carrossel mostrando o primeiro depoimento
-        if (testimonialCards.length > 0) {
-            showTestimonial(0);
-        }
+        // Inicializa o carrossel na carga da página e no redimensionamento
+        window.addEventListener('load', () => {
+            updateTestimonialsPerView();
+            startAutoPlay();
+        });
+        window.addEventListener('resize', updateTestimonialsPerView);
+
 
         // --- Three.js Background Implementation (Novo Efeito) ---
         let scene, camera, renderer, particles;
