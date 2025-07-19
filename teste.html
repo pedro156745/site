@@ -20,11 +20,12 @@
                         'anpha-blue': '#2563eb',
                         'anpha-orange': '#f97316',
                         'anpha-purple': '#7e22ce',
-                        'dark-bg': '#1a202c', /* Cor de fundo escura */
-                        'dark-card': '#2d3748', /* Cor para cartões em fundo escuro */
-                        'dark-text': '#e2e8f0', /* Cor para texto em fundo escuro */
-                        'dark-bg-transparent': 'rgba(26, 32, 44, 0.85)', /* Fundo escuro semi-transparente */
-                        'dark-card-transparent': 'rgba(45, 55, 72, 0.85)', /* Cartão escuro semi-transparente */
+                        'dark-bg': '#0d1117', /* Fundo principal muito escuro */
+                        // As cores 'dark-section-bg' e 'dark-card-bg' não serão mais usadas diretamente para fundos de seção/card,
+                        // mas mantidas caso você queira adicionar alguma opacidade no futuro.
+                        'dark-text-light': '#e2e8f0', /* Texto claro para fundos escuros */
+                        'dark-text-medium': '#a0aec0', /* Texto médio para detalhes */
+                        'dark-border': '#4a5568', /* Borda para elementos escuros (ainda pode ser usada para bordas de inputs, etc.) */
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -75,7 +76,7 @@
             color: transparent;
         }
 
-        /* Estilo para fundo com gradiente */
+        /* Estilo para fundo com gradiente (mantido para a classe, mas não usado diretamente em seções agora) */
         .gradient-bg {
             background: linear-gradient(135deg, #2563eb, #7e22ce); /* Gradiente de azul para roxo */
         }
@@ -83,7 +84,7 @@
         /* Efeito de hover para cartões */
         .card-hover:hover {
             transform: translateY(-10px); /* Move o cartão para cima no hover */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada e escura */
         }
 
         /* Efeito de rotação para ícones de serviço no hover */
@@ -144,7 +145,7 @@
     </a>
 
     <!-- Navegação Principal -->
-    <nav class="fixed w-full bg-gray-900 shadow-md z-40 transition-all duration-300">
+    <nav class="fixed w-full bg-dark-bg shadow-lg z-40 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
@@ -155,22 +156,22 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
                         <a href="#home"
-                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
                         <a href="#about"
-                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
                         <a href="#services"
-                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
                         <a href="#portfolio"
-                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
                         <a href="#testimonials"
-                            class="text-gray-300 hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
                         <a href="#contact"
                             class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
                     </div>
                 </div>
                 <!-- Botão de Menu para Mobile -->
                 <div class="md:hidden">
-                    <button id="menu-toggle" class="text-gray-300 hover:text-anpha-blue focus:outline-none">
+                    <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
@@ -180,18 +181,18 @@
             </div>
         </div>
         <!-- Menu Mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 shadow-lg">
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-bg shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Início</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
                 <a href="#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
                 <a href="#services"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
                 <a href="#portfolio"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
                 <a href="#testimonials"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
+                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
                 <a href="#contact"
                     class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
             </div>
@@ -207,7 +208,7 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                         Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+                    <p class="text-lg md:text-xl text-dark-text-medium mb-8 max-w-lg">
                         Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus
                         processos.
                     </p>
@@ -251,7 +252,7 @@
     </section>
 
     <!-- Seção de Serviços -->
-    <section id="services" class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section id="services" class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
@@ -265,17 +266,17 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Cartão de Serviço 1: Sites Institucionais -->
                 <div
-                    class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card">
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Sites Institucionais</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem
                         visitantes em clientes.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> Design personalizado
                         </li>
@@ -292,18 +293,18 @@
                 </div>
 
                 <!-- Cartão de Serviço 2: E-commerce -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">E-commerce</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
                         com eficiência.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> Plataformas robustas
                         </li>
@@ -320,18 +321,18 @@
                 </div>
 
                 <!-- Cartão de Serviço 3: Landing Pages -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Landing Pages</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
                         resultados.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> Design persuasivo
                         </li>
@@ -348,17 +349,17 @@
                 </div>
 
                 <!-- Cartão de Serviço 4: Sistemas Personalizados -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.3s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Sistemas Personalizados</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Desenvolvemos sistemas sob medida para automatizar processos e otimizar a gestão do seu negócio.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> Análise de requisitos
                         </li>
@@ -375,18 +376,18 @@
                 </div>
 
                 <!-- Cartão de Serviço 5: Aplicativos Mobile -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.4s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Aplicativos Mobile</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
                         performance.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> Design UI/UX especializado
                         </li>
@@ -403,17 +404,17 @@
                 </div>
 
                 <!-- Cartão de Serviço 6: Marketing Digital -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.5s">
                     <div
                         class="w-20 h-20 gradient-bg rounded-lg flex items-center justify-center text-white text-3xl mb-6 mx-auto service-icon transition-transform duration-500">
                         <i class="fas fa-search-dollar"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Marketing Digital</h3>
-                    <p class="text-gray-300 text-center mb-6">
+                    <p class="text-dark-text-medium text-center mb-6">
                         Estratégias completas para aumentar sua visibilidade online e atrair mais clientes qualificados.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
+                    <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2"></i> SEO técnico e de conteúdo
                         </li>
@@ -432,7 +433,7 @@
 
             <!-- CTA para serviços personalizados -->
             <div class="mt-16 text-center scroll-reveal">
-                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
                     Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
                     personalizadas para atender suas necessidades específicas.
                 </p>
@@ -445,7 +446,7 @@
     </section>
 
     <!-- Seção de Portfólio -->
-    <section id="portfolio" class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section id="portfolio" class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
@@ -454,14 +455,14 @@
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
-                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                <p class="text-dark-text-medium mt-6 max-w-2xl mx-auto">
                     Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Projeto 1 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border">
                     <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
                         alt="Projeto 1"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -479,7 +480,7 @@
                 </div>
 
                 <!-- Projeto 2 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.1s">
                     <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
                         alt="Projeto 2"
@@ -497,7 +498,7 @@
                 </div>
 
                 <!-- Projeto 3 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.2s">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                         alt="Projeto 3"
@@ -516,7 +517,7 @@
                 </div>
 
                 <!-- Projeto 4 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.3s">
                     <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
                         alt="Projeto 4"
@@ -534,7 +535,7 @@
                 </div>
 
                 <!-- Projeto 5 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.4s">
                     <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                         alt="Projeto 5"
@@ -553,7 +554,7 @@
                 </div>
 
                 <!-- Projeto 6 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal"
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.5s">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                         alt="Projeto 6"
@@ -582,7 +583,7 @@
     </section>
 
     <!-- Seção Sobre Nós -->
-    <section id="about" class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section id="about" class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
@@ -596,41 +597,41 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Cartão de Missão -->
                 <div
-                    class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover">
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover border border-dark-border bg-dark-card-bg">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Missão</h3>
-                    <p class="text-gray-300 text-center">
+                    <p class="text-dark-text-medium text-center">
                         Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos
                         clientes, combinando tecnologia de ponta com design excepcional.
                     </p>
                 </div>
 
                 <!-- Cartão de Diferencial -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-star"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Diferencial</h3>
-                    <p class="text-gray-300 text-center">
+                    <p class="text-dark-text-medium text-center">
                         Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e
                         soluções escaláveis que acompanham o crescimento do seu negócio.
                     </p>
                 </div>
 
                 <!-- Cartão de Transformação -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow scroll-reveal card-hover border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.4s">
                     <div
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-white">Transformação</h3>
-                    <p class="text-gray-300 text-center">
+                    <p class="text-dark-text-medium text-center">
                         Transformamos sua presença digital com soluções modernas e personalizadas, que unem estratégia,
                         criatividade e tecnologia para gerar resultados reais e posicionar sua marca de forma sólida no
                         mercado.
@@ -650,7 +651,7 @@
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <h2 class="text-3xl font-bold text-white mb-6">Nossa <span class="gradient-text">Expertise</span>
                     </h2>
-                    <p class="text-gray-300 mb-6">
+                    <p class="text-dark-text-medium mb-6">
                         Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
                         estratégica para empresas que buscam presença online de alto impacto.
                     </p>
@@ -663,7 +664,7 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-300 font-medium">Equipe especializada em tecnologias modernas</p>
+                                <p class="text-dark-text-medium font-medium">Equipe especializada em tecnologias modernas</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -674,7 +675,7 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-300 font-medium">Processos ágeis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -685,7 +686,7 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-300 font-medium">Foco em resultados e experiência do usuário</p>
+                                <p class="text-dark-text-medium font-medium">Foco em resultados e experiência do usuário</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -696,7 +697,7 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-gray-300 font-medium">Suporte contínuo e manutenção especializada</p>
+                                <p class="text-dark-text-medium font-medium">Suporte contínuo e manutenção especializada</p>
                             </div>
                         </div>
                     </div>
@@ -710,12 +711,12 @@
     </section>
 
     <!-- Seção CTA (Call to Action) -->
-    <section class="py-20 gradient-bg">
+    <section class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para <span
                         class="gradient-text">Transformar</span> Seu Negócio?</h2>
-                <p class="text-white opacity-90 text-xl mb-8 max-w-3xl mx-auto">
+                <p class="text-dark-text-medium text-xl mb-8 max-w-3xl mx-auto">
                     Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus
                     resultados.
                 </p>
@@ -734,7 +735,7 @@
     </section>
 
     <!-- Seção FAQ (Perguntas Frequentes) -->
-    <section class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
@@ -747,14 +748,14 @@
 
             <div class="max-w-3xl mx-auto space-y-4">
                 <!-- Item FAQ 1 -->
-                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
                         <h3 class="font-medium text-white">Quanto tempo leva para desenvolver um site?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-300">
+                        <p class="text-dark-text-medium">
                             O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites
                             institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas
                             personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma
@@ -764,7 +765,7 @@
                 </div>
 
                 <!-- Item FAQ 2 -->
-                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -772,7 +773,7 @@
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-300">
+                        <p class="text-dark-text-medium">
                             Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até
                             12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento
                             personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do
@@ -782,7 +783,7 @@
                 </div>
 
                 <!-- Item FAQ 3 -->
-                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -790,7 +791,7 @@
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-300">
+                        <p class="text-dark-text-medium">
                             Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos
                             incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode
                             contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes
@@ -801,7 +802,7 @@
                 </div>
 
                 <!-- Item FAQ 4 -->
-                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.3s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -809,7 +810,7 @@
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-300">
+                        <p class="text-dark-text-medium">
                             Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo
                             estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema
                             markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço
@@ -819,7 +820,7 @@
                 </div>
 
                 <!-- Item FAQ 5 -->
-                <div class="bg-dark-card-transparent border border-gray-700 rounded-xl overflow-hidden scroll-reveal"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.4s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -827,7 +828,7 @@
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
-                        <p class="text-gray-300">
+                        <p class="text-dark-text-medium">
                             Sim, a maioria dos sites que desenvolvemos inclui um painel administrativo (CMS) intuitivo
                             que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem
                             precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem
@@ -840,7 +841,7 @@
 
             <!-- CTA para dúvidas não respondidas -->
             <div class="mt-16 text-center scroll-reveal">
-                <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
                     Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
                 </p>
                 <a href="#contact"
@@ -853,7 +854,7 @@
 
 
     <!-- Seção de Depoimentos -->
-    <section id="testimonials" class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section id="testimonials" class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
@@ -865,7 +866,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonial-carousel">
                 <!-- Depoimento 1 -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                             <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
@@ -873,10 +874,10 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Ana Carolina</h4>
-                            <span class="text-sm text-gray-300">CEO - Empresa X</span>
+                            <span class="text-sm text-dark-text-medium">CEO - Empresa X</span>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic mb-6">
+                    <p class="text-dark-text-medium italic mb-6">
                         "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
                         todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
                     </p>
@@ -890,7 +891,7 @@
                 </div>
 
                 <!-- Depoimento 2 -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -899,10 +900,10 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Ricardo Almeida</h4>
-                            <span class="text-sm text-gray-300">Diretor - Empresa Y</span>
+                            <span class="text-sm text-dark-text-medium">Diretor - Empresa Y</span>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic mb-6">
+                    <p class="text-dark-text-medium italic mb-6">
                         "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
                         operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
                         necessidades."
@@ -917,7 +918,7 @@
                 </div>
 
                 <!-- Depoimento 3 -->
-                <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg scroll-reveal testimonial-card"
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
@@ -926,10 +927,10 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Fernanda Oliveira</h4>
-                            <span class="text-sm text-gray-300">Marketing - Empresa Z</span>
+                            <span class="text-sm text-dark-text-medium">Marketing - Empresa Z</span>
                         </div>
                     </div>
-                    <p class="text-gray-300 italic mb-6">
+                    <p class="text-dark-text-medium italic mb-6">
                         "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
                         landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
                         muito acima da média do setor."
@@ -957,7 +958,7 @@
     </section>
 
     <!-- Seção de Contato -->
-    <section id="contact" class="py-20 bg-dark-bg-transparent text-dark-text">
+    <section id="contact" class="py-20 text-dark-text-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
@@ -966,7 +967,7 @@
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
-                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                <p class="text-dark-text-medium mt-6 max-w-2xl mx-auto">
                     Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais
                     personalizadas.
                 </p>
@@ -978,28 +979,28 @@
                     <form class="space-y-6" action="YOUR_FORM_SUBMISSION_URL" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+                                <label for="name" class="block text-sm font-medium text-dark-text-medium mb-1">Nome</label>
                                 <input type="text" id="name" name="name" required
-                                    class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                    class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="Seu nome completo">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">E-mail</label>
+                                <label for="email" class="block text-sm font-medium text-dark-text-medium mb-1">E-mail</label>
                                 <input type="email" id="email" name="email" required
-                                    class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                    class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="seu@email.com">
                             </div>
                         </div>
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Telefone (opcional)</label>
+                            <label for="phone" class="block text-sm font-medium text-dark-text-medium mb-1">Telefone (opcional)</label>
                             <input type="tel" id="phone" name="phone"
-                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                 placeholder="(XX) XXXXX-XXXX">
                         </div>
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Assunto</label>
+                            <label for="subject" class="block text-sm font-medium text-dark-text-medium mb-1">Assunto</label>
                             <select id="subject" name="subject" required
-                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white">
+                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light">
                                 <option value="" disabled selected>Selecione um assunto</option>
                                 <option value="website">Desenvolvimento de Site</option>
                                 <option value="ecommerce">Loja Virtual</option>
@@ -1011,9 +1012,9 @@
                             </select>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensagem</label>
+                            <label for="message" class="block text-sm font-medium text-dark-text-medium mb-1">Mensagem</label>
                             <textarea id="message" name="message" rows="5" required
-                                class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-gray-800 text-white placeholder-gray-500"
+                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                 placeholder="Descreva sua necessidade em detalhes..."></textarea>
                         </div>
                         <div>
@@ -1027,7 +1028,7 @@
 
                 <!-- Informações de Contato -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <div class="bg-dark-card-transparent p-8 rounded-xl shadow-lg h-full">
+                    <div class="p-8 rounded-xl shadow-lg h-full border border-dark-border bg-dark-card-bg">
                         <h3 class="text-2xl font-bold text-white mb-6">Informações de Contato</h3>
 
                         <div class="space-y-6">
@@ -1040,7 +1041,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-white">Endereço</h4>
-                                    <p class="text-gray-300">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
+                                    <p class="text-dark-text-medium">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
                                     </p>
                                 </div>
                             </div>
@@ -1054,7 +1055,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-white">Telefone</h4>
-                                    <p class="text-gray-300">(11) 99999-9999<br>(11) 99999-9999</p>
+                                    <p class="text-dark-text-medium">(11) 99999-9999<br>(11) 99999-9999</p>
                                 </div>
                             </div>
 
@@ -1067,7 +1068,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-white">E-mail</h4>
-                                    <p class="text-gray-300">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
+                                    <p class="text-dark-text-medium">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
                                 </div>
                             </div>
 
@@ -1080,7 +1081,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-white">Horário de Atendimento</h4>
-                                    <p class="text-gray-300">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
+                                    <p class="text-dark-text-medium">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
                                 </div>
                             </div>
                         </div>
@@ -1090,19 +1091,19 @@
                             <h4 class="font-medium text-white mb-4">Siga-nos</h4>
                             <div class="flex space-x-4">
                                 <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                                 <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                                 <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -1114,7 +1115,7 @@
     </section>
 
     <!-- Rodapé -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <footer class="bg-dark-bg text-dark-text-medium pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Coluna 1: Logo e Descrição -->
@@ -1125,19 +1126,19 @@
                     </p>
                     <div class="flex space-x-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-gray-300 transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -1187,7 +1188,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-3 text-anpha-blue"></i>
-                            <span>Seg-Mex: 09h às 18h</span>
+                            <span>Seg-Sex: 09h às 18h</span>
                         </li>
                     </ul>
                 </div>
@@ -1255,9 +1256,12 @@
         let currentTestimonialIndex = 0;
 
         function showTestimonial(index) {
-            testimonialCards.forEach((card, i) => {
-                card.style.display = (i === index) ? 'block' : 'none'; // Mostra apenas o cartão atual
+            // Esconde todos os depoimentos
+            testimonialCards.forEach(card => {
+                card.style.display = 'none';
             });
+            // Mostra o depoimento atual
+            testimonialCards[index].style.display = 'block';
             updateDots(index);
         }
 
