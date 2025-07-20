@@ -14,20 +14,29 @@
     <script>
         // Configuração do Tailwind CSS para cores e animações personalizadas
         tailwind.config = {
+            darkMode: 'class', // Habilita o modo escuro baseado na classe 'dark' no HTML
             theme: {
                 extend: {
                     colors: {
                         'anpha-blue': '#2563eb',
                         'anpha-orange': '#f97316',
                         'anpha-purple': '#7e22ce',
-                        'dark-bg': '#0d1117', /* Fundo principal muito escuro */
-                        // Aumentei a opacidade para melhor legibilidade do conteúdo sobre o fundo 3D
-                        'dark-section-bg': 'rgba(13, 17, 23, 0.95)', /* Fundo de seção semi-transparente */
-                        'dark-card-bg': 'rgba(45, 55, 72, 0.85)', /* Fundo de cartão semi-transparente */
-                        'dark-text-light': '#e2e8f0', /* Texto claro para fundos escuros */
-                        'dark-text-medium': '#a0aec0', /* Texto médio para detalhes */
-                        'dark-border': '#4a5568', /* Borda para elementos escuros */
-                        'dark-header-text': '#f8fafc', /* Cor para títulos em seções escuras */
+                        // Cores para o modo escuro
+                        'dark-bg': '#0d1117',
+                        'dark-section-bg': 'rgba(13, 17, 23, 0.95)',
+                        'dark-card-bg': 'rgba(45, 55, 72, 0.85)',
+                        'dark-text-light': '#e2e8f0',
+                        'dark-text-medium': '#a0aec0',
+                        'dark-border': '#4a5568',
+                        'dark-header-text': '#f8fafc',
+                        // Cores para o modo claro
+                        'light-bg': '#f0f2f5',
+                        'light-section-bg': 'rgba(255, 255, 255, 0.95)',
+                        'light-card-bg': 'rgba(255, 255, 255, 0.85)',
+                        'light-text-dark': '#1a202c',
+                        'light-text-medium': '#4a5568',
+                        'light-border': '#e2e8f0',
+                        'light-header-text': '#2d3748',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -54,56 +63,57 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-            position: relative; /* Necessário para posicionar o canvas */
-            background-color: #0d1117; /* Cor de fundo padrão para combinar com o Three.js */
+            overflow-x: hidden;
+            position: relative;
+            /* Transições suaves para cores de fundo e texto ao mudar o tema */
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         /* Estilo para o canvas do Three.js */
         #three-bg {
-            position: fixed; /* Fixa o canvas no fundo */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2; /* Coloca o canvas atrás de tudo */
-            background-color: #0d1117; /* Cor de fundo escura para o efeito tecnológico */
+            z-index: -2;
+            /* Removido: background-color: #0d1117; para permitir que o fundo do body apareça */
         }
 
         /* Estilo para texto com gradiente */
         .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316); /* Gradiente de azul para roxo e laranja */
+            background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        /* Estilo para fundo com gradiente (mantido para a classe, mas não usado diretamente em seções agora) */
+        /* Estilo para fundo com gradiente */
         .gradient-bg {
-            background: linear-gradient(135deg, #2563eb, #7e22ce); /* Gradiente de azul para roxo */
+            background: linear-gradient(135deg, #2563eb, #7e22ce);
         }
 
         /* Efeito de hover para cartões */
         .card-hover:hover {
-            transform: translateY(-10px); /* Move o cartão para cima no hover */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada e escura */
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
 
         /* Efeito de rotação para ícones de serviço no hover */
         .service-card:hover .service-icon {
-            transform: rotateY(180deg); /* Gira o ícone no eixo Y */
+            transform: rotateY(180deg);
         }
 
         /* Estilos para animação de "scroll reveal" */
         .scroll-reveal {
-            opacity: 0; /* Começa invisível */
-            transform: translateY(20px); /* Começa ligeiramente abaixo */
-            transition: all 0.6s ease; /* Transição suave para todos os atributos */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
         .scroll-reveal.active {
-            opacity: 1; /* Torna visível */
-            transform: translateY(0); /* Volta à posição original */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Efeito de hover para cartões de depoimento */
@@ -112,7 +122,7 @@
         }
 
         .testimonial-card:hover {
-            transform: scale(1.05); /* Aumenta ligeiramente o cartão no hover */
+            transform: scale(1.05);
         }
 
         /* Animação de pulso para o botão do WhatsApp */
@@ -122,21 +132,110 @@
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra inicial transparente */
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
 
             70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); /* Sombra se expande e fica transparente */
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
 
             100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); /* Volta ao estado inicial */
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
+        }
+
+        /* Estilos para botões com gradiente */
+        .btn-gradient-primary {
+            background-image: linear-gradient(to right, #2563eb 0%, #7e22ce 50%, #f97316 100%);
+            background-size: 200% auto;
+            color: white;
+            transition: background-position 0.5s ease, transform 0.2s ease;
+        }
+
+        .btn-gradient-primary:hover {
+            background-position: right center;
+            transform: scale(1.05);
+        }
+
+        .btn-outline-primary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: scale(1.05);
+        }
+
+
+        /* Estilos específicos para o modo claro */
+        html.light body {
+            background-color: var(--light-bg);
+            color: var(--light-text-dark);
+        }
+
+        html.light .bg-dark-section-bg {
+            background-color: var(--light-section-bg);
+            border-color: var(--light-border);
+        }
+
+        html.light .bg-dark-card-bg {
+            background-color: var(--light-card-bg);
+            border-color: var(--light-border);
+        }
+
+        html.light .text-dark-text-light {
+            color: var(--light-text-dark);
+        }
+
+        html.light .text-dark-text-medium {
+            color: var(--light-text-medium);
+        }
+
+        html.light .text-dark-header-text {
+            color: var(--light-header-text);
+        }
+
+        html.light .border-dark-border {
+            border-color: var(--light-border);
+        }
+
+        html.light .bg-gray-700 {
+            background-color: #cbd5e0;
+        }
+
+        html.light .hover\:bg-gray-700:hover {
+            background-color: #a0aec0;
+        }
+
+        html.light .bg-gray-800 {
+            background-color: #e2e8f0;
+        }
+
+        html.light .text-gray-500 {
+            color: #718096;
+        }
+
+        html.light .border-gray-800 {
+            border-color: #e2e8f0;
+        }
+
+        /* Estilos para o botão de tema no modo claro */
+        html.light #theme-toggle,
+        html.light #theme-toggle-mobile {
+            color: var(--light-text-dark);
+        }
+
+        html.light #theme-toggle:hover,
+        html.light #theme-toggle-mobile:hover {
+            color: var(--anpha-blue);
         }
     </style>
 </head>
 
-<body>
+<body class="bg-dark-bg text-dark-text-light">
     <!-- Canvas para o fundo 3D com Three.js -->
     <canvas id="three-bg"></canvas>
 
@@ -169,10 +268,20 @@
                             class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
                         <a href="#contact"
                             class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
+                        <!-- Botão de Tema -->
+                        <button id="theme-toggle"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <i class="fas fa-sun" id="theme-icon"></i>
+                        </button>
                     </div>
                 </div>
                 <!-- Botão de Menu para Mobile -->
-                <div class="md:hidden">
+                <div class="md:hidden flex items-center">
+                    <!-- Botão de Tema para Mobile -->
+                    <button id="theme-toggle-mobile"
+                        class="text-dark-text-light hover:text-anpha-blue focus:outline-none mr-4">
+                        <i class="fas fa-sun" id="theme-icon-mobile"></i>
+                    </button>
                     <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -207,7 +316,7 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-header-text leading-tight mb-6">
                         Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
                     </h1>
                     <p class="text-lg md:text-xl text-dark-text-medium mb-8 max-w-lg">
@@ -216,11 +325,11 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#contact"
-                            class="bg-anpha-orange hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                             Solicitar Orçamento
                         </a>
                         <a href="#services"
-                            class="border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                            class="btn-outline-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                             Nossos Serviços
                         </a>
                     </div>
@@ -254,7 +363,7 @@
     </section>
 
     <!-- Seção de Serviços -->
-    <section id="services" class="py-20 text-dark-text-light">
+    <section id="services" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
@@ -448,7 +557,7 @@
     </section>
 
     <!-- Seção de Portfólio -->
-    <section id="portfolio" class="py-20 text-dark-text-light">
+    <section id="portfolio" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
@@ -589,7 +698,7 @@
     </section>
 
     <!-- Seção Sobre Nós -->
-    <section id="about" class="py-20 text-dark-text-light">
+    <section id="about" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE NÓS</span>
@@ -670,7 +779,8 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Equipe especializada em tecnologias modernas</p>
+                                <p class="text-dark-text-medium font-medium">Equipe especializada em tecnologias
+                                    modernas</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -681,7 +791,7 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágeis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -692,7 +802,8 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Foco em resultados e experiência do usuário</p>
+                                <p class="text-dark-text-medium font-medium">Foco em resultados e experiência do
+                                    usuário</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -703,7 +814,8 @@
                                 </div>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Suporte contínuo e manutenção especializada</p>
+                                <p class="text-dark-text-medium font-medium">Suporte contínuo e manutenção
+                                    especializada</p>
                             </div>
                         </div>
                     </div>
@@ -717,7 +829,7 @@
     </section>
 
     <!-- Seção CTA (Call to Action) -->
-    <section class="py-20 text-dark-text-light">
+    <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mb-6">Pronto para <span
@@ -741,7 +853,7 @@
     </section>
 
     <!-- Seção FAQ (Perguntas Frequentes) -->
-    <section class="py-20 text-dark-text-light">
+    <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
@@ -754,10 +866,11 @@
 
             <div class="max-w-3xl mx-auto space-y-4">
                 <!-- Item FAQ 1 -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg">
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
-                        <h3 class="font-medium text-white">Quanto tempo leva para desenvolver um site?</h3>
+                        <h3 class="font-medium text-dark-header-text">Quanto tempo leva para desenvolver um site?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
@@ -771,11 +884,12 @@
                 </div>
 
                 <!-- Item FAQ 2 -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
-                        <h3 class="font-medium text-white">Quais são as formas de pagamento?</h3>
+                        <h3 class="font-medium text-dark-header-text">Quais são as formas de pagamento?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
@@ -789,11 +903,12 @@
                 </div>
 
                 <!-- Item FAQ 3 -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
-                        <h3 class="font-medium text-white">Vocês oferecem suporte após o lançamento?</h3>
+                        <h3 class="font-medium text-dark-header-text">Vocês oferecem suporte após o lançamento?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
@@ -808,11 +923,12 @@
                 </div>
 
                 <!-- Item FAQ 4 -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.3s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
-                        <h3 class="font-medium text-white">Meu site será otimizado para SEO?</h3>
+                        <h3 class="font-medium text-dark-header-text">Meu site será otimizado para SEO?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
@@ -826,11 +942,12 @@
                 </div>
 
                 <!-- Item FAQ 5 -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.4s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
-                        <h3 class="font-medium text-white">Posso atualizar o conteúdo do site sozinho?</h3>
+                        <h3 class="font-medium text-dark-header-text">Posso atualizar o conteúdo do site sozinho?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform"></i>
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
@@ -860,13 +977,14 @@
 
 
     <!-- Seção de Depoimentos -->
-    <section id="testimonials" class="py-20 text-dark-text-light">
+    <section id="testimonials" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
-                <span class="text-white font-semibold opacity-80">DEPOIMENTOS</span>
+                <span class="text-anpha-blue font-semibold">DEPOIMENTOS</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">O Que Nossos <span
                         class="gradient-text">Clientes</span> Dizem</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-white via-anpha-orange to-white mx-auto mt-4 rounded-full">
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
             </div>
 
@@ -875,7 +993,8 @@
                 <div id="testimonial-carousel-wrapper" class="flex transition-transform duration-500 ease-in-out">
                     <!-- Depoimento 1 -->
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
-                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                        <div
+                            class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
@@ -887,8 +1006,10 @@
                                 </div>
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
-                                "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram superou
-                                todas as nossas expectativas e já gerou um aumento de 150% em nossos leads qualificados."
+                                "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram
+                                superou
+                                todas as nossas expectativas e já gerou um aumento de 150% em nossos leads
+                                qualificados."
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -902,7 +1023,8 @@
 
                     <!-- Depoimento 2 -->
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
-                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                        <div
+                            class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
@@ -914,8 +1036,10 @@
                                 </div>
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
-                                "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo custos
-                                operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às nossas
+                                "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo
+                                custos
+                                operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às
+                                nossas
                                 necessidades."
                             </p>
                             <div class="flex text-anpha-orange">
@@ -930,7 +1054,8 @@
 
                     <!-- Depoimento 3 -->
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
-                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                        <div
+                            class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
@@ -942,8 +1067,10 @@
                                 </div>
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
-                                "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados excepcionais. A
-                                landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão de 12%,
+                                "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados
+                                excepcionais. A
+                                landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão
+                                de 12%,
                                 muito acima da média do setor."
                             </p>
                             <div class="flex text-anpha-orange">
@@ -958,7 +1085,8 @@
 
                     <!-- Adicione mais depoimentos aqui, se desejar -->
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
-                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                        <div
+                            class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 4"
@@ -970,7 +1098,8 @@
                                 </div>
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
-                                "A equipe da Anphaweb demonstrou um conhecimento técnico impressionante e entregou um projeto
+                                "A equipe da Anphaweb demonstrou um conhecimento técnico impressionante e entregou um
+                                projeto
                                 complexo dentro do prazo e do orçamento. Recomendo fortemente!"
                             </p>
                             <div class="flex text-anpha-orange">
@@ -984,7 +1113,8 @@
                     </div>
 
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
-                        <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
+                        <div
+                            class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Cliente 5"
@@ -996,7 +1126,8 @@
                                 </div>
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
-                                "Minha landing page superou as expectativas de conversão. O design é impecável e a performance
+                                "Minha landing page superou as expectativas de conversão. O design é impecável e a
+                                performance
                                 é excelente. Um investimento que valeu a pena!"
                             </p>
                             <div class="flex text-anpha-orange">
@@ -1029,7 +1160,7 @@
     </section>
 
     <!-- Seção de Contato -->
-    <section id="contact" class="py-20 text-dark-text-light">
+    <section id="contact" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
@@ -1056,20 +1187,23 @@
                                     placeholder="Seu nome completo">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-dark-text-medium mb-1">E-mail</label>
+                                <label for="email"
+                                    class="block text-sm font-medium text-dark-text-medium mb-1">E-mail</label>
                                 <input type="email" id="email" name="email" required
                                     class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="seu@email.com">
                             </div>
                         </div>
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-dark-text-medium mb-1">Telefone (opcional)</label>
+                            <label for="phone" class="block text-sm font-medium text-dark-text-medium mb-1">Telefone
+                                (opcional)</label>
                             <input type="tel" id="phone" name="phone"
                                 class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                 placeholder="(XX) XXXXX-XXXX">
                         </div>
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-dark-text-medium mb-1">Assunto</label>
+                            <label for="subject"
+                                class="block text-sm font-medium text-dark-text-medium mb-1">Assunto</label>
                             <select id="subject" name="subject" required
                                 class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light">
                                 <option value="" disabled selected>Selecione um assunto</option>
@@ -1106,7 +1240,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">Endereço</h4>
-                                    <p class="text-dark-text-medium">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP 00000-000
+                                    <p class="text-dark-text-medium">Rua Exemplo, 123 - Centro<br>São Paulo/SP - CEP
+                                        00000-000
                                     </p>
                                 </div>
                             </div>
@@ -1133,7 +1268,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">E-mail</h4>
-                                    <p class="text-dark-text-medium">contato@anphaweb.com.br<br>comercial@anphaweb.com.br</p>
+                                    <p class="text-dark-text-medium">contato@anphaweb.com.br<br>comercial@anphaweb.com.br
+                                    </p>
                                 </div>
                             </div>
 
@@ -1146,7 +1282,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">Horário de Atendimento</h4>
-                                    <p class="text-dark-text-medium">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h</p>
+                                    <p class="text-dark-text-medium">Segunda a Sexta: 09h às 18h<br>Sábado: 09h às 13h
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1185,7 +1322,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Coluna 1: Logo e Descrição -->
                 <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold text-white mb-6">ANPHAWEB</h3>
+                    <h3 class="text-2xl font-bold text-dark-header-text mb-6">ANPHAWEB</h3>
                     <p class="mb-6">
                         Soluções digitais personalizadas para impulsionar seu negócio na era digital.
                     </p>
@@ -1211,33 +1348,33 @@
 
                 <!-- Coluna 2: Links Rápidos -->
                 <div class="scroll-reveal" style="transition-delay: 0.1s">
-                    <h4 class="text-lg font-semibold text-white mb-6">Links Rápidos</h4>
+                    <h4 class="text-lg font-semibold text-dark-header-text mb-6">Links Rápidos</h4>
                     <ul class="space-y-3">
-                        <li><a href="#home" class="hover:text-white transition-colors">Início</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">Sobre Nós</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Serviços</a></li>
-                        <li><a href="#portfolio" class="hover:text-white transition-colors">Portfólio</a></li>
-                        <li><a href="#testimonials" class="hover:text-white transition-colors">Depoimentos</a></li>
-                        <li><a href="#contact" class="hover:text-white transition-colors">Contato</a></li>
+                        <li><a href="#home" class="hover:text-dark-header-text transition-colors">Início</a></li>
+                        <li><a href="#about" class="hover:text-dark-header-text transition-colors">Sobre Nós</a></li>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="hover:text-dark-header-text transition-colors">Portfólio</a></li>
+                        <li><a href="#testimonials" class="hover:text-dark-header-text transition-colors">Depoimentos</a></li>
+                        <li><a href="#contact" class="hover:text-dark-header-text transition-colors">Contato</a></li>
                     </ul>
                 </div>
 
                 <!-- Coluna 3: Serviços -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <h4 class="text-lg font-semibold text-white mb-6">Serviços</h4>
+                    <h4 class="text-lg font-semibold text-dark-header-text mb-6">Serviços</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-white transition-colors">Sites Institucionais</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">E-commerce</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Landing Pages</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Sistemas Personalizados</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Aplicativos Mobile</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sites Institucionais</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Landing Pages</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sistemas Personalizados</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Aplicativos Mobile</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Marketing Digital</a></li>
                     </ul>
                 </div>
 
                 <!-- Coluna 4: Contato no Rodapé -->
                 <div class="scroll-reveal" style="transition-delay: 0.3s">
-                    <h4 class="text-lg font-semibold text-white mb-6">Contato</h4>
+                    <h4 class="text-lg font-semibold text-dark-header-text mb-6">Contato</h4>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-anpha-blue"></i>
@@ -1265,9 +1402,10 @@
                     &copy; 2023 Anphaweb. Todos os direitos reservados.
                 </p>
                 <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
-                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Política de
+                    <a href="#" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Política de
                         Privacidade</a>
-                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Termos de Serviço</a>
+                    <a href="#" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Termos de
+                        Serviço</a>
                 </div>
             </div>
         </div>
@@ -1437,11 +1575,12 @@
         function initThreeJS() {
             // Cena
             scene = new THREE.Scene();
-            scene.fog = new THREE.Fog(0x0d1117, 1, 300); // Névoa para profundidade
+            // A cor da névoa será ajustada com o tema
+            scene.fog = new THREE.Fog(0x0d1117, 1, 300);
 
             // Câmera
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 150; // Ajusta a posição da câmera para o novo efeito
+            camera.position.z = 150;
 
             // Renderizador
             renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('three-bg') });
@@ -1453,7 +1592,7 @@
             scene.add(ambientLight);
 
             // Geometria de partículas para o efeito de fluxo
-            const particleCount = 2000; // Mais partículas para um efeito de fluxo denso
+            const particleCount = 2000;
             const positions = new Float32Array(particleCount * 3);
             const colors = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
@@ -1483,7 +1622,7 @@
             const pMaterial = new THREE.ShaderMaterial({
                 uniforms: {
                     color: { value: new THREE.Color(0xffffff) },
-                    pointTexture: { value: new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png') } // Textura para as partículas
+                    pointTexture: { value: new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png') }
                 },
                 vertexShader: `
                     attribute float size;
@@ -1502,11 +1641,11 @@
                     varying vec3 vColor;
                     void main() {
                         gl_FragColor = vec4( color * vColor, 1.0 );
-                        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord ); // Aplica a textura
+                        gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
                     }
                 `,
                 blending: THREE.AdditiveBlending,
-                depthTest: false, // Desativa o teste de profundidade para que as partículas não se escondam
+                depthTest: false,
                 transparent: true
             });
 
@@ -1533,36 +1672,94 @@
             requestAnimationFrame(animateThreeJS);
 
             // Movimento da câmera baseado no mouse
-            camera.position.x += (mouseX - camera.position.x) * 0.02; // Movimento mais suave
+            camera.position.x += (mouseX - camera.position.x) * 0.02;
             camera.position.y += (-mouseY - camera.position.y) * 0.02;
             camera.lookAt(scene.position);
 
             // Animação das partículas: movê-las e reiniciá-las
             const positions = particles.geometry.attributes.position.array;
-            const speeds = 0.5; // Velocidade de movimento das partículas
+            const speeds = 0.5;
 
             for (let i = 0; i < positions.length; i += 3) {
-                positions[i + 2] += speeds; // Move as partículas para frente (eixo Z)
+                positions[i + 2] += speeds;
 
-                // Se a partícula sair da tela, reinicia sua posição para o fundo
                 if (positions[i + 2] > camera.position.z) {
-                    positions[i + 2] = (Math.random() * 2 - 1) * 300 - 300; // Reposiciona no fundo
-                    positions[i] = (Math.random() * 2 - 1) * 300; // Nova posição X aleatória
-                    positions[i + 1] = (Math.random() * 2 - 1) * 300; // Nova posição Y aleatória
+                    positions[i + 2] = (Math.random() * 2 - 1) * 300 - 300;
+                    positions[i] = (Math.random() * 2 - 1) * 300;
+                    positions[i + 1] = (Math.random() * 2 - 1) * 300;
                 }
             }
-            particles.geometry.attributes.position.needsUpdate = true; // Notifica Three.js para atualizar a geometria
+            particles.geometry.attributes.position.needsUpdate = true;
 
             renderer.render(scene, camera);
         }
 
-        // Inicializa Three.js quando a janela carregar
+        // --- Lógica de Tema (Claro/Escuro) ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+        const htmlElement = document.documentElement;
+
+        // Função para definir o tema
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeIconMobile.classList.remove('fa-sun');
+                themeIconMobile.classList.add('fa-moon');
+                // Atualiza a cor da névoa do Three.js para o modo escuro
+                if (scene) scene.fog.color.set(0x0d1117);
+            } else {
+                htmlElement.classList.remove('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeIconMobile.classList.remove('fa-moon');
+                themeIconMobile.classList.add('fa-sun');
+                // Atualiza a cor da névoa do Three.js para o modo claro (um cinza claro, por exemplo)
+                if (scene) scene.fog.color.set(0xc0c0c0); // Um cinza claro para o modo claro
+            }
+            localStorage.setItem('theme', theme); // Salva a preferência do usuário
+        }
+
+        // Verifica a preferência do usuário ou do sistema ao carregar a página
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (prefersDark) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        }
+
+        // Event listener para o botão de alternar tema
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+
+        themeToggleMobileBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+
+        // Inicializa Three.js e carrega o tema quando a janela carregar
         window.onload = function () {
             initThreeJS();
             animateThreeJS();
+            loadTheme(); // Carrega o tema após a inicialização do Three.js
         };
-
-        // --- Fim da implementação Three.js ---
     </script>
 </body>
 
