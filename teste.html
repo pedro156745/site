@@ -232,6 +232,127 @@
         html.light #theme-toggle-mobile:hover {
             color: var(--anpha-blue);
         }
+
+        /* Estilos para o modal de Política de Privacidade */
+        .modal {
+            position: fixed; /* Posição fixa na tela */
+            z-index: 1000; /* Acima de outros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Permite rolagem se o conteúdo for grande */
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente escuro */
+            backdrop-filter: blur(8px); /* Efeito de desfoque no fundo */
+            -webkit-backdrop-filter: blur(8px); /* Compatibilidade Safari */
+            display: flex; /* Para centralizar o conteúdo */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            padding: 1rem; /* Espaçamento interno */
+            opacity: 0; /* Inicia transparente para animação */
+            visibility: hidden; /* Oculta completamente o elemento para não bloquear cliques */
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s; /* Transição de opacidade, com atraso para visibility */
+        }
+
+        .modal.show {
+            opacity: 1; /* Torna visível */
+            visibility: visible; /* Torna o elemento visível */
+            transition-delay: 0s; /* Remove o atraso da transição ao mostrar */
+        }
+
+        .modal-content {
+            background-color: var(--dark-bg); /* Fundo totalmente opaco para o modo escuro */
+            backdrop-filter: blur(5px); /* Adiciona um desfoque ao fundo */
+            -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
+            margin: auto;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 700px; /* Reduzindo a largura máxima */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+            position: relative;
+            animation: fadeInScale 0.3s ease-out forwards; /* Animação de entrada */
+            border: 1px solid var(--dark-border); /* Borda sutil */
+            max-height: 90vh; /* Altura máxima para permitir rolagem */
+            overflow-y: auto; /* Rolagem interna para o conteúdo */
+        }
+
+        /* Animação de entrada do modal */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-button {
+            color: var(--dark-text-medium);
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--anpha-blue);
+        }
+
+        /* Estilos para o modo claro no modal */
+        html.light .modal-content {
+            background-color: #ffffff; /* Fundo totalmente opaco para o modo claro */
+            border: 1px solid var(--light-border);
+        }
+
+        html.light .close-button {
+            background-color: transparent; /* O botão não deve ter um fundo sólido no modo claro, se o modal já tem opacidade */
+        }
+
+        /* Estilos para o banner de consentimento de cookies */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 2rem; /* Aumenta a distância da parte inferior */
+            right: 2rem; /* Move para a direita */
+            z-index: 999; /* Abaixo do modal, mas acima do conteúdo normal */
+            background-color: var(--dark-bg); /* Fundo totalmente opaco para o modo escuro */
+            backdrop-filter: blur(5px); /* Adiciona um desfoque ao fundo */
+            -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+            border: 1px solid var(--dark-border);
+            padding: 1.5rem;
+            width: clamp(300px, 90%, 450px);
+            opacity: 0;
+            /* Ajusta a transformação inicial para vir da direita */
+            transform: translateX(100%);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            visibility: hidden; /* Oculta completamente o elemento para não bloquear cliques */
+        }
+
+        #cookie-consent-banner.show {
+            display: block; /* Exibe o banner */
+            opacity: 1;
+            transform: translateX(0); /* Move para a posição visível */
+            visibility: visible; /* Torna o elemento visível */
+        }
+
+        html.light #cookie-consent-banner {
+            background-color: #ffffff; /* Fundo totalmente opaco para o modo claro */
+            border: 1px solid var(--light-border);
+        }
+
+        @media (max-width: 768px) { /* Para telas menores que 768px (md breakpoint) */
+            .modal-content {
+                padding: 1.5rem; /* Menor padding em mobile */
+            }
+        }
     </style>
 </head>
 
@@ -772,11 +893,9 @@
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-dark-text-medium font-medium">Equipe especializada em tecnologias
@@ -784,22 +903,18 @@
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágeis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-dark-text-medium font-medium">Foco em resultados e experiência do
@@ -807,11 +922,9 @@
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
-                                    <i class="fas fa-check text-anpha-blue"></i>
-                                </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-anpha-blue bg-opacity-10 flex items-center justify-center">
+                                <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
                                 <p class="text-dark-text-medium font-medium">Suporte contínuo e manutenção
@@ -1402,7 +1515,7 @@
                     &copy; 2023 Anphaweb. Todos os direitos reservados.
                 </p>
                 <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
-                    <a href="#" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Política de
+                    <a href="#" id="open-privacy-policy" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Política de
                         Privacidade</a>
                     <a href="#" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Termos de
                         Serviço</a>
@@ -1410,6 +1523,103 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal de Política de Privacidade (oculto por padrão) -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-privacy-policy">&times;</span>
+            <h2 class="text-3xl font-bold gradient-text mb-6">Política de Privacidade da Anphaweb</h2>
+
+            <p class="text-dark-text-medium mb-4">
+                A sua privacidade é de extrema importância para a Anphaweb. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso site e serviços. Ao acessar e usar nosso site, você concorda com os termos desta política.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">1. Coleta de Informações</h3>
+            <p class="text-dark-text-medium mb-2">
+                Coletamos informações para fornecer e melhorar nossos serviços. As informações que podemos coletar incluem:
+            </p>
+            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
+                <li><strong>Informações Pessoais:</strong> Nome, e-mail, telefone e outras informações que você nos fornece voluntariamente ao preencher formulários de contato, solicitar orçamentos ou interagir com nossos serviços.</li>
+                <li><strong>Dados de Navegação:</strong> Informações sobre sua visita ao nosso site, como endereço IP, tipo de navegador, páginas visitadas, tempo de permanência, e dados de cookies. Isso nos ajuda a entender como os usuários interagem com o site e aprimorar a experiência.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Uso das Informações</h3>
+            <p class="text-dark-text-medium mb-2">
+                As informações coletadas são utilizadas para as seguintes finalidades:
+            </p>
+            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
+                <li>Responder às suas solicitações e fornecer os serviços que você solicitou.</li>
+                <li>Personalizar sua experiência em nosso site.</li>
+                <li>Melhorar nossos serviços, produtos e o conteúdo do site.</li>
+                <li>Enviar comunicações de marketing (com seu consentimento), como newsletters e promoções.</li>
+                <li>Analisar tendências e monitorar o uso do site.</li>
+                <li>Cumprir obrigações legais e regulatórias.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">3. Compartilhamento de Informações</h3>
+            <p class="text-dark-text-medium mb-4">
+                A Anphaweb não vende, aluga ou compartilha suas informações pessoais com terceiros, exceto nas seguintes situações:
+            </p>
+            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
+                <li>Com prestadores de serviços que atuam em nosso nome (ex: hospedagem de site, ferramentas de análise), sempre sob acordos de confidencialidade.</li>
+                <li>Quando exigido por lei ou ordem judicial.</li>
+                <li>Para proteger os direitos, propriedade ou segurança da Anphaweb, de nossos usuários ou de terceiros.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Cookies e Tecnologias Semelhantes</h3>
+            <p class="text-dark-text-medium mb-4">
+                Utilizamos cookies e outras tecnologias de rastreamento para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar o conteúdo. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade de algumas partes do site.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">5. Segurança das Informações</h3>
+            <p class="text-dark-text-medium mb-4">
+                Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, uso indevido, alteração ou destruição. No entanto, nenhum método de transmissão pela internet ou armazenamento eletrônico é 100% seguro.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">6. Seus Direitos</h3>
+            <p class="text-dark-text-medium mb-4">
+                Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais que mantemos. Para exercer esses direitos, entre em contato conosco através dos canais de contato fornecidos em nosso site.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">7. Links para Sites de Terceiros</h3>
+            <p class="text-dark-text-medium mb-4">
+                Nosso site pode conter links para sites de terceiros. Esta Política de Privacidade não se aplica a esses sites. Recomendamos que você revise as políticas de privacidade de qualquer site de terceiros que visitar.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">8. Alterações a Esta Política de Privacidade</h3>
+            <p class="text-dark-text-medium mb-4">
+                A Anphaweb pode atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou requisitos legais. A versão mais recente estará sempre disponível em nosso site. Recomendamos que você a revise regularmente.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">9. Contato</h3>
+            <p class="text-dark-text-medium mb-4">
+                Se você tiver alguma dúvida sobre esta Política de Privacidade ou sobre nossas práticas de privacidade, entre em contato conosco:
+            </p>
+            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
+                <li><strong>E-mail:</strong> contato@anphaweb.com.br</li>
+                <li><strong>Telefone:</strong> (11) 99999-9999</li>
+            </ul>
+            <p class="text-dark-text-medium text-sm mt-8">
+                Última atualização: 20 de julho de 2025.
+            </p>
+        </div>
+    </div>
+
+    <!-- Banner de Consentimento de Cookies -->
+    <div id="cookie-consent-banner" class="hidden">
+        <h3 class="text-xl font-bold text-dark-header-text mb-3">Aceitar cookies e Privacidade</h3>
+        <p class="text-dark-text-medium mb-4">
+            A Anphaweb utiliza cookies para melhorar sua experiência de navegação, personalizar conteúdos e anúncios, oferecer recursos de redes sociais e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa Política de Privacidade.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+            <button id="accept-cookies-btn" class="bg-anpha-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex-grow">
+                Aceitar cookies
+            </button>
+            <button id="customize-cookies-btn" class="border border-anpha-blue text-anpha-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-anpha-blue hover:text-white transition-colors flex-grow">
+                Personalizar cookies
+            </button>
+        </div>
+    </div>
 
     <script>
         // Lógica para alternar o menu mobile
@@ -1754,11 +1964,97 @@
             }
         });
 
-        // Inicializa Three.js e carrega o tema quando a janela carregar
+        // --- Lógica do Modal de Política de Privacidade ---
+        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+        const closePrivacyPolicyBtn = document.getElementById('close-privacy-policy');
+        const openPrivacyPolicyLink = document.getElementById('open-privacy-policy');
+
+        // Função para abrir o modal de política de privacidade
+        function openPrivacyModal() {
+            privacyPolicyModal.style.display = 'flex'; // Torna o modal visível
+            setTimeout(() => {
+                privacyPolicyModal.classList.add('show'); // Adiciona a classe para animação de opacidade
+            }, 10); // Pequeno atraso para garantir que o display 'flex' seja aplicado antes da transição
+            document.body.style.overflow = 'hidden'; // Impede a rolagem do corpo
+        }
+
+        // Função para fechar o modal de política de privacidade
+        function closePrivacyModal() {
+            privacyPolicyModal.classList.remove('show'); // Remove a classe para animação de opacidade
+            // Espera a transição terminar antes de ocultar completamente e liberar cliques
+            privacyPolicyModal.addEventListener('transitionend', function handler() {
+                privacyPolicyModal.style.display = 'none'; // Oculta o modal completamente
+                document.body.style.overflow = 'auto'; // Restaura a rolagem do corpo
+                privacyPolicyModal.removeEventListener('transitionend', handler);
+            }, { once: true }); // Garante que o evento seja removido após a primeira execução
+        }
+
+        // Event listener para fechar o modal de política de privacidade ao clicar no botão 'x'
+        closePrivacyPolicyBtn.addEventListener('click', closePrivacyModal);
+
+        // Event listener para fechar o modal de política de privacidade ao clicar fora do conteúdo
+        window.addEventListener('click', (event) => {
+            if (event.target === privacyPolicyModal) {
+                closePrivacyModal();
+            }
+        });
+
+        // Event listener para abrir o modal de política de privacidade através do link no rodapé
+        openPrivacyPolicyLink.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede o comportamento padrão do link
+            openPrivacyModal();
+        });
+
+        // --- Lógica do Banner de Consentimento de Cookies ---
+        const cookieConsentBanner = document.getElementById('cookie-consent-banner');
+        const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+        const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
+
+        // Função para exibir o banner de cookies
+        function showCookieBanner() {
+            // Verifica se o usuário já aceitou os cookies antes
+            if (!localStorage.getItem('cookiesAccepted')) {
+                cookieConsentBanner.style.display = 'block'; // Torna o banner visível
+                setTimeout(() => {
+                    cookieConsentBanner.classList.add('show'); // Adiciona a classe para animação
+                }, 10); // Pequeno atraso para garantir que o display 'block' seja aplicado
+            }
+        }
+
+        // Função para esconder o banner de cookies e registrar a aceitação
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieConsentBanner.classList.remove('show');
+            cookieConsentBanner.addEventListener('transitionend', function handler() {
+                cookieConsentBanner.style.display = 'none'; // Oculta o banner completamente
+                cookieConsentBanner.removeEventListener('transitionend', handler);
+            }, { once: true });
+        }
+
+        // Event listener para o botão "Aceitar cookies"
+        acceptCookiesBtn.addEventListener('click', acceptCookies);
+
+        // Event listener para o botão "Personalizar cookies"
+        customizeCookiesBtn.addEventListener('click', () => {
+            cookieConsentBanner.classList.remove('show'); // Esconde o banner
+            cookieConsentBanner.addEventListener('transitionend', function handler() {
+                cookieConsentBanner.style.display = 'none'; // Oculta o banner completamente
+                cookieConsentBanner.removeEventListener('transitionend', handler);
+                openPrivacyModal(); // Abre o modal de política de privacidade após o banner estar totalmente oculto
+            }, { once: true });
+        });
+
+
+        // Inicializa Three.js, carrega o tema e exibe o banner de cookies (se necessário) quando a janela carregar
         window.onload = function () {
             initThreeJS();
             animateThreeJS();
             loadTheme(); // Carrega o tema após a inicialização do Three.js
+
+            // Adiciona um pequeno atraso para a animação do banner ser mais visível
+            setTimeout(() => {
+                showCookieBanner(); // Exibe o banner de cookies
+            }, 500); // 500ms de atraso
         };
     </script>
 </body>
