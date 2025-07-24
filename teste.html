@@ -77,7 +77,6 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            /* Removido: background-color: #0d1117; para permitir que o fundo do body apareça */
         }
 
         /* Estilo para texto com gradiente */
@@ -235,46 +234,71 @@
 
         /* Estilos para o modal de Política de Privacidade */
         .modal {
-            position: fixed; /* Posição fixa na tela */
-            z-index: 1000; /* Acima de outros elementos */
+            position: fixed;
+            /* Posição fixa na tela */
+            z-index: 1000;
+            /* Acima de outros elementos */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* Permite rolagem se o conteúdo for grande */
-            background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente escuro */
-            backdrop-filter: blur(8px); /* Efeito de desfoque no fundo */
-            -webkit-backdrop-filter: blur(8px); /* Compatibilidade Safari */
-            display: flex; /* Para centralizar o conteúdo */
-            align-items: center; /* Centraliza verticalmente */
-            justify-content: center; /* Centraliza horizontalmente */
-            padding: 1rem; /* Espaçamento interno */
-            opacity: 0; /* Inicia transparente para animação */
-            visibility: hidden; /* Oculta completamente o elemento para não bloquear cliques */
-            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s; /* Transição de opacidade, com atraso para visibility */
+            overflow: auto;
+            /* Permite rolagem se o conteúdo for grande */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Fundo semi-transparente escuro */
+            backdrop-filter: blur(8px);
+            /* Efeito de desfoque no fundo */
+            -webkit-backdrop-filter: blur(8px);
+            /* Compatibilidade Safari */
+            display: flex;
+            /* Para centralizar o conteúdo */
+            align-items: center;
+            /* Centraliza verticalmente */
+            justify-content: center;
+            /* Centraliza horizontalmente */
+            padding: 1rem;
+            /* Espaçamento interno */
+            opacity: 0;
+            /* Inicia transparente para animação */
+            visibility: hidden;
+            /* Oculta completamente o elemento para não bloquear cliques */
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            /* Transição de opacidade, com atraso para visibility */
         }
 
         .modal.show {
-            opacity: 1; /* Torna visível */
-            visibility: visible; /* Torna o elemento visível */
-            transition-delay: 0s; /* Remove o atraso da transição ao mostrar */
+            opacity: 1;
+            /* Torna visível */
+            visibility: visible;
+            /* Torna o elemento visível */
+            transition-delay: 0s;
+            /* Remove o atraso da transição ao mostrar */
         }
 
         .modal-content {
-            background-color: var(--dark-bg); /* Fundo totalmente opaco para o modo escuro */
-            backdrop-filter: blur(5px); /* Adiciona um desfoque ao fundo */
-            -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
+            background-color: var(--dark-bg);
+            /* Fundo totalmente opaco para o modo escuro */
+            backdrop-filter: blur(5px);
+            /* Adiciona um desfoque ao fundo */
+            -webkit-backdrop-filter: blur(5px);
+            /* Compatibilidade Safari */
             margin: auto;
             padding: 2.5rem;
             border-radius: 1rem;
             width: 90%;
-            max-width: 700px; /* Reduzindo a largura máxima */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+            max-width: 700px;
+            /* Reduzindo a largura máxima */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            /* Sombra mais pronunciada */
             position: relative;
-            animation: fadeInScale 0.3s ease-out forwards; /* Animação de entrada */
-            border: 1px solid var(--dark-border); /* Borda sutil */
-            max-height: 90vh; /* Altura máxima para permitir rolagem */
-            overflow-y: auto; /* Rolagem interna para o conteúdo */
+            animation: fadeInScale 0.3s ease-out forwards;
+            /* Animação de entrada */
+            border: 1px solid var(--dark-border);
+            /* Borda sutil */
+            max-height: 90vh;
+            /* Altura máxima para permitir rolagem */
+            overflow-y: auto;
+            /* Rolagem interna para o conteúdo */
         }
 
         /* Animação de entrada do modal */
@@ -283,6 +307,7 @@
                 opacity: 0;
                 transform: scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -307,25 +332,34 @@
 
         /* Estilos para o modo claro no modal */
         html.light .modal-content {
-            background-color: #ffffff; /* Fundo totalmente opaco para o modo claro */
+            background-color: #ffffff;
+            /* Fundo totalmente opaco para o modo claro */
             border: 1px solid var(--light-border);
         }
 
         html.light .close-button {
-            background-color: transparent; /* O botão não deve ter um fundo sólido no modo claro, se o modal já tem opacidade */
+            background-color: transparent;
+            /* O botão não deve ter um fundo sólido no modo claro, se o modal já tem opacidade */
         }
 
         /* Estilos para o banner de consentimento de cookies */
         #cookie-consent-banner {
             position: fixed;
-            bottom: 2rem; /* Aumenta a distância da parte inferior */
-            right: 2rem; /* Move para a direita */
-            z-index: 999; /* Abaixo do modal, mas acima do conteúdo normal */
-            background-color: var(--dark-bg); /* Fundo totalmente opaco para o modo escuro */
-            backdrop-filter: blur(5px); /* Adiciona um desfoque ao fundo */
-            -webkit-backdrop-filter: blur(5px); /* Compatibilidade Safari */
+            bottom: 2rem;
+            /* Aumenta a distância da parte inferior */
+            right: 2rem;
+            /* Move para a direita */
+            z-index: 999;
+            /* Abaixo do modal, mas acima do conteúdo normal */
+            background-color: var(--dark-bg);
+            /* Fundo totalmente opaco para o modo escuro */
+            backdrop-filter: blur(5px);
+            /* Adiciona um desfoque ao fundo */
+            -webkit-backdrop-filter: blur(5px);
+            /* Compatibilidade Safari */
             border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            /* Sombra mais pronunciada */
             border: 1px solid var(--dark-border);
             padding: 1.5rem;
             width: clamp(300px, 90%, 450px);
@@ -333,24 +367,32 @@
             /* Ajusta a transformação inicial para vir da direita */
             transform: translateX(100%);
             transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-            visibility: hidden; /* Oculta completamente o elemento para não bloquear cliques */
+            visibility: hidden;
+            /* Oculta completamente o elemento para não bloquear cliques */
         }
 
         #cookie-consent-banner.show {
-            display: block; /* Exibe o banner */
+            display: block;
+            /* Exibe o banner */
             opacity: 1;
-            transform: translateX(0); /* Move para a posição visível */
-            visibility: visible; /* Torna o elemento visível */
+            transform: translateX(0);
+            /* Move para a posição visível */
+            visibility: visible;
+            /* Torna o elemento visível */
         }
 
         html.light #cookie-consent-banner {
-            background-color: #ffffff; /* Fundo totalmente opaco para o modo claro */
+            background-color: #ffffff;
+            /* Fundo totalmente opaco para o modo claro */
             border: 1px solid var(--light-border);
         }
 
-        @media (max-width: 768px) { /* Para telas menores que 768px (md breakpoint) */
+        @media (max-width: 768px) {
+
+            /* Para telas menores que 768px (md breakpoint) */
             .modal-content {
-                padding: 1.5rem; /* Menor padding em mobile */
+                padding: 1.5rem;
+                /* Menor padding em mobile */
             }
         }
     </style>
@@ -361,8 +403,8 @@
     <canvas id="three-bg"></canvas>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/55SEUNUMERO" target="_blank"
-        class="fixed bottom-8 right-8 z-50 whatsapp-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
+    <a href="https://wa.me/5511999999999" target="_blank"
+        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -445,12 +487,10 @@
                         processos.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact"
-                            class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
+                        <a href="#contact" class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                             Solicitar Orçamento
                         </a>
-                        <a href="#services"
-                            class="btn-outline-primary font-medium py-3 px-8 rounded-lg shadow-lg">
+                        <a href="#services" class="btn-outline-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                             Nossos Serviços
                         </a>
                     </div>
@@ -465,7 +505,7 @@
                             class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow">
                         </div>
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Desenvolvimento Web"
+                            alt="Gráfico de dados e análise de negócios"
                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
                     </div>
                 </div>
@@ -671,7 +711,7 @@
                 </p>
                 <a href="#contact"
                     class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Fale com um Especialista
+                    Fale conosco
                 </a>
             </div>
         </div>
@@ -694,9 +734,10 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Projeto 1 -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border">
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border">
                     <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
-                        alt="Projeto 1"
+                        alt="Design de site moderno com elementos gráficos"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -715,7 +756,7 @@
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.1s">
                     <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-                        alt="Projeto 2"
+                        alt="Configuração de e-commerce em um laptop"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -733,7 +774,7 @@
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.2s">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Projeto 3"
+                        alt="Visualização de dados e gráficos em um monitor"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -752,7 +793,7 @@
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.3s">
                     <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
-                        alt="Projeto 4"
+                        alt="Pessoa digitando em um laptop com gráficos de marketing"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -770,7 +811,7 @@
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.4s">
                     <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Projeto 5"
+                        alt="Mãos segurando um smartphone com um aplicativo em exibição"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -789,7 +830,7 @@
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.5s">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Projeto 6"
+                        alt="Pessoa trabalhando em um laptop com código e design de interface"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -802,18 +843,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- CTA para projeto personalizado -->
-            <div class="mt-16 text-center scroll-reveal">
-                <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
-                    Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
-                    personalizadas para atender suas necessidades específicas.
-                </p>
-                <a href="#contact"
-                    class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Fale com um Especialista
-                </a>
             </div>
         </div>
     </section>
@@ -880,12 +909,13 @@
                 <!-- Imagem da Equipe -->
                 <div class="scroll-reveal">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Equipe Anphaweb"
+                        alt="Equipe de trabalho colaborando em um escritório moderno"
                         class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                 </div>
                 <!-- Texto sobre Expertise -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
-                    <h2 class="text-3xl font-bold text-dark-header-text mb-6">Nossa <span class="gradient-text">Expertise</span>
+                    <h2 class="text-3xl font-bold text-dark-header-text mb-6">Nossa <span
+                            class="gradient-text">Expertise</span>
                     </h2>
                     <p class="text-dark-text-medium mb-6">
                         Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
@@ -908,7 +938,7 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágeis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -933,7 +963,7 @@
                         </div>
                     </div>
                     <a href="#contact"
-                        class="mt-8 inline-block bg-anpha-blue hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                        class="btn-gradient-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg mt-6 sm:mt-8">
                         Fale Conosco
                     </a>
                 </div>
@@ -956,7 +986,7 @@
                         class="bg-white hover:bg-gray-100 text-anpha-blue font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105">
                         Solicitar Orçamento
                     </a>
-                    <a href="https://wa.me/55SEUNUMERO" target="_blank"
+                    <a href="https://wa.me/5511999999999" target="_blank"
                         class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
@@ -997,8 +1027,7 @@
                 </div>
 
                 <!-- Item FAQ 2 -->
-                <div
-                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -1016,8 +1045,7 @@
                 </div>
 
                 <!-- Item FAQ 3 -->
-                <div
-                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -1036,8 +1064,7 @@
                 </div>
 
                 <!-- Item FAQ 4 -->
-                <div
-                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.3s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -1055,8 +1082,7 @@
                 </div>
 
                 <!-- Item FAQ 5 -->
-                <div
-                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.4s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700 transition-colors">
@@ -1082,7 +1108,7 @@
                 </p>
                 <a href="#contact"
                     class="bg-anpha-purple hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 inline-block">
-                    Fale com um Especialista
+                    Fale conosco
                 </a>
             </div>
         </div>
@@ -1110,8 +1136,8 @@
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente 1"
-                                        class="w-full h-full object-cover">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg"
+                                        alt="Foto de perfil de Ana Carolina" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Ana Carolina</h4>
@@ -1140,8 +1166,8 @@
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2"
-                                        class="w-full h-full object-cover">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                        alt="Foto de perfil de Ricardo Almeida" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Ricardo Almeida</h4>
@@ -1171,8 +1197,8 @@
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente 3"
-                                        class="w-full h-full object-cover">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg"
+                                        alt="Foto de perfil de Fernanda Oliveira" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Fernanda Oliveira</h4>
@@ -1202,8 +1228,8 @@
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente 4"
-                                        class="w-full h-full object-cover">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg"
+                                        alt="Foto de perfil de João Silva" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">João Silva</h4>
@@ -1230,8 +1256,8 @@
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Cliente 5"
-                                        class="w-full h-full object-cover">
+                                    <img src="https://randomuser.me/api/portraits/women/23.jpg"
+                                        alt="Foto de perfil de Mariana Costa" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Mariana Costa</h4>
@@ -1294,7 +1320,8 @@
                     <form class="space-y-6" action="YOUR_FORM_SUBMISSION_URL" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-dark-text-medium mb-1">Nome</label>
+                                <label for="name"
+                                    class="block text-sm font-medium text-dark-text-medium mb-1">Nome</label>
                                 <input type="text" id="name" name="name" required
                                     class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="Seu nome completo">
@@ -1381,7 +1408,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">E-mail</h4>
-                                    <p class="text-dark-text-medium">contato@anphaweb.com.br<br>comercial@anphaweb.com.br
+                                    <p class="text-dark-text-medium">
+                                        contato@anphaweb.com.br<br>comercial@anphaweb.com.br
                                     </p>
                                 </div>
                             </div>
@@ -1466,8 +1494,10 @@
                         <li><a href="#home" class="hover:text-dark-header-text transition-colors">Início</a></li>
                         <li><a href="#about" class="hover:text-dark-header-text transition-colors">Sobre Nós</a></li>
                         <li><a href="#services" class="hover:text-dark-header-text transition-colors">Serviços</a></li>
-                        <li><a href="#portfolio" class="hover:text-dark-header-text transition-colors">Portfólio</a></li>
-                        <li><a href="#testimonials" class="hover:text-dark-header-text transition-colors">Depoimentos</a></li>
+                        <li><a href="#portfolio" class="hover:text-dark-header-text transition-colors">Portfólio</a>
+                        </li>
+                        <li><a href="#testimonials"
+                                class="hover:text-dark-header-text transition-colors">Depoimentos</a></li>
                         <li><a href="#contact" class="hover:text-dark-header-text transition-colors">Contato</a></li>
                     </ul>
                 </div>
@@ -1476,11 +1506,14 @@
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <h4 class="text-lg font-semibold text-dark-header-text mb-6">Serviços</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sites Institucionais</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sites Institucionais</a>
+                        </li>
                         <li><a href="#" class="hover:text-dark-header-text transition-colors">E-commerce</a></li>
                         <li><a href="#" class="hover:text-dark-header-text transition-colors">Landing Pages</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sistemas Personalizados</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Aplicativos Mobile</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sistemas
+                                Personalizados</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Aplicativos Mobile</a>
+                        </li>
                         <li><a href="#" class="hover:text-dark-header-text transition-colors">Marketing Digital</a></li>
                     </ul>
                 </div>
@@ -1515,7 +1548,8 @@
                     &copy; 2023 Anphaweb. Todos os direitos reservados.
                 </p>
                 <div class="flex space-x-6 scroll-reveal" style="transition-delay: 0.1s">
-                    <a href="#" id="open-privacy-policy" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Política de
+                    <a href="#" id="open-privacy-policy"
+                        class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Política de
                         Privacidade</a>
                     <a href="#" class="text-gray-500 hover:text-dark-header-text text-sm transition-colors">Termos de
                         Serviço</a>
@@ -1531,16 +1565,23 @@
             <h2 class="text-3xl font-bold gradient-text mb-6">Política de Privacidade da Anphaweb</h2>
 
             <p class="text-dark-text-medium mb-4">
-                A sua privacidade é de extrema importância para a Anphaweb. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso site e serviços. Ao acessar e usar nosso site, você concorda com os termos desta política.
+                A sua privacidade é de extrema importância para a Anphaweb. Esta Política de Privacidade descreve como
+                coletamos, usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso site e serviços.
+                Ao acessar e usar nosso site, você concorda com os termos desta política.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">1. Coleta de Informações</h3>
             <p class="text-dark-text-medium mb-2">
-                Coletamos informações para fornecer e melhorar nossos serviços. As informações que podemos coletar incluem:
+                Coletamos informações para fornecer e melhorar nossos serviços. As informações que podemos coletar
+                incluem:
             </p>
             <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li><strong>Informações Pessoais:</strong> Nome, e-mail, telefone e outras informações que você nos fornece voluntariamente ao preencher formulários de contato, solicitar orçamentos ou interagir com nossos serviços.</li>
-                <li><strong>Dados de Navegação:</strong> Informações sobre sua visita ao nosso site, como endereço IP, tipo de navegador, páginas visitadas, tempo de permanência, e dados de cookies. Isso nos ajuda a entender como os usuários interagem com o site e aprimorar a experiência.</li>
+                <li><strong>Informações Pessoais:</strong> Nome, e-mail, telefone e outras informações que você nos
+                    fornece voluntariamente ao preencher formulários de contato, solicitar orçamentos ou interagir com
+                    nossos serviços.</li>
+                <li><strong>Dados de Navegação:</strong> Informações sobre sua visita ao nosso site, como endereço IP,
+                    tipo de navegador, páginas visitadas, tempo de permanência, e dados de cookies. Isso nos ajuda a
+                    entender como os usuários interagem com o site e aprimorar a experiência.</li>
             </ul>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Uso das Informações</h3>
@@ -1558,42 +1599,57 @@
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">3. Compartilhamento de Informações</h3>
             <p class="text-dark-text-medium mb-4">
-                A Anphaweb não vende, aluga ou compartilha suas informações pessoais com terceiros, exceto nas seguintes situações:
+                A Anphaweb não vende, aluga ou compartilha suas informações pessoais com terceiros, exceto nas seguintes
+                situações:
             </p>
             <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li>Com prestadores de serviços que atuam em nosso nome (ex: hospedagem de site, ferramentas de análise), sempre sob acordos de confidencialidade.</li>
+                <li>Com prestadores de serviços que atuam em nosso nome (ex: hospedagem de site, ferramentas de
+                    análise), sempre sob acordos de confidencialidade.</li>
                 <li>Quando exigido por lei ou ordem judicial.</li>
-                <li>Para proteger os direitos, propriedade ou segurança da Anphaweb, de nossos usuários ou de terceiros.</li>
+                <li>Para proteger os direitos, propriedade ou segurança da Anphaweb, de nossos usuários ou de terceiros.
+                </li>
             </ul>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Cookies e Tecnologias Semelhantes</h3>
             <p class="text-dark-text-medium mb-4">
-                Utilizamos cookies e outras tecnologias de rastreamento para melhorar sua experiência de navegação, analisar o tráfego do site e personalizar o conteúdo. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade de algumas partes do site.
+                Utilizamos cookies e outras tecnologias de rastreamento para melhorar sua experiência de navegação,
+                analisar o tráfego do site e personalizar o conteúdo. Você pode configurar seu navegador para recusar
+                cookies, mas isso pode afetar a funcionalidade de algumas partes do site.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">5. Segurança das Informações</h3>
             <p class="text-dark-text-medium mb-4">
-                Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, uso indevido, alteração ou destruição. No entanto, nenhum método de transmissão pela internet ou armazenamento eletrônico é 100% seguro.
+                Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais
+                contra acesso não autorizado, uso indevido, alteração ou destruição. No entanto, nenhum método de
+                transmissão pela internet ou armazenamento eletrônico é 100% seguro.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">6. Seus Direitos</h3>
             <p class="text-dark-text-medium mb-4">
-                Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais que mantemos. Para exercer esses direitos, entre em contato conosco através dos canais de contato fornecidos em nosso site.
+                Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais
+                que mantemos. Para exercer esses direitos, entre em contato conosco através dos canais de contato
+                fornecidos em nosso site.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">7. Links para Sites de Terceiros</h3>
             <p class="text-dark-text-medium mb-4">
-                Nosso site pode conter links para sites de terceiros. Esta Política de Privacidade não se aplica a esses sites. Recomendamos que você revise as políticas de privacidade de qualquer site de terceiros que visitar.
+                Nosso site pode conter links para sites de terceiros. Esta Política de Privacidade não se aplica a esses
+                sites. Recomendamos que você revise as políticas de privacidade de qualquer site de terceiros que
+                visitar.
             </p>
 
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">8. Alterações a Esta Política de Privacidade</h3>
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">8. Alterações a Esta Política de
+                Privacidade</h3>
             <p class="text-dark-text-medium mb-4">
-                A Anphaweb pode atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou requisitos legais. A versão mais recente estará sempre disponível em nosso site. Recomendamos que você a revise regularmente.
+                A Anphaweb pode atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas
+                práticas ou requisitos legais. A versão mais recente estará sempre disponível em nosso site.
+                Recomendamos que você a revise regularmente.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">9. Contato</h3>
             <p class="text-dark-text-medium mb-4">
-                Se você tiver alguma dúvida sobre esta Política de Privacidade ou sobre nossas práticas de privacidade, entre em contato conosco:
+                Se você tiver alguma dúvida sobre esta Política de Privacidade ou sobre nossas práticas de privacidade,
+                entre em contato conosco:
             </p>
             <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
                 <li><strong>E-mail:</strong> contato@anphaweb.com.br</li>
@@ -1609,13 +1665,17 @@
     <div id="cookie-consent-banner" class="hidden">
         <h3 class="text-xl font-bold text-dark-header-text mb-3">Aceitar cookies e Privacidade</h3>
         <p class="text-dark-text-medium mb-4">
-            A Anphaweb utiliza cookies para melhorar sua experiência de navegação, personalizar conteúdos e anúncios, oferecer recursos de redes sociais e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa Política de Privacidade.
+            A Anphaweb utiliza cookies para melhorar sua experiência de navegação, personalizar conteúdos e anúncios,
+            oferecer recursos de redes sociais e analisar o tráfego do site. Ao continuar navegando, você concorda com a
+            nossa Política de Privacidade.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
-            <button id="accept-cookies-btn" class="bg-anpha-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex-grow">
+            <button id="accept-cookies-btn"
+                class="bg-anpha-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex-grow">
                 Aceitar cookies
             </button>
-            <button id="customize-cookies-btn" class="border border-anpha-blue text-anpha-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-anpha-blue hover:text-white transition-colors flex-grow">
+            <button id="customize-cookies-btn"
+                class="border border-anpha-blue text-anpha-blue px-4 py-2 rounded-lg text-sm font-medium hover:bg-anpha-blue hover:text-white transition-colors flex-grow">
                 Personalizar cookies
             </button>
         </div>
@@ -1689,9 +1749,10 @@
         // Função para exibir o depoimento atual
         function showTestimonial(index) {
             // Garante que o índice esteja dentro dos limites
+            const totalSlides = Math.ceil(testimonialCards.length / testimonialsPerView);
             if (index < 0) {
-                currentTestimonialIndex = Math.ceil(testimonialCards.length / testimonialsPerView) - 1;
-            } else if (index >= Math.ceil(testimonialCards.length / testimonialsPerView)) {
+                currentTestimonialIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
                 currentTestimonialIndex = 0;
             } else {
                 currentTestimonialIndex = index;
@@ -1779,14 +1840,15 @@
         // --- Three.js Background Implementation (Novo Efeito) ---
         let scene, camera, renderer, particles;
         let mouseX = 0, mouseY = 0;
-        const windowHalfX = window.innerWidth / 2;
-        const windowHalfY = window.innerHeight / 2;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
 
         function initThreeJS() {
             // Cena
             scene = new THREE.Scene();
             // A cor da névoa será ajustada com o tema
-            scene.fog = new THREE.Fog(0x0d1117, 1, 300);
+            const initialFogColor = htmlElement.classList.contains('dark') ? 0x0d1117 : 0xc0c0c0;
+            scene.fog = new THREE.Fog(initialFogColor, 1, 300);
 
             // Câmera
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -1873,6 +1935,8 @@
         }
 
         function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
