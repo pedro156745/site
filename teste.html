@@ -395,6 +395,29 @@
                 /* Menor padding em mobile */
             }
         }
+
+        /* Estilos para o menu mobile minimalista */
+        #mobile-menu a {
+            /* Remove o fundo azul forte e usa um cinza sutil no hover */
+            background-color: transparent;
+            /* Garante que não há cor de fundo padrão */
+            transition: background-color 0.2s ease;
+            /* Transição suave para o hover */
+        }
+
+        #mobile-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            /* Um cinza muito claro para o hover no modo escuro */
+            /* No modo claro, ajustar para uma cor mais escura */
+        }
+
+        html.light #mobile-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            /* Um cinza muito escuro para o hover no modo claro */
+        }
+
+        /* Ajuste para o item de contato no menu mobile, para não ter o fundo azul forte */
+        /* Removido o estilo específico para .bg-anpha-blue para que ele se comporte como os outros links */
     </style>
 </head>
 
@@ -458,17 +481,17 @@
         <div id="mobile-menu" class="md:hidden hidden bg-dark-section-bg shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
                 <a href="#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
                 <a href="#services"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
                 <a href="#portfolio"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
                 <a href="#testimonials"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
                 <a href="#contact"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-anpha-blue hover:bg-blue-700">Contato</a>
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Contato</a>
             </div>
         </div>
     </nav>
@@ -938,7 +961,7 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágeis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -1686,6 +1709,14 @@
         document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica para fechar o menu mobile ao clicar em um link
+        document.querySelectorAll('#mobile-menu .mobile-menu-link').forEach(link => {
+            link.addEventListener('click', function () {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden'); // Esconde o menu mobile
+            });
         });
 
         // Lógica para alternar o conteúdo das Perguntas Frequentes (FAQ)
