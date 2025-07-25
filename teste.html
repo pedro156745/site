@@ -14,14 +14,13 @@
     <script>
         // Configuração do Tailwind CSS para cores e animações personalizadas
         tailwind.config = {
-            darkMode: 'class', // Habilita o modo escuro baseado na classe 'dark' no HTML
             theme: {
                 extend: {
                     colors: {
                         'anpha-blue': '#2563eb',
                         'anpha-orange': '#f97316',
                         'anpha-purple': '#7e22ce',
-                        // Cores para o modo escuro
+                        // Cores para o modo escuro (mantidas como padrão)
                         'dark-bg': '#0d1117',
                         'dark-section-bg': 'rgba(13, 17, 23, 0.95)',
                         'dark-card-bg': 'rgba(45, 55, 72, 0.85)',
@@ -29,14 +28,6 @@
                         'dark-text-medium': '#a0aec0',
                         'dark-border': '#4a5568',
                         'dark-header-text': '#f8fafc',
-                        // Cores para o modo claro
-                        'light-bg': '#f0f2f5',
-                        'light-section-bg': 'rgba(255, 255, 255, 0.95)',
-                        'light-card-bg': 'rgba(255, 255, 255, 0.85)',
-                        'light-text-dark': '#1a202c',
-                        'light-text-medium': '#4a5568',
-                        'light-border': '#e2e8f0',
-                        'light-header-text': '#2d3748',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -168,70 +159,6 @@
             transform: scale(1.05);
         }
 
-
-        /* Estilos específicos para o modo claro */
-        html.light body {
-            background-color: var(--light-bg);
-            color: var(--light-text-dark);
-        }
-
-        html.light .bg-dark-section-bg {
-            background-color: var(--light-section-bg);
-            border-color: var(--light-border);
-        }
-
-        html.light .bg-dark-card-bg {
-            background-color: var(--light-card-bg);
-            border-color: var(--light-border);
-        }
-
-        html.light .text-dark-text-light {
-            color: var(--light-text-dark);
-        }
-
-        html.light .text-dark-text-medium {
-            color: var(--light-text-medium);
-        }
-
-        html.light .text-dark-header-text {
-            color: var(--light-header-text);
-        }
-
-        html.light .border-dark-border {
-            border-color: var(--light-border);
-        }
-
-        html.light .bg-gray-700 {
-            background-color: #cbd5e0;
-        }
-
-        html.light .hover\:bg-gray-700:hover {
-            background-color: #a0aec0;
-        }
-
-        html.light .bg-gray-800 {
-            background-color: #e2e8f0;
-        }
-
-        html.light .text-gray-500 {
-            color: #718096;
-        }
-
-        html.light .border-gray-800 {
-            border-color: #e2e8f0;
-        }
-
-        /* Estilos para o botão de tema no modo claro */
-        html.light #theme-toggle,
-        html.light #theme-toggle-mobile {
-            color: var(--light-text-dark);
-        }
-
-        html.light #theme-toggle:hover,
-        html.light #theme-toggle-mobile:hover {
-            color: var(--anpha-blue);
-        }
-
         /* Estilos para o modal de Política de Privacidade */
         .modal {
             position: fixed;
@@ -330,18 +257,6 @@
             color: var(--anpha-blue);
         }
 
-        /* Estilos para o modo claro no modal */
-        html.light .modal-content {
-            background-color: #ffffff;
-            /* Fundo totalmente opaco para o modo claro */
-            border: 1px solid var(--light-border);
-        }
-
-        html.light .close-button {
-            background-color: transparent;
-            /* O botão não deve ter um fundo sólido no modo claro, se o modal já tem opacidade */
-        }
-
         /* Estilos para o banner de consentimento de cookies */
         #cookie-consent-banner {
             position: fixed;
@@ -351,8 +266,8 @@
             /* Move para a direita */
             z-index: 999;
             /* Abaixo do modal, mas acima do conteúdo normal */
-            background-color: var(--dark-bg);
-            /* Fundo totalmente opaco para o modo escuro */
+            background-color: rgba(13, 17, 23, 0.95);
+            /* Fundo da navbar */
             backdrop-filter: blur(5px);
             /* Adiciona um desfoque ao fundo */
             -webkit-backdrop-filter: blur(5px);
@@ -381,12 +296,6 @@
             /* Torna o elemento visível */
         }
 
-        html.light #cookie-consent-banner {
-            background-color: #ffffff;
-            /* Fundo totalmente opaco para o modo claro */
-            border: 1px solid var(--light-border);
-        }
-
         @media (max-width: 768px) {
 
             /* Para telas menores que 768px (md breakpoint) */
@@ -408,16 +317,7 @@
         #mobile-menu a:hover {
             background-color: rgba(255, 255, 255, 0.05);
             /* Um cinza muito claro para o hover no modo escuro */
-            /* No modo claro, ajustar para uma cor mais escura */
         }
-
-        html.light #mobile-menu a:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            /* Um cinza muito escuro para o hover no modo claro */
-        }
-
-        /* Ajuste para o item de contato no menu mobile, para não ter o fundo azul forte */
-        /* Removido o estilo específico para .bg-anpha-blue para que ele se comporte como os outros links */
     </style>
 </head>
 
@@ -454,20 +354,10 @@
                             class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
                         <a href="#contact"
                             class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Contato</a>
-                        <!-- Botão de Tema -->
-                        <button id="theme-toggle"
-                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                            <i class="fas fa-sun" id="theme-icon"></i>
-                        </button>
                     </div>
                 </div>
                 <!-- Botão de Menu para Mobile -->
                 <div class="md:hidden flex items-center">
-                    <!-- Botão de Tema para Mobile -->
-                    <button id="theme-toggle-mobile"
-                        class="text-dark-text-light hover:text-anpha-blue focus:outline-none mr-4">
-                        <i class="fas fa-sun" id="theme-icon-mobile"></i>
-                    </button>
                     <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -961,7 +851,7 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágeis e transparentes</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -1588,96 +1478,35 @@
             <h2 class="text-3xl font-bold gradient-text mb-6">Política de Privacidade da Anphaweb</h2>
 
             <p class="text-dark-text-medium mb-4">
-                A sua privacidade é de extrema importância para a Anphaweb. Esta Política de Privacidade descreve como
-                coletamos, usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso site e serviços.
-                Ao acessar e usar nosso site, você concorda com os termos desta política.
+                Sua privacidade é muito importante para nós. Esta política descreve como coletamos, usamos e protegemos
+                suas informações pessoais. Ao usar nosso site, você concorda com esta política.
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">1. Coleta de Informações</h3>
             <p class="text-dark-text-medium mb-2">
-                Coletamos informações para fornecer e melhorar nossos serviços. As informações que podemos coletar
-                incluem:
+                Coletamos informações que você nos fornece (nome, e-mail, telefone em formulários) e dados de navegação
+                (endereço IP, páginas visitadas, cookies) para melhorar sua experiência e nossos serviços.
             </p>
-            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li><strong>Informações Pessoais:</strong> Nome, e-mail, telefone e outras informações que você nos
-                    fornece voluntariamente ao preencher formulários de contato, solicitar orçamentos ou interagir com
-                    nossos serviços.</li>
-                <li><strong>Dados de Navegação:</strong> Informações sobre sua visita ao nosso site, como endereço IP,
-                    tipo de navegador, páginas visitadas, tempo de permanência, e dados de cookies. Isso nos ajuda a
-                    entender como os usuários interagem com o site e aprimorar a experiência.</li>
-            </ul>
 
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Uso das Informações</h3>
-            <p class="text-dark-text-medium mb-2">
-                As informações coletadas são utilizadas para as seguintes finalidades:
-            </p>
-            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li>Responder às suas solicitações e fornecer os serviços que você solicitou.</li>
-                <li>Personalizar sua experiência em nosso site.</li>
-                <li>Melhorar nossos serviços, produtos e o conteúdo do site.</li>
-                <li>Enviar comunicações de marketing (com seu consentimento), como newsletters e promoções.</li>
-                <li>Analisar tendências e monitorar o uso do site.</li>
-                <li>Cumprir obrigações legais e regulatórias.</li>
-            </ul>
-
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">3. Compartilhamento de Informações</h3>
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Uso e Compartilhamento</h3>
             <p class="text-dark-text-medium mb-4">
-                A Anphaweb não vende, aluga ou compartilha suas informações pessoais com terceiros, exceto nas seguintes
-                situações:
-            </p>
-            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li>Com prestadores de serviços que atuam em nosso nome (ex: hospedagem de site, ferramentas de
-                    análise), sempre sob acordos de confidencialidade.</li>
-                <li>Quando exigido por lei ou ordem judicial.</li>
-                <li>Para proteger os direitos, propriedade ou segurança da Anphaweb, de nossos usuários ou de terceiros.
-                </li>
-            </ul>
-
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Cookies e Tecnologias Semelhantes</h3>
-            <p class="text-dark-text-medium mb-4">
-                Utilizamos cookies e outras tecnologias de rastreamento para melhorar sua experiência de navegação,
-                analisar o tráfego do site e personalizar o conteúdo. Você pode configurar seu navegador para recusar
-                cookies, mas isso pode afetar a funcionalidade de algumas partes do site.
+                Usamos suas informações para responder a solicitações, personalizar sua experiência, melhorar nossos
+                serviços e, com seu consentimento, enviar comunicações de marketing. Não vendemos ou alugamos seus dados
+                a terceiros, exceto para prestadores de serviços sob confidencialidade ou quando exigido por lei.
             </p>
 
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">5. Segurança das Informações</h3>
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">3. Cookies e Segurança</h3>
             <p class="text-dark-text-medium mb-4">
-                Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais
-                contra acesso não autorizado, uso indevido, alteração ou destruição. No entanto, nenhum método de
-                transmissão pela internet ou armazenamento eletrônico é 100% seguro.
+                Utilizamos cookies para otimizar a navegação. Você pode desativá-los no seu navegador. Implementamos
+                medidas de segurança para proteger suas informações, mas lembre-se que nenhuma transmissão online é 100%
+                segura.
             </p>
 
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">6. Seus Direitos</h3>
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Seus Direitos e Contato</h3>
             <p class="text-dark-text-medium mb-4">
-                Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais
-                que mantemos. Para exercer esses direitos, entre em contato conosco através dos canais de contato
-                fornecidos em nosso site.
+                Você pode acessar, corrigir ou solicitar a exclusão de suas informações. Para isso ou outras dúvidas,
+                entre em contato pelo e-mail contato@anphaweb.com.br ou telefone (11) 99999-9999.
             </p>
-
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">7. Links para Sites de Terceiros</h3>
-            <p class="text-dark-text-medium mb-4">
-                Nosso site pode conter links para sites de terceiros. Esta Política de Privacidade não se aplica a esses
-                sites. Recomendamos que você revise as políticas de privacidade de qualquer site de terceiros que
-                visitar.
-            </p>
-
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">8. Alterações a Esta Política de
-                Privacidade</h3>
-            <p class="text-dark-text-medium mb-4">
-                A Anphaweb pode atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas
-                práticas ou requisitos legais. A versão mais recente estará sempre disponível em nosso site.
-                Recomendamos que você a revise regularmente.
-            </p>
-
-            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">9. Contato</h3>
-            <p class="text-dark-text-medium mb-4">
-                Se você tiver alguma dúvida sobre esta Política de Privacidade ou sobre nossas práticas de privacidade,
-                entre em contato conosco:
-            </p>
-            <ul class="list-disc list-inside text-dark-text-medium mb-4 pl-4">
-                <li><strong>E-mail:</strong> contato@anphaweb.com.br</li>
-                <li><strong>Telefone:</strong> (11) 99999-9999</li>
-            </ul>
             <p class="text-dark-text-medium text-sm mt-8">
                 Última atualização: 20 de julho de 2025.
             </p>
@@ -1877,8 +1706,8 @@
         function initThreeJS() {
             // Cena
             scene = new THREE.Scene();
-            // A cor da névoa será ajustada com o tema
-            const initialFogColor = htmlElement.classList.contains('dark') ? 0x0d1117 : 0xc0c0c0;
+            // A cor da névoa será ajustada para o modo escuro
+            const initialFogColor = 0x0d1117;
             scene.fog = new THREE.Fog(initialFogColor, 1, 300);
 
             // Câmera
@@ -1999,66 +1828,6 @@
             renderer.render(scene, camera);
         }
 
-        // --- Lógica de Tema (Claro/Escuro) ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-        const themeIcon = document.getElementById('theme-icon');
-        const themeIconMobile = document.getElementById('theme-icon-mobile');
-        const htmlElement = document.documentElement;
-
-        // Função para definir o tema
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                htmlElement.classList.add('dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                themeIconMobile.classList.remove('fa-sun');
-                themeIconMobile.classList.add('fa-moon');
-                // Atualiza a cor da névoa do Three.js para o modo escuro
-                if (scene) scene.fog.color.set(0x0d1117);
-            } else {
-                htmlElement.classList.remove('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                themeIconMobile.classList.remove('fa-moon');
-                themeIconMobile.classList.add('fa-sun');
-                // Atualiza a cor da névoa do Three.js para o modo claro (um cinza claro, por exemplo)
-                if (scene) scene.fog.color.set(0xc0c0c0); // Um cinza claro para o modo claro
-            }
-            localStorage.setItem('theme', theme); // Salva a preferência do usuário
-        }
-
-        // Verifica a preferência do usuário ou do sistema ao carregar a página
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (savedTheme) {
-                setTheme(savedTheme);
-            } else if (prefersDark) {
-                setTheme('dark');
-            } else {
-                setTheme('light');
-            }
-        }
-
-        // Event listener para o botão de alternar tema
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
-        });
-
-        themeToggleMobileBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
-        });
-
         // --- Lógica do Modal de Política de Privacidade ---
         const privacyPolicyModal = document.getElementById('privacy-policy-modal');
         const closePrivacyPolicyBtn = document.getElementById('close-privacy-policy');
@@ -2140,11 +1909,10 @@
         });
 
 
-        // Inicializa Three.js, carrega o tema e exibe o banner de cookies (se necessário) quando a janela carregar
+        // Inicializa Three.js e exibe o banner de cookies (se necessário) quando a janela carregar
         window.onload = function () {
             initThreeJS();
             animateThreeJS();
-            loadTheme(); // Carrega o tema após a inicialização do Three.js
 
             // Adiciona um pequeno atraso para a animação do banner ser mais visível
             setTimeout(() => {
