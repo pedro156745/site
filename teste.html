@@ -1266,7 +1266,8 @@
                 <!-- Formulário de Contato -->
                 <div class="scroll-reveal">
                     <!-- Ação do formulário para um serviço de backend ou Formspree -->
-                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/yourformid" method="POST"> <!-- Substitua 'yourformid' pelo seu ID do Formspree -->
+                    <!-- IMPORTANTE: Substitua 'yourformid' pelo seu ID real do Formspree para que o formulário funcione. -->
+                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/mvgqrpyb" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name"
@@ -1995,6 +1996,13 @@
             formData.forEach((value, key) => {
                 object[key] = value;
             });
+
+            // Adiciona o texto da opção selecionada do select de assunto
+            const subjectSelect = document.getElementById('subject');
+            if (subjectSelect && subjectSelect.options[subjectSelect.selectedIndex]) {
+                object['subject_text'] = subjectSelect.options[subjectSelect.selectedIndex].text;
+            }
+
             const json = JSON.stringify(object);
 
             try {
