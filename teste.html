@@ -4,20 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anphaweb - Criação de Sites e Sistemas Personalizados</title>
-    <!-- Meta Description para SEO -->
-    <meta name="description" content="Anphaweb: Criação de sites, e-commerce, sistemas personalizados e marketing digital para impulsionar seu negócio. Soluções digitais inovadoras e sob medida.">
-    
-    <!-- Open Graph Tags para redes sociais -->
-    <meta property="og:title" content="Anphaweb - Soluções Digitais Personalizadas">
-    <meta property="og:description" content="Criação de sites, e-commerce, sistemas e apps. Impulsione seu negócio com a Anphaweb.">
-    <meta property="og:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb"> <!-- Substitua pela URL da sua imagem para compartilhamento -->
-    <meta property="og:url" content="https://www.anphaweb.com.br"> <!-- URL do site -->
+    <title>Anphaweb - Soluções Digitais Personalizadas para o Seu Negócio</title>
+    <!-- Meta Description para SEO aprimorada -->
+    <meta name="description"
+        content="Anphaweb: Seu parceiro em criação de sites, e-commerce, sistemas personalizados e marketing digital. Impulsione seu negócio com soluções digitais inovadoras e sob medida que geram resultados.">
+
+    <!-- Open Graph Tags para redes sociais aprimoradas -->
+    <meta property="og:title" content="Anphaweb - Soluções Digitais que Geram Resultados">
+    <meta property="og:description"
+        content="Criação de sites, e-commerce, sistemas e apps. Impulsione seu negócio com a Anphaweb.">
+    <!-- Substitua pela URL da sua imagem para compartilhamento (ex: logo ou imagem de destaque) -->
+    <meta property="og:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb_Social_Share">
+    <meta property="og:url" content="https://www.anphaweb.com.br"> <!-- URL real do seu site -->
     <meta property="og:type" content="website">
 
-    <!-- Favicon - Use um nome de arquivo mais profissional -->
-    <link rel="icon" href="Anphaweb_favicon.png" type="image/x-icon"> <!-- Substitua por sua logo final e nome de arquivo -->
+    <!-- Favicon - Use um nome de arquivo mais profissional e substitua pelo seu -->
+    <link rel="icon" href="Anphaweb_favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="Anphaweb_favicon.png" type="image/x-icon">
+
+    <!-- Otimização de Fontes: Pré-carregamento da fonte Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Inclui o Tailwind CSS para estilização rápida e responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,6 +34,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Inclui Three.js para o fundo 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Schema Markup para a Organização (Anphaweb) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Anphaweb",
+      "url": "https://www.anphaweb.com.br",
+      "logo": "https://www.anphaweb.com.br/Anphaweb_logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-98765-4321",
+        "contactType": "customer service",
+        "email": "contato@anphaweb.com.br"
+      },
+      "sameAs": [
+        "https://www.facebook.com/anphaweb",
+        "https://www.instagram.com/anphaweb",
+        "https://www.linkedin.com/company/anphaweb",
+        "https://www.youtube.com/anphaweb"
+      ]
+    }
+    </script>
+    <!-- Schema Markup para um Serviço de Exemplo (Sites Institucionais) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Criação de Sites Institucionais",
+      "description": "Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem visitantes em clientes.",
+      "serviceType": "Web Design",
+      "provider": {
+        "@type": "Organization",
+        "name": "Anphaweb",
+        "url": "https://www.anphaweb.com.br"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Brasil"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "BRL",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceType": "Estimate",
+          "unitText": "Project"
+        }
+      }
+    }
+    </script>
+
     <script>
         // Configuração do Tailwind CSS para cores e animações personalizadas
         tailwind.config = {
@@ -63,7 +124,7 @@
         }
     </script>
     <style>
-        /* Importa a fonte Poppins do Google Fonts */
+        /* Importa a fonte Poppins do Google Fonts (já otimizado com preconnect no head) */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         body {
@@ -173,7 +234,7 @@
             transform: scale(1.05);
         }
 
-        /* Estilos para o modal de Política de Privacidade */
+        /* Estilos para o modal de Política de Privacidade e Termos de Serviço */
         .modal {
             position: fixed;
             /* Posição fixa na tela */
@@ -340,7 +401,7 @@
     <canvas id="three-bg"></canvas>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511999999999" target="_blank"
+    <a href="https://wa.me/5511987654321?text=Olá! Gostaria de um orçamento para um projeto digital." target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -350,9 +411,8 @@
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Logo da Empresa -->
-                    <img src="Anphaweb_logo.png" alt="Logo da Empresa Anphaweb"
-                        class="h-12 w-auto max-h-12 mr-1">
+                    <!-- Logo da Empresa - Substitua pelo seu arquivo de logo real -->
+                    <img src="Anphaweb_logo.png" alt="Logo da Empresa Anphaweb" class="h-12 w-auto max-h-12 mr-1">
                     <!-- Nome da Empresa -->
                     <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
                 </div>
@@ -410,18 +470,18 @@
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-header-text leading-tight mb-6">
-                        Soluções Digitais <span class="gradient-text">Personalizadas</span> para o Seu Negócio
+                        Transformamos Sua Visão em <span class="gradient-text">Realidade Digital</span>
                     </h1>
                     <p class="text-lg md:text-xl text-dark-text-medium mb-8 max-w-lg">
-                        Criamos sites e sistemas sob medida para impulsionar sua presença online e otimizar seus
-                        processos.
+                        Criamos sites, e-commerce e sistemas sob medida que impulsionam sua presença online e otimizam
+                        seus processos para gerar resultados reais.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#contact" class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
-                            Solicitar Orçamento
+                            Receba uma Consultoria Gratuita
                         </a>
                         <a href="#services" class="btn-outline-primary font-medium py-3 px-8 rounded-lg shadow-lg">
-                            Nossos Serviços
+                            Conheça Nossos Serviços
                         </a>
                     </div>
                 </div>
@@ -434,10 +494,10 @@
                         <div
                             class="absolute -bottom-10 -right-10 w-40 h-40 bg-anpha-orange rounded-full opacity-20 animate-pulse-slow">
                         </div>
-                        <!-- Imagem otimizada com lazy loading e placeholder -->
-                        <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb"
+                        <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                        <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Solucoes_Digitais_Anphaweb"
                             data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Gráfico de dados e análise de negócios"
+                            alt="Gráfico de dados e análise de negócios, representando o sucesso digital"
                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500 lazyload">
                     </div>
                 </div>
@@ -478,20 +538,21 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sites Institucionais</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e convertem
-                        visitantes em clientes.
+                        visitantes em clientes. Ideal para empresas que buscam credibilidade e uma presença online
+                        profissional.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design personalizado
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design personalizado e único
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Totalmente responsivo
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Totalmente responsivo (mobile-first)
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO otimizado
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO otimizado para buscas
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integrações diversas
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integrações com ferramentas de marketing
                         </li>
                     </ul>
                 </div>
@@ -506,20 +567,21 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">E-commerce</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
-                        com eficiência.
+                        com eficiência. Perfeito para quem quer expandir seu negócio para o ambiente digital e alcançar
+                        mais clientes.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Plataformas robustas
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Plataformas robustas e escaláveis
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gateway de pagamento
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gateway de pagamento seguro
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de estoque
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de estoque e pedidos simplificada
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios avançados
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios de vendas e desempenho
                         </li>
                     </ul>
                 </div>
@@ -534,20 +596,20 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Landing Pages</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
-                        resultados.
+                        resultados de marketing e capturar leads qualificados.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design persuasivo
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design persuasivo e focado em conversão
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Testes A/B integrados
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Testes A/B para otimização contínua
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Formulários otimizados
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Formulários otimizados para captura de dados
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Analytics integrado
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Analytics integrado para monitoramento
                         </li>
                     </ul>
                 </div>
@@ -561,20 +623,22 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sistemas Personalizados</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Desenvolvemos sistemas sob medida para automatizar processos e otimizar a gestão do seu negócio.
+                        Desenvolvemos sistemas sob medida para automatizar processos internos, otimizar a gestão e
+                        aumentar a eficiência do seu negócio. Soluções que se encaixam perfeitamente nas suas
+                        necessidades.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Análise de requisitos
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Análise de requisitos e consultoria
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento ágil
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento ágil e iterativo
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Banco de dados seguro
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Banco de dados seguro e robusto
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Treinamento incluso
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Treinamento e suporte completo
                         </li>
                     </ul>
                 </div>
@@ -589,20 +653,20 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Aplicativos Mobile</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
-                        performance.
+                        performance. Leve sua marca para o bolso dos seus clientes e ofereça uma nova experiência.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design UI/UX especializado
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Design UI/UX focado no usuário
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento nativo
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Desenvolvimento nativo ou híbrido
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integração com APIs
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Integração com APIs e sistemas existentes
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Publicação nas lojas
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Publicação e otimização nas lojas
                         </li>
                     </ul>
                 </div>
@@ -616,20 +680,21 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Estratégias completas para aumentar sua visibilidade online e atrair mais clientes qualificados.
+                        Estratégias completas para aumentar sua visibilidade online, atrair mais clientes qualificados
+                        e impulsionar suas vendas através de canais digitais.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO técnico e de conteúdo
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> SEO técnico e de conteúdo avançado
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Campanhas de links patrocinados
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Campanhas de links patrocinados (Google Ads)
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de redes sociais
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Gestão de redes sociais e conteúdo
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios de performance
+                            <i class="fas fa-check text-anpha-blue mr-2"></i> Relatórios de performance e ROI
                         </li>
                     </ul>
                 </div>
@@ -639,11 +704,11 @@
             <div class="mt-16 text-center scroll-reveal">
                 <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
                     Não encontrou o serviço que precisa? Nossa equipe está pronta para desenvolver soluções totalmente
-                    personalizadas para atender suas necessidades específicas.
+                    personalizadas para atender suas necessidades específicas e superar suas expectativas.
                 </p>
                 <a href="#contact"
                     class="btn-gradient-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg mt-6 sm:mt-8">
-                    Fale Conosco
+                    Fale Conosco para uma Solução Sob Medida
                 </a>
             </div>
         </div>
@@ -655,12 +720,13 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PORTFÓLIO</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Nossos <span
-                        class="gradient-text">Trabalhos</span></h2>
+                        class="gradient-text">Trabalhos</span> de Destaque</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
                 <p class="text-dark-text-medium mt-6 max-w-2xl mx-auto">
-                    Confira alguns dos projetos que desenvolvemos para nossos clientes em diversos segmentos.
+                    Confira alguns dos projetos de sucesso que desenvolvemos para nossos clientes em diversos
+                    segmentos, transformando ideias em resultados.
                 </p>
             </div>
 
@@ -668,20 +734,20 @@
                 <!-- Projeto 1 -->
                 <div
                     class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1636x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1636x800/2563eb/ffffff?text=Site_Institucional_Empresa_X"
                         data-src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80"
-                        alt="Design de site moderno com elementos gráficos"
+                        alt="Design de site moderno com elementos gráficos e layout responsivo"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Site Institucional - Empresa X</h3>
                             <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas
-                                internos.</p>
+                                internos, focado em alta performance e experiência do usuário.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
@@ -689,19 +755,20 @@
                 <!-- Projeto 2 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.1s">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1469x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1469x800/2563eb/ffffff?text=E-commerce_Loja_Y"
                         data-src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-                        alt="Configuração de e-commerce em um laptop"
+                        alt="Configuração de e-commerce em um laptop, mostrando produtos e carrinho de compras"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">E-commerce - Loja Y</h3>
-                            <p class="text-gray-200 mb-4">Plataforma de vendas com integração de pagamentos e ERP.</p>
+                            <p class="text-gray-200 mb-4">Plataforma de vendas robusta com integração de pagamentos e
+                                ERP, resultando em aumento de 40% nas vendas online.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
@@ -709,20 +776,20 @@
                 <!-- Projeto 3 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.2s">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Sistema_Gestao_Empresa_Z"
                         data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Visualização de dados e gráficos em um monitor"
+                        alt="Visualização de dados e gráficos em um monitor, representando um sistema de gestão"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Sistema de Gestão - Empresa Z</h3>
-                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos.
-                            </p>
+                            <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos,
+                                otimizando a gestão de equipe e recursos em 25%.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
@@ -730,19 +797,20 @@
                 <!-- Projeto 4 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.3s">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1528x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1528x800/2563eb/ffffff?text=Landing_Page_Campanha_A"
                         data-src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
-                        alt="Pessoa digitando em um laptop com gráficos de marketing"
+                        alt="Pessoa digitando em um laptop com gráficos de marketing, simbolizando uma landing page"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Landing Page - Campanha A</h3>
-                            <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto.</p>
+                            <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto, gerando
+                                12% de taxa de conversão em leads qualificados.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
@@ -750,20 +818,20 @@
                 <!-- Projeto 5 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.4s">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=App_Mobile_Startup_B"
                         data-src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Mãos segurando um smartphone com um aplicativo em exibição"
+                        alt="Mãos segurando um smartphone com um aplicativo em exibição, representando um app mobile"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">App Mobile - Startup B</h3>
-                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável.
-                            </p>
+                            <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável,
+                                melhorando a interação com clientes e a retenção em 20%.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
@@ -771,22 +839,33 @@
                 <!-- Projeto 6 -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border"
                     style="transition-delay: 0.5s">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Redesign_Portal_C"
                         data-src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Pessoa trabalhando em um laptop com código e design de interface"
+                        alt="Pessoa trabalhando em um laptop com código e design de interface, simbolizando um redesign"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
                         <div>
                             <h3 class="text-white text-xl font-bold mb-2">Redesign - Portal C</h3>
-                            <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade.</p>
+                            <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade, resultando em
+                                uma experiência do usuário aprimorada e maior engajamento.</p>
                             <a href="#"
-                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver
-                                detalhes →</a>
+                                class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
+                                de Sucesso →</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- CTA para ver mais projetos ou entrar em contato -->
+            <div class="mt-16 text-center scroll-reveal">
+                <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
+                    Quer ver mais exemplos do nosso trabalho ou discutir um projeto específico?
+                </p>
+                <a href="#contact"
+                    class="btn-gradient-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg mt-6 sm:mt-8">
+                    Solicitar uma Demonstração
+                </a>
             </div>
         </div>
     </section>
@@ -811,10 +890,10 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Missão</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Nossa Missão</h3>
                     <p class="text-dark-text-medium text-center">
                         Oferecer soluções digitais inovadoras e personalizadas que impulsionem o crescimento dos nossos
-                        clientes, combinando tecnologia de ponta com design excepcional.
+                        clientes, combinando tecnologia de ponta com design excepcional e foco em resultados.
                     </p>
                 </div>
 
@@ -825,10 +904,11 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Diferencial</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Nosso Diferencial</h3>
                     <p class="text-dark-text-medium text-center">
                         Combinamos design impactante com funcionalidades robustas, oferecendo suporte contínuo e
-                        soluções escaláveis que acompanham o crescimento do seu negócio.
+                        soluções escaláveis que acompanham o crescimento do seu negócio, garantindo um parceiro de longo
+                        prazo.
                     </p>
                 </div>
 
@@ -839,7 +919,7 @@
                         class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center text-white text-2xl mb-6 mx-auto">
                         <i class="fas fa-sync-alt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Transformação</h3>
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">O Impacto que Geramos</h3>
                     <p class="text-dark-text-medium text-center">
                         Transformamos sua presença digital com soluções modernas e personalizadas, que unem estratégia,
                         criatividade e tecnologia para gerar resultados reais e posicionar sua marca de forma sólida no
@@ -850,22 +930,22 @@
             </div>
 
             <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
-                <!-- Imagem da Equipe -->
+                <!-- Imagem da Equipe - Substitua por uma imagem real da sua equipe -->
                 <div class="scroll-reveal">
-                    <!-- Imagem otimizada com lazy loading e placeholder -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb"
+                    <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
+                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Equipe_Anphaweb_Colaborando"
                         data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                        alt="Equipe de trabalho colaborando em um escritório moderno"
+                        alt="Equipe de trabalho da Anphaweb colaborando em um escritório moderno, simbolizando expertise e união."
                         class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500 lazyload">
                 </div>
                 <!-- Texto sobre Expertise -->
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <h2 class="text-3xl font-bold text-dark-header-text mb-6">Nossa <span
-                            class="gradient-text">Expertise</span>
+                            class="gradient-text">Expertise</span> e Compromisso
                     </h2>
                     <p class="text-dark-text-medium mb-6">
                         Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
-                        estratégica para empresas que buscam presença online de alto impacto.
+                        estratégica para empresas que buscam presença online de alto impacto e resultados mensuráveis.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -875,7 +955,7 @@
                             </div>
                             <div class="ml-3">
                                 <p class="text-dark-text-medium font-medium">Equipe especializada em tecnologias
-                                    modernas</p>
+                                    modernas e tendências de mercado</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -884,7 +964,8 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágéis e transparentes</p>
+                                <p class="text-dark-text-medium font-medium">Processos ágeis, transparentes e focados
+                                    na sua necessidade</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -893,8 +974,8 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Foco em resultados e experiência do
-                                    usuário</p>
+                                <p class="text-dark-text-medium font-medium">Foco em resultados, performance e
+                                    experiência do usuário</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -903,14 +984,14 @@
                                 <i class="fas fa-check text-anpha-blue"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Suporte contínuo e manutenção
-                                    especializada</p>
+                                <p class="text-dark-text-medium font-medium">Suporte contínuo, manutenção especializada
+                                    e consultoria</p>
                             </div>
                         </div>
                     </div>
                     <a href="#contact"
                         class="btn-gradient-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg mt-6 sm:mt-8">
-                        Fale Conosco
+                        Fale Conosco e Conheça Nossa Abordagem
                     </a>
                 </div>
             </div>
@@ -922,21 +1003,22 @@
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mb-6">Pronto para <span
-                        class="gradient-text">Transformar</span> Seu Negócio?</h2>
+                        class="gradient-text">Transformar</span> Seu Negócio Digitalmente?</h2>
                 <p class="text-dark-text-medium text-xl mb-8 max-w-3xl mx-auto">
-                    Entre em contato agora mesmo e descubra como nossas soluções digitais podem impulsionar seus
-                    resultados.
+                    Entre em contato agora mesmo e descubra como nossas soluções digitais personalizadas podem
+                    impulsionar seus resultados e levar sua empresa ao próximo nível.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
 
                     <a href="#contact" class="btn-outline-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg 
                     transition-all transform hover:scale-105 text-center">
-                        Solicitar Orçamento
+                        Solicitar Orçamento Personalizado
                     </a>
 
-                    <a href="https://wa.me/5511999999999" target="_blank"
+                    <a href="https://wa.me/5511987654321?text=Olá! Gostaria de uma consultoria sobre os serviços da Anphaweb."
+                        target="_blank"
                         class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
+                        <i class="fab fa-whatsapp"></i> Converse no WhatsApp
                     </a>
                 </div>
             </div>
@@ -949,7 +1031,7 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">PERGUNTAS FREQUENTES</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Dúvidas <span
-                        class="gradient-text">Comuns</span></h2>
+                        class="gradient-text">Comuns</span> Resolvidas</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
@@ -969,7 +1051,8 @@
                             O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites
                             institucionais simples podem ficar prontos em 2-3 semanas, enquanto e-commerces e sistemas
                             personalizados podem levar de 1 a 3 meses. Após o briefing inicial, fornecemos um cronograma
-                            detalhado com todas as etapas do projeto.
+                            detalhado com todas as etapas do projeto. Nosso foco é na qualidade e na entrega dentro do
+                            prazo.
                         </p>
                     </div>
                 </div>
@@ -984,10 +1067,10 @@
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
                         <p class="text-dark-text-medium">
-                            Aceitamos diversas formas de pagamento: transferência bancária, PIX, cartão de crédito (até
-                            12x) e boleto bancário. Para projetos maiores, oferecemos planos de parcelamento
-                            personalizados. O pagamento geralmente é dividido em etapas, com uma entrada no início do
-                            projeto e o restante conforme marcos são alcançados.
+                            Aceitamos diversas formas de pagamento para sua conveniência: transferência bancária, PIX,
+                            cartão de crédito (em até 12x) e boleto bancário. Para projetos maiores, oferecemos planos
+                            de parcelamento personalizados. O pagamento geralmente é dividido em etapas, com uma entrada
+                            no início do projeto e o restante conforme marcos são alcançados.
                         </p>
                     </div>
                 </div>
@@ -1002,11 +1085,12 @@
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
                         <p class="text-dark-text-medium">
-                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento. Todos os projetos
-                            incluem 30 dias de garantia para correção de eventuais bugs. Após esse período, você pode
-                            contratar nosso suporte mensal que inclui atualizações, backups, monitoramento e ajustes
-                            menores. Também oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do
-                            site.
+                            Sim, oferecemos diferentes planos de suporte e manutenção pós-lançamento para garantir a
+                            continuidade e o bom funcionamento do seu projeto. Todos os projetos incluem 30 dias de
+                            garantia para correção de eventuais bugs. Após esse período, você pode contratar nosso
+                            suporte mensal que inclui atualizações, backups, monitoramento e ajustes menores. Também
+                            oferecemos treinamento para que sua equipe possa gerenciar o conteúdo do site de forma
+                            autônoma.
                         </p>
                     </div>
                 </div>
@@ -1021,10 +1105,11 @@
                     </button>
                     <div class="faq-content px-6 pb-6 hidden">
                         <p class="text-dark-text-medium">
-                            Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico, incluindo
-                            estrutura semântica, velocidade de carregamento otimizada, mobile-first design, schema
-                            markup e URL amigáveis. Para otimização de conteúdo (SEO on-page), oferecemos como serviço
-                            adicional a criação de estratégia de palavras-chave e produção de conteúdo otimizado.
+                            Absolutamente! Todos os sites que desenvolvemos seguem as melhores práticas de SEO técnico,
+                            incluindo estrutura semântica, velocidade de carregamento otimizada, design mobile-first,
+                            schema markup e URLs amigáveis. Para otimização de conteúdo (SEO on-page) e estratégias de
+                            palavras-chave, oferecemos serviços adicionais que podem impulsionar ainda mais seu
+                            posicionamento no Google.
                         </p>
                     </div>
                 </div>
@@ -1043,7 +1128,7 @@
                             que permite a você gerenciar conteúdos como textos, imagens, produtos e blog posts sem
                             precisar de conhecimento técnico. Utilizamos principalmente WordPress para sites que exigem
                             atualizações frequentes, mas também desenvolvemos sistemas personalizados conforme a
-                            necessidade do cliente.
+                            necessidade do cliente, sempre com foco na sua autonomia.
                         </p>
                     </div>
                 </div>
@@ -1052,11 +1137,12 @@
             <!-- CTA para dúvidas não respondidas -->
             <div class="mt-16 text-center scroll-reveal">
                 <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
-                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar.
+                    Não encontrou resposta para sua dúvida? Entre em contato conosco e teremos prazer em ajudar a
+                    esclarecer qualquer questão.
                 </p>
                 <a href="#contact"
                     class="btn-gradient-primary inline-block font-medium py-3 px-8 rounded-lg shadow-lg mt-6 sm:mt-8">
-                    Fale Conosco
+                    Envie Sua Pergunta Agora
                 </a>
             </div>
         </div>
@@ -1069,7 +1155,7 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">DEPOIMENTOS</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">O Que Nossos <span
-                        class="gradient-text">Clientes</span> Dizem</h2>
+                        class="gradient-text">Clientes</span> Satisfeitos Dizem</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
@@ -1085,7 +1171,8 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/43.jpg"
-                                        alt="Foto de perfil de Ana Carolina" class="w-full h-full object-cover">
+                                        alt="Foto de perfil de Ana Carolina, CEO da Empresa X"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Ana Carolina</h4>
@@ -1094,9 +1181,8 @@
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
                                 "A Anphaweb transformou completamente nossa presença online. O site que desenvolveram
-                                superou
-                                todas as nossas expectativas e já gerou um aumento de 150% em nossos leads
-                                qualificados."
+                                superou todas as nossas expectativas e já gerou um aumento de 150% em nossos leads
+                                qualificados. Profissionalismo e resultados garantidos!"
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -1115,7 +1201,8 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                                        alt="Foto de perfil de Ricardo Almeida" class="w-full h-full object-cover">
+                                        alt="Foto de perfil de Ricardo Almeida, Diretor da Empresa Y"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Ricardo Almeida</h4>
@@ -1124,10 +1211,8 @@
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
                                 "O sistema personalizado que criaram otimizou nossos processos internos, reduzindo
-                                custos
-                                operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta às
-                                nossas
-                                necessidades."
+                                custos operacionais em 30%. A equipe da Anphaweb foi extremamente profissional e atenta
+                                às nossas necessidades, entregando uma solução perfeita."
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -1146,7 +1231,8 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/65.jpg"
-                                        alt="Foto de perfil de Fernanda Oliveira" class="w-full h-full object-cover">
+                                        alt="Foto de perfil de Fernanda Oliveira, Marketing da Empresa Z"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Fernanda Oliveira</h4>
@@ -1155,10 +1241,8 @@
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
                                 "Trabalhamos com a Anphaweb em várias campanhas e sempre entregam resultados
-                                excepcionais. A
-                                landing page que desenvolveram para nosso último lançamento teve uma taxa de conversão
-                                de 12%,
-                                muito acima da média do setor."
+                                excepcionais. A landing page que desenvolveram para nosso último lançamento teve uma
+                                taxa de conversão de 12%, muito acima da média do setor. Recomendo!"
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -1177,7 +1261,8 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/men/45.jpg"
-                                        alt="Foto de perfil de João Silva" class="w-full h-full object-cover">
+                                        alt="Foto de perfil de João Silva, Gerente de Projetos da Empresa A"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">João Silva</h4>
@@ -1186,8 +1271,8 @@
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
                                 "A equipe da Anphaweb demonstrou um conhecimento técnico impressionante e entregou um
-                                projeto
-                                complexo dentro do prazo e do orçamento. Recomendo fortemente!"
+                                projeto complexo dentro do prazo e do orçamento. A comunicação foi excelente do início
+                                ao fim. Recomendo fortemente!"
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -1205,7 +1290,8 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <img src="https://randomuser.me/api/portraits/women/23.jpg"
-                                        alt="Foto de perfil de Mariana Costa" class="w-full h-full object-cover">
+                                        alt="Foto de perfil de Mariana Costa, Empreendedora da Startup B"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-dark-header-text">Mariana Costa</h4>
@@ -1214,8 +1300,8 @@
                             </div>
                             <p class="text-dark-text-medium italic mb-6">
                                 "Minha landing page superou as expectativas de conversão. O design é impecável e a
-                                performance
-                                é excelente. Um investimento que valeu a pena!"
+                                performance é excelente. Um investimento que valeu a pena para minha startup, gerando
+                                muitos leads qualificados!"
                             </p>
                             <div class="flex text-anpha-orange">
                                 <i class="fas fa-star"></i>
@@ -1252,13 +1338,13 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">CONTATO</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Vamos <span
-                        class="gradient-text">Conversar</span></h2>
+                        class="gradient-text">Conversar</span> Sobre Seu Projeto</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
                 <p class="text-dark-text-medium mt-6 max-w-2xl mx-auto">
                     Entre em contato para discutirmos como podemos ajudar seu negócio a crescer com soluções digitais
-                    personalizadas.
+                    personalizadas e estratégias eficazes.
                 </p>
             </div>
 
@@ -1307,6 +1393,27 @@
                             </select>
                         </div>
                         <div>
+                            <label for="how_found" class="block text-sm font-medium text-dark-text-medium mb-1">Como
+                                você nos conheceu?</label>
+                            <select id="how_found" name="how_found"
+                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="google">Pesquisa no Google</option>
+                                <option value="social_media">Redes Sociais</option>
+                                <option value="indication">Indicação</option>
+                                <option value="event">Evento / Feira</option>
+                                <option value="blog">Artigo / Blog</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message"
+                                class="block text-sm font-medium text-dark-text-medium mb-1">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
+                                placeholder="Descreva seu projeto ou sua dúvida..."></textarea>
+                        </div>
+                        <div>
                             <!-- Alterado para button type="submit" -->
                             <button type="submit" class="btn-gradient-primary w-full font-medium py-3 px-8 rounded-lg shadow-lg 
           transition-all transform hover:scale-[1.02] text-center block">
@@ -1348,7 +1455,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">Telefone</h4>
-                                    <p class="text-dark-text-medium">(11) 99999-9999<br>(11) 99999-9999</p>
+                                    <p class="text-dark-text-medium"><a href="tel:+5511987654321">(11)
+                                            98765-4321</a><br><a href="tel:+551132109876">(11) 3210-9876</a></p>
                                 </div>
                             </div>
 
@@ -1362,7 +1470,8 @@
                                 <div class="ml-4">
                                     <h4 class="font-medium text-dark-header-text">E-mail</h4>
                                     <p class="text-dark-text-medium">
-                                        contato@anphaweb.com.br<br>comercial@anphaweb.com.br
+                                        <a href="mailto:contato@anphaweb.com.br">contato@anphaweb.com.br</a><br><a
+                                            href="mailto:comercial@anphaweb.com.br">comercial@anphaweb.com.br</a>
                                     </p>
                                 </div>
                             </div>
@@ -1386,20 +1495,24 @@
                         <div class="mt-8">
                             <h4 class="font-medium text-dark-header-text mb-4">Siga-nos</h4>
                             <div class="flex space-x-4">
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                                <a href="https://facebook.com/anphaweb" target="_blank"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                                    aria-label="Facebook da Anphaweb">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                                <a href="https://instagram.com/anphaweb" target="_blank"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                                    aria-label="Instagram da Anphaweb">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                                <a href="https://linkedin.com/company/anphaweb" target="_blank"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                                    aria-label="LinkedIn da Anphaweb">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                                <a href="https://youtube.com/anphaweb" target="_blank"
+                                    class="w-10 h-10 rounded-full bg-gray-700 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                                    aria-label="YouTube da Anphaweb">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -1417,28 +1530,32 @@
                 <!-- Coluna 1: Logo e Descrição -->
                 <div class="scroll-reveal">
                     <!-- Logo da Empresa no rodapé - Substitua o src pela URL da sua logo -->
-                   <img src="Anphaweb_logo.png" alt="Logo da Empresa Anphaweb"
-                        class="h-12 w-auto max-h-12 mb-6">
+                    <img src="Anphaweb_logo.png" alt="Logo da Empresa Anphaweb" class="h-12 w-auto max-h-12 mb-6">
                     <!-- Nome da Empresa no rodapé -->
-                     <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
+                    <span class="text-2xl font-bold gradient-text">ANPHAWEB</span>
                     <p class="mb-6">
-                        Soluções digitais personalizadas para impulsionar seu negócio na era digital.
+                        Soluções digitais personalizadas para impulsionar seu negócio na era digital, com foco em
+                        crescimento e resultados.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                        <a href="https://facebook.com/anphaweb" target="_blank"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                            aria-label="Facebook da Anphaweb">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                        <a href="https://instagram.com/anphaweb" target="_blank"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                            aria-label="Instagram da Anphaweb">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                        <a href="https://linkedin.com/company/anphaweb" target="_blank"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                            aria-label="LinkedIn da Anphaweb">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors">
+                        <a href="https://youtube.com/anphaweb" target="_blank"
+                            class="w-10 h-10 rounded-full bg-gray-800 hover:bg-anpha-blue hover:text-white flex items-center justify-center text-dark-text-medium transition-colors"
+                            aria-label="YouTube da Anphaweb">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -1456,6 +1573,7 @@
                         <li><a href="#testimonials"
                                 class="hover:text-dark-header-text transition-colors">Depoimentos</a></li>
                         <li><a href="#contact" class="hover:text-dark-header-text transition-colors">Contato</a></li>
+                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Blog</a></li>
                     </ul>
                 </div>
 
@@ -1463,15 +1581,20 @@
                 <div class="scroll-reveal" style="transition-delay: 0.2s">
                     <h4 class="text-lg font-semibold text-dark-header-text mb-6">Serviços</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sites Institucionais</a>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Sites
+                                Institucionais</a>
                         </li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">E-commerce</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Landing Pages</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Sistemas
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">E-commerce</a>
+                        </li>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Landing Pages</a>
+                        </li>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Sistemas
                                 Personalizados</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Aplicativos Mobile</a>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Aplicativos
+                                Mobile</a>
                         </li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Marketing Digital</a></li>
+                        <li><a href="#services" class="hover:text-dark-header-text transition-colors">Marketing
+                                Digital</a></li>
                     </ul>
                 </div>
 
@@ -1485,11 +1608,15 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-anpha-blue"></i>
-                            <span>(11) 99999-9999<br>(11) 99999-9999</span>
+                            <span><a href="tel:+5511987654321">(11) 98765-4321</a><br><a
+                                    href="tel:+551132109876">(11) 3210-9876</a></span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-anpha-blue"></i>
-                            <span>contato@anphaweb.com.br<br>comercial@anphaweb.com.br</span>
+                            <span>
+                                <a href="mailto:contato@anphaweb.com.br">contato@anphaweb.com.br</a><br><a
+                                    href="mailto:comercial@anphaweb.com.br">comercial@anphaweb.com.br</a>
+                            </span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-3 text-anpha-blue"></i>
@@ -1509,7 +1636,8 @@
                     <a href="#" id="open-privacy-policy"
                         class="text-dark-text-medium hover:text-dark-header-text text-sm transition-colors">Política de
                         Privacidade</a>
-                    <a href="#" class="text-dark-text-medium hover:text-dark-header-text text-sm transition-colors">Termos de
+                    <a href="#" id="open-terms-of-service"
+                        class="text-dark-text-medium hover:text-dark-header-text text-sm transition-colors">Termos de
                         Serviço</a>
                 </div>
             </div>
@@ -1550,10 +1678,53 @@
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Seus Direitos e Contato</h3>
             <p class="text-dark-text-medium mb-4">
                 Você pode acessar, corrigir ou solicitar a exclusão de suas informações. Para isso ou outras dúvidas,
-                entre em contato pelo e-mail contato@anphaweb.com.br ou telefone (11) 99999-9999.
+                entre em contato pelo e-mail contato@anphaweb.com.br ou telefone (11) 98765-4321.
             </p>
             <p class="text-dark-text-medium text-sm mt-8">
-                Última atualização: 20 de julho de 2025.
+                Última atualização: 27 de julho de 2025.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de Termos de Serviço (oculto por padrão) -->
+    <div id="terms-of-service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-terms-of-service">&times;</span>
+            <h2 class="text-3xl font-bold gradient-text mb-6">Termos de Serviço da Anphaweb</h2>
+
+            <p class="text-dark-text-medium mb-4">
+                Bem-vindo aos Termos de Serviço da Anphaweb. Ao acessar ou utilizar nossos serviços, você concorda em
+                cumprir e estar vinculado a estes termos. Por favor, leia-os atentamente.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">1. Aceitação dos Termos</h3>
+            <p class="text-dark-text-medium mb-2">
+                Ao contratar os serviços da Anphaweb, você reconhece ter lido, compreendido e aceitado estes Termos de
+                Serviço, bem como nossa Política de Privacidade.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Descrição dos Serviços</h3>
+            <p class="text-dark-text-medium mb-4">
+                A Anphaweb oferece serviços de desenvolvimento de sites, e-commerce, sistemas personalizados,
+                aplicativos mobile e consultoria em marketing digital. Os detalhes de cada serviço serão especificados
+                em um contrato de prestação de serviços individual.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">3. Propriedade Intelectual</h3>
+            <p class="text-dark-text-medium mb-4">
+                Todo o conteúdo e materiais desenvolvidos pela Anphaweb para o cliente, após o pagamento integral,
+                tornam-se propriedade do cliente. A Anphaweb reserva-se o direito de exibir os projetos em seu
+                portfólio, salvo acordo em contrário.
+            </p>
+
+            <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">4. Limitação de Responsabilidade</h3>
+            <p class="text-dark-text-medium mb-4">
+                A Anphaweb não se responsabiliza por quaisquer perdas ou danos resultantes do uso ou da incapacidade de
+                uso dos serviços, incluindo, mas não se limitando a, perda de dados ou lucros cessantes, exceto nos
+                casos de dolo ou culpa grave comprovada.
+            </p>
+            <p class="text-dark-text-medium text-sm mt-8">
+                Última atualização: 27 de julho de 2025.
             </p>
         </div>
     </div>
@@ -1873,46 +2044,58 @@
             renderer.render(scene, camera);
         }
 
-        // --- Lógica do Modal de Política de Privacidade ---
+        // --- Lógica do Modal de Política de Privacidade e Termos de Serviço ---
         const privacyPolicyModal = document.getElementById('privacy-policy-modal');
         const closePrivacyPolicyBtn = document.getElementById('close-privacy-policy');
         const openPrivacyPolicyLink = document.getElementById('open-privacy-policy');
 
-        // Função para abrir o modal de política de privacidade
-        function openPrivacyModal() {
-            privacyPolicyModal.style.display = 'flex'; // Torna o modal visível
+        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+        const closeTermsOfServiceBtn = document.getElementById('close-terms-of-service');
+        const openTermsOfServiceLink = document.getElementById('open-terms-of-service');
+
+        // Função genérica para abrir modal
+        function openModal(modalElement) {
+            modalElement.style.display = 'flex';
             setTimeout(() => {
-                privacyPolicyModal.classList.add('show'); // Adiciona a classe para animação de opacidade
-            }, 10); // Pequeno atraso para garantir que o display 'flex' seja aplicado antes da transição
-            document.body.style.overflow = 'hidden'; // Impede a rolagem do corpo
+                modalElement.classList.add('show');
+            }, 10);
+            document.body.style.overflow = 'hidden';
         }
 
-        // Função para fechar o modal de política de privacidade
-        function closePrivacyModal() {
-            privacyPolicyModal.classList.remove('show'); // Remove a classe para animação de opacidade
-            // Espera a transição terminar antes de ocultar completamente e liberar cliques
-            privacyPolicyModal.addEventListener('transitionend', function handler() {
-                privacyPolicyModal.style.display = 'none'; // Oculta o modal completamente
-                document.body.style.overflow = 'auto'; // Restaura a rolagem do corpo
-                privacyPolicyModal.removeEventListener('transitionend', handler);
-            }, { once: true }); // Garante que o evento seja removido após a primeira execução
+        // Função genérica para fechar modal
+        function closeModal(modalElement) {
+            modalElement.classList.remove('show');
+            modalElement.addEventListener('transitionend', function handler() {
+                modalElement.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                modalElement.removeEventListener('transitionend', handler);
+            }, { once: true });
         }
 
-        // Event listener para fechar o modal de política de privacidade ao clicar no botão 'x'
-        closePrivacyPolicyBtn.addEventListener('click', closePrivacyModal);
-
-        // Event listener para fechar o modal de política de privacidade ao clicar fora do conteúdo
+        // Event listeners para Política de Privacidade
+        closePrivacyPolicyBtn.addEventListener('click', () => closeModal(privacyPolicyModal));
+        openPrivacyPolicyLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            openModal(privacyPolicyModal);
+        });
         window.addEventListener('click', (event) => {
             if (event.target === privacyPolicyModal) {
-                closePrivacyModal();
+                closeModal(privacyPolicyModal);
             }
         });
 
-        // Event listener para abrir o modal de política de privacidade através do link no rodapé
-        openPrivacyPolicyLink.addEventListener('click', (event) => {
-            event.preventDefault(); // Impede o comportamento padrão do link
-            openPrivacyModal();
+        // Event listeners para Termos de Serviço
+        closeTermsOfServiceBtn.addEventListener('click', () => closeModal(termsOfServiceModal));
+        openTermsOfServiceLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            openModal(termsOfServiceModal);
         });
+        window.addEventListener('click', (event) => {
+            if (event.target === termsOfServiceModal) {
+                closeModal(termsOfServiceModal);
+            }
+        });
+
 
         // --- Lógica do Banner de Consentimento de Cookies ---
         const cookieConsentBanner = document.getElementById('cookie-consent-banner');
@@ -1949,29 +2132,30 @@
             cookieConsentBanner.addEventListener('transitionend', function handler() {
                 cookieConsentBanner.style.display = 'none'; // Oculta o banner completamente
                 cookieConsentBanner.removeEventListener('transitionend', handler);
-                openPrivacyModal(); // Abre o modal de política de privacidade após o banner estar totalmente oculto
+                openModal(privacyPolicyModal); // Abre o modal de política de privacidade após o banner estar totalmente oculto
             }, { once: true });
         });
 
         // --- Lazy Loading de Imagens (Adicionado) ---
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const lazyloadImages = document.querySelectorAll("img.lazyload");
             let lazyloadThrottleTimeout;
 
-            function lazyload () {
-                if(lazyloadThrottleTimeout) {
+            function lazyload() {
+                if (lazyloadThrottleTimeout) {
                     clearTimeout(lazyloadThrottleTimeout);
-                }    
+                }
 
-                lazyloadThrottleTimeout = setTimeout(function() {
+                lazyloadThrottleTimeout = setTimeout(function () {
                     let scrollTop = window.pageYOffset;
-                    lazyloadImages.forEach(function(img) {
-                        if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                    lazyloadImages.forEach(function (img) {
+                        if (img.offsetTop < (window.innerHeight + scrollTop)) {
                             img.src = img.dataset.src;
                             img.classList.remove('lazyload');
                         }
                     });
-                    if(lazyloadImages.length == 0) { 
+                    // Remove o listener se todas as imagens foram carregadas
+                    if (lazyloadImages.length === 0) {
                         document.removeEventListener("scroll", lazyload);
                         window.removeEventListener("resize", lazyload);
                         window.removeEventListener("orientationChange", lazyload);
@@ -1982,13 +2166,15 @@
             document.addEventListener("scroll", lazyload);
             window.addEventListener("resize", lazyload);
             window.addEventListener("orientationChange", lazyload);
+            // Chama lazyload uma vez no carregamento para carregar as imagens visíveis
+            lazyload();
         });
 
         // --- Lógica de Envio do Formulário de Contato (Adicionado) ---
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
 
-        contactForm.addEventListener('submit', async function(event) {
+        contactForm.addEventListener('submit', async function (event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
             const formData = new FormData(contactForm);
@@ -2001,6 +2187,12 @@
             const subjectSelect = document.getElementById('subject');
             if (subjectSelect && subjectSelect.options[subjectSelect.selectedIndex]) {
                 object['subject_text'] = subjectSelect.options[subjectSelect.selectedIndex].text;
+            }
+
+            // Adiciona o texto da opção selecionada do select de como conheceu
+            const howFoundSelect = document.getElementById('how_found');
+            if (howFoundSelect && howFoundSelect.options[howFoundSelect.selectedIndex]) {
+                object['how_found_text'] = howFoundSelect.options[howFoundSelect.selectedIndex].text;
             }
 
             const json = JSON.stringify(object);
@@ -2016,18 +2208,18 @@
                 });
 
                 if (response.ok) {
-                    formMessage.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+                    formMessage.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato com você em até 24h úteis.';
                     formMessage.classList.remove('text-red-500', 'hidden');
                     formMessage.classList.add('text-green-500', 'block');
                     contactForm.reset(); // Limpa o formulário
                 } else {
                     const errorData = await response.json();
-                    formMessage.textContent = `Erro ao enviar mensagem: ${errorData.message || 'Tente novamente.'}`;
+                    formMessage.textContent = `Erro ao enviar mensagem: ${errorData.message || 'Houve um problema. Por favor, tente novamente.'}`;
                     formMessage.classList.remove('text-green-500', 'hidden');
                     formMessage.classList.add('text-red-500', 'block');
                 }
             } catch (error) {
-                formMessage.textContent = 'Ocorreu um erro na conexão. Por favor, tente novamente mais tarde.';
+                formMessage.textContent = 'Ocorreu um erro na conexão. Por favor, verifique sua internet e tente novamente mais tarde.';
                 formMessage.classList.remove('text-green-500', 'hidden');
                 formMessage.classList.add('text-red-500', 'block');
                 console.error('Erro no envio do formulário:', error);
@@ -2035,7 +2227,7 @@
                 // Oculta a mensagem após alguns segundos
                 setTimeout(() => {
                     formMessage.classList.add('hidden');
-                }, 5000);
+                }, 7000); // Aumentado para 7 segundos para melhor leitura
             }
         });
 
