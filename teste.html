@@ -14,8 +14,8 @@
     <meta property="og:description"
         content="Criação de sites, e-commerce, sistemas e apps. Impulsione seu negócio com a Anphaweb.">
     <!-- Substitua pela URL da sua imagem para compartilhamento (ex: logo ou imagem de destaque) -->
-    <!-- IMPORTANTE: Substitua esta URL pela sua imagem real antes de ir ao ar! -->
-    <meta property="og:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb_Logo_Share">
+    <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://www.anphaweb.com.br"> <!-- URL real do seu site -->
     <meta property="og:type" content="website">
 
@@ -159,6 +159,7 @@
             "@type": "UnitPriceSpecification",
             "priceType": "Estimate",
             "unitText": "Project"
+          "
           }
         }
       },
@@ -214,16 +215,22 @@
       }
     ]
     </script>
-    <!-- IMPORTANTE: Considere adicionar Google Analytics e Google Tag Manager aqui para monitoramento. -->
-    <!-- Exemplo:
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <!-- IMPORTANTE: Adicione seu código do Google Analytics (GA4) aqui para monitoramento. -->
+    <!-- Substitua 'G-XXXXX-Y' pelo seu ID de Medição do GA4. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX-Y"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-XXXXX-Y');
+      gtag('config', 'G-XXXXX-Y');
     </script>
-    -->
+    <!-- IMPORTANTE: Adicione seu código do Google Tag Manager (GTM) aqui para gerenciar tags de marketing. -->
+    <!-- Substitua 'GTM-XXXXXX' pelo seu ID de Contêiner do GTM. -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
     <!-- IMPORTANTE: Registre seu site no Google Search Console para monitorar a indexação e desempenho de busca. -->
 
     <script>
@@ -539,10 +546,25 @@
             background-color: rgba(255, 255, 255, 0.05);
             /* Um cinza muito claro para o hover no modo escuro */
         }
+
+        /* Estilos para validação de formulário */
+        .input-error {
+            border-color: #ef4444 !important; /* Tailwind red-500 */
+        }
+        .error-message {
+            color: #ef4444; /* Tailwind red-500 */
+            font-size: 0.875rem; /* text-sm */
+            margin-top: 0.25rem; /* mt-1 */
+        }
     </style>
 </head>
 
 <body class="bg-dark-bg text-dark-text-light">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Canvas para o fundo 3D com Three.js -->
     <canvas id="three-bg"></canvas>
 
@@ -554,7 +576,7 @@
     </button>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511987654321?text=Olá! Gostaria de um orçamento para um projeto digital." target="_blank"
+    <a href="https://wa.me/5511987654321?text=Olá! Gostaria de um orçamento para um projeto digital com a Anphaweb." target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600"
         aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
@@ -626,18 +648,18 @@
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-header-text leading-tight mb-6">
-                        Impulsione Seu Negócio com <span class="gradient-text">Soluções Digitais Inovadoras</span>
+                        Impulsione Seu Negócio com <span class="gradient-text">Soluções Digitais que Geram Resultados Reais</span>
                     </h1>
                     <p class="text-lg md:text-xl text-dark-text-medium mb-8 max-w-lg">
                         Criamos sites, e-commerce e sistemas sob medida que não apenas constroem sua presença online,
-                        mas também otimizam seus processos para **gerar resultados reais e mensuráveis** para sua empresa.
+                        mas também otimizam seus processos para maximizar seu crescimento e lucratividade.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#contact" class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                             Receba uma Consultoria Gratuita
                         </a>
                         <a href="#services" class="btn-outline-primary font-medium py-3 px-8 rounded-lg shadow-lg">
-                            Conheça Nossos Serviços
+                            Descubra Nossas Soluções
                         </a>
                     </div>
                 </div>
@@ -652,9 +674,9 @@
                         </div>
                         <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                         <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                        <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb_Digital_Success"
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                             data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                            alt="Gráfico de dados e análise de negócios, representando o sucesso digital"
+                            alt="Gráfico de dados e análise de negócios, representando o sucesso digital e o crescimento da empresa"
                             class="relative z-10 w-full h-auto rounded-xl shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500 lazyload">
                     </div>
                 </div>
@@ -678,7 +700,7 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">NOSSOS SERVIÇOS</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">Soluções <span
-                        class="gradient-text">Completas</span> para Seu Negócio</h2>
+                        class="gradient-text">Completas</span> para Acelerar Seu Negócio</h2>
                 <div
                     class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
                 </div>
@@ -694,8 +716,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sites Institucionais</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Desenvolvemos sites modernos e responsivos que representam sua marca com excelência e
-                        **transformam visitantes em clientes**, garantindo uma presença online profissional e impactante.
+                        Tenha um site moderno e responsivo que representa sua marca com excelência e
+                        transforma visitantes em clientes fiéis, garantindo uma presença online profissional e impactante.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
@@ -705,7 +727,7 @@
                             <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Totalmente responsivo para qualquer dispositivo
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> **Seu site aparece nas primeiras posições do Google**
+                            <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Otimizado para aparecer nas primeiras posições do Google
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Integração com ferramentas que impulsionam seu marketing
@@ -722,8 +744,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">E-commerce</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para **vender online
-                        com máxima eficiência e alcançar mais clientes** em todo o país.
+                        Lojas virtuais completas e seguras, com todas as funcionalidades necessárias para vender online
+                        com máxima eficiência e alcançar mais clientes em todo o país.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
@@ -733,7 +755,7 @@
                             <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Gateway de pagamento seguro para tranquilidade dos seus clientes
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> **Gerencie seu estoque e pedidos de forma descomplicada**
+                            <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Gerencie seu estoque e pedidos de forma descomplicada
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-blue mr-2" aria-hidden="true"></i> Relatórios de vendas e desempenho para decisões estratégicas
@@ -750,8 +772,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Landing Pages</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Páginas de alta conversão para campanhas específicas, desenvolvidas para **maximizar seus
-                        resultados de marketing e capturar leads qualificados**.
+                        Páginas de alta conversão para campanhas específicas, desenvolvidas para maximizar seus
+                        resultados de marketing e capturar leads qualificados.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
@@ -778,8 +800,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sistemas Personalizados</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Desenvolvemos sistemas sob medida para **automatizar processos internos, otimizar a gestão e
-                        aumentar a eficiência** do seu negócio. Soluções que se encaixam perfeitamente nas suas
+                        Desenvolvemos sistemas sob medida para automatizar processos internos, otimizar a gestão e
+                        aumentar a eficiência do seu negócio. Soluções que se encaixam perfeitamente nas suas
                         necessidades.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
@@ -808,7 +830,7 @@
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Aplicativos Mobile</h3>
                     <p class="text-dark-text-medium text-center mb-6">
                         Criação de aplicativos nativos e híbridos para iOS e Android, com design intuitivo e alta
-                        performance. **Leve sua marca para o bolso dos seus clientes e ofereça uma nova experiência** de interação.
+                        performance. Leve sua marca para o bolso dos seus clientes e ofereça uma nova experiência de interação.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
@@ -835,8 +857,8 @@
                     </div>
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
                     <p class="text-dark-text-medium text-center mb-6">
-                        Estratégias completas para **aumentar sua visibilidade online, atrair mais clientes qualificados
-                        e impulsionar suas vendas** através de canais digitais.
+                        Estratégias completas para aumentar sua visibilidade online, atrair mais clientes qualificados
+                        e impulsionar suas vendas através de canais digitais.
                     </p>
                     <ul class="space-y-2 text-dark-text-medium">
                         <li class="flex items-center">
@@ -891,9 +913,9 @@
                     class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1636x800/2563eb/ffffff?text=Site_Institucional_Empresa_X"
-                        data-src="https://placehold.co/1636x800/2563eb/ffffff?text=Site_Institucional_Empresa_X"
-                        alt="Design de site moderno com elementos gráficos e layout responsivo"
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Design de site moderno com elementos gráficos e layout responsivo para Empresa X"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -902,7 +924,7 @@
                             <p class="text-gray-200 mb-4">Desenvolvimento de site moderno com integração de sistemas
                                 internos, focado em alta performance e experiência do usuário.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-1.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -914,9 +936,9 @@
                     style="transition-delay: 0.1s">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1469x800/2563eb/ffffff?text=E-commerce_Loja_Y"
-                        data-src="https://placehold.co/1469x800/2563eb/ffffff?text=E-commerce_Loja_Y"
-                        alt="Configuração de e-commerce em um laptop, mostrando produtos e carrinho de compras"
+                    <img src="https://images.unsplash.com/photo-1563906267086-9d6918b47a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1563906267086-9d6918b47a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Configuração de e-commerce em um laptop, mostrando produtos e carrinho de compras para Loja Y"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -925,7 +947,7 @@
                             <p class="text-gray-200 mb-4">Plataforma de vendas robusta com integração de pagamentos e
                                 ERP, resultando em aumento de 40% nas vendas online.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-2.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -937,9 +959,9 @@
                     style="transition-delay: 0.2s">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Sistema_Gestao_Empresa_Z"
-                        data-src="https://placehold.co/1470x800/2563eb/ffffff?text=Sistema_Gestao_Empresa_Z"
-                        alt="Visualização de dados e gráficos em um monitor, representando um sistema de gestão"
+                    <img src="https://images.unsplash.com/photo-1542744095-6b6f79927695?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1542744095-6b6f79927695?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Visualização de dados e gráficos em um monitor, representando um sistema de gestão para Empresa Z"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -948,7 +970,7 @@
                             <p class="text-gray-200 mb-4">Sistema personalizado para automação de processos internos,
                                 otimizando a gestão de equipe e recursos em 25%.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-3.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -960,9 +982,9 @@
                     style="transition-delay: 0.3s">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1528x800/2563eb/ffffff?text=Landing_Page_Campanha_A"
-                        data-src="https://placehold.co/1528x800/2563eb/ffffff?text=Landing_Page_Campanha_A"
-                        alt="Pessoa digitando em um laptop com gráficos de marketing, simbolizando uma landing page"
+                    <img src="https://images.unsplash.com/photo-1521737711867-e6592c942075?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1521737711867-e6592c942075?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Pessoa digitando em um laptop com gráficos de marketing, simbolizando uma landing page de alta conversão para Campanha A"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -971,7 +993,7 @@
                             <p class="text-gray-200 mb-4">Página de alta conversão para lançamento de produto, gerando
                                 12% de taxa de conversão em leads qualificados.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-4.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -983,9 +1005,9 @@
                     style="transition-delay: 0.4s">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=App_Mobile_Startup_B"
-                        data-src="https://placehold.co/1470x800/2563eb/ffffff?text=App_Mobile_Startup_B"
-                        alt="Mãos segurando um smartphone com um aplicativo em exibição, representando um app mobile"
+                    <img src="https://images.unsplash.com/photo-1581291546252-e56598c179d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1581291546252-e56598c179d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Mãos segurando um smartphone com um aplicativo em exibição, representando um app mobile para Startup B"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -994,7 +1016,7 @@
                             <p class="text-gray-200 mb-4">Aplicativo nativo para iOS e Android com backend escalável,
                                 melhorando a interação com clientes e a retenção em 20%.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-5.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -1006,9 +1028,9 @@
                     style="transition-delay: 0.5s">
                     <!-- Imagem otimizada com lazy loading e placeholder mais descritivo -->
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Redesign_Portal_C"
-                        data-src="https://placehold.co/1470x800/2563eb/ffffff?text=Redesign_Portal_C"
-                        alt="Pessoa trabalhando em um laptop com código e design de interface, simbolizando um redesign"
+                    <img src="https://images.unsplash.com/photo-1557804506-669f979736c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        data-src="https://images.unsplash.com/photo-1557804506-669f979736c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Pessoa trabalhando em um laptop com código e design de interface, simbolizando um redesign de portal para Portal C"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 lazyload">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end p-6">
@@ -1017,7 +1039,7 @@
                             <p class="text-gray-200 mb-4">Atualização completa de design e usabilidade, resultando em
                                 uma experiência do usuário aprimorada e maior engajamento.</p>
                             <!-- IMPORTANTE: Crie uma página de case de sucesso detalhada para cada projeto! -->
-                            <a href="#"
+                            <a href="case-study-6.html"
                                 class="text-anpha-orange font-medium hover:text-orange-400 transition-colors">Ver Case
                                 de Sucesso →</a>
                         </div>
@@ -1100,7 +1122,7 @@
                 <!-- Imagem da Equipe - Substitua por uma imagem real da sua equipe -->
                 <div class="scroll-reveal">
                     <!-- IMPORTANTE: Substitua esta URL pela sua imagem real da equipe e otimizada antes de ir ao ar! -->
-                    <img src="https://placehold.co/1470x800/2563eb/ffffff?text=Anphaweb_Team_Collab"
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                         data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                         alt="Equipe de trabalho da Anphaweb colaborando em um escritório moderno, simbolizando expertise e união."
                         class="w-full h-auto rounded-xl shadow-xl border-8 border-white transform -rotate-2 hover:rotate-0 transition-transform duration-500 lazyload">
@@ -1113,8 +1135,8 @@
                     <p class="text-dark-text-medium mb-6">
                         Com anos de experiência no mercado digital, a Anphaweb se consolidou como uma parceira
                         estratégica para empresas que buscam presença online de alto impacto e resultados mensuráveis.
-                        **Nossa jornada começou com a paixão por transformar ideias em soluções digitais que realmente
-                        fazem a diferença para os negócios de nossos clientes.**
+                        Nossa jornada começou com a paixão por transformar ideias em soluções digitais que realmente
+                        fazem a diferença para os negócios de nossos clientes. Nosso compromisso é com a sua visão e o seu sucesso.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -1133,7 +1155,7 @@
                                 <i class="fas fa-check text-anpha-blue" aria-hidden="true"></i>
                             </div>
                             <div class="ml-3">
-                                <p class="text-dark-text-medium font-medium">Processos ágéis, transparentes e focados
+                                <p class="text-dark-text-medium font-medium">Processos ágeis, transparentes e focados
                                     na sua necessidade</p>
                             </div>
                         </div>
@@ -1172,7 +1194,7 @@
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="scroll-reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mb-6">Pronto para <span
-                        class="gradient-text">Transformar</span> Seu Negócio Digitalmente?</h2>
+                        class="gradient-text">Acelerar</span> Seu Negócio Digitalmente?</h2>
                 <p class="text-dark-text-medium text-xl mb-8 max-w-3xl mx-auto">
                     Entre em contato agora mesmo e descubra como nossas soluções digitais personalizadas podem
                     impulsionar seus resultados e levar sua empresa ao próximo nível.
@@ -1345,7 +1367,7 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <!-- IMPORTANTE: Substitua esta URL pela foto real do cliente! -->
-                                    <img src="https://placehold.co/128x128/2563eb/ffffff?text=Cliente1"
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734b4a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80"
                                         alt="Foto de perfil de Ana Carolina, CEO da Empresa X"
                                         class="w-full h-full object-cover">
                                 </div>
@@ -1376,7 +1398,7 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <!-- IMPORTANTE: Substitua esta URL pela foto real do cliente! -->
-                                    <img src="https://placehold.co/128x128/f97316/ffffff?text=Cliente2"
+                                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80"
                                         alt="Foto de perfil de Ricardo Almeida, Diretor da Empresa Y"
                                         class="w-full h-full object-cover">
                                 </div>
@@ -1407,7 +1429,7 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <!-- IMPORTANTE: Substitua esta URL pela foto real do cliente! -->
-                                    <img src="https://placehold.co/128x128/7e22ce/ffffff?text=Cliente3"
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80"
                                         alt="Foto de perfil de Fernanda Oliveira, Marketing da Empresa Z"
                                         class="w-full h-full object-cover">
                                 </div>
@@ -1432,13 +1454,14 @@
                     </div>
 
                     <!-- Adicione mais depoimentos aqui, se desejar -->
+                    <!-- IMPORTANTE: Considere adicionar depoimentos em vídeo para maior impacto! -->
                     <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
                         <div
                             class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg h-full">
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <!-- IMPORTANTE: Substitua esta URL pela foto real do cliente! -->
-                                    <img src="https://placehold.co/128x128/2563eb/ffffff?text=Cliente4"
+                                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80"
                                         alt="Foto de perfil de João Silva, Gerente de Projetos da Empresa A"
                                         class="w-full h-full object-cover">
                                 </div>
@@ -1468,7 +1491,7 @@
                             <div class="flex items-center mb-6">
                                 <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
                                     <!-- IMPORTANTE: Substitua esta URL pela foto real do cliente! -->
-                                    <img src="https://placehold.co/128x128/f97316/ffffff?text=Cliente5"
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80"
                                         alt="Foto de perfil de Mariana Costa, Empreendedora da Startup B"
                                         class="w-full h-full object-cover">
                                 </div>
@@ -1534,6 +1557,7 @@
                 <div class="scroll-reveal">
                     <!-- Ação do formulário para um serviço de backend ou Formspree -->
                     <!-- IMPORTANTE: Substitua 'yourformid' pelo seu ID real do Formspree para que o formulário funcione. -->
+                    <!-- Para integração com CRM ou backend personalizado, aponte o 'action' para seu endpoint. -->
                     <form id="contact-form" class="space-y-6" action="https://formspree.io/f/mvgqrpyb" method="POST">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -1542,6 +1566,7 @@
                                 <input type="text" id="name" name="name" required aria-required="true"
                                     class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="Seu nome completo">
+                                <p id="name-error" class="error-message hidden" aria-live="polite"></p>
                             </div>
                             <div>
                                 <label for="email"
@@ -1549,6 +1574,7 @@
                                 <input type="email" id="email" name="email" required aria-required="true"
                                     class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                     placeholder="seu@email.com">
+                                <p id="email-error" class="error-message hidden" aria-live="polite"></p>
                             </div>
                         </div>
                         <div>
@@ -1557,6 +1583,7 @@
                             <input type="tel" id="phone" name="phone"
                                 class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                 placeholder="(XX) XXXXX-XXXX" pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" title="Formato: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX">
+                            <p id="phone-error" class="error-message hidden" aria-live="polite"></p>
                         </div>
                         <div>
                             <label for="subject"
@@ -1572,6 +1599,7 @@
                                 <option value="support">Suporte e Manutenção</option>
                                 <option value="other">Outro</option>
                             </select>
+                            <p id="subject-error" class="error-message hidden" aria-live="polite"></p>
                         </div>
                         <div>
                             <label for="how_found" class="block text-sm font-medium text-dark-text-medium mb-1">Como
@@ -1586,6 +1614,7 @@
                                 <option value="blog">Artigo / Blog</option>
                                 <option value="other">Outro</option>
                             </select>
+                            <p id="how_found-error" class="error-message hidden" aria-live="polite"></p>
                         </div>
                         <div>
                             <label for="message"
@@ -1593,6 +1622,7 @@
                             <textarea id="message" name="message" rows="5" required aria-required="true"
                                 class="w-full px-4 py-3 border border-dark-border rounded-lg focus:ring-2 focus:ring-anpha-blue focus:border-anpha-blue transition-all bg-dark-card-bg text-dark-text-light placeholder-gray-500"
                                 placeholder="Descreva seu projeto ou sua dúvida..."></textarea>
+                            <p id="message-error" class="error-message hidden" aria-live="polite"></p>
                         </div>
                         <div>
                             <!-- Alterado para button type="submit" -->
@@ -1755,7 +1785,7 @@
                         <li><a href="#testimonials"
                                 class="hover:text-dark-header-text transition-colors">Depoimentos</a></li>
                         <li><a href="#contact" class="hover:text-dark-header-text transition-colors">Contato</a></li>
-                        <li><a href="#" class="hover:text-dark-header-text transition-colors">Blog</a></li>
+                        <li><a href="#blog" class="hover:text-dark-header-text transition-colors">Blog</a></li>
                     </ul>
                 </div>
 
@@ -1790,8 +1820,8 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt mr-3 text-anpha-blue" aria-hidden="true"></i>
-                            <span><a href="tel:+5511987654321">(11) 98765-4321</a><br><a
-                                    href="tel:+551132109876">(11) 3210-9876</a></span>
+                            <span><a href="tel:+5511987654321">(11)
+                                            98765-4321</a><br><a href="tel:+551132109876">(11) 3210-9876</a></span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-anpha-blue" aria-hidden="true"></i>
@@ -1844,7 +1874,7 @@
             </p>
 
             <h3 class="text-xl font-semibold text-dark-header-text mt-6 mb-3">2. Uso e Compartilhamento</h3>
-            <p class="text-dark-text-medium mb-4">
+            <p class="text-text-medium mb-4">
                 Usamos suas informações para responder a solicitações, personalizar sua experiência, melhorar nossos
                 serviços e, com seu consentimento, enviar comunicações de marketing. Não vendemos ou alugamos seus dados
                 a terceiros, exceto para prestadores de serviços sob confidencialidade ou quando exigido por lei.
@@ -1865,6 +1895,7 @@
             <p class="text-dark-text-medium text-sm mt-8">
                 Última atualização: 27 de julho de 2025.
             </p>
+            <!-- IMPORTANTE: Esta política de privacidade é um modelo e DEVE ser revisada por um advogado para garantir conformidade com a LGPD e outras leis aplicáveis. -->
         </div>
     </div>
 
@@ -1908,6 +1939,7 @@
             <p class="text-dark-text-medium text-sm mt-8">
                 Última atualização: 27 de julho de 2025.
             </p>
+            <!-- IMPORTANTE: Estes termos de serviço são um modelo e DEVE ser revisado por um advogado para garantir conformidade com as leis aplicáveis. -->
         </div>
     </div>
 
@@ -2415,15 +2447,76 @@
             lazyload();
         });
 
-        // --- Lógica de Envio do Formulário de Contato (Adicionado) ---
+        // --- Lógica de Envio do Formulário de Contato e Validação (Melhorado) ---
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
+
+        // Função para exibir mensagem de erro para um campo específico
+        function displayError(inputElement, message) {
+            const errorElement = document.getElementById(`${inputElement.id}-error`);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.remove('hidden');
+                inputElement.classList.add('input-error');
+                inputElement.setAttribute('aria-invalid', 'true');
+                inputElement.setAttribute('aria-describedby', `${inputElement.id}-error`);
+            }
+        }
+
+        // Função para limpar mensagem de erro para um campo específico
+        function clearError(inputElement) {
+            const errorElement = document.getElementById(`${inputElement.id}-error`);
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.classList.add('hidden');
+                inputElement.classList.remove('input-error');
+                inputElement.removeAttribute('aria-invalid');
+                inputElement.removeAttribute('aria-describedby');
+            }
+        }
+
+        // Função para validar um campo individual
+        function validateInput(inputElement) {
+            if (inputElement.checkValidity()) {
+                clearError(inputElement);
+                return true;
+            } else {
+                let message = '';
+                if (inputElement.validity.valueMissing) {
+                    message = 'Este campo é obrigatório.';
+                } else if (inputElement.validity.typeMismatch) {
+                    message = 'Por favor, insira um valor válido.';
+                } else if (inputElement.validity.patternMismatch && inputElement.id === 'phone') {
+                    message = 'Formato: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX.';
+                }
+                displayError(inputElement, message);
+                return false;
+            }
+        }
+
+        // Adiciona listeners para validação ao sair do campo (blur)
+        contactForm.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('blur', () => {
+                validateInput(input);
+            });
+            // Limpa o erro ao digitar novamente
+            input.addEventListener('input', () => {
+                clearError(input);
+            });
+        });
 
         contactForm.addEventListener('submit', async function (event) {
             event.preventDefault(); // Impede o envio padrão do formulário
 
-            // Validação básica do formulário antes de enviar
-            if (!contactForm.checkValidity()) {
+            // Valida todos os campos antes de enviar
+            let formIsValid = true;
+            contactForm.querySelectorAll('input, textarea, select').forEach(input => {
+                if (!validateInput(input)) {
+                    formIsValid = false;
+                }
+            });
+
+            if (!formIsValid) {
                 formMessage.textContent = 'Por favor, preencha todos os campos obrigatórios corretamente.';
                 formMessage.classList.remove('text-green-500', 'hidden');
                 formMessage.classList.add('text-red-500', 'block');
@@ -2468,6 +2561,8 @@
                     formMessage.classList.remove('text-red-500', 'hidden');
                     formMessage.classList.add('text-green-500', 'block');
                     contactForm.reset(); // Limpa o formulário
+                    // Limpa quaisquer erros visuais restantes
+                    contactForm.querySelectorAll('.input-error').forEach(el => clearError(el));
                 } else {
                     const errorData = await response.json();
                     formMessage.textContent = `Erro ao enviar mensagem: ${errorData.message || 'Houve um problema. Por favor, tente novamente.'}`;
