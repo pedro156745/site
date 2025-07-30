@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anphaweb - Transforme Seu Negócio com Soluções Digitais que Geram Resultados Reais</title>
-    
+
     <!-- Meta Description otimizada para conversão -->
     <meta name="description"
         content="Anphaweb: Criamos sites, e-commerce e sistemas que aumentam suas vendas. Mais de 500 projetos entregues. Consultoria gratuita disponível. Transforme seu negócio digital hoje!">
@@ -71,10 +71,10 @@
     <!-- Google Analytics (placeholder - substituir por ID real) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX-Y"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXX-Y');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXX-Y');
     </script>
 
     <script>
@@ -135,7 +135,7 @@
             }
         }
     </script>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
@@ -156,7 +156,7 @@
             z-index: -2;
             transition: opacity 0.5s ease-in-out;
         }
-        
+
         #three-bg.hidden {
             opacity: 0;
             pointer-events: none;
@@ -174,6 +174,7 @@
         .gradient-bg {
             background: linear-gradient(135deg, #2563eb, #7e22ce);
         }
+
         .gradient-bg-alt {
             background: linear-gradient(135deg, #7e22ce, #f97316);
         }
@@ -234,9 +235,11 @@
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
+
             70% {
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
@@ -244,8 +247,9 @@
 
         /* Urgency banner */
         .urgency-banner {
-            background: linear-gradient(45deg, #ef4444, #dc2626);
-            animation: pulse 2s infinite;
+            background: linear-gradient(to right, #2563eb 0%, #7e22ce 50%, #f97316 100%);
+            background-size: 200% auto;
+            animation: gradient-pulse 4s infinite alternate;
         }
 
         /* Trust badges */
@@ -276,7 +280,8 @@
         }
 
         .faq-content.active {
-            max-height: 200px; /* Ajuste conforme necessário para o conteúdo */
+            max-height: 200px;
+            /* Ajuste conforme necessário para o conteúdo */
         }
 
         /* Modal */
@@ -326,6 +331,7 @@
                 opacity: 0;
                 transform: scale(0.9);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -361,7 +367,7 @@
         .input-error {
             border-color: #ef4444 !important;
         }
-        
+
         .error-message {
             color: #ef4444;
             font-size: 0.875rem;
@@ -386,8 +392,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Ícones grandes para substituir imagens */
@@ -403,9 +414,12 @@
             color: white;
             margin-bottom: 1rem;
             transition: all 0.3s ease;
-            position: relative; /* Para pseudo-elementos */
-            overflow: hidden; /* Para esconder o overflow do pseudo-elemento */
+            position: relative;
+            /* Para pseudo-elementos */
+            overflow: hidden;
+            /* Para esconder o overflow do pseudo-elemento */
         }
+
         .icon-placeholder::before {
             content: '';
             position: absolute;
@@ -413,12 +427,15 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: rgba(255, 255, 255, 0.05); /* Um brilho sutil */
+            background: rgba(255, 255, 255, 0.05);
+            /* Um brilho sutil */
             transform: rotate(45deg);
             transition: transform 0.5s ease;
         }
+
         .icon-placeholder:hover::before {
-            transform: rotate(45deg) translateX(20%); /* Efeito de brilho ao passar o mouse */
+            transform: rotate(45deg) translateX(20%);
+            /* Efeito de brilho ao passar o mouse */
         }
 
         .icon-placeholder:hover {
@@ -435,7 +452,8 @@
             position: absolute;
             opacity: 0.1;
             animation: float 6s ease-in-out infinite;
-            filter: blur(10px); /* Suaviza as bordas */
+            filter: blur(10px);
+            /* Suaviza as bordas */
         }
 
         .decorative-element:nth-child(2) {
@@ -450,14 +468,16 @@
 
         /* Estilo para a logo */
         .anphaweb-logo {
-            height: 40px; /* Ajuste conforme necessário */
+            height: 40px;
+            /* Ajuste conforme necessário */
             width: auto;
-            filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.5)); /* Sombra sutil */
+            filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.5));
+            /* Sombra sutil */
         }
 
         /* Estilo para o background abstrato na seção Hero */
         .abstract-hero-bg {
-            background: linear-gradient(135deg, rgba(37,99,235,0.2) 0%, rgba(126,34,206,0.2) 50%, rgba(249,115,22,0.2) 100%);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(126, 34, 206, 0.2) 50%, rgba(249, 115, 22, 0.2) 100%);
             position: absolute;
             inset: 0;
             z-index: 0;
@@ -472,20 +492,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255,255,255,0.05),
-                rgba(255,255,255,0.05) 10px,
-                transparent 10px,
-                transparent 20px
-            );
+            background: repeating-linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.05) 10px,
+                    transparent 10px,
+                    transparent 20px);
             animation: rotateSubtle 20s linear infinite;
             opacity: 0.5;
         }
 
         /* Estilo para o background abstrato na seção Sobre Nós */
         .abstract-about-bg {
-            background: linear-gradient(135deg, rgba(126,34,206,0.2) 0%, rgba(37,99,235,0.2) 100%);
+            background: linear-gradient(135deg, rgba(126, 34, 206, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%);
             position: absolute;
             inset: 0;
             z-index: 0;
@@ -500,7 +518,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 11%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 10%, transparent 11%);
             background-size: 30px 30px;
             animation: rotateSubtle 30s linear infinite reverse;
             opacity: 0.4;
@@ -525,14 +543,16 @@
     </button>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511987654321?text=Olá! Vi a oferta limitada no site e gostaria de agendar minha consultoria gratuita!" target="_blank"
+    <a href="https://wa.me/5511987654321?text=Olá! Vi a oferta limitada no site e gostaria de agendar minha consultoria gratuita!"
+        target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600"
         aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Navegação Principal -->
-    <nav class="sticky top-0 w-full bg-dark-section-bg shadow-lg z-40 transition-all duration-300 border-b border-gray-700">
+    <nav
+        class="sticky top-0 w-full bg-dark-section-bg shadow-lg z-40 transition-all duration-300 border-b border-gray-700">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
@@ -541,41 +561,56 @@
                     <!-- Texto "ANPHAWEB" ao lado da logo -->
                     <span class="text-2xl font-bold gradient-text ml-4">ANPHAWEB</span>
                 </div>
-                
+
                 <!-- Links de Navegação para Desktop -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="#home" class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
-                        <a href="#about" class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
-                        <a href="#services" class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
-                        <a href="#portfolio" class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
-                        <a href="#testimonials" class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
-                        <a href="#contact" class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+                        <a href="#home"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
+                        <a href="#about"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
+                        <a href="#services"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Serviços</a>
+                        <a href="#portfolio"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfólio</a>
+                        <a href="#testimonials"
+                            class="text-dark-text-light hover:text-anpha-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Depoimentos</a>
+                        <a href="#contact"
+                            class="bg-anpha-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
                             Consultoria Grátis
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Botão de Menu para Mobile -->
                 <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none" aria-label="Abrir menu mobile">
+                    <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none"
+                        aria-label="Abrir menu mobile">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
-        
+
         <!-- Menu Mobile -->
         <div id="mobile-menu" class="md:hidden hidden bg-dark-section-bg shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
-                <a href="#about" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
-                <a href="#services" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
-                <a href="#portfolio" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
-                <a href="#testimonials" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
-                <a href="#contact" class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Consultoria Grátis</a>
+                <a href="#home"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Início</a>
+                <a href="#about"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Sobre</a>
+                <a href="#services"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Serviços</a>
+                <a href="#portfolio"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Portfólio</a>
+                <a href="#testimonials"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Depoimentos</a>
+                <a href="#contact"
+                    class="mobile-menu-link block px-3 py-2 rounded-md text-base font-medium text-dark-text-light hover:text-anpha-blue hover:bg-gray-800">Consultoria
+                    Grátis</a>
             </div>
         </div>
     </nav>
@@ -583,25 +618,31 @@
     <!-- Hero Section Otimizada (SEM FOTOS, MAIS ORGÂNICA) -->
     <section id="home" class="pt-24 pb-20 md:pt-32 md:pb-32 relative overflow-hidden">
         <!-- Elementos decorativos flutuantes e borrados para um efeito mais orgânico -->
-        <div class="decorative-element" style="top: 15%; left: 8%; width: 120px; height: 120px; animation-delay: 0s;"></div>
-        <div class="decorative-element" style="top: 55%; right: 12%; width: 100px; height: 100px; animation-delay: -2.5s;"></div>
-        <div class="decorative-element" style="bottom: 25%; left: 25%; width: 140px; height: 140px; animation-delay: -4s;"></div>
-        
+        <div class="decorative-element" style="top: 15%; left: 8%; width: 120px; height: 120px; animation-delay: 0s;">
+        </div>
+        <div class="decorative-element"
+            style="top: 55%; right: 12%; width: 100px; height: 100px; animation-delay: -2.5s;"></div>
+        <div class="decorative-element"
+            style="bottom: 25%; left: 25%; width: 140px; height: 140px; animation-delay: -4s;"></div>
+
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
                     <!-- Trust indicators REMOVIDOS -->
-                    
+
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-header-text leading-tight mb-6">
-                        Aumente Suas <span class="gradient-text">Vendas em 150%</span> com Soluções Digitais que Realmente Funcionam
+                        Aumente Suas <span class="gradient-text">Vendas em 150%</span> com Soluções Digitais que
+                        Realmente Funcionam
                     </h1>
-                    
+
                     <p class="text-lg md:text-xl text-dark-text-medium mb-8 max-w-lg">
-                        Mais de 500 empresas já transformaram seus negócios conosco. Sites que convertem, e-commerce que vende, 
-                        sistemas que otimizam. <strong class="text-anpha-orange">Resultados garantidos em 30 dias ou seu dinheiro de volta!</strong>
+                        Mais de 500 empresas já transformaram seus negócios conosco. Sites que convertem, e-commerce que
+                        vende,
+                        sistemas que otimizam. <strong class="text-anpha-orange">Resultados garantidos em 30 dias ou seu
+                            dinheiro de volta!</strong>
                     </p>
-                    
+
                     <!-- Social proof específica SEM FOTO -->
                     <div class="bg-dark-card-bg border border-dark-border rounded-lg p-4 mb-8">
                         <p class="text-sm text-dark-text-medium mb-2">
@@ -609,43 +650,49 @@
                             "Em 3 meses, nosso faturamento online aumentou 180% com o novo site da Anphaweb!"
                         </p>
                         <div class="flex items-center">
-                            <div class="w-8 h-8 rounded-full mr-2 bg-gradient-to-r from-anpha-blue to-anpha-purple flex items-center justify-center text-white text-xs font-bold">
+                            <div
+                                class="w-8 h-8 rounded-full mr-2 bg-gradient-to-r from-anpha-blue to-anpha-purple flex items-center justify-center text-white text-xs font-bold">
                                 MS
                             </div>
                             <span class="text-xs text-dark-text-medium">- Maria Silva, CEO TechCorp</span>
                         </div>
                     </div>
-                    
+
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="btn-gradient-primary font-medium py-4 px-8 rounded-lg shadow-lg text-center">
+                        <a href="#contact"
+                            class="btn-gradient-primary font-medium py-4 px-8 rounded-lg shadow-lg text-center">
                             🎯 Quero Minha Consultoria GRATUITA
                         </a>
-                        <a href="#portfolio" class="btn-outline-primary font-medium py-4 px-8 rounded-lg shadow-lg text-center">
+                        <a href="#portfolio"
+                            class="btn-outline-primary font-medium py-4 px-8 rounded-lg shadow-lg text-center">
                             📊 Ver Cases de Sucesso
                         </a>
                     </div>
-                    
+
                     <!-- Urgency indicator -->
                     <div class="mt-6 flex items-center text-sm text-anpha-orange">
                         <i class="fas fa-clock mr-2 animate-pulse"></i>
                         <span>⚡ Apenas 10 vagas restantes para consultoria gratuita este mês!</span>
                     </div>
                 </div>
-                
+
                 <!-- Área visual SEM FOTO - usando ícones e elementos gráficos mais dinâmicos -->
                 <div class="mt-12 lg:mt-0 scroll-reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
                         <!-- Background abstrato com padrão animado -->
                         <div class="abstract-hero-bg w-full h-full relative z-0"></div>
-                        
+
                         <!-- Conteúdo principal sobre o background abstrato -->
-                        <div class="relative z-10 p-8 flex flex-col items-center justify-center h-full min-h-[300px] md:min-h-[400px]">
+                        <div
+                            class="relative z-10 p-8 flex flex-col items-center justify-center h-full min-h-[300px] md:min-h-[400px]">
                             <div class="text-6xl mb-4 text-white">
                                 <i class="fas fa-desktop"></i>
                             </div>
-                            <h3 class="text-2xl font-bold mb-2 text-white text-center">Desenvolvimento Web Profissional</h3>
-                            <p class="text-white/90 mb-6 text-center">Criamos experiências digitais que geram resultados reais para o seu negócio.</p>
-                            
+                            <h3 class="text-2xl font-bold mb-2 text-white text-center">Desenvolvimento Web Profissional
+                            </h3>
+                            <p class="text-white/90 mb-6 text-center">Criamos experiências digitais que geram resultados
+                                reais para o seu negócio.</p>
+
                             <!-- Ícones de tecnologias com animação sutil -->
                             <div class="flex justify-center space-x-4 text-3xl text-white">
                                 <i class="fab fa-html5 hover:scale-110 transition-transform" title="HTML5"></i>
@@ -655,7 +702,7 @@
                                 <i class="fab fa-node-js hover:scale-110 transition-transform" title="Node.js"></i>
                             </div>
                         </div>
-                        
+
                         <!-- Floating stats -->
                         <div class="absolute top-4 right-4 bg-white rounded-lg p-3 shadow-lg animate-float">
                             <div class="text-center">
@@ -664,7 +711,7 @@
                                 <div class="text-xs text-gray-600">em Vendas</div>
                             </div>
                         </div>
-                        
+
                         <div class="absolute bottom-4 left-4 bg-white rounded-lg p-3 shadow-lg animate-float-reverse">
                             <div class="text-center">
                                 <div class="text-2xl font-bold text-anpha-green">500+</div>
@@ -680,8 +727,11 @@
         <!-- Elementos flutuantes decorativos (redundantes com os de cima, mas mantidos para consistência se necessário) -->
         <div class="hidden lg:block">
             <div class="absolute top-1/4 left-10 w-8 h-8 bg-anpha-blue rounded-full opacity-30 animate-float"></div>
-            <div class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse"></div>
-            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float"></div>
+            <div
+                class="absolute top-1/3 right-20 w-6 h-6 bg-anpha-orange rounded-full opacity-30 animate-float-reverse">
+            </div>
+            <div class="absolute bottom-1/4 left-1/4 w-10 h-10 bg-anpha-purple rounded-full opacity-20 animate-float">
+            </div>
         </div>
     </section>
 
@@ -694,7 +744,9 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     Por Que <span class="gradient-text">+500 Empresas</span> Confiam em Nós?
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
             </div>
 
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
@@ -703,38 +755,40 @@
                     <h3 class="text-2xl font-bold text-dark-header-text mb-6">
                         Transformamos Ideias em Resultados Digitais Reais
                     </h3>
-                    
+
                     <p class="text-dark-text-medium mb-6">
-                        Desde 2020, a Anphaweb tem sido a parceira estratégica de empresas que querem crescer no ambiente digital. 
-                        Nossa missão é simples: <strong class="text-anpha-orange">criar soluções que aumentem suas vendas e otimizem seus processos</strong>.
+                        Desde 2020, a Anphaweb tem sido a parceira estratégica de empresas que querem crescer no
+                        ambiente digital.
+                        Nossa missão é simples: <strong class="text-anpha-orange">criar soluções que aumentem suas
+                            vendas e otimizem seus processos</strong>.
                     </p>
-                    
+
                     <div class="grid md:grid-cols-2 gap-6 mb-8">
                         <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
                             <div class="text-3xl font-bold text-anpha-blue mb-2">500+</div>
                             <div class="text-dark-text-light font-semibold">Projetos Entregues</div>
                             <div class="text-sm text-dark-text-medium">Em diversos segmentos</div>
                         </div>
-                        
+
                         <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
                             <div class="text-3xl font-bold text-anpha-green mb-2">150%</div>
                             <div class="text-dark-text-light font-semibold">Aumento Médio</div>
                             <div class="text-sm text-dark-text-medium">Em vendas dos clientes</div>
                         </div>
-                        
+
                         <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
                             <div class="text-3xl font-bold text-anpha-purple mb-2">4.9/5</div>
                             <div class="text-dark-text-light font-semibold">Avaliação Média</div>
                             <div class="text-sm text-dark-text-medium">127 avaliações</div>
                         </div>
-                        
+
                         <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
                             <div class="text-3xl font-bold text-anpha-orange mb-2">30</div>
                             <div class="text-dark-text-light font-semibold">Dias de Garantia</div>
                             <div class="text-sm text-dark-text-medium">Ou seu dinheiro de volta</div>
                         </div>
                     </div>
-                    
+
                     <!-- Diferenciais -->
                     <div class="space-y-4">
                         <div class="flex items-start">
@@ -744,25 +798,27 @@
                                 <span class="text-dark-text-medium"> Processo testado em +500 projetos</span>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-anpha-green mr-3 mt-1"></i>
                             <div>
                                 <strong class="text-dark-header-text">Foco em Resultados:</strong>
-                                <span class="text-dark-text-medium"> Não vendemos sites, vendemos mais vendas para você</span>
+                                <span class="text-dark-text-medium"> Não vendemos sites, vendemos mais vendas para
+                                    você</span>
                             </div>
                         </div>
-                        
+
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-anpha-green mr-3 mt-1"></i>
                             <div>
                                 <strong class="text-dark-header-text">Suporte Completo:</strong>
-                                <span class="text-dark-text-medium"> Acompanhamento pós-entrega e treinamento da equipe</span>
+                                <span class="text-dark-text-medium"> Acompanhamento pós-entrega e treinamento da
+                                    equipe</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Área visual SEM FOTO - usando ícones e gráficos mais dinâmicos -->
                 <div class="mt-12 lg:mt-0 scroll-reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -770,7 +826,8 @@
                         <div class="abstract-about-bg w-full h-full relative z-0"></div>
 
                         <!-- Conteúdo da equipe sobre o background abstrato -->
-                        <div class="relative z-10 p-8 flex flex-col items-center justify-center h-full min-h-[300px] md:min-h-[400px]">
+                        <div
+                            class="relative z-10 p-8 flex flex-col items-center justify-center h-full min-h-[300px] md:min-h-[400px]">
                             <div class="text-center mb-6 text-white">
                                 <div class="text-5xl mb-4 animate-pulse-slow">
                                     <i class="fas fa-users"></i>
@@ -778,28 +835,32 @@
                                 <h4 class="text-xl font-bold">Nossa Equipe Especializada</h4>
                                 <p class="text-white/90">Profissionais apaixonados por tecnologia e resultados.</p>
                             </div>
-                            
+
                             <!-- Especialidades com hover -->
                             <div class="grid grid-cols-2 gap-4 text-center w-full max-w-sm">
-                                <div class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
+                                <div
+                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
                                     <i class="fas fa-code text-2xl mb-2 text-anpha-blue"></i>
                                     <div class="text-sm font-semibold text-white">Desenvolvimento</div>
                                 </div>
-                                <div class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
+                                <div
+                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
                                     <i class="fas fa-paint-brush text-2xl mb-2 text-anpha-purple"></i>
                                     <div class="text-sm font-semibold text-white">Design Criativo</div>
                                 </div>
-                                <div class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
+                                <div
+                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
                                     <i class="fas fa-chart-line text-2xl mb-2 text-anpha-orange"></i>
                                     <div class="text-sm font-semibold text-white">Marketing Digital</div>
                                 </div>
-                                <div class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
+                                <div
+                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
                                     <i class="fas fa-headset text-2xl mb-2 text-anpha-green"></i>
                                     <div class="text-sm font-semibold text-white">Suporte Dedicado</div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Badge de certificação -->
                         <div class="absolute top-4 left-4 bg-white rounded-lg p-3 shadow-lg">
                             <div class="flex items-center">
@@ -824,16 +885,20 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     Soluções <span class="gradient-text">Que Geram Resultados</span> Comprovados
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-dark-text-medium mt-6 max-w-3xl mx-auto">
-                    Cada serviço é desenvolvido com foco em <strong class="text-anpha-orange">aumentar suas vendas e otimizar seus processos</strong>. 
+                    Cada serviço é desenvolvido com foco em <strong class="text-anpha-orange">aumentar suas vendas e
+                        otimizar seus processos</strong>.
                     Veja como podemos transformar seu negócio digital:
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Cartão de Serviço 1: Sites Institucionais -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg">
+                <div
+                    class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-purple">
                         <i class="fas fa-globe"></i>
@@ -841,18 +906,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">
                         +80% Conversão
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sites Institucionais</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Comece a vender online</span>
                         <span class="text-sm text-dark-text-medium block">a partir de 2-3 semanas</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Sites que <strong>convertem visitantes em clientes</strong>. Design moderno, responsivo e otimizado para vendas.
+                        Sites que <strong>convertem visitantes em clientes</strong>. Design moderno, responsivo e
+                        otimizado para vendas.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> Design responsivo e moderno
@@ -867,14 +933,16 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Integração com WhatsApp
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Cartão de Serviço 2: E-commerce -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.1s">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.1s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-orange to-anpha-purple">
                         <i class="fas fa-shopping-cart"></i>
@@ -882,18 +950,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-orange text-white px-2 py-1 rounded text-xs font-bold">
                         +200% Vendas
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">E-commerce Completo</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Sua loja virtual 24h</span>
                         <span class="text-sm text-dark-text-medium block">a partir de 4-6 semanas</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Loja virtual completa que <strong>vende 24h por dia</strong>. Integração com pagamentos e gestão de estoque.
+                        Loja virtual completa que <strong>vende 24h por dia</strong>. Integração com pagamentos e gestão
+                        de estoque.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> Integração com pagamentos
@@ -908,14 +977,16 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Relatórios de vendas
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Cartão de Serviço 3: Landing Pages -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.2s">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.2s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-green">
                         <i class="fas fa-rocket"></i>
@@ -923,18 +994,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">
                         +300% Leads
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Landing Pages</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Capture mais leads</span>
                         <span class="text-sm text-dark-text-medium block">a partir de 1-2 semanas</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Páginas de <strong>alta conversão</strong> para suas campanhas. Capture mais leads e aumente suas vendas.
+                        Páginas de <strong>alta conversão</strong> para suas campanhas. Capture mais leads e aumente
+                        suas vendas.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> Design focado em conversão
@@ -949,14 +1021,16 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Testes A/B incluídos
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Cartão de Serviço 4: Sistemas Personalizados -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.3s">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.3s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-green">
                         <i class="fas fa-cogs"></i>
@@ -964,18 +1038,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">
                         -50% Tempo
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Sistemas Personalizados</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Otimize seus processos</span>
                         <span class="text-sm text-dark-text-medium block">a partir de 6-12 semanas</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Sistemas sob medida que <strong>automatizam seus processos</strong> e aumentam a eficiência da sua equipe.
+                        Sistemas sob medida que <strong>automatizam seus processos</strong> e aumentam a eficiência da
+                        sua equipe.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> Análise de processos
@@ -990,14 +1065,16 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Suporte técnico
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Cartão de Serviço 5: Aplicativos Mobile -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.4s">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.4s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-orange to-anpha-blue">
                         <i class="fas fa-mobile-alt"></i>
@@ -1005,18 +1082,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">
                         +400% Engajamento
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Aplicativos Mobile</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Conecte-se aos seus clientes</span>
                         <span class="text-sm text-dark-text-medium block">a partir de 8-16 semanas</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Apps nativos para iOS e Android que <strong>conectam você aos seus clientes</strong> 24h por dia.
+                        Apps nativos para iOS e Android que <strong>conectam você aos seus clientes</strong> 24h por
+                        dia.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> Design UI/UX profissional
@@ -1031,14 +1109,16 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Push notifications
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Cartão de Serviço 6: Marketing Digital -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.5s">
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.5s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
                     <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-orange">
                         <i class="fas fa-search-dollar"></i>
@@ -1046,18 +1126,19 @@
                     <div class="absolute top-2 right-2 bg-anpha-orange text-white px-2 py-1 rounded text-xs font-bold">
                         +500% ROI
                     </div>
-                    
+
                     <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
-                    
+
                     <div class="text-center mb-4">
                         <span class="text-2xl font-bold text-anpha-blue">Multiplique seu faturamento</span>
                         <span class="text-sm text-dark-text-medium block">planos a partir de R$ 1.997/mês</span>
                     </div>
-                    
+
                     <p class="text-dark-text-medium text-center mb-6">
-                        Estratégias que <strong>multiplicam seu faturamento</strong>. SEO, Google Ads e gestão de redes sociais.
+                        Estratégias que <strong>multiplicam seu faturamento</strong>. SEO, Google Ads e gestão de redes
+                        sociais.
                     </p>
-                    
+
                     <ul class="space-y-2 text-dark-text-medium mb-6">
                         <li class="flex items-center">
                             <i class="fas fa-check text-anpha-green mr-2"></i> SEO para primeira página
@@ -1072,8 +1153,9 @@
                             <i class="fas fa-check text-anpha-green mr-2"></i> Relatórios mensais
                         </li>
                     </ul>
-                    
-                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
                         Solicitar Orçamento
                     </a>
                 </div>
@@ -1086,10 +1168,13 @@
                         🎯 Não Sabe Qual Serviço é Ideal para Seu Negócio?
                     </h3>
                     <p class="text-white/90 mb-8 max-w-2xl mx-auto">
-                        Agende uma <strong>consultoria gratuita</strong> e descubra exatamente o que seu negócio precisa para 
-                        aumentar as vendas. Nossa análise personalizada vai mostrar as melhores oportunidades para seu crescimento.
+                        Agende uma <strong>consultoria gratuita</strong> e descubra exatamente o que seu negócio precisa
+                        para
+                        aumentar as vendas. Nossa análise personalizada vai mostrar as melhores oportunidades para seu
+                        crescimento.
                     </p>
-                    <a href="#contact" class="bg-white text-anpha-blue font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block">
+                    <a href="#contact"
+                        class="bg-white text-anpha-blue font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block">
                         🚀 Quero Minha Consultoria GRATUITA Agora
                     </a>
                     <div class="mt-4 text-white/80 text-sm">
@@ -1109,36 +1194,45 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     Projetos que <span class="gradient-text">Transformaram Negócios</span>
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-dark-text-medium mt-6 max-w-3xl mx-auto">
-                    Veja como nossos clientes <strong class="text-anpha-orange">aumentaram suas vendas e otimizaram seus processos</strong> 
+                    Veja como nossos clientes <strong class="text-anpha-orange">aumentaram suas vendas e otimizaram seus
+                        processos</strong>
                     com nossas soluções digitais. Resultados reais, empresas reais.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Projeto 1: Site Institucional -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg">
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg">
                     <div class="w-full h-64 bg-anpha-blue/30 flex items-center justify-center text-anpha-blue text-5xl">
                         <i class="fas fa-globe"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+180% Vendas</span>
-                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">3 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+180%
+                                    Vendas</span>
+                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">3
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">TechCorp - Site Institucional</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Redesign completo focado em conversão resultou em 180% de aumento no faturamento online em apenas 3 meses.
+                                Redesign completo focado em conversão resultou em 180% de aumento no faturamento online
+                                em apenas 3 meses.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Tecnologia<br>
                                     <!-- <strong>Investimento:</strong> R$ 4.500 -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1147,27 +1241,34 @@
                 </div>
 
                 <!-- Projeto 2: E-commerce -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg" style="transition-delay: 0.1s">
-                    <div class="w-full h-64 bg-anpha-orange/30 flex items-center justify-center text-anpha-orange text-5xl">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.1s">
+                    <div
+                        class="w-full h-64 bg-anpha-orange/30 flex items-center justify-center text-anpha-orange text-5xl">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+250% ROI</span>
-                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">6 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+250%
+                                    ROI</span>
+                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">6
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">ModaStyle - E-commerce</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Loja virtual completa com automações que aumentaram o ticket médio em 85% e reduziram carrinho abandonado em 60%.
+                                Loja virtual completa com automações que aumentaram o ticket médio em 85% e reduziram
+                                carrinho abandonado em 60%.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Moda<br>
                                     <!-- <strong>Investimento:</strong> R$ 8.900 -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1176,27 +1277,34 @@
                 </div>
 
                 <!-- Projeto 3: Sistema de Gestão -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg" style="transition-delay: 0.2s">
-                    <div class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.2s">
+                    <div
+                        class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">-70% Tempo</span>
-                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">4 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">-70%
+                                    Tempo</span>
+                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">4
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">LogiFlow - Sistema ERP</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Sistema personalizado que automatizou processos, reduzindo tempo de operação em 70% e eliminando erros manuais.
+                                Sistema personalizado que automatizou processos, reduzindo tempo de operação em 70% e
+                                eliminando erros manuais.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Logística<br>
                                     <!-- <strong>Investimento:</strong> R$ 15.000 -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1205,27 +1313,34 @@
                 </div>
 
                 <!-- Projeto 4: Landing Page -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg" style="transition-delay: 0.3s">
-                    <div class="w-full h-64 bg-anpha-green/30 flex items-center justify-center text-anpha-green text-5xl">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.3s">
+                    <div
+                        class="w-full h-64 bg-anpha-green/30 flex items-center justify-center text-anpha-green text-5xl">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+420% Leads</span>
-                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">2 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+420%
+                                    Leads</span>
+                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">2
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">EduOnline - Landing Page</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Landing page otimizada para curso online com taxa de conversão de 18%, gerando 420% mais leads qualificados.
+                                Landing page otimizada para curso online com taxa de conversão de 18%, gerando 420% mais
+                                leads qualificados.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Educação<br>
                                     <!-- <strong>Investimento:</strong> R$ 2.200 -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1234,27 +1349,33 @@
                 </div>
 
                 <!-- Projeto 5: Aplicativo Mobile -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg" style="transition-delay: 0.4s">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.4s">
                     <div class="w-full h-64 bg-anpha-blue/30 flex items-center justify-center text-anpha-blue text-5xl">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">50K Downloads</span>
-                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">8 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">50K
+                                    Downloads</span>
+                                <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">8
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">FitLife - App Mobile</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Aplicativo de fitness que alcançou 50mil downloads e 4.8 estrelas na App Store, gerando R$ 80k/mês em receita.
+                                Aplicativo de fitness que alcançou 50mil downloads e 4.8 estrelas na App Store, gerando
+                                R$ 80k/mês em receita.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Saúde & Fitness<br>
                                     <!-- <strong>Investimento:</strong> R$ 18.000 -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1263,27 +1384,34 @@
                 </div>
 
                 <!-- Projeto 6: Marketing Digital -->
-                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg" style="transition-delay: 0.5s">
-                    <div class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.5s">
+                    <div
+                        class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
                         <div class="text-white">
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+650% ROI</span>
-                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">12 Meses</span>
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+650%
+                                    ROI</span>
+                                <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">12
+                                    Meses</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2">AutoParts - Marketing Digital</h3>
                             <p class="text-gray-200 mb-4 text-sm">
-                                Estratégia completa de SEO + Google Ads que levou a empresa da página 5 para posição #1 no Google, aumentando vendas em 650%.
+                                Estratégia completa de SEO + Google Ads que levou a empresa da página 5 para posição #1
+                                no Google, aumentando vendas em 650%.
                             </p>
                             <div class="flex items-center justify-between">
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Automotivo<br>
                                     <!-- <strong>Investimento:</strong> R$ 3.500/mês -->
                                 </div>
-                                <a href="#contact" class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
+                                <a href="#contact"
+                                    class="bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm">
                                     Ver Detalhes
                                 </a>
                             </div>
@@ -1329,16 +1457,20 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     O Que Nossos <span class="gradient-text">Clientes Dizem</span> Sobre os Resultados
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-dark-text-medium mt-6 max-w-3xl mx-auto">
-                    Mais de 127 empresas já transformaram seus negócios conosco. Veja os depoimentos reais de quem 
-                    <strong class="text-anpha-orange">aumentou suas vendas e otimizou seus processos</strong> com nossas soluções.
+                    Mais de 127 empresas já transformaram seus negócios conosco. Veja os depoimentos reais de quem
+                    <strong class="text-anpha-orange">aumentou suas vendas e otimizou seus processos</strong> com nossas
+                    soluções.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Depoimento 1 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg">
+                <div
+                    class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1346,14 +1478,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "Em apenas 3 meses, nosso faturamento online aumentou 180% com o novo site da Anphaweb. 
-                        O investimento se pagou em 45 dias! A equipe é extremamente profissional e focada em resultados."
+                        "Em apenas 3 meses, nosso faturamento online aumentou 180% com o novo site da Anphaweb.
+                        O investimento se pagou em 45 dias! A equipe é extremamente profissional e focada em
+                        resultados."
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg">
                             MS
                         </div>
                         <div>
@@ -1365,7 +1499,8 @@
                 </div>
 
                 <!-- Depoimento 2 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.1s">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.1s">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1373,14 +1508,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "O sistema personalizado que criaram revolucionou nossa operação. Reduzimos 70% do tempo em processos 
+                        "O sistema personalizado que criaram revolucionou nossa operação. Reduzimos 70% do tempo em
+                        processos
                         manuais e eliminamos completamente os erros. ROI de 400% no primeiro ano!"
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg">
                             CM
                         </div>
                         <div>
@@ -1392,7 +1529,8 @@
                 </div>
 
                 <!-- Depoimento 3 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.2s">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.2s">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1400,14 +1538,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "Nossa landing page criada pela Anphaweb tem 18% de conversão! Geramos 420% mais leads qualificados 
+                        "Nossa landing page criada pela Anphaweb tem 18% de conversão! Geramos 420% mais leads
+                        qualificados
                         e nosso curso online virou um sucesso. Recomendo de olhos fechados!"
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-purple flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-purple flex items-center justify-center text-white text-lg">
                             AR
                         </div>
                         <div>
@@ -1419,7 +1559,8 @@
                 </div>
 
                 <!-- Depoimento 4 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.3s">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.3s">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1427,14 +1568,15 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "O e-commerce que desenvolveram para nossa loja de moda aumentou nossas vendas online em 250%. 
+                        "O e-commerce que desenvolveram para nossa loja de moda aumentou nossas vendas online em 250%.
                         O carrinho abandonado caiu 60% e o ticket médio subiu 85%. Simplesmente fantástico!"
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-green flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-green flex items-center justify-center text-white text-lg">
                             RS
                         </div>
                         <div>
@@ -1446,7 +1588,8 @@
                 </div>
 
                 <!-- Depoimento 5 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.4s">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.4s">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1454,14 +1597,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "A estratégia de marketing digital da Anphaweb nos levou da página 5 para a posição #1 no Google. 
+                        "A estratégia de marketing digital da Anphaweb nos levou da página 5 para a posição #1 no
+                        Google.
                         Nossas vendas aumentaram 650% em 12 meses. Melhor investimento que já fizemos!"
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg">
                             FC
                         </div>
                         <div>
@@ -1473,7 +1618,8 @@
                 </div>
 
                 <!-- Depoimento 6 -->
-                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg" style="transition-delay: 0.5s">
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.5s">
                     <div class="flex text-anpha-orange mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -1481,14 +1627,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    
+
                     <p class="text-dark-text-medium italic mb-6">
-                        "Nosso app FitLife já tem 50mil downloads e gera R$ 80mil por mês! A Anphaweb entregou muito mais 
+                        "Nosso app FitLife já tem 50mil downloads e gera R$ 80mil por mês! A Anphaweb entregou muito
+                        mais
                         do que prometeu. Profissionalismo e qualidade excepcionais."
                     </p>
-                    
+
                     <div class="flex items-center">
-                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg">
+                        <div
+                            class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg">
                             LO
                         </div>
                         <div>
@@ -1507,11 +1655,13 @@
                         🚀 Quer Ser o Próximo Case de Sucesso?
                     </h3>
                     <p class="text-dark-text-medium mb-8 max-w-2xl mx-auto">
-                        Junte-se a mais de 500 empresas que já transformaram seus negócios conosco. 
-                        <strong class="text-anpha-orange">Agende sua consultoria gratuita</strong> e descubra como podemos 
+                        Junte-se a mais de 500 empresas que já transformaram seus negócios conosco.
+                        <strong class="text-anpha-orange">Agende sua consultoria gratuita</strong> e descubra como
+                        podemos
                         aumentar suas vendas em até 180%.
                     </p>
-                    <a href="#contact" class="btn-gradient-primary font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block">
+                    <a href="#contact"
+                        class="btn-gradient-primary font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block">
                         🎯 Quero Minha Consultoria GRATUITA
                     </a>
                     <div class="mt-4 text-anpha-orange text-sm font-semibold">
@@ -1530,15 +1680,19 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     Tire Suas <span class="gradient-text">Dúvidas</span> Agora
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
             </div>
 
             <div class="max-w-4xl mx-auto space-y-4">
                 <!-- FAQ 1 -->
                 <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl" 
-                            onclick="toggleFAQ(1)" aria-expanded="false" aria-controls="faq-content-1">
-                        <h3 class="font-semibold text-dark-header-text">💰 Quanto custa um projeto e qual o prazo de entrega?</h3>
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
+                        onclick="toggleFAQ(1)" aria-expanded="false" aria-controls="faq-content-1">
+                        <h3 class="font-semibold text-dark-header-text">💰 Quanto custa um projeto e qual o prazo de
+                            entrega?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-1"></i>
                     </button>
                     <div id="faq-content-1" class="faq-content px-6 pb-6" role="region" aria-labelledby="faq-toggle-1">
@@ -1546,23 +1700,30 @@
                             <strong class="text-anpha-orange">Sites institucionais:</strong> A partir de 2-3 semanas<br>
                             <strong class="text-anpha-orange">E-commerce:</strong> A partir de 4-6 semanas<br>
                             <strong class="text-anpha-orange">Landing Pages:</strong> A partir de 1-2 semanas<br>
-                            <strong class="text-anpha-orange">Sistemas personalizados:</strong> A partir de 6-12 semanas<br><br>
-                            💳 Oferecemos <strong>consultoria gratuita</strong> para definir o melhor projeto para seu negócio.
+                            <strong class="text-anpha-orange">Sistemas personalizados:</strong> A partir de 6-12
+                            semanas<br><br>
+                            💳 Oferecemos <strong>consultoria gratuita</strong> para definir o melhor projeto para seu
+                            negócio.
                         </p>
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
-                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal" style="transition-delay: 0.1s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl" 
-                            onclick="toggleFAQ(2)" aria-expanded="false" aria-controls="faq-content-2">
-                        <h3 class="font-semibold text-dark-header-text">🎯 Como vocês garantem o aumento nas vendas?</h3>
+                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal"
+                    style="transition-delay: 0.1s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
+                        onclick="toggleFAQ(2)" aria-expanded="false" aria-controls="faq-content-2">
+                        <h3 class="font-semibold text-dark-header-text">🎯 Como vocês garantem o aumento nas vendas?
+                        </h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-2"></i>
                     </button>
                     <div id="faq-content-2" class="faq-content px-6 pb-6" role="region" aria-labelledby="faq-toggle-2">
                         <p class="text-dark-text-medium">
-                            Nossa metodologia é baseada em <strong class="text-anpha-orange">mais de 500 projetos de sucesso</strong>:<br><br>
-                            ✅ <strong>Análise de conversão:</strong> Identificamos pontos de melhoria no seu funil de vendas<br>
+                            Nossa metodologia é baseada em <strong class="text-anpha-orange">mais de 500 projetos de
+                                sucesso</strong>:<br><br>
+                            ✅ <strong>Análise de conversão:</strong> Identificamos pontos de melhoria no seu funil de
+                            vendas<br>
                             ✅ <strong>Design focado em resultados:</strong> Cada elemento é pensado para converter<br>
                             ✅ <strong>Testes A/B:</strong> Otimizamos continuamente para melhor performance<br>
                             ✅ <strong>Acompanhamento pós-entrega:</strong> Monitoramos resultados por 90 dias<br><br>
@@ -1572,19 +1733,24 @@
                 </div>
 
                 <!-- FAQ 3 -->
-                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal" style="transition-delay: 0.2s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl" 
-                            onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="faq-content-3">
-                        <h3 class="font-semibold text-dark-header-text">🚀 O que está incluído na consultoria gratuita?</h3>
+                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal"
+                    style="transition-delay: 0.2s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
+                        onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="faq-content-3">
+                        <h3 class="font-semibold text-dark-header-text">🚀 O que está incluído na consultoria gratuita?
+                        </h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-3"></i>
                     </button>
                     <div id="faq-content-3" class="faq-content px-6 pb-6" role="region" aria-labelledby="faq-toggle-3">
                         <p class="text-dark-text-medium">
                             Nossa consultoria gratuita de 60 minutos inclui:<br><br>
                             🔍 <strong>Auditoria completa:</strong> Análise do seu site/negócio atual<br>
-                            📊 <strong>Identificação de oportunidades:</strong> Pontos que podem aumentar suas vendas<br>
+                            📊 <strong>Identificação de oportunidades:</strong> Pontos que podem aumentar suas
+                            vendas<br>
                             🎯 <strong>Estratégia personalizada:</strong> Plano específico para seu segmento<br>
-                            💡 <strong>Recomendações práticas:</strong> Ações que você pode implementar imediatamente<br>
+                            💡 <strong>Recomendações práticas:</strong> Ações que você pode implementar
+                            imediatamente<br>
                             📋 <strong>Proposta detalhada:</strong> Orçamento transparente sem surpresas<br><br>
                             ⚡ <strong>Apenas 10 vagas por mês</strong> - Agende a sua agora!
                         </p>
@@ -1592,9 +1758,11 @@
                 </div>
 
                 <!-- FAQ 4 -->
-                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal" style="transition-delay: 0.3s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl" 
-                            onclick="toggleFAQ(4)" aria-expanded="false" aria-controls="faq-content-4">
+                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal"
+                    style="transition-delay: 0.3s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
+                        onclick="toggleFAQ(4)" aria-expanded="false" aria-controls="faq-content-4">
                         <h3 class="font-semibold text-dark-header-text">🛠️ Vocês oferecem suporte após a entrega?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-4"></i>
                     </button>
@@ -1612,10 +1780,13 @@
                 </div>
 
                 <!-- FAQ 5 -->
-                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal" style="transition-delay: 0.4s">
-                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl" 
-                            onclick="toggleFAQ(5)" aria-expanded="false" aria-controls="faq-content-5">
-                        <h3 class="font-semibold text-dark-header-text">📱 Meu site será otimizado para celular e Google?</h3>
+                <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal"
+                    style="transition-delay: 0.4s">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
+                        onclick="toggleFAQ(5)" aria-expanded="false" aria-controls="faq-content-5">
+                        <h3 class="font-semibold text-dark-header-text">📱 Meu site será otimizado para celular e
+                            Google?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-5"></i>
                     </button>
                     <div id="faq-content-5" class="faq-content px-6 pb-6" role="region" aria-labelledby="faq-toggle-5">
@@ -1626,7 +1797,8 @@
                             🔍 <strong>SEO técnico completo:</strong> Estrutura otimizada para o Google<br>
                             📊 <strong>Google Analytics:</strong> Acompanhe visitantes e conversões<br>
                             🎯 <strong>Pixel do Facebook:</strong> Para campanhas de remarketing<br><br>
-                            🏆 <strong>Resultado:</strong> Nossos clientes aparecem na primeira página do Google em média em 3-6 meses!
+                            🏆 <strong>Resultado:</strong> Nossos clientes aparecem na primeira página do Google em
+                            média em 3-6 meses!
                         </p>
                     </div>
                 </div>
@@ -1635,15 +1807,16 @@
             <!-- CTA final da FAQ -->
             <div class="mt-16 text-center scroll-reveal">
                 <p class="text-dark-text-medium mb-8 max-w-3xl mx-auto">
-                    Ainda tem dúvidas? <strong class="text-anpha-orange">Fale diretamente conosco!</strong> 
+                    Ainda tem dúvidas? <strong class="text-anpha-orange">Fale diretamente conosco!</strong>
                     Nossa equipe está pronta para esclarecer qualquer questão e ajudar você a escolher a melhor solução.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#contact" class="btn-gradient-primary font-medium py-3 px-8 rounded-lg shadow-lg">
                         📞 Agendar Consultoria Gratuita
                     </a>
-                    <a href="https://wa.me/5511987654321?text=Olá! Tenho algumas dúvidas sobre os serviços da Anphaweb." 
-                       target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2">
+                    <a href="https://wa.me/5511987654321?text=Olá! Tenho algumas dúvidas sobre os serviços da Anphaweb."
+                        target="_blank"
+                        class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2">
                         <i class="fab fa-whatsapp"></i> Tirar Dúvidas no WhatsApp
                     </a>
                 </div>
@@ -1660,9 +1833,12 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
                     Agende Sua <span class="gradient-text">Consultoria Gratuita</span> Agora
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-dark-text-medium mt-6 max-w-3xl mx-auto">
-                    <strong class="text-anpha-orange">60 minutos de consultoria especializada</strong> para identificar como 
+                    <strong class="text-anpha-orange">60 minutos de consultoria especializada</strong> para identificar
+                    como
                     aumentar suas vendas em até 180%. Análise gratuita do seu negócio + proposta personalizada.
                 </p>
             </div>
@@ -1672,7 +1848,8 @@
                 <div class="scroll-reveal">
                     <div class="bg-dark-card-bg border border-dark-border rounded-2xl p-8">
                         <!-- Urgency banner no formulário -->
-                        <div class="bg-gradient-to-r from-red-500 to-red-600 text-white text-center py-3 px-4 rounded-lg mb-6">
+                        <div
+                            class="bg-gradient-to-r from-red-500 to-red-600 text-white text-center py-3 px-4 rounded-lg mb-6">
                             <div class="flex items-center justify-center">
                                 <i class="fas fa-fire mr-2 animate-pulse"></i>
                                 <span class="font-bold">APENAS 10 VAGAS RESTANTES ESTE MÊS!</span>
@@ -1683,7 +1860,8 @@
                             🎯 Reserve Sua Vaga Gratuita
                         </h3>
 
-                        <form id="contact-form" action="https://formspree.io/f/mvgqrpyb" method="POST" class="space-y-6">
+                        <form id="contact-form" action="https://formspree.io/f/mvgqrpyb" method="POST"
+                            class="space-y-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-dark-text-light mb-2">
                                     Nome Completo *
@@ -1728,7 +1906,8 @@
                                     Qual serviço te interessa? *
                                 </label>
                                 <select id="service" name="service" required
-                                    class="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-lg text-dark-text-light focus:ring-2 focus:ring-anpha-blue focus:border-transparent transition-colors" aria-required="true">
+                                    class="w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-lg text-dark-text-light focus:ring-2 focus:ring-anpha-blue focus:border-transparent transition-colors"
+                                    aria-required="true">
                                     <option value="">Selecione um serviço</option>
                                     <option value="site-institucional">Site Institucional</option>
                                     <option value="ecommerce">E-commerce Completo</option>
@@ -1755,7 +1934,7 @@
                                 <input type="checkbox" id="consent" name="consent" required
                                     class="mt-1 mr-3 text-anpha-blue focus:ring-anpha-blue" aria-required="true">
                                 <label for="consent" class="text-sm text-dark-text-medium">
-                                    Concordo em receber contato da Anphaweb via WhatsApp, e-mail ou telefone para 
+                                    Concordo em receber contato da Anphaweb via WhatsApp, e-mail ou telefone para
                                     agendamento da consultoria gratuita. *
                                 </label>
                             </div>
@@ -1797,7 +1976,7 @@
                         <h3 class="text-2xl font-bold mb-6">
                             🎁 O Que Você Ganha na Consultoria Gratuita:
                         </h3>
-                        
+
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-300 mr-3 mt-1"></i>
@@ -1806,7 +1985,7 @@
                                     <span class="text-white/90">Análise detalhada do seu site/negócio atual</span>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-300 mr-3 mt-1"></i>
                                 <div>
@@ -1814,7 +1993,7 @@
                                     <span class="text-white/90">Plano específico para aumentar suas vendas</span>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-300 mr-3 mt-1"></i>
                                 <div>
@@ -1822,7 +2001,7 @@
                                     <span class="text-white/90">Pontos que podem triplicar seus resultados</span>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-300 mr-3 mt-1"></i>
                                 <div>
@@ -1831,11 +2010,12 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-6 pt-6 border-t border-white/20">
                             <div class="text-center">
                                 <div class="text-3xl font-bold">Valor Total: Inestimável</div>
-                                <div class="text-xl">Seu Investimento: <span class="text-green-300 font-bold">R$ 0,00</span></div>
+                                <div class="text-xl">Seu Investimento: <span class="text-green-300 font-bold">R$
+                                        0,00</span></div>
                             </div>
                         </div>
                     </div>
@@ -1845,26 +2025,27 @@
                         <h3 class="text-xl font-bold text-dark-header-text mb-6">
                             📞 Prefere Falar Diretamente?
                         </h3>
-                        
+
                         <div class="space-y-4">
-                            <a href="https://wa.me/5511987654321?text=Olá! Quero agendar minha consultoria gratuita!" 
-                               target="_blank" class="flex items-center p-4 bg-green-500 hover:bg-green-600 rounded-lg transition-colors text-white">
+                            <a href="https://wa.me/5511987654321?text=Olá! Quero agendar minha consultoria gratuita!"
+                                target="_blank"
+                                class="flex items-center p-4 bg-green-500 hover:bg-green-600 rounded-lg transition-colors text-white">
                                 <i class="fab fa-whatsapp text-2xl mr-4"></i>
                                 <div>
                                     <div class="font-semibold">WhatsApp</div>
                                     <div class="text-sm">(11) 98765-4321</div>
                                 </div>
                             </a>
-                            
-                            <a href="mailto:contato@anphaweb.com.br" 
-                               class="flex items-center p-4 bg-anpha-blue hover:bg-blue-700 rounded-lg transition-colors text-white">
+
+                            <a href="mailto:contato@anphaweb.com.br"
+                                class="flex items-center p-4 bg-anpha-blue hover:bg-blue-700 rounded-lg transition-colors text-white">
                                 <i class="fas fa-envelope text-2xl mr-4"></i>
                                 <div>
                                     <div class="font-semibold">E-mail</div>
                                     <div class="text-sm">contato@anphaweb.com.br</div>
                                 </div>
                             </a>
-                            
+
                             <div class="flex items-center p-4 bg-dark-bg border border-dark-border rounded-lg">
                                 <i class="fas fa-clock text-anpha-orange text-2xl mr-4"></i>
                                 <div class="text-dark-text-light">
@@ -1879,7 +2060,8 @@
                     <div class="mt-8 bg-red-500/10 border border-red-500 rounded-lg p-4 text-center">
                         <div class="text-red-400 font-bold mb-2">⚠️ ATENÇÃO: ÚLTIMAS VAGAS!</div>
                         <div class="text-dark-text-medium text-sm">
-                            Apenas <strong class="text-red-400">10 vagas restantes</strong> para consultoria gratuita este mês. 
+                            Apenas <strong class="text-red-400">10 vagas restantes</strong> para consultoria gratuita
+                            este mês.
                             Não perca esta oportunidade única!
                         </div>
                     </div>
@@ -1897,17 +2079,20 @@
                     <!-- Sua logo (placeholder) -->
                     <img src="Anphaweb_logo.png" alt="Anphaweb Logo" class="anphaweb-logo mb-4">
                     <p class="text-dark-text-medium mb-4">
-                        Transformamos negócios através de soluções digitais que geram resultados reais. 
+                        Transformamos negócios através de soluções digitais que geram resultados reais.
                         Mais de 500 projetos entregues com aumento médio de 150% nas vendas dos clientes.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors" aria-label="Facebook da Anphaweb">
+                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors"
+                            aria-label="Facebook da Anphaweb">
                             <i class="fab fa-facebook text-xl"></i>
                         </a>
-                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors" aria-label="Instagram da Anphaweb">
+                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors"
+                            aria-label="Instagram da Anphaweb">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors" aria-label="LinkedIn da Anphaweb">
+                        <a href="#" class="text-dark-text-medium hover:text-anpha-blue transition-colors"
+                            aria-label="LinkedIn da Anphaweb">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
                     </div>
@@ -1917,12 +2102,15 @@
                 <div>
                     <h4 class="font-semibold text-dark-header-text mb-4">Serviços</h4>
                     <ul class="space-y-2 text-dark-text-medium">
-                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Sites Institucionais</a></li>
+                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Sites Institucionais</a>
+                        </li>
                         <li><a href="#services" class="hover:text-anpha-blue transition-colors">E-commerce</a></li>
                         <li><a href="#services" class="hover:text-anpha-blue transition-colors">Landing Pages</a></li>
-                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Sistemas Personalizados</a></li>
+                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Sistemas
+                                Personalizados</a></li>
                         <li><a href="#services" class="hover:text-anpha-blue transition-colors">Apps Mobile</a></li>
-                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Marketing Digital</a></li>
+                        <li><a href="#services" class="hover:text-anpha-blue transition-colors">Marketing Digital</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -1969,13 +2157,13 @@
             canvas.width = size;
             canvas.height = size;
             const context = canvas.getContext('2d');
-            
+
             // Desenha um círculo branco no centro do canvas
             context.beginPath();
             context.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
             context.fillStyle = '#ffffff';
             context.fill();
-            
+
             // Retorna a textura do canvas
             return new THREE.CanvasTexture(canvas);
         }
@@ -1999,7 +2187,7 @@
             const colors = [];
 
             // Aumentar o número de partículas para um efeito mais denso
-            const particleCount = 1500; 
+            const particleCount = 1500;
             for (let i = 0; i < particleCount; i++) {
                 vertices.push(
                     (Math.random() - 0.5) * 2000, // X position
@@ -2025,7 +2213,7 @@
 
             // Usar THREE.PointsMaterial com a textura de círculo para partículas redondas
             const circleTexture = createCircleTexture();
-            const material = new THREE.PointsMaterial({ 
+            const material = new THREE.PointsMaterial({
                 size: 5, // Tamanho das partículas
                 vertexColors: true,
                 map: circleTexture, // Aplica a textura de círculo
@@ -2045,21 +2233,21 @@
         function animate() {
             // Only animate if Three.js is active
             if (!isThreeJSActive) return;
-            
+
             requestAnimationFrame(animate);
-            
+
             // Rotação sutil das partículas para um efeito mais orgânico
             particles.rotation.x += 0.0002;
             particles.rotation.y += 0.0005;
-            
+
             renderer.render(scene, camera);
         }
 
         // Toggle Three.js background visibility and animation
-        document.getElementById('toggle-threejs-btn').addEventListener('click', function() {
+        document.getElementById('toggle-threejs-btn').addEventListener('click', function () {
             const canvas = document.getElementById('three-bg');
             isThreeJSActive = !isThreeJSActive;
-            
+
             if (isThreeJSActive) {
                 canvas.classList.remove('hidden'); // Show canvas
                 animate(); // Restart animation
@@ -2073,12 +2261,12 @@
         // Scroll reveal animation for elements with .scroll-reveal class
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.scroll-reveal');
-            
+
             reveals.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150; // Pixels from bottom of viewport to trigger reveal
-                
+
                 // If element is within viewport, add 'active' class to trigger animation
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
@@ -2109,7 +2297,7 @@
         });
 
         // Mobile menu toggle functionality
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden'); // Toggle visibility of mobile menu
             const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
@@ -2121,17 +2309,17 @@
             const content = document.getElementById(`faq-content-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
             const button = document.querySelector(`.faq-toggle[onclick="toggleFAQ(${id})"]`);
-            
+
             content.classList.toggle('active'); // Toggle active class for content visibility
             icon.classList.toggle('rotate-180'); // Rotate icon for visual feedback
-            
+
             // Update aria-expanded for accessibility
             const isExpanded = content.classList.contains('active') ? 'true' : 'false';
             button.setAttribute('aria-expanded', isExpanded);
         }
 
         // Form validation and submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault(); // Prevent default form submission
 
             // Reset previous errors and success message
@@ -2151,7 +2339,7 @@
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
                 const error = document.getElementById(`${field}-error`);
-                
+
                 if (!input.value.trim()) {
                     input.classList.add('input-error');
                     error.textContent = 'Este campo é obrigatório.';
@@ -2194,7 +2382,7 @@
                 const submitBtn = document.getElementById('submit-btn');
                 const submitText = document.getElementById('submit-text');
                 const submitSpinner = document.getElementById('submit-spinner');
-                
+
                 submitBtn.disabled = true;
                 submitText.textContent = 'Enviando...';
                 submitSpinner.classList.remove('hidden');
@@ -2211,90 +2399,91 @@
                         'Accept': 'application/json'
                     }
                 })
-                .then(response => {
-                    if (response.ok) {
-                        document.getElementById('form-success').classList.remove('hidden'); // Show success message
-                        form.reset(); // Clear form fields
-                        
-                        // Prepare WhatsApp message
-                        const name = formData.get('name'); // Get name from formData
-                        const service = formData.get('service'); // Get service value from formData
-                        const serviceText = service === 'nao-sei' ? 'Consultoria' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()); // Format service text
-                        const message = `Olá! Sou ${name} e acabei de preencher o formulário no site. Gostaria de agendar minha consultoria gratuita sobre ${serviceText}.`;
-                        
-                        // Redirect to WhatsApp after a short delay to allow user to see success message
-                        setTimeout(() => {
-                            window.open(`https://wa.me/5511987654321?text=${encodeURIComponent(message)}`, '_blank');
-                        }, 1000); // 1 second delay
-                    } else {
-                        response.json().then(data => {
-                            if (data.errors) {
-                                data.errors.forEach(error => {
-                                    const fieldError = document.getElementById(`${error.field}-error`);
-                                    if (fieldError) {
-                                        fieldError.textContent = error.message;
-                                        fieldError.classList.remove('hidden');
-                                        document.getElementById(error.field).classList.add('input-error');
-                                    }
-                                });
-                            } else {
-                                alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
-                            }
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitText.textContent = '🚀 AGENDAR CONSULTORIA GRATUITA';
-                    submitSpinner.classList.add('hidden');
-                });
+                    .then(response => {
+                        if (response.ok) {
+                            document.getElementById('form-success').classList.remove('hidden'); // Show success message
+                            form.reset(); // Clear form fields
+
+                            // Prepare WhatsApp message
+                            const name = formData.get('name'); // Get name from formData
+                            const service = formData.get('service'); // Get service value from formData
+                            const serviceText = service === 'nao-sei' ? 'Consultoria' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()); // Format service text
+                            const message = `Olá! Sou ${name} e acabei de preencher o formulário no site. Gostaria de agendar minha consultoria gratuita sobre ${serviceText}.`;
+
+                            // Redirect to WhatsApp after a short delay to allow user to see success message
+                            setTimeout(() => {
+                                window.open(`https://wa.me/5511987654321?text=${encodeURIComponent(message)}`, '_blank');
+                            }, 1000); // 1 second delay
+                        } else {
+                            response.json().then(data => {
+                                if (data.errors) {
+                                    data.errors.forEach(error => {
+                                        const fieldError = document.getElementById(`${error.field}-error`);
+                                        if (fieldError) {
+                                            fieldError.textContent = error.message;
+                                            fieldError.classList.remove('hidden');
+                                            document.getElementById(error.field).classList.add('input-error');
+                                        }
+                                    });
+                                } else {
+                                    alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitText.textContent = '🚀 AGENDAR CONSULTORIA GRATUITA';
+                        submitSpinner.classList.add('hidden');
+                    });
             }
         });
 
         // Lazy loading for elements with .lazyload class (currently not used for images, but for future use)
         function lazyLoadImages() {
-            const elementsToLazyLoad = document.querySelectorAll('.lazyload'); 
+            const elementsToLazyLoad = document.querySelectorAll('.lazyload');
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const element = entry.target;
-                        element.classList.add('loaded'); 
-                        observer.unobserve(element); 
+                        element.classList.add('loaded');
+                        observer.unobserve(element);
                     }
                 });
             }, {
-                threshold: 0.1, 
-                rootMargin: '0px 0px -50px 0px' 
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
 
             elementsToLazyLoad.forEach(element => observer.observe(element));
         }
 
         // Initialize all necessary functions when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initThreeJS(); // Initialize 3D background
             lazyLoadImages(); // Initialize lazy loading (now for generic elements)
-            
+
             // Handle window resize for Three.js canvas
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 if (renderer && camera) { // Ensure renderer and camera exist
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
                 }
             });
-            
+
             // Initial check for scroll reveal elements on page load
             revealOnScroll();
         });
 
         // Add scroll event listener to trigger reveal animations
         window.addEventListener('scroll', revealOnScroll);
-        
+
     </script>
 </body>
+
 </html>
