@@ -560,6 +560,78 @@
                 font-size: 2rem; /* Tamanho da fonte para desktop */
             }
         }
+
+        /* Estilos para o banner de cookies */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 17, 23, 0.95); /* dark-section-bg */
+            border-top: 1px solid #4a5568; /* dark-border */
+            padding: 1.5rem;
+            color: #e2e8f0; /* dark-text-light */
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: translateY(100%); /* Start off-screen */
+            transition: transform 0.5s ease-out;
+        }
+
+        #cookie-banner.show {
+            transform: translateY(0); /* Slide in */
+        }
+
+        #cookie-banner p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        #cookie-banner a {
+            color: #2563eb; /* anpha-blue */
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #cookie-banner a:hover {
+            color: #7e22ce; /* anpha-purple */
+        }
+
+        #cookie-banner button {
+            background-color: #2563eb; /* anpha-blue */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        #cookie-banner button:hover {
+            background-color: #7e22ce; /* anpha-purple */
+            transform: scale(1.05);
+        }
+
+        /* Responsividade para o banner de cookies */
+        @media (min-width: 768px) { /* md breakpoint */
+            #cookie-banner {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+            }
+
+            #cookie-banner p {
+                margin-bottom: 0;
+                text-align: left;
+                margin-right: 1.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -2118,6 +2190,16 @@
         </div>
     </footer>
 
+    <!-- Banner de Política de Cookies -->
+    <div id="cookie-banner" class="rounded-t-lg shadow-2xl">
+        <p>
+            Utilizamos cookies para melhorar sua experiência de navegação, personalizar conteúdo e analisar nosso tráfego.
+            Ao continuar navegando, você concorda com nossa
+            <a href="#" target="_blank" rel="noopener noreferrer">Política de Privacidade e Cookies</a>.
+        </p>
+        <button id="accept-cookies-btn">Aceitar e Fechar</button>
+    </div>
+
     <!-- Scripts JavaScript -->
     <script>
         // Configuração do Three.js para fundo 3D
@@ -2513,6 +2595,26 @@
             }, 3000); // Display each text for 3 seconds
         }
 
+        // Cookie Banner functionality
+        function showCookieBanner() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const consentGiven = localStorage.getItem('cookie_consent');
+
+            if (!consentGiven) {
+                cookieBanner.classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookie_consent', 'true');
+            const cookieBanner = document.getElementById('cookie-banner');
+            cookieBanner.classList.remove('show');
+            // Optional: Add a small delay before removing from DOM to allow transition to complete
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 500);
+        }
+
 
         // Initialize all necessary functions when DOM is loaded
         document.addEventListener('DOMContentLoaded', function () {
@@ -2537,6 +2639,12 @@
 
             // Initial check for scroll reveal elements on page load
             revealOnScroll();
+
+            // Show cookie banner if consent not given
+            showCookieBanner();
+
+            // Add event listener for cookie acceptance button
+            document.getElementById('accept-cookies-btn').addEventListener('click', acceptCookies);
         });
 
         // Add scroll event listener to trigger reveal animations
