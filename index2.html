@@ -1138,50 +1138,6 @@
                         Solicitar Orçamento
                     </a>
                 </div>
-
-                <!-- Cartão de Serviço 6: Marketing Digital -->
-                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
-                    style="transition-delay: 0.5s">
-                    <!-- Ícone grande ao invés de foto com efeito de brilho -->
-                    <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-orange">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <div class="absolute top-2 right-2 bg-anpha-orange text-white px-2 py-1 rounded text-xs font-bold">
-                        +500% ROI
-                    </div>
-
-                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
-
-                    <div class="text-center mb-4">
-                        <span class="text-2xl font-bold text-anpha-blue">Multiplique seu faturamento</span>
-                        <span class="text-sm text-dark-text-medium block">planos a partir de R$ 1.997/mês</span>
-                    </div>
-
-                    <p class="text-dark-text-medium text-center mb-6">
-                        Estratégias que <strong>multiplicam seu faturamento</strong>. SEO, Google Ads e gestão de redes
-                        sociais.
-                    </p>
-
-                    <ul class="space-y-2 text-dark-text-medium mb-6">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-green mr-2"></i> SEO para primeira página
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-green mr-2"></i> Google Ads otimizado
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-green mr-2"></i> Gestão de redes sociais
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-anpha-green mr-2"></i> Relatórios mensais
-                        </li>
-                    </ul>
-
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
-                        Solicitar Orçamento
-                    </a>
-                </div>
             </div>
 
             <!-- CTA para consultoria gratuita -->
@@ -1812,7 +1768,7 @@
                             Absolutamente! Todos os nossos projetos incluem:<br><br>
                             📱 <strong>Design responsivo:</strong> Perfeito em celular, tablet e desktop<br>
                             🚀 <strong>Velocidade otimizada:</strong> Carregamento em menos de 3 segundos<br>
-                            🔍 <strong>SEO técnico completo:</strong> Estrutura otimizada para o Google<br>
+                            🔍 <strong>SEO técnico completo:</b> Estrutura otimizada para o Google<br>
                             📊 <strong>Google Analytics:</strong> Acompanhe visitantes e conversões<br>
                             🎯 <strong>Pixel do Facebook:</strong> Para campanhas de remarketing<br><br>
                             🏆 <strong>Resultado:</strong> Nossos clientes aparecem na primeira página do Google em
@@ -2333,23 +2289,45 @@
 
             // If it's active, we want to close it. If not, open it.
             if (isActive) {
+                // To smoothly close, first set height to its current scrollHeight, then to 0
+                content.style.maxHeight = content.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    content.style.maxHeight = '0';
+                });
                 content.classList.remove('active');
                 icon.classList.remove('rotate-180');
                 button.setAttribute('aria-expanded', 'false');
             } else {
                 // Close any other open FAQs before opening the new one
                 document.querySelectorAll('.faq-content.active').forEach(openContent => {
-                    openContent.classList.remove('active');
-                    const openIcon = document.getElementById(`faq-icon-${openContent.id.split('-')[2]}`);
-                    if (openIcon) openIcon.classList.remove('rotate-180');
+                    // Get the ID from the openContent element
+                    const openId = openContent.id.split('-')[2];
+                    const openIcon = document.getElementById(`faq-icon-${openId}`);
                     const openButton = document.querySelector(`.faq-toggle[aria-controls="${openContent.id}"]`);
+
+                    openContent.style.maxHeight = openContent.scrollHeight + 'px'; // Set to current height before collapsing
+                    requestAnimationFrame(() => {
+                        openContent.style.maxHeight = '0'; // Collapse
+                    });
+                    openContent.classList.remove('active');
+                    if (openIcon) openIcon.classList.remove('rotate-180');
                     if (openButton) openButton.setAttribute('aria-expanded', 'false');
                 });
 
                 // Open the clicked FAQ
                 content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px'; // Set to actual content height
                 icon.classList.add('rotate-180');
                 button.setAttribute('aria-expanded', 'true');
+
+                // After transition, remove max-height to allow content to adapt if window resizes
+                // Use a short delay to ensure the transition starts before 'none' is applied
+                content.addEventListener('transitionend', function handler() {
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = 'none';
+                    }
+                    content.removeEventListener('transitionend', handler);
+                });
             }
         }
 
@@ -2541,6 +2519,12 @@
             initThreeJS(); // Initialize 3D background
             lazyLoadImages(); // Initialize lazy loading (now for generic elements)
             animateTextCarousel(); // Start the dynamic text carousel
+
+            // Ensure all FAQ contents are initially closed
+            document.querySelectorAll('.faq-content').forEach(content => {
+                content.style.maxHeight = '0';
+                content.classList.remove('active'); // Ensure no active class initially
+            });
 
             // Handle window resize for Three.js canvas
             window.addEventListener('resize', function () {
