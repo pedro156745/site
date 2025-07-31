@@ -10,36 +10,39 @@
     <meta name="description"
         content="Anphaweb: Criamos sites, e-commerce e sistemas que aumentam suas vendas. Mais de 500 projetos entregues. Consultoria gratuita disponível. Transforme seu negócio digital hoje!">
 
-    <!-- Open Graph Tags otimizadas -->
+    <!-- Open Graph Tags otimizadas para compartilhamento em redes sociais -->
     <meta property="og:title" content="Anphaweb - Aumente Suas Vendas com Soluções Digitais">
     <meta property="og:description"
         content="Mais de 500 projetos entregues. Sites que convertem, e-commerce que vende, sistemas que otimizam. Consultoria gratuita!">
     <meta property="og:url" content="https://www.anphaweb.com.br">
     <meta property="og:type" content="website">
+    <!-- Adicione uma imagem OG para melhor visualização em compartilhamentos -->
+    <meta property="og:image" content="https://www.anphaweb.com.br/og-image.jpg">
 
-    <!-- Favicon -->
+    <!-- Favicon para ícone do site na aba do navegador -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Otimização de Fontes -->
+    <!-- Otimização de Fontes: Carregamento assíncrono para não bloquear a renderização -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- CSS e JavaScript -->
+    <!-- CSS e JavaScript: Tailwind CSS e Font Awesome são carregados via CDN.
+         Three.js é carregado com 'defer' para não bloquear o DOM. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
-    <!-- Schema Markup otimizado -->
+    <!-- Schema Markup otimizado para SEO local e rich snippets no Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Anphaweb",
       "url": "https://www.anphaweb.com.br",
-      "logo": "https://www.anphaweb.com.br/logo.png",
+      "logo": "https://www.anphaweb.com.br/Anphaweb_logo.png",
       "description": "Empresa especializada em desenvolvimento web, e-commerce e marketing digital com mais de 500 projetos entregues",
       "foundingDate": "2020",
       "numberOfEmployees": "10-50",
@@ -53,7 +56,8 @@
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "BR",
-        "addressRegion": "SP"
+        "addressRegion": "SP",
+        "addressLocality": "São Paulo" /* Adicionado localidade para mais especificidade */
       },
       "sameAs": [
         "https://www.facebook.com/anphaweb",
@@ -69,6 +73,7 @@
     </script>
 
     <!-- Google Analytics (placeholder - substituir por ID real) -->
+    <!-- É crucial substituir 'G-XXXXX-Y' pelo seu ID de rastreamento real do Google Analytics. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXX-Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -78,7 +83,7 @@
     </script>
 
     <script>
-        // Configuração do Tailwind CSS
+        // Configuração do Tailwind CSS: Estendendo o tema padrão com cores e animações personalizadas.
         tailwind.config = {
             theme: {
                 extend: {
@@ -138,7 +143,7 @@
                         },
                         textHide: {
                             '0%': { opacity: '1', transform: 'translateY(0px)' },
-                            '100%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '0', transform: 'translateY(-20px)' }
                         }
                     }
                 }
@@ -147,40 +152,43 @@
     </script>
 
     <style>
+        /* Importa a fonte Poppins do Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+        /* Estilos globais para o corpo da página */
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
             position: relative;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* Fundo 3D com partículas circulares */
+        /* Fundo 3D com partículas circulares: Posicionamento fixo para cobrir toda a tela */
         #three-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            z-index: -2; /* Garante que fique atrás do conteúdo */
             transition: opacity 0.5s ease-in-out;
         }
 
+        /* Classe para esconder o fundo 3D */
         #three-bg.hidden {
             opacity: 0;
-            pointer-events: none;
+            pointer-events: none; /* Desabilita interações quando escondido */
         }
 
-        /* Texto com gradiente */
+        /* Estilo para texto com gradiente */
         .gradient-text {
             background: linear-gradient(90deg, #2563eb, #7e22ce, #f97316);
-            -webkit-background-clip: text;
+            -webkit-background-clip: text; /* Para compatibilidade com navegadores WebKit */
             background-clip: text;
-            color: transparent;
+            color: transparent; /* Torna o texto transparente para que o gradiente apareça */
         }
 
-        /* Fundo com gradiente */
+        /* Estilos para fundos com gradiente */
         .gradient-bg {
             background: linear-gradient(135deg, #2563eb, #7e22ce);
         }
@@ -189,41 +197,44 @@
             background: linear-gradient(135deg, #7e22ce, #f97316);
         }
 
-        /* Efeitos de hover */
+        /* Efeitos de hover para cartões */
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px); /* Move o cartão para cima no hover */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
         }
 
+        /* Efeito de rotação 3D para ícones de serviço no hover */
         .service-card:hover .service-icon {
             transform: rotateY(180deg);
         }
 
-        /* Scroll reveal */
+        /* Efeito de revelação ao rolar a página */
         .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(20px); /* Começa ligeiramente abaixo */
+            transition: all 0.6s ease; /* Transição suave para a animação */
         }
 
+        /* Estado ativo da revelação ao rolar */
         .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 1; /* Torna visível */
+            transform: translateY(0); /* Move para a posição original */
         }
 
-        /* Botões */
+        /* Estilos para botões com gradiente */
         .btn-gradient-primary {
             background-image: linear-gradient(to right, #2563eb 0%, #7e22ce 50%, #f97316 100%);
-            background-size: 200% auto;
+            background-size: 200% auto; /* Permite o efeito de gradiente se mover */
             color: white;
             transition: background-position 0.5s ease, transform 0.2s ease;
         }
 
         .btn-gradient-primary:hover {
-            background-position: right center;
-            transform: scale(1.05);
+            background-position: right center; /* Move o gradiente no hover */
+            transform: scale(1.05); /* Aumenta ligeiramente o botão */
         }
 
+        /* Estilos para botões de contorno */
         .btn-outline-primary {
             border: 2px solid #2563eb;
             color: #2563eb;
@@ -236,33 +247,32 @@
             transform: scale(1.05);
         }
 
-        /* WhatsApp button animation */
+        /* Animação para o botão flutuante do WhatsApp */
         .whatsapp-btn {
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite; /* Animação de pulsação */
         }
 
+        /* Keyframes para a animação de pulsação */
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
-
             70% {
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
             }
-
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
             }
         }
 
-        /* Urgency banner */
+        /* Banner de urgência com gradiente animado */
         .urgency-banner {
             background: linear-gradient(to right, #2563eb 0%, #7e22ce 50%, #f97316 100%);
             background-size: 200% auto;
             animation: gradient-pulse 4s infinite alternate;
         }
 
-        /* Trust badges */
+        /* Estilos para selos de confiança */
         .trust-badge {
             background: rgba(16, 185, 129, 0.1);
             border: 1px solid #10b981;
@@ -273,7 +283,7 @@
             font-weight: 600;
         }
 
-        /* Testimonial cards */
+        /* Efeito de hover para cartões de depoimento */
         .testimonial-card {
             transition: all 0.3s ease;
         }
@@ -282,41 +292,41 @@
             transform: scale(1.05);
         }
 
-        /* FAQ */
+        /* Seção FAQ: Estilos para o conteúdo das perguntas e respostas */
         .faq-content {
-            max-height: 0;
+            max-height: 0; /* Escondido por padrão */
             overflow: hidden;
-            transition: max-height 0.5s ease-in-out; /* Ajustado para um tempo e easing mais equilibrados */
+            transition: max-height 0.5s ease-in-out; /* Transição suave para abrir/fechar */
         }
 
         .faq-content.active {
-            max-height: 9999px; /* Aumentado para garantir que todo o conteúdo seja visível */
+            max-height: 9999px; /* Altura grande para garantir que todo o conteúdo seja visível ao abrir */
         }
 
-        /* Modal */
+        /* Estilos para o Modal (pop-up) */
         .modal {
             position: fixed;
-            z-index: 1000;
+            z-index: 1000; /* Garante que o modal esteja acima de outros elementos */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+            backdrop-filter: blur(8px); /* Efeito de desfoque no fundo */
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+            opacity: 0; /* Começa invisível */
+            visibility: hidden; /* Escondido para acessibilidade */
+            transition: opacity 0.3s ease-out, visibility 0s linear 0.3s; /* Transição para aparecer */
         }
 
         .modal.show {
-            opacity: 1;
+            opacity: 1; /* Torna visível */
             visibility: visible;
-            transition-delay: 0s;
+            transition-delay: 0s; /* Remove o atraso na transição */
         }
 
         .modal-content {
@@ -329,24 +339,25 @@
             max-width: 700px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
             position: relative;
-            animation: fadeInScale 0.3s ease-out forwards;
+            animation: fadeInScale 0.3s ease-out forwards; /* Animação de entrada */
             border: 1px solid var(--dark-border);
-            max-height: 90vh;
-            overflow-y: auto;
+            max-height: 90vh; /* Limita a altura do conteúdo do modal */
+            overflow-y: auto; /* Adiciona rolagem se o conteúdo for muito longo */
         }
 
+        /* Keyframes para a animação de entrada do modal */
         @keyframes fadeInScale {
             from {
                 opacity: 0;
                 transform: scale(0.9);
             }
-
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
 
+        /* Botão de fechar do modal */
         .close-button {
             color: var(--dark-text-medium);
             position: absolute;
@@ -362,7 +373,7 @@
             color: var(--anpha-blue);
         }
 
-        /* Mobile menu */
+        /* Estilos para o menu mobile */
         #mobile-menu a {
             background-color: transparent;
             transition: background-color 0.2s ease;
@@ -372,45 +383,45 @@
             background-color: rgba(255, 255, 255, 0.05);
         }
 
-        /* Form validation */
+        /* Estilos para validação de formulário (erros) */
         .input-error {
-            border-color: #ef4444 !important;
+            border-color: #ef4444 !important; /* Borda vermelha para campos com erro */
         }
 
         .error-message {
-            color: #ef4444;
+            color: #ef4444; /* Texto de erro em vermelho */
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
 
-        /* Success message */
+        /* Estilos para mensagem de sucesso do formulário */
         .success-message {
-            color: #10b981;
+            color: #10b981; /* Texto de sucesso em verde */
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
 
-        /* Loading spinner */
+        /* Estilos para o spinner de carregamento */
         .spinner {
             border: 2px solid #f3f3f3;
             border-top: 2px solid #2563eb;
             border-radius: 50%;
             width: 20px;
             height: 20px;
-            animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite; /* Animação de rotação */
         }
 
+        /* Keyframes para a animação do spinner */
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
         }
 
-        /* Ícones grandes para substituir imagens */
+        /* Ícones grandes para substituir imagens em cartões de serviço/portfólio */
         .icon-placeholder {
             width: 100%;
             height: 200px;
@@ -424,9 +435,7 @@
             margin-bottom: 1rem;
             transition: all 0.3s ease;
             position: relative;
-            /* Para pseudo-elementos */
             overflow: hidden;
-            /* Para esconder o overflow do pseudo-elemento */
         }
 
         .icon-placeholder::before {
@@ -437,14 +446,12 @@
             width: 200%;
             height: 200%;
             background: rgba(255, 255, 255, 0.05);
-            /* Um brilho sutil */
             transform: rotate(45deg);
             transition: transform 0.5s ease;
         }
 
         .icon-placeholder:hover::before {
             transform: rotate(45deg) translateX(20%);
-            /* Efeito de brilho ao passar o mouse */
         }
 
         .icon-placeholder:hover {
@@ -452,7 +459,7 @@
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
         }
 
-        /* Elementos decorativos sem imagens */
+        /* Elementos decorativos abstratos sem imagens */
         .decorative-element {
             width: 100px;
             height: 100px;
@@ -462,7 +469,6 @@
             opacity: 0.1;
             animation: float 6s ease-in-out infinite;
             filter: blur(10px);
-            /* Suaviza as bordas */
         }
 
         .decorative-element:nth-child(2) {
@@ -475,13 +481,11 @@
             background: linear-gradient(45deg, #f97316, #10b981);
         }
 
-        /* Estilo para a logo */
+        /* Estilo para a logo da Anphaweb */
         .anphaweb-logo {
             height: 40px;
-            /* Ajuste conforme necessário */
             width: auto;
             filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.5));
-            /* Sombra sutil */
         }
 
         /* Estilo para o background abstrato na seção Hero */
@@ -577,12 +581,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            transform: translateY(100%); /* Start off-screen */
+            transform: translateY(100%); /* Começa fora da tela */
             transition: transform 0.5s ease-out;
         }
 
         #cookie-banner.show {
-            transform: translateY(0); /* Slide in */
+            transform: translateY(0); /* Desliza para dentro */
         }
 
         #cookie-banner p {
@@ -639,19 +643,19 @@
     <!-- Canvas para o fundo 3D com partículas circulares -->
     <canvas id="three-bg"></canvas>
 
-    <!-- Banner de Urgência -->
+    <!-- Banner de Urgência: Destaca uma oferta limitada para criar senso de urgência. -->
     <div class="urgency-banner text-white text-center py-2 px-4 text-sm font-semibold">
         🔥 OFERTA LIMITADA: Consultoria Gratuita + 20% OFF no primeiro projeto - Apenas 10 vagas restantes!
     </div>
 
-    <!-- Botão para desativar/ativar o fundo 3D -->
+    <!-- Botão para desativar/ativar o fundo 3D: Melhora a performance para usuários com dispositivos mais fracos. -->
     <button id="toggle-threejs-btn"
         class="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 bg-gray-700 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-xl shadow-xl transition-all hover:bg-gray-600"
         aria-label="Alternar fundo 3D">
         <i class="fas fa-cube"></i>
     </button>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Floating Button: CTA de fácil acesso para contato direto. -->
     <a href="https://wa.me/5511987654321?text=Olá! Vi a oferta limitada no site e gostaria de agendar minha consultoria gratuita!"
         target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600"
@@ -659,14 +663,14 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navegação Principal -->
+    <!-- Navegação Principal: Menu de navegação fixo no topo da página. -->
     <nav
         class="sticky top-0 w-full bg-dark-section-bg shadow-lg z-40 transition-all duration-300 border-b border-gray-700">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- Sua logo (placeholder) -->
-                    <img src="Anphaweb_logo.png" alt="Anphaweb Logo" class="anphaweb-logo">
+                    <!-- Sua logo: Adicionado onerror para fallback caso a imagem não carregue. -->
+                    <img src="Anphaweb_logo.png" alt="Anphaweb Logo" class="anphaweb-logo" onerror="this.onerror=null;this.src='https://placehold.co/40x40/0d1117/e2e8f0?text=AW';">
                     <!-- Texto "ANPHAWEB" ao lado da logo -->
                     <span class="text-2xl font-bold gradient-text ml-4">ANPHAWEB</span>
                 </div>
@@ -691,10 +695,10 @@
                     </div>
                 </div>
 
-                <!-- Botão de Menu para Mobile -->
+                <!-- Botão de Menu para Mobile: Com acessibilidade aprimorada (aria-expanded). -->
                 <div class="md:hidden flex items-center">
                     <button id="menu-toggle" class="text-dark-text-light hover:text-anpha-blue focus:outline-none"
-                        aria-label="Abrir menu mobile">
+                        aria-label="Abrir menu mobile" aria-expanded="false">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
@@ -704,7 +708,7 @@
             </div>
         </div>
 
-        <!-- Menu Mobile -->
+        <!-- Menu Mobile: Escondido por padrão, revelado via JavaScript. -->
         <div id="mobile-menu" class="md:hidden hidden bg-dark-section-bg shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#home"
@@ -724,7 +728,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section Otimizada (SEM FOTOS, MAIS ORGÂNICA) -->
+    <!-- Hero Section Otimizada: Foco em proposta de valor e CTA. -->
     <section id="home" class="pt-24 pb-20 md:pt-32 md:pb-32 relative overflow-hidden">
         <!-- Elementos decorativos flutuantes e borrados para um efeito mais orgânico -->
         <div class="decorative-element" style="top: 15%; left: 8%; width: 120px; height: 120px; animation-delay: 0s;">
@@ -738,8 +742,6 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
-                    <!-- Trust indicators REMOVIDOS -->
-
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-header-text leading-tight mb-6">
                         Aumente Suas <span class="gradient-text">Vendas em 150%</span> com Soluções Digitais que
                         Realmente Funcionam
@@ -752,7 +754,7 @@
                             dinheiro de volta!</strong>
                     </p>
 
-                    <!-- Social proof específica SEM FOTO -->
+                    <!-- Social proof específica SEM FOTO: Depoimento curto e impactante. -->
                     <div class="bg-dark-card-bg border border-dark-border rounded-lg p-4 mb-8">
                         <p class="text-sm text-dark-text-medium mb-2">
                             <i class="fas fa-quote-left text-anpha-blue mr-2"></i>
@@ -785,11 +787,11 @@
                     </div>
                 </div>
 
-                <!-- Nova Área Visual - Carrossel de Texto Dinâmico com Imagem -->
+                <!-- Nova Área Visual - Carrossel de Texto Dinâmico com Imagem de Fundo -->
                 <div class="mt-12 lg:mt-0 scroll-reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white p-8 bg-dark-card-bg min-h-[300px] md:min-h-[400px] flex items-center justify-center">
                         <div class="abstract-hero-bg w-full h-full absolute inset-0 z-0"></div>
-                        <!-- Imagem adicionada aqui -->
+                        <!-- Imagem de fundo com baixa opacidade para um efeito sutil -->
                         <img src="https://placehold.co/600x400/0d1117/e2e8f0?text=Anphaweb+Solutions" alt="Anphaweb Solutions" class="absolute inset-0 w-full h-full object-cover opacity-30">
                         <div class="relative z-10 dynamic-text-container">
                             <span class="dynamic-text-item" data-text-index="0">Sites que Vendem</span>
@@ -831,7 +833,7 @@
     </section>
 
 
-    <!-- Seção "Sobre Nós" SEM FOTOS, MAIS ORGÂNICA -->
+    <!-- Seção "Sobre Nós": Destaca a experiência e os diferenciais da Anphaweb. -->
     <section id="about" class="py-20 bg-dark-section-bg">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -972,7 +974,7 @@
         </div>
     </section>
 
-    <!-- Seção de Serviços Otimizada SEM FOTOS -->
+    <!-- Seção de Serviços Otimizada: Detalha as ofertas da Anphaweb com foco em benefícios. -->
     <section id="services" class="py-20">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -1210,6 +1212,49 @@
                         Solicitar Orçamento
                     </a>
                 </div>
+                <!-- Cartão de Serviço 6: Marketing Digital -->
+                <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg"
+                    style="transition-delay: 0.5s">
+                    <!-- Ícone grande ao invés de foto com efeito de brilho -->
+                    <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-orange">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="absolute top-2 right-2 bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">
+                        +350% Tráfego
+                    </div>
+
+                    <h3 class="text-xl font-bold text-center mb-4 text-dark-header-text">Marketing Digital</h3>
+
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-anpha-blue">Multiplique sua visibilidade</span>
+                        <span class="text-sm text-dark-text-medium block">a partir de 1 mês</span>
+                    </div>
+
+                    <p class="text-dark-text-medium text-center mb-6">
+                        Estratégias de <strong>SEO, Google Ads e Mídias Sociais</strong> para atrair, engajar e converter
+                        seu público-alvo.
+                    </p>
+
+                    <ul class="space-y-2 text-dark-text-medium mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-green mr-2"></i> Otimização SEO completa
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-green mr-2"></i> Campanhas Google Ads e Social Ads
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-green mr-2"></i> Gestão de mídias sociais
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-anpha-green mr-2"></i> Relatórios de performance
+                        </li>
+                    </ul>
+
+                    <a href="#contact"
+                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium">
+                        Solicitar Orçamento
+                    </a>
+                </div>
             </div>
 
             <!-- CTA para consultoria gratuita -->
@@ -1237,7 +1282,7 @@
     </section>
 
 
-    <!-- Seção de Portfólio SEM FOTOS -->
+    <!-- Seção de Portfólio: Apresenta cases de sucesso com resultados tangíveis. -->
     <section id="portfolio" class="py-20 bg-dark-section-bg">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -1430,7 +1475,7 @@
                     </div>
                 </div>
 
-                <!-- Projeto 6: Marketing Digital -->
+                <!-- Projeto 6: Marketing Digital (Adicionado para cobrir todos os serviços) -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.5s">
                     <div
@@ -1495,7 +1540,7 @@
         </div>
     </section>
 
-    <!-- Seção de Depoimentos SEM FOTOS -->
+    <!-- Seção de Depoimentos: Reforça a credibilidade com feedback de clientes reais. -->
     <section id="testimonials" class="py-20">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -1718,7 +1763,7 @@
         </div>
     </section>
 
-    <!-- Seção FAQ -->
+    <!-- Seção FAQ: Responde às perguntas mais comuns para remover objeções. -->
     <section id="faq" class="py-20 bg-dark-section-bg">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -1736,7 +1781,7 @@
                 <div class="bg-dark-card-bg border border-dark-border rounded-xl scroll-reveal">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
-                        onclick="toggleFAQ(1)" aria-expanded="false" aria-controls="faq-content-1">
+                        onclick="toggleFAQ(1)" aria-expanded="false" aria-controls="faq-content-1" id="faq-toggle-1">
                         <h3 class="font-semibold text-dark-header-text">💰 Quanto custa um projeto e qual o prazo de
                             entrega?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-1"></i>
@@ -1759,7 +1804,7 @@
                     style="transition-delay: 0.1s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
-                        onclick="toggleFAQ(2)" aria-expanded="false" aria-controls="faq-content-2">
+                        onclick="toggleFAQ(2)" aria-expanded="false" aria-controls="faq-content-2" id="faq-toggle-2">
                         <h3 class="font-semibold text-dark-header-text">🎯 Como vocês garantem o aumento nas vendas?
                         </h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-2"></i>
@@ -1783,7 +1828,7 @@
                     style="transition-delay: 0.2s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
-                        onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="faq-content-3">
+                        onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="faq-content-3" id="faq-toggle-3">
                         <h3 class="font-semibold text-dark-header-text">🚀 O que está incluído na consultoria gratuita?
                         </h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-3"></i>
@@ -1808,7 +1853,7 @@
                     style="transition-delay: 0.3s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
-                        onclick="toggleFAQ(4)" aria-expanded="false" aria-controls="faq-content-4">
+                        onclick="toggleFAQ(4)" aria-expanded="false" aria-controls="faq-content-4" id="faq-toggle-4">
                         <h3 class="font-semibold text-dark-header-text">🛠️ Vocês oferecem suporte após a entrega?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-4"></i>
                     </button>
@@ -1830,7 +1875,7 @@
                     style="transition-delay: 0.4s">
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
-                        onclick="toggleFAQ(5)" aria-expanded="false" aria-controls="faq-content-5">
+                        onclick="toggleFAQ(5)" aria-expanded="false" aria-controls="faq-content-5" id="faq-toggle-5">
                         <h3 class="font-semibold text-dark-header-text">📱 Meu site será otimizado para celular e
                             Google?</h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-5"></i>
@@ -1840,7 +1885,7 @@
                             Absolutamente! Todos os nossos projetos incluem:<br><br>
                             📱 <strong>Design responsivo:</strong> Perfeito em celular, tablet e desktop<br>
                             🚀 <strong>Velocidade otimizada:</strong> Carregamento em menos de 3 segundos<br>
-                            🔍 <strong>SEO técnico completo:</b> Estrutura otimizada para o Google<br>
+                            🔍 <strong>SEO técnico completo:</strong> Estrutura otimizada para o Google<br>
                             📊 <strong>Google Analytics:</strong> Acompanhe visitantes e conversões<br>
                             🎯 <strong>Pixel do Facebook:</strong> Para campanhas de remarketing<br><br>
                             🏆 <strong>Resultado:</strong> Nossos clientes aparecem na primeira página do Google em
@@ -1871,7 +1916,7 @@
     </section>
 
 
-    <!-- Seção de Contato Otimizada -->
+    <!-- Seção de Contato Otimizada: Formulário de contato e informações de contato direto. -->
     <section id="contact" class="py-20">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -1975,7 +2020,7 @@
                                     placeholder="Descreva brevemente seu projeto, objetivos e expectativas..."></textarea>
                             </div>
 
-                            <!-- Checkbox de consentimento -->
+                            <!-- Checkbox de consentimento: Essencial para LGPD e boas práticas de marketing. -->
                             <div class="flex items-start">
                                 <input type="checkbox" id="consent" name="consent" required
                                     class="mt-1 mr-3 text-anpha-blue focus:ring-anpha-blue" aria-required="true">
@@ -2116,14 +2161,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer: Informações de contato, links úteis e direitos autorais. -->
     <footer class="bg-dark-section-bg border-t border-dark-border py-12">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Logo e descrição -->
                 <div class="md:col-span-2">
                     <!-- Sua logo (placeholder) -->
-                    <img src="Anphaweb_logo.png" alt="Anphaweb Logo" class="anphaweb-logo mb-4">
+                    <img src="Anphaweb_logo.png" alt="Anphaweb Logo" class="anphaweb-logo mb-4" onerror="this.onerror=null;this.src='https://placehold.co/40x40/0d1117/e2e8f0?text=AW';">
                     <p class="text-dark-text-medium mb-4">
                         Transformamos negócios através de soluções digitais que geram resultados reais.
                         Mais de 500 projetos entregues com aumento médio de 150% nas vendas dos clientes.
@@ -2201,7 +2246,7 @@
     </div>
 
     <!-- Scripts JavaScript -->
-    <script>
+    <script defer>
         // Configuração do Three.js para fundo 3D
         let scene, camera, renderer, particles;
         let isThreeJSActive = true;
@@ -2226,7 +2271,7 @@
 
         function initThreeJS() {
             const canvas = document.getElementById('three-bg');
-            // Ensure canvas exists before initializing Three.js
+            // Garante que o canvas exista antes de inicializar o Three.js
             if (!canvas) {
                 console.error("Canvas element with ID 'three-bg' not found.");
                 return;
@@ -2246,9 +2291,9 @@
             const particleCount = 1500;
             for (let i = 0; i < particleCount; i++) {
                 vertices.push(
-                    (Math.random() - 0.5) * 2000, // X position
-                    (Math.random() - 0.5) * 2000, // Y position
-                    (Math.random() - 0.5) * 2000  // Z position
+                    (Math.random() - 0.5) * 2000, // Posição X
+                    (Math.random() - 0.5) * 2000, // Posição Y
+                    (Math.random() - 0.5) * 2000  // Posição Z
                 );
 
                 const color = new THREE.Color();
@@ -2282,12 +2327,12 @@
 
             camera.position.z = 1000;
 
-            // Start animation loop
+            // Inicia o loop de animação
             animate();
         }
 
         function animate() {
-            // Only animate if Three.js is active
+            // Anima apenas se o Three.js estiver ativo
             if (!isThreeJSActive) return;
 
             requestAnimationFrame(animate);
@@ -2299,79 +2344,79 @@
             renderer.render(scene, camera);
         }
 
-        // Toggle Three.js background visibility and animation
+        // Alterna a visibilidade e animação do fundo 3D
         document.getElementById('toggle-threejs-btn').addEventListener('click', function () {
             const canvas = document.getElementById('three-bg');
             isThreeJSActive = !isThreeJSActive;
 
             if (isThreeJSActive) {
-                canvas.classList.remove('hidden'); // Show canvas
-                animate(); // Restart animation
-                this.innerHTML = '<i class="fas fa-cube"></i>'; // Change icon to cube
+                canvas.classList.remove('hidden'); // Mostra o canvas
+                animate(); // Reinicia a animação
+                this.innerHTML = '<i class="fas fa-cube"></i>'; // Altera o ícone para cubo
             } else {
-                canvas.classList.add('hidden'); // Hide canvas
-                this.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Change icon to eye-slash
+                canvas.classList.add('hidden'); // Esconde o canvas
+                this.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Altera o ícone para olho cortado
             }
         });
 
-        // Scroll reveal animation for elements with .scroll-reveal class
+        // Animação de revelação ao rolar para elementos com a classe .scroll-reveal
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.scroll-reveal');
 
             reveals.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150; // Pixels from bottom of viewport to trigger reveal
+                const elementVisible = 150; // Pixels da parte inferior da viewport para acionar a revelação
 
-                // If element is within viewport, add 'active' class to trigger animation
+                // Se o elemento estiver dentro da viewport, adiciona a classe 'active' para acionar a animação
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
                 } else {
-                    // Optionally remove 'active' class if element scrolls out of view
+                    // Opcionalmente remove a classe 'active' se o elemento sair da visualização
                     element.classList.remove('active');
                 }
             });
         }
 
-        // Smooth scrolling for navigation links
+        // Rolagem suave para links de navegação
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default anchor click behavior
+                e.preventDefault(); // Previne o comportamento padrão do clique no âncora
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth', // Smooth scroll animation
-                        block: 'start' // Scroll to the start of the target element
+                        behavior: 'smooth', // Animação de rolagem suave
+                        block: 'start' // Rola para o início do elemento alvo
                     });
                 }
-                // Close mobile menu if open after clicking a link
+                // Fecha o menu mobile se estiver aberto após clicar em um link
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
+                    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
                 }
             });
         });
 
-        // Mobile menu toggle functionality
+        // Funcionalidade de alternar o menu mobile
         document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden'); // Toggle visibility of mobile menu
+            mobileMenu.classList.toggle('hidden'); // Alterna a visibilidade do menu mobile
             const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
-            this.setAttribute('aria-expanded', isExpanded); // Update aria-expanded attribute for accessibility
+            this.setAttribute('aria-expanded', isExpanded); // Atualiza o atributo aria-expanded para acessibilidade
         });
 
-        // FAQ toggle functionality
+        // Funcionalidade de alternar FAQ
         function toggleFAQ(id) {
             const content = document.getElementById(`faq-content-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
-            const button = document.querySelector(`.faq-toggle[onclick="toggleFAQ(${id})"]`);
+            const button = document.getElementById(`faq-toggle-${id}`); // Usar ID para o botão
 
-            // Check if the content is currently active (open)
+            // Verifica se o conteúdo está atualmente ativo (aberto)
             const isActive = content.classList.contains('active');
 
-            // If it's active, we want to close it. If not, open it.
+            // Se estiver ativo, queremos fechá-lo. Se não, abri-lo.
             if (isActive) {
-                // To smoothly close, first set height to its current scrollHeight, then to 0
                 content.style.maxHeight = content.scrollHeight + 'px';
                 requestAnimationFrame(() => {
                     content.style.maxHeight = '0';
@@ -2380,30 +2425,28 @@
                 icon.classList.remove('rotate-180');
                 button.setAttribute('aria-expanded', 'false');
             } else {
-                // Close any other open FAQs before opening the new one
+                // Fecha quaisquer outras FAQs abertas antes de abrir a nova
                 document.querySelectorAll('.faq-content.active').forEach(openContent => {
-                    // Get the ID from the openContent element
                     const openId = openContent.id.split('-')[2];
                     const openIcon = document.getElementById(`faq-icon-${openId}`);
-                    const openButton = document.querySelector(`.faq-toggle[aria-controls="${openContent.id}"]`);
+                    const openButton = document.getElementById(`faq-toggle-${openId}`);
 
-                    openContent.style.maxHeight = openContent.scrollHeight + 'px'; // Set to current height before collapsing
+                    openContent.style.maxHeight = openContent.scrollHeight + 'px';
                     requestAnimationFrame(() => {
-                        openContent.style.maxHeight = '0'; // Collapse
+                        openContent.style.maxHeight = '0';
                     });
                     openContent.classList.remove('active');
                     if (openIcon) openIcon.classList.remove('rotate-180');
                     if (openButton) openButton.setAttribute('aria-expanded', 'false');
                 });
 
-                // Open the clicked FAQ
+                // Abre a FAQ clicada
                 content.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px'; // Set to actual content height
+                content.style.maxHeight = content.scrollHeight + 'px'; // Define a altura para a altura real do conteúdo
                 icon.classList.add('rotate-180');
                 button.setAttribute('aria-expanded', 'true');
 
-                // After transition, remove max-height to allow content to adapt if window resizes
-                // Use a short delay to ensure the transition starts before 'none' is applied
+                // Após a transição, remove max-height para permitir que o conteúdo se adapte se a janela for redimensionada
                 content.addEventListener('transitionend', function handler() {
                     if (content.classList.contains('active')) {
                         content.style.maxHeight = 'none';
@@ -2413,11 +2456,11 @@
             }
         }
 
-        // Form validation and submission
+        // Validação e envio do formulário
         document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault(); // Previne o envio padrão do formulário
 
-            // Reset previous errors and success message
+            // Reseta erros anteriores e mensagem de sucesso
             document.querySelectorAll('.error-message').forEach(el => {
                 el.classList.add('hidden');
                 el.textContent = '';
@@ -2429,7 +2472,7 @@
 
             let isValid = true;
 
-            // Validate required fields
+            // Valida campos obrigatórios
             const requiredFields = ['name', 'email', 'phone', 'service'];
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
@@ -2443,7 +2486,7 @@
                 }
             });
 
-            // Validate email format
+            // Valida formato de e-mail
             const email = document.getElementById('email');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (email.value && !emailRegex.test(email.value)) {
@@ -2453,9 +2496,9 @@
                 isValid = false;
             }
 
-            // Validate phone format (simple check for numbers, can be enhanced with regex for specific formats)
+            // Valida formato de telefone (verificação simples para números, pode ser aprimorada com regex para formatos específicos)
             const phone = document.getElementById('phone');
-            const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/; // Basic Brazilian phone format
+            const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/; // Formato básico de telefone brasileiro
             if (phone.value && !phoneRegex.test(phone.value)) {
                 phone.classList.add('input-error');
                 document.getElementById('phone-error').textContent = 'Por favor, insira um número de WhatsApp válido (ex: (11) 99999-9999).';
@@ -2463,7 +2506,7 @@
                 isValid = false;
             }
 
-            // Validate consent checkbox
+            // Valida checkbox de consentimento
             const consent = document.getElementById('consent');
             const consentError = document.getElementById('consent-error');
             if (!consent.checked) {
@@ -2473,7 +2516,7 @@
             }
 
             if (isValid) {
-                // Show loading state
+                // Mostra estado de carregamento
                 const submitBtn = document.getElementById('submit-btn');
                 const submitText = document.getElementById('submit-text');
                 const submitSpinner = document.getElementById('submit-spinner');
@@ -2482,8 +2525,7 @@
                 submitText.textContent = 'Enviando...';
                 submitSpinner.classList.remove('hidden');
 
-                // Simulate form submission (replace with actual backend submission via fetch/XHR)
-                // This part will now use the Formspree action attribute
+                // Envio do formulário via Formspree
                 const form = document.getElementById('contact-form');
                 const formData = new FormData(form);
 
@@ -2496,19 +2538,19 @@
                 })
                     .then(response => {
                         if (response.ok) {
-                            document.getElementById('form-success').classList.remove('hidden'); // Show success message
-                            form.reset(); // Clear form fields
+                            document.getElementById('form-success').classList.remove('hidden'); // Mostra mensagem de sucesso
+                            form.reset(); // Limpa os campos do formulário
 
-                            // Prepare WhatsApp message
-                            const name = formData.get('name'); // Get name from formData
-                            const service = formData.get('service'); // Get service value from formData
-                            const serviceText = service === 'nao-sei' ? 'Consultoria' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()); // Format service text
+                            // Prepara mensagem do WhatsApp
+                            const name = formData.get('name'); // Obtém o nome do formData
+                            const service = formData.get('service'); // Obtém o valor do serviço do formData
+                            const serviceText = service === 'nao-sei' ? 'Consultoria' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()); // Formata o texto do serviço
                             const message = `Olá! Sou ${name} e acabei de preencher o formulário no site. Gostaria de agendar minha consultoria gratuita sobre ${serviceText}.`;
 
-                            // Redirect to WhatsApp after a short delay to allow user to see success message
+                            // Redireciona para o WhatsApp após um pequeno atraso para permitir que o usuário veja a mensagem de sucesso
                             setTimeout(() => {
                                 window.open(`https://wa.me/5511987654321?text=${encodeURIComponent(message)}`, '_blank');
-                            }, 1000); // 1 second delay
+                            }, 1000); // Atraso de 1 segundo
                         } else {
                             response.json().then(data => {
                                 if (data.errors) {
@@ -2521,14 +2563,18 @@
                                         }
                                     });
                                 } else {
-                                    alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                                    // Usar um modal personalizado para erros em vez de alert()
+                                    // alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                                    showCustomAlert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'error');
                                 }
                             });
                         }
                     })
                     .catch(error => {
                         console.error('Erro:', error);
-                        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                        // Usar um modal personalizado para erros em vez de alert()
+                        // alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                        showCustomAlert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'error');
                     })
                     .finally(() => {
                         submitBtn.disabled = false;
@@ -2537,25 +2583,6 @@
                     });
             }
         });
-
-        // Lazy loading for elements with .lazyload class (currently not used for images, but for future use)
-        function lazyLoadImages() {
-            const elementsToLazyLoad = document.querySelectorAll('.lazyload');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const element = entry.target;
-                        element.classList.add('loaded');
-                        observer.unobserve(element);
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            elementsToLazyLoad.forEach(element => observer.observe(element));
-        }
 
         // Dynamic Text Carousel for Hero Section
         const textItems = [
@@ -2568,31 +2595,31 @@
 
         function animateTextCarousel() {
             const container = document.querySelector('.dynamic-text-container');
-            if (!container) return; // Exit if container not found
+            if (!container) return; // Sai se o container não for encontrado
 
             const items = container.querySelectorAll('.dynamic-text-item');
 
-            // Hide all items initially
+            // Esconde todos os itens inicialmente
             items.forEach(item => {
-                item.style.animation = 'none'; // Reset animation
+                item.style.animation = 'none'; // Reseta a animação
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
             });
 
-            // Show the current item
+            // Mostra o item atual
             const currentItem = items[currentTextIndex];
             if (currentItem) {
                 currentItem.style.animation = 'textReveal 1s forwards';
             }
 
-            // Prepare for next item
+            // Prepara para o próximo item
             setTimeout(() => {
                 if (currentItem) {
                     currentItem.style.animation = 'textHide 1s forwards';
                 }
                 currentTextIndex = (currentTextIndex + 1) % textItems.length;
-                setTimeout(animateTextCarousel, 1000); // Wait for hide animation to complete before revealing next
-            }, 3000); // Display each text for 3 seconds
+                setTimeout(animateTextCarousel, 1000); // Espera a animação de esconder completar antes de revelar o próximo
+            }, 3000); // Exibe cada texto por 3 segundos
         }
 
         // Cookie Banner functionality
@@ -2609,45 +2636,78 @@
             localStorage.setItem('cookie_consent', 'true');
             const cookieBanner = document.getElementById('cookie-banner');
             cookieBanner.classList.remove('show');
-            // Optional: Add a small delay before removing from DOM to allow transition to complete
+            // Opcional: Adiciona um pequeno atraso antes de remover do DOM para permitir que a transição seja concluída
             setTimeout(() => {
                 cookieBanner.style.display = 'none';
             }, 500);
         }
 
+        // Função para exibir um alerta personalizado (substitui alert())
+        function showCustomAlert(message, type = 'info') {
+            const modal = document.createElement('div');
+            modal.classList.add('modal', 'show');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3 class="text-xl font-bold mb-4 ${type === 'error' ? 'text-red-500' : 'text-anpha-blue'}">
+                        ${type === 'error' ? 'Erro!' : 'Informação'}
+                    </h3>
+                    <p class="text-dark-text-medium mb-6">${message}</p>
+                    <button class="btn-gradient-primary py-2 px-4 rounded-lg" onclick="closeCustomAlert()">OK</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
 
-        // Initialize all necessary functions when DOM is loaded
+            modal.querySelector('.close-button').addEventListener('click', closeCustomAlert);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeCustomAlert();
+                }
+            });
+        }
+
+        function closeCustomAlert() {
+            const modal = document.querySelector('.modal.show');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.remove();
+                }, 300); // Tempo para a transição de saída
+            }
+        }
+
+
+        // Inicializa todas as funções necessárias quando o DOM é carregado
         document.addEventListener('DOMContentLoaded', function () {
-            initThreeJS(); // Initialize 3D background
-            lazyLoadImages(); // Initialize lazy loading (now for generic elements)
-            animateTextCarousel(); // Start the dynamic text carousel
+            initThreeJS(); // Inicializa o fundo 3D
+            animateTextCarousel(); // Inicia o carrossel de texto dinâmico
 
-            // Ensure all FAQ contents are initially closed
+            // Garante que todos os conteúdos de FAQ estejam inicialmente fechados
             document.querySelectorAll('.faq-content').forEach(content => {
                 content.style.maxHeight = '0';
-                content.classList.remove('active'); // Ensure no active class initially
+                content.classList.remove('active'); // Garante que nenhuma classe ativa inicialmente
             });
 
-            // Handle window resize for Three.js canvas
+            // Lida com o redimensionamento da janela para o canvas do Three.js
             window.addEventListener('resize', function () {
-                if (renderer && camera) { // Ensure renderer and camera exist
+                if (renderer && camera) { // Garante que o renderizador e a câmera existam
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
                 }
             });
 
-            // Initial check for scroll reveal elements on page load
+            // Verificação inicial para elementos de revelação ao rolar na carga da página
             revealOnScroll();
 
-            // Show cookie banner if consent not given
+            // Mostra o banner de cookies se o consentimento não foi dado
             showCookieBanner();
 
-            // Add event listener for cookie acceptance button
+            // Adiciona listener de evento para o botão de aceitar cookies
             document.getElementById('accept-cookies-btn').addEventListener('click', acceptCookies);
         });
 
-        // Add scroll event listener to trigger reveal animations
+        // Adiciona listener de evento de rolagem para acionar animações de revelação
         window.addEventListener('scroll', revealOnScroll);
 
     </script>
