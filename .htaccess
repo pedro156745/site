@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Permite acessar arquivos .html sem a extensão
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
