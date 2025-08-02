@@ -235,6 +235,7 @@
             opacity: 0;
             pointer-events: none;
             /* Desabilita interações quando escondido */
+            display: none; /* Adicionado para garantir que não ocupe espaço ou seja renderizado */
         }
 
         /* Estilo para texto com gradiente */
@@ -277,6 +278,7 @@
             /* Começa ligeiramente abaixo */
             transition: all 0.6s ease;
             /* Transição suave para a animação */
+            will-change: opacity, transform; /* Adicionado para otimização de performance */
         }
 
         /* Estado ativo da revelação ao rolar */
@@ -1125,7 +1127,8 @@
                         <!-- IMPORTANTE: SUBSTITUA ESTA IMAGEM PELA SUA IMAGEM REAL E OTIMIZADA. Exemplo: Uma foto da sua equipe ou de pessoas colaborando. -->
                         <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Equipe Anphaweb trabalhando em colaboração"
-                            class="w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700" loading="lazy">
+                            class="w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/70 to-transparent"></div>
                         <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                             <div
@@ -2038,9 +2041,8 @@
 
                     <div class="flex items-center">
                         <!-- IMPORTANTE: SUBSTITUA ESTA IMAGEM PELA FOTO DE PERFIL REAL DO CLIENTE E OTIMIZE-A -->
-                        <img src="https://randomuser.me/api/portraits/men/2.jpg"
-                            alt="Foto de perfil de Carlos Mendes" class="w-12 h-12 rounded-full mr-4 object-cover"
-                            loading="lazy">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Foto de perfil de Carlos Mendes"
+                            class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy">
                         <div>
                             <h4 class="font-bold text-dark-header-text" id="testimonial-title-2">Carlos Mendes</h4>
                             <span class="text-sm text-dark-text-medium">Diretor de Operações - LogiExpress Brasil</span>
@@ -2070,9 +2072,8 @@
 
                     <div class="flex items-center">
                         <!-- IMPORTANTE: SUBSTITUA ESTA IMAGEM PELA FOTO DE PERFIL REAL DO CLIENTE E OTIMIZE-A -->
-                        <img src="https://randomuser.me/api/portraits/women/3.jpg"
-                            alt="Foto de perfil de Ana Rodrigues" class="w-12 h-12 rounded-full mr-4 object-cover"
-                            loading="lazy">
+                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Foto de perfil de Ana Rodrigues"
+                            class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy">
                         <div>
                             <h4 class="font-bold text-dark-header-text" id="testimonial-title-3">Ana Rodrigues</h4>
                             <span class="text-sm text-dark-text-medium">Fundadora - EduConecta Digital</span>
@@ -2101,9 +2102,8 @@
 
                     <div class="flex items-center">
                         <!-- IMPORTANTE: SUBSTITUA ESTA IMAGEM PELA FOTO DE PERFIL REAL DO CLIENTE E OTIMIZE-A -->
-                        <img src="https://randomuser.me/api/portraits/men/4.jpg"
-                            alt="Foto de perfil de Roberto Santos" class="w-12 h-12 rounded-full mr-4 object-cover"
-                            loading="lazy">
+                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Foto de perfil de Roberto Santos"
+                            class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy">
                         <div>
                             <h4 class="font-bold text-dark-header-text" id="testimonial-title-4">Roberto Santos</h4>
                             <span class="text-sm text-dark-text-medium">Proprietário - ModaTotal Online</span>
@@ -2165,9 +2165,8 @@
 
                     <div class="flex items-center">
                         <!-- IMPORTANTE: SUBSTITUA ESTA IMAGEM PELA FOTO DE PERFIL REAL DO CLIENTE E OTIMIZE-A -->
-                        <img src="https://randomuser.me/api/portraits/men/6.jpg"
-                            alt="Foto de perfil de Lucas Oliveira" class="w-12 h-12 rounded-full mr-4 object-cover"
-                            loading="lazy">
+                        <img src="https://randomuser.me/api/portraits/men/6.jpg" alt="Foto de perfil de Lucas Oliveira"
+                            class="w-12 h-12 rounded-full mr-4 object-cover" loading="lazy">
                         <div>
                             <h4 class="font-bold text-dark-header-text" id="testimonial-title-6">Lucas Oliveira</h4>
                             <span class="text-sm text-dark-text-medium">CEO - FitLife App</span>
@@ -2396,7 +2395,7 @@
                         </h3>
 
                         <!-- Formulário de contato integrado com FormSubmit.co -->
-                        <form id="contact-form" action="https://formsubmit.co/contato@anphaweb.com.br" method="POST"
+                        <form id="contact-form" action="https://formspree.io/f/mvgqrpyb" method="POST"
                             class="space-y-6">
                             <!-- Adiciona campo honeypot para evitar spam (FormSubmit.co) -->
                             <input type="text" name="_honey" style="display:none">
@@ -2717,7 +2716,9 @@
                 Descubra como podemos aumentar suas vendas em até 180% com uma análise personalizada do seu negócio.
                 É <strong>100% gratuito e sem compromisso!</strong>
             </p>
-            <a href="#contact" class="btn-gradient-primary font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block" onclick="closeExitIntentPopup()" aria-label="Agendar Consultoria Gratuita Agora">
+            <a href="#contact"
+                class="btn-gradient-primary font-bold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block"
+                onclick="closeExitIntentPopup()" aria-label="Agendar Consultoria Gratuita Agora">
                 🚀 Quero Minha Consultoria GRATUITA Agora!
             </a>
             <p class="text-dark-text-medium text-sm mt-4">
@@ -2828,7 +2829,8 @@
         // Configuração do Three.js para fundo 3D
         let scene, camera, renderer, particles;
         // isThreeJSActive agora é controlada para ser false por padrão em mobile
-        let isThreeJSActive = window.innerWidth >= 768; // Ativa por padrão apenas em desktop (md breakpoint)
+        // Será definida no DOMContentLoaded para garantir que window.innerWidth esteja correto
+        let isThreeJSActive = false; 
 
         // Função para criar uma textura de círculo programaticamente
         function createCircleTexture() {
@@ -2850,19 +2852,12 @@
 
         function initThreeJS() {
             const canvas = document.getElementById('three-bg');
-            // Garante que o canvas exista antes de inicializar o Three.js
-            if (!canvas) {
-                console.error("Canvas element with ID 'three-bg' not found.");
+            // Garante que o canvas exista e que o Three.js não esteja ativo ou já inicializado
+            if (!canvas || !isThreeJSActive || renderer) {
                 return;
             }
 
-            // Se Three.js não estiver ativo, esconde o canvas e não inicializa
-            if (!isThreeJSActive) {
-                canvas.classList.add('hidden');
-                return;
-            } else {
-                canvas.classList.remove('hidden');
-            }
+            canvas.classList.remove('hidden'); // Garante que o canvas esteja visível se for inicializado
 
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -2919,8 +2914,8 @@
         }
 
         function animate() {
-            // Anima apenas se o Three.js estiver ativo
-            if (!isThreeJSActive) return;
+            // Anima apenas se o Three.js estiver ativo e o renderer existir
+            if (!isThreeJSActive || !renderer) return;
 
             requestAnimationFrame(animate);
 
@@ -2937,13 +2932,8 @@
             isThreeJSActive = !isThreeJSActive;
 
             if (isThreeJSActive) {
+                initThreeJS(); // Tenta inicializar (só ocorrerá se renderer for null)
                 canvas.classList.remove('hidden'); // Mostra o canvas
-                // Só chama animate se o Three.js foi inicializado
-                if (renderer && camera) {
-                    animate(); // Reinicia a animação
-                } else {
-                    initThreeJS(); // Inicializa se ainda não foi
-                }
                 this.innerHTML = '<i class="fas fa-cube"></i>'; // Altera o ícone para cubo
             } else {
                 canvas.classList.add('hidden'); // Esconde o canvas
@@ -3506,14 +3496,15 @@
 
         // Inicializa todas as funções necessárias quando o DOM é carregado
         document.addEventListener('DOMContentLoaded', function () {
-            // Inicializa o fundo 3D apenas se for desktop
-            if (window.innerWidth >= 768) {
-                initThreeJS();
+            // Define o estado inicial do Three.js com base na largura da tela
+            isThreeJSActive = window.innerWidth >= 768; 
+
+            if (isThreeJSActive) {
+                initThreeJS(); // Inicializa o fundo 3D apenas se for desktop
+                document.getElementById('toggle-threejs-btn').style.display = 'flex'; // Mostra o botão
             } else {
-                // Esconde o botão de alternar o 3D em mobile por padrão
-                document.getElementById('toggle-threejs-btn').style.display = 'none';
-                // Garante que o canvas esteja oculto em mobile por padrão
-                document.getElementById('three-bg').classList.add('hidden');
+                document.getElementById('toggle-threejs-btn').style.display = 'none'; // Esconde o botão
+                document.getElementById('three-bg').classList.add('hidden'); // Garante que o canvas esteja oculto em mobile por padrão
             }
 
             animateTextCarousel(); // Inicia o carrossel de texto dinâmico
@@ -3539,7 +3530,7 @@
                     }
                 }
 
-                if (renderer && camera) { // Garante que o renderizador e a câmera existam
+                if (renderer && camera && isThreeJSActive) { // Garante que o renderizador e a câmera existam e esteja ativo
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -3560,18 +3551,19 @@
         window.addEventListener('scroll', revealOnScroll);
     </script>
 
-    <!-- Tawk.to Chat -->
+    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function () {
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
-            s1.src = 'https://embed.tawk.to/67892abc4304e3196ae5c8b2/1iicvgkqj';
+            s1.src = 'https://embed.tawk.to/688e8a1aa597d7192a34f22f/1j1mcmu5d';
             s1.charset = 'UTF-8';
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 
