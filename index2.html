@@ -2395,7 +2395,7 @@
                         </h3>
 
                         <!-- Formulário de contato integrado com FormSubmit.co -->
-                        <form id="contact-form" action="https://formspree.io/f/mvgqrpyb" method="POST"
+                        <form id="contact-form" action="https://formsubmit.co/contato@anphaweb.com.br" method="POST"
                             class="space-y-6">
                             <!-- Adiciona campo honeypot para evitar spam (FormSubmit.co) -->
                             <input type="text" name="_honey" style="display:none">
@@ -2828,9 +2828,10 @@
     <script defer>
         // Configuração do Three.js para fundo 3D
         let scene, camera, renderer, particles;
-        // isThreeJSActive agora é controlada para ser false por padrão em mobile
-        // Será definida no DOMContentLoaded para garantir que window.innerWidth esteja correto
-        let isThreeJSActive = false; 
+        // isThreeJSActive agora será sempre true para que o fundo 3D seja exibido em todas as telas.
+        // CUIDADO: Habilitar o Three.js em mobile pode impactar a performance.
+        // Se o site travar, considere otimizar as partículas ou manter desativado em mobile.
+        let isThreeJSActive = true; 
 
         // Função para criar uma textura de círculo programaticamente
         function createCircleTexture() {
@@ -2852,12 +2853,12 @@
 
         function initThreeJS() {
             const canvas = document.getElementById('three-bg');
-            // Garante que o canvas exista e que o Three.js não esteja ativo ou já inicializado
-            if (!canvas || !isThreeJSActive || renderer) {
+            // Garante que o canvas exista e que o Three.js não esteja já inicializado
+            if (!canvas || renderer) { 
                 return;
             }
 
-            canvas.classList.remove('hidden'); // Garante que o canvas esteja visível se for inicializado
+            canvas.classList.remove('hidden'); // Garante que o canvas esteja visível
 
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -3496,16 +3497,10 @@
 
         // Inicializa todas as funções necessárias quando o DOM é carregado
         document.addEventListener('DOMContentLoaded', function () {
-            // Define o estado inicial do Three.js com base na largura da tela
-            isThreeJSActive = window.innerWidth >= 768; 
-
-            if (isThreeJSActive) {
-                initThreeJS(); // Inicializa o fundo 3D apenas se for desktop
-                document.getElementById('toggle-threejs-btn').style.display = 'flex'; // Mostra o botão
-            } else {
-                document.getElementById('toggle-threejs-btn').style.display = 'none'; // Esconde o botão
-                document.getElementById('three-bg').classList.add('hidden'); // Garante que o canvas esteja oculto em mobile por padrão
-            }
+            // O Three.js agora é sempre inicializado para ser exibido em todas as telas.
+            initThreeJS();
+            // Garante que o botão de alternância do fundo 3D esteja sempre visível.
+            document.getElementById('toggle-threejs-btn').style.display = 'flex'; 
 
             animateTextCarousel(); // Inicia o carrossel de texto dinâmico
 
@@ -3517,20 +3512,8 @@
 
             // Lida com o redimensionamento da janela para o canvas do Three.js
             window.addEventListener('resize', function () {
-                // Reavalia a ativação do Three.js ao redimensionar
-                const newIsThreeJSActive = window.innerWidth >= 768;
-                if (newIsThreeJSActive !== isThreeJSActive) {
-                    isThreeJSActive = newIsThreeJSActive;
-                    if (isThreeJSActive) {
-                        document.getElementById('toggle-threejs-btn').style.display = 'flex'; // Mostra o botão
-                        initThreeJS(); // Inicializa se necessário
-                    } else {
-                        document.getElementById('toggle-threejs-btn').style.display = 'none'; // Esconde o botão
-                        document.getElementById('three-bg').classList.add('hidden'); // Esconde o canvas
-                    }
-                }
-
-                if (renderer && camera && isThreeJSActive) { // Garante que o renderizador e a câmera existam e esteja ativo
+                // Redimensiona o renderer apenas se o Three.js estiver ativo.
+                if (renderer && camera && isThreeJSActive) { 
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
