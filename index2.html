@@ -103,32 +103,34 @@
     <!-- Facebook Pixel Code -->
     <!-- SUBSTITUA 'YOUR_PIXEL_ID' PELO SEU ID REAL DO FACEBOOK PIXEL -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', 'YOUR_PIXEL_ID'); // SUBSTITUA PELO SEU ID REAL DO FACEBOOK PIXEL
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
     <!-- End Facebook Pixel Code -->
 
     <!-- Script de Chat ao Vivo (Tawk.to) -->
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/67892abc4304e3196ae5c8b2/1iicvgkqj';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/67892abc4304e3196ae5c8b2/1iicvgkqj';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
 
@@ -647,6 +649,7 @@
         }
 
         @media (min-width: 768px) {
+
             /* md breakpoint */
             .dynamic-text-item {
                 font-size: 2rem;
@@ -722,6 +725,7 @@
 
         /* Responsividade para o banner de cookies */
         @media (min-width: 768px) {
+
             /* md breakpoint */
             #cookie-banner {
                 flex-direction: row;
@@ -738,72 +742,76 @@
 
         /* Melhorias de responsividade mobile */
         @media (max-width: 767px) {
+
             /* Ajustes para mobile */
             .hero-section {
                 padding-top: 1rem;
                 padding-bottom: 2rem;
             }
-            
+
             .hero-title {
-                font-size: 1.875rem; /* text-3xl */
+                font-size: 1.875rem;
+                /* text-3xl */
                 line-height: 1.2;
             }
-            
+
             .hero-description {
-                font-size: 1rem; /* text-base */
+                font-size: 1rem;
+                /* text-base */
                 line-height: 1.5;
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
-            
+
             .service-card {
                 padding: 1rem;
             }
-            
+
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .testimonial-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             /* Ajuste para seções que podem estar cortadas */
             .section-padding {
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
-            
+
             /* Ajuste para containers que podem vazar */
             .container-mobile {
                 max-width: 100%;
                 overflow-x: hidden;
             }
-            
+
             /* Ajuste para textos longos */
             .text-responsive {
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
-            
+
             /* Correção específica para o badge de certificação - Solução Robusta */
             .certification-badge {
                 /* Removido completamente ou ajustado para fora da área visível se necessário */
-                display: none !important; /* Oculta o badge completamente em telas pequenas */
+                display: none !important;
+                /* Oculta o badge completamente em telas pequenas */
             }
-            
+
             .certification-badge .fas {
                 font-size: 0.65rem !important;
                 margin-right: 0.125rem !important;
             }
-            
+
             .certification-badge div {
                 line-height: 1 !important;
             }
-            
+
             /* Ajuste específico para telas muito pequenas */
             @media (max-width: 480px) {
                 .certification-badge {
@@ -811,37 +819,67 @@
                     font-size: 0.6rem !important;
                     padding: 0.1rem 0.2rem !important;
                 }
-                
+
                 .certification-badge .fas {
                     font-size: 0.6rem !important;
                 }
             }
-            
+
             /* Ajuste para evitar sobreposição de elementos */
             .about-content {
                 position: relative;
                 z-index: 10;
             }
-            
+
             .team-grid {
                 padding-top: 2rem;
             }
 
             /* Ajustes para o conteúdo da equipe sobre a imagem */
             .team-overlay-content {
-                padding: 1rem !important; /* Reduz o padding para telas muito pequenas */
+                padding: 1rem !important;
+                /* Reduz o padding para telas muito pequenas */
             }
 
             .team-overlay-content h4 {
-                font-size: 1.5rem !important; /* Reduz o tamanho da fonte do título */
-                line-height: 1.2; /* Ajusta a altura da linha */
+                font-size: 1.5rem !important;
+                /* Reduz o tamanho da fonte do título */
+                line-height: 1.2;
+                /* Ajusta a altura da linha */
             }
 
             .team-overlay-content p {
-                font-size: 0.875rem !important; /* Reduz o tamanho da fonte do parágrafo */
+                font-size: 0.875rem !important;
+                /* Reduz o tamanho da fonte do parágrafo */
             }
         }
     </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123XYZ0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-ABC123XYZ0');
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Anphaweb - Criação de Sites e Sistemas">
+    <meta property="og:description" content="Sites e sistemas sob medida que geram resultado real.">
+    <meta property="og:image" content="https://www.seusite.com.br/imagem-social.jpg">
+    <meta property="og:url" content="https://www.seusite.com.br">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anphaweb - Sites e Sistemas Profissionais">
+    <meta name="twitter:description" content="Tenha um site ou sistema completo com alta conversão.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/imagem-social.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.seusite.com.br" />
+
 </head>
 
 <body class="bg-dark-bg text-dark-text-light">
@@ -849,8 +887,7 @@
     <canvas id="three-bg"></canvas>
 
     <!-- Banner de Urgência: Destaca uma oferta limitada para criar senso de urgência. -->
-    <div class="urgency-banner text-white text-center py-2 px-4 text-sm font-semibold" role="alert"
-        aria-live="polite">
+    <div class="urgency-banner text-white text-center py-2 px-4 text-sm font-semibold" role="alert" aria-live="polite">
         🔥 OFERTA LIMITADA: Consultoria Gratuita + 20% OFF no primeiro projeto - Apenas 10 vagas restantes!
     </div>
 
@@ -950,13 +987,17 @@
             <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
                 <!-- Conteúdo da Seção Hero -->
                 <div class="scroll-reveal">
-                    <h1 class="hero-title text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-dark-header-text leading-tight mb-4 md:mb-6 text-responsive">
+                    <h1
+                        class="hero-title text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-dark-header-text leading-tight mb-4 md:mb-6 text-responsive">
                         <!-- Texto da Hero Section otimizado para mobile -->
-                        Transforme Seu Negócio Digital: <span class="gradient-text">Aumente Suas Vendas em Até 180%</span>
+                        Transforme Seu Negócio Digital: <span class="gradient-text">Aumente Suas Vendas em Até
+                            180%</span>
                     </h1>
 
-                    <p class="hero-description text-base md:text-lg lg:text-xl text-dark-text-medium mb-6 md:mb-8 max-w-lg text-responsive">
-                        Mais de 500 empresas já cresceram conosco. Sites que convertem, e-commerce que vende, sistemas que otimizam. <strong class="text-anpha-orange">Resultados garantidos em 30 dias!</strong>
+                    <p
+                        class="hero-description text-base md:text-lg lg:text-xl text-dark-text-medium mb-6 md:mb-8 max-w-lg text-responsive">
+                        Mais de 500 empresas já cresceram conosco. Sites que convertem, e-commerce que vende, sistemas
+                        que otimizam. <strong class="text-anpha-orange">Resultados garantidos em 30 dias!</strong>
                     </p>
 
                     <!-- Social proof específica SEM FOTO: Depoimento curto e impactante. -->
@@ -967,8 +1008,7 @@
                             "Em 3 meses, nosso faturamento online aumentou 180% com o novo site da Anphaweb!"
                         </p>
                         <div class="flex items-center">
-                            <div
-                                class="w-8 h-8 rounded-full mr-2 bg-gradient-to-r from-anpha-blue to-anpha-purple flex items-center justify-center text-white text-xs font-bold"
+                            <div class="w-8 h-8 rounded-full mr-2 bg-gradient-to-r from-anpha-blue to-anpha-purple flex items-center justify-center text-white text-xs font-bold"
                                 aria-label="Iniciais de Maria Silva">
                                 MS
                             </div>
@@ -1003,7 +1043,7 @@
                         <div class="abstract-hero-bg w-full h-full absolute inset-0 z-0"></div>
                         <!-- Imagem de fundo com baixa opacidade para um efeito sutil. SUBSTITUA ESTA IMAGEM PELA SUA IMAGEM REAL E OTIMIZADA! -->
                         <img src="https://placehold.co/600x400/0d1117/e2e8f0?text=Anphaweb+Solutions"
-                            alt="Representação visual das soluções digitais da Anphaweb - desenvolvimento web, e-commerce e sistemas personalizados" 
+                            alt="Representação visual das soluções digitais da Anphaweb - desenvolvimento web, e-commerce e sistemas personalizados"
                             class="absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy">
                         <div class="relative z-10 dynamic-text-container">
                             <span class="dynamic-text-item" data-text-index="0">Sites que Vendem</span>
@@ -1056,9 +1096,13 @@
                     <span class="text-dark-header-text">Visões em</span>
                     <span class="gradient-text">Realidade Digital</span>
                 </h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <div
+                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
+                </div>
                 <p class="text-lg sm:text-xl text-dark-text-medium max-w-4xl mx-auto leading-relaxed mt-6">
-                    Na Anphaweb, somos arquitetos do futuro digital. Combinamos criatividade, tecnologia de ponta e estratégia para criar soluções que não apenas atendem às necessidades de hoje, mas antecipam as oportunidades de amanhã.
+                    Na Anphaweb, somos arquitetos do futuro digital. Combinamos criatividade, tecnologia de ponta e
+                    estratégia para criar soluções que não apenas atendem às necessidades de hoje, mas antecipam as
+                    oportunidades de amanhã.
                 </p>
             </div>
 
@@ -1067,20 +1111,26 @@
                 <!-- Imagem principal -->
                 <div class="relative scroll-reveal">
                     <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                        <img src="sobre_anphaweb_hero.jpg" 
-                             alt="Transformação Digital e Inovação Tecnológica" 
-                             class="w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
+                        <img src="sobre_anphaweb_hero.jpg" alt="Transformação Digital e Inovação Tecnológica"
+                            class="w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/70 to-transparent"></div>
                         <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                            <div class="bg-dark-card-bg backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-dark-border">
-                                <p class="text-dark-header-text font-semibold text-sm sm:text-base">Liderando a Revolução Digital</p>
-                                <p class="text-dark-text-medium text-xs sm:text-sm">Desde 2020 transformando negócios</p>
+                            <div
+                                class="bg-dark-card-bg backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-dark-border">
+                                <p class="text-dark-header-text font-semibold text-sm sm:text-base">Liderando a
+                                    Revolução Digital</p>
+                                <p class="text-dark-text-medium text-xs sm:text-sm">Desde 2020 transformando negócios
+                                </p>
                             </div>
                         </div>
                     </div>
                     <!-- Elementos decorativos ao redor da imagem -->
-                    <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full opacity-80 animate-bounce-slow"></div>
-                    <div class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-anpha-orange to-anpha-purple rounded-full opacity-70 animate-pulse-slow"></div>
+                    <div
+                        class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full opacity-80 animate-bounce-slow">
+                    </div>
+                    <div
+                        class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-anpha-orange to-anpha-purple rounded-full opacity-70 animate-pulse-slow">
+                    </div>
                 </div>
 
                 <!-- Conteúdo textual -->
@@ -1090,27 +1140,38 @@
                             Pioneiros em <span class="gradient-text">Excelência Digital</span>
                         </h3>
                         <p class="text-dark-text-medium text-base sm:text-lg leading-relaxed">
-                            Nascemos da paixão por transformar ideias em experiências digitais extraordinárias. Nossa jornada começou com uma visão simples: democratizar o acesso à tecnologia de ponta e capacitar empresas de todos os tamanhos a competirem no cenário digital global.
+                            Nascemos da paixão por transformar ideias em experiências digitais extraordinárias. Nossa
+                            jornada começou com uma visão simples: democratizar o acesso à tecnologia de ponta e
+                            capacitar empresas de todos os tamanhos a competirem no cenário digital global.
                         </p>
                         <p class="text-dark-text-medium text-base sm:text-lg leading-relaxed">
-                            Cada projeto é uma oportunidade de superar limites, quebrar paradigmas e criar soluções que geram impacto real. Não somos apenas desenvolvedores ou designers - somos estrategistas digitais comprometidos com o sucesso dos nossos parceiros.
+                            Cada projeto é uma oportunidade de superar limites, quebrar paradigmas e criar soluções que
+                            geram impacto real. Não somos apenas desenvolvedores ou designers - somos estrategistas
+                            digitais comprometidos com o sucesso dos nossos parceiros.
                         </p>
                     </div>
 
                     <!-- Características distintivas -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                        <div class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-blue/50 transition-all duration-300">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-lg flex items-center justify-center mb-3 lg:mb-4">
+                        <div
+                            class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-blue/50 transition-all duration-300">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-lg flex items-center justify-center mb-3 lg:mb-4">
                                 <i class="fas fa-rocket text-white text-lg lg:text-xl"></i>
                             </div>
-                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Inovação Constante</h4>
-                            <p class="text-dark-text-medium text-xs lg:text-sm">Sempre na vanguarda das tecnologias emergentes</p>
+                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Inovação Constante
+                            </h4>
+                            <p class="text-dark-text-medium text-xs lg:text-sm">Sempre na vanguarda das tecnologias
+                                emergentes</p>
                         </div>
-                        <div class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-purple/50 transition-all duration-300">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-lg flex items-center justify-center mb-3 lg:mb-4">
+                        <div
+                            class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-purple/50 transition-all duration-300">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-lg flex items-center justify-center mb-3 lg:mb-4">
                                 <i class="fas fa-users text-white text-lg lg:text-xl"></i>
                             </div>
-                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Parceria Verdadeira</h4>
+                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Parceria
+                                Verdadeira</h4>
                             <p class="text-dark-text-medium text-xs lg:text-sm">Seu sucesso é nossa maior conquista</p>
                         </div>
                     </div>
@@ -1120,98 +1181,123 @@
             <!-- Seção de valores e missão -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-20">
                 <!-- Missão -->
-                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
-                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-blue to-anpha-blue rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                <div
+                    class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div
+                        class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-blue to-anpha-blue rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
                         <i class="fas fa-bullseye text-white text-lg lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa Missão</h3>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa
+                        Missão</h3>
                     <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
-                        Capacitar empresas através de soluções digitais inovadoras que transformam desafios em oportunidades de crescimento sustentável e competitividade no mercado global.
+                        Capacitar empresas através de soluções digitais inovadoras que transformam desafios em
+                        oportunidades de crescimento sustentável e competitividade no mercado global.
                     </p>
                 </div>
 
                 <!-- Visão -->
-                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
-                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-purple to-anpha-purple rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                <div
+                    class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div
+                        class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-purple to-anpha-purple rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
                         <i class="fas fa-eye text-white text-lg lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa Visão</h3>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa Visão
+                    </h3>
                     <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
-                        Ser reconhecida como a principal referência em transformação digital, liderando a revolução tecnológica e inspirando uma nova geração de negócios digitais.
+                        Ser reconhecida como a principal referência em transformação digital, liderando a revolução
+                        tecnológica e inspirando uma nova geração de negócios digitais.
                     </p>
                 </div>
 
                 <!-- Valores -->
-                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
-                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-orange to-anpha-orange rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                <div
+                    class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div
+                        class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-orange to-anpha-orange rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
                         <i class="fas fa-heart text-white text-lg lg:text-2xl"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossos Valores</h3>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossos
+                        Valores</h3>
                     <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
-                        Excelência, transparência, inovação e compromisso com resultados. Acreditamos que a tecnologia deve servir às pessoas e gerar valor real para a sociedade.
+                        Excelência, transparência, inovação e compromisso com resultados. Acreditamos que a tecnologia
+                        deve servir às pessoas e gerar valor real para a sociedade.
                     </p>
                 </div>
             </div>
 
             <!-- Seção de metodologia -->
-            <div class="bg-dark-card-bg backdrop-blur-sm rounded-3xl p-6 lg:p-12 border border-dark-border scroll-reveal">
+            <div
+                class="bg-dark-card-bg backdrop-blur-sm rounded-3xl p-6 lg:p-12 border border-dark-border scroll-reveal">
                 <div class="text-center mb-8 lg:mb-12">
                     <h3 class="text-3xl lg:text-4xl font-bold text-dark-header-text mb-4 lg:mb-6">
                         Nossa <span class="gradient-text">Metodologia Exclusiva</span>
                     </h3>
                     <p class="text-lg lg:text-xl text-dark-text-medium max-w-3xl mx-auto">
-                        Desenvolvemos uma abordagem única que combina design thinking, metodologias ágeis e tecnologias emergentes para entregar resultados excepcionais.
+                        Desenvolvemos uma abordagem única que combina design thinking, metodologias ágeis e tecnologias
+                        emergentes para entregar resultados excepcionais.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <!-- Imagem da metodologia -->
                     <div class="relative order-2 md:order-1">
-                        <img src="Hgq1wyYMj2sS.jpg" 
-                             alt="Trabalho em equipe e colaboração" 
-                             class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-xl">
+                        <img src="Hgq1wyYMj2sS.jpg" alt="Trabalho em equipe e colaboração"
+                            class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-xl">
                         <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/50 to-transparent rounded-2xl"></div>
                     </div>
 
                     <!-- Processo -->
                     <div class="space-y-4 lg:space-y-6 order-1 md:order-2">
                         <div class="flex items-start space-x-3 lg:space-x-4">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full flex items-center justify-center flex-shrink-0">
                                 <span class="text-white font-bold text-sm lg:text-base">1</span>
                             </div>
                             <div>
-                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Descoberta e Estratégia</h4>
-                                <p class="text-dark-text-medium text-sm lg:text-base">Mergulhamos profundamente no seu negócio para entender desafios, oportunidades e objetivos únicos.</p>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">
+                                    Descoberta e Estratégia</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Mergulhamos profundamente no seu
+                                    negócio para entender desafios, oportunidades e objetivos únicos.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start space-x-3 lg:space-x-4">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-full flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-full flex items-center justify-center flex-shrink-0">
                                 <span class="text-white font-bold text-sm lg:text-base">2</span>
                             </div>
                             <div>
-                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Design e Prototipagem</h4>
-                                <p class="text-dark-text-medium text-sm lg:text-base">Criamos experiências intuitivas e envolventes que conectam sua marca com seu público-alvo.</p>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Design e
+                                    Prototipagem</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Criamos experiências intuitivas e
+                                    envolventes que conectam sua marca com seu público-alvo.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start space-x-3 lg:space-x-4">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-orange to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-orange to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
                                 <span class="text-white font-bold text-sm lg:text-base">3</span>
                             </div>
                             <div>
-                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Desenvolvimento e Otimização</h4>
-                                <p class="text-dark-text-medium text-sm lg:text-base">Construímos soluções robustas, escaláveis e otimizadas para performance máxima.</p>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">
+                                    Desenvolvimento e Otimização</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Construímos soluções robustas,
+                                    escaláveis e otimizadas para performance máxima.</p>
                             </div>
                         </div>
 
                         <div class="flex items-start space-x-3 lg:space-x-4">
-                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-green to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-green to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
                                 <span class="text-white font-bold text-sm lg:text-base">4</span>
                             </div>
                             <div>
-                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Lançamento e Crescimento</h4>
-                                <p class="text-dark-text-medium text-sm lg:text-base">Acompanhamos o lançamento e fornecemos suporte contínuo para garantir o sucesso a longo prazo.</p>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">
+                                    Lançamento e Crescimento</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Acompanhamos o lançamento e
+                                    fornecemos suporte contínuo para garantir o sucesso a longo prazo.</p>
                             </div>
                         </div>
                     </div>
@@ -1227,11 +1313,13 @@
                     Junte-se a centenas de empresas que já descobriram o poder da transformação digital com a Anphaweb.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="btn-gradient-primary px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl">
+                    <button
+                        class="btn-gradient-primary px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl">
                         <i class="fas fa-rocket mr-2"></i>
                         Iniciar Minha Transformação
                     </button>
-                    <button class="bg-transparent border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300">
+                    <button
+                        class="bg-transparent border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300">
                         <i class="fas fa-play mr-2"></i>
                         Ver Nossos Cases
                     </button>
@@ -1264,8 +1352,7 @@
                 <div
                     class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg flex flex-col h-full">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
-                    <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-purple"
-                        aria-hidden="true">
+                    <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-purple" aria-hidden="true">
                         <i class="fas fa-globe"></i>
                     </div>
                     <div class="absolute top-2 right-2 bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">
@@ -1302,8 +1389,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para Sites Institucionais">
                         Solicitar Orçamento
                     </a>
@@ -1351,8 +1437,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para E-commerce Completo">
                         Solicitar Orçamento
                     </a>
@@ -1362,8 +1447,7 @@
                 <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg flex flex-col h-full"
                     style="transition-delay: 0.2s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
-                    <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-green"
-                        aria-hidden="true">
+                    <div class="icon-placeholder bg-gradient-to-br from-anpha-purple to-anpha-green" aria-hidden="true">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <div class="absolute top-2 right-2 bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">
@@ -1398,8 +1482,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para Landing Pages">
                         Solicitar Orçamento
                     </a>
@@ -1409,8 +1492,7 @@
                 <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg flex flex-col h-full"
                     style="transition-delay: 0.3s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
-                    <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-green"
-                        aria-hidden="true">
+                    <div class="icon-placeholder bg-gradient-to-br from-anpha-blue to-anpha-green" aria-hidden="true">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <div class="absolute top-2 right-2 bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">
@@ -1445,8 +1527,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para Sistemas Personalizados">
                         Solicitar Orçamento
                     </a>
@@ -1456,8 +1537,7 @@
                 <div class="p-8 rounded-xl shadow-lg hover:shadow-xl transition-all scroll-reveal service-card border border-dark-border bg-dark-card-bg flex flex-col h-full"
                     style="transition-delay: 0.4s">
                     <!-- Ícone grande ao invés de foto com efeito de brilho -->
-                    <div class="icon-placeholder bg-gradient-to-br from-anpha-orange to-anpha-blue"
-                        aria-hidden="true">
+                    <div class="icon-placeholder bg-gradient-to-br from-anpha-orange to-anpha-blue" aria-hidden="true">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="absolute top-2 right-2 bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">
@@ -1492,8 +1572,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para Aplicativos Mobile">
                         Solicitar Orçamento
                     </a>
@@ -1518,7 +1597,8 @@
                     </div>
 
                     <p class="text-dark-text-medium text-center mb-6 flex-grow">
-                        Estratégias de <strong>SEO, Google Ads e Mídias Sociais</strong> para atrair, engajar e converter
+                        Estratégias de <strong>SEO, Google Ads e Mídias Sociais</strong> para atrair, engajar e
+                        converter
                         seu público-alvo.
                     </p>
 
@@ -1541,8 +1621,7 @@
                         </li>
                     </ul>
 
-                    <a href="#contact"
-                        class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
+                    <a href="#contact" class="btn-gradient-primary w-full py-3 rounded-lg text-center block font-medium"
                         aria-label="Solicitar Orçamento para Marketing Digital">
                         Solicitar Orçamento
                     </a>
@@ -1622,7 +1701,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Tecnologia<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="techcorp" aria-label="Ver detalhes do projeto TechCorp">
                                     Ver Detalhes
                                 </button>
@@ -1634,8 +1714,7 @@
                 <!-- Projeto 2: E-commerce -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.1s">
-                    <div
-                        class="w-full h-64 bg-anpha-orange/30 flex items-center justify-center text-anpha-orange text-5xl"
+                    <div class="w-full h-64 bg-anpha-orange/30 flex items-center justify-center text-anpha-orange text-5xl"
                         aria-label="Ícone de carrinho de compras representando e-commerce">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
@@ -1659,7 +1738,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Moda<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="modastyle" aria-label="Ver detalhes do projeto ModaStyle">
                                     Ver Detalhes
                                 </button>
@@ -1671,8 +1751,7 @@
                 <!-- Projeto 3: Sistema de Gestão -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.2s">
-                    <div
-                        class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl"
+                    <div class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl"
                         aria-label="Ícone de engrenagens representando sistema de gestão">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -1696,7 +1775,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Logística<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="logiflow" aria-label="Ver detalhes do projeto LogiFlow">
                                     Ver Detalhes
                                 </button>
@@ -1708,8 +1788,7 @@
                 <!-- Projeto 4: Landing Page -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.3s">
-                    <div
-                        class="w-full h-64 bg-anpha-green/30 flex items-center justify-center text-anpha-green text-5xl"
+                    <div class="w-full h-64 bg-anpha-green/30 flex items-center justify-center text-anpha-green text-5xl"
                         aria-label="Ícone de foguete representando landing page">
                         <i class="fas fa-rocket"></i>
                     </div>
@@ -1733,7 +1812,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Educação<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="eduline" aria-label="Ver detalhes do projeto EduOnline">
                                     Ver Detalhes
                                 </button>
@@ -1769,7 +1849,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Saúde & Fitness<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="fitlife" aria-label="Ver detalhes do projeto FitLife">
                                     Ver Detalhes
                                 </button>
@@ -1781,8 +1862,7 @@
                 <!-- Projeto 6: Marketing Digital (Adicionado para cobrir todos os serviços) -->
                 <div class="relative group overflow-hidden rounded-xl shadow-lg scroll-reveal border border-dark-border bg-dark-card-bg"
                     style="transition-delay: 0.5s">
-                    <div
-                        class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl"
+                    <div class="w-full h-64 bg-anpha-purple/30 flex items-center justify-center text-anpha-purple text-5xl"
                         aria-label="Ícone de gráfico de barras representando marketing digital">
                         <i class="fas fa-chart-bar"></i>
                     </div>
@@ -1806,7 +1886,8 @@
                                 <div class="text-sm">
                                     <strong>Setor:</strong> Automotivo<br>
                                 </div>
-                                <button class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
+                                <button
+                                    class="open-portfolio-modal bg-anpha-orange text-white px-4 py-2 rounded font-medium hover:bg-orange-600 transition-colors text-sm"
                                     data-project-id="autoparts" aria-label="Ver detalhes do projeto AutoParts">
                                     Ver Detalhes
                                 </button>
@@ -1860,7 +1941,8 @@
             <p id="modal-solution" class="text-dark-text-medium mb-4"></p>
             <h4 class="text-xl font-bold text-dark-header-text mb-2">Tecnologias Utilizadas</h4>
             <p id="modal-tech" class="text-dark-text-medium mb-4"></p>
-            <button class="btn-gradient-primary py-2 px-4 rounded-lg mt-4" onclick="closePortfolioModal()" aria-label="Fechar Detalhes">Fechar</button>
+            <button class="btn-gradient-primary py-2 px-4 rounded-lg mt-4" onclick="closePortfolioModal()"
+                aria-label="Fechar Detalhes">Fechar</button>
         </div>
     </div>
 
@@ -1885,8 +1967,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Depoimento 1 -->
-                <div
-                    class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
+                <div class="p-8 rounded-xl shadow-lg scroll-reveal testimonial-card border border-dark-border bg-dark-card-bg"
                     role="article" aria-labelledby="testimonial-title-1">
                     <div class="flex text-anpha-orange mb-4" role="img" aria-label="5 estrelas">
                         <i class="fas fa-star"></i>
@@ -1903,8 +1984,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Maria Silva">
                             MS
                         </div>
@@ -1934,8 +2014,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Carlos Mendes">
                             CM
                         </div>
@@ -1965,8 +2044,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-purple flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-purple flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Ana Rodrigues">
                             AR
                         </div>
@@ -1995,8 +2073,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-green flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-green flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Roberto Santos">
                             RS
                         </div>
@@ -2026,8 +2103,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-blue flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Fernanda Costa">
                             FC
                         </div>
@@ -2057,8 +2133,7 @@
                     </p>
 
                     <div class="flex items-center">
-                        <div
-                            class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg"
+                        <div class="w-12 h-12 rounded-full mr-4 bg-anpha-orange flex items-center justify-center text-white text-lg"
                             aria-label="Iniciais de Lucas Oliveira">
                             LO
                         </div>
@@ -2275,8 +2350,7 @@
                 <div class="scroll-reveal">
                     <div class="bg-dark-card-bg border border-dark-border rounded-2xl p-8">
                         <!-- Urgency banner no formulário -->
-                        <div
-                            class="bg-gradient-to-r from-red-500 to-red-600 text-white text-center py-3 px-4 rounded-lg mb-6"
+                        <div class="bg-gradient-to-r from-red-500 to-red-600 text-white text-center py-3 px-4 rounded-lg mb-6"
                             role="alert" aria-live="polite">
                             <div class="flex items-center justify-center">
                                 <i class="fas fa-fire mr-2 animate-pulse"></i>
@@ -2855,7 +2929,7 @@
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
                 const error = document.getElementById(`${field}-error`);
-                
+
                 // Sanitiza o valor removendo caracteres perigosos
                 let value = input.value.trim();
                 value = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ''); // Remove scripts
@@ -2874,11 +2948,11 @@
             const email = document.getElementById('email');
             const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
             const disposableEmailDomains = ['10minutemail.com', 'tempmail.org', 'guerrillamail.com', 'mailinator.com'];
-            
+
             if (email.value) {
                 const emailValue = email.value.toLowerCase();
                 const emailDomain = emailValue.split('@')[1];
-                
+
                 if (!emailRegex.test(emailValue)) {
                     email.classList.add('input-error');
                     document.getElementById('email-error').textContent = 'Por favor, insira um e-mail válido.';
@@ -2967,14 +3041,14 @@
         });
 
         // Preenchimento automático e formatação de campos
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Marca o tempo de início do formulário para validação de segurança
             const form = document.getElementById('contact-form');
             form.dataset.startTime = Date.now();
 
             // Formatação automática do telefone
             const phoneInput = document.getElementById('phone');
-            phoneInput.addEventListener('input', function(e) {
+            phoneInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, '');
                 if (value.length <= 11) {
                     if (value.length <= 2) {
@@ -2992,7 +3066,7 @@
 
             // Capitalização automática do nome
             const nameInput = document.getElementById('name');
-            nameInput.addEventListener('input', function(e) {
+            nameInput.addEventListener('input', function (e) {
                 const words = e.target.value.split(' ');
                 const capitalizedWords = words.map(word => {
                     if (word.length > 0) {
@@ -3005,10 +3079,10 @@
 
             // Validação em tempo real do e-mail
             const emailInput = document.getElementById('email');
-            emailInput.addEventListener('blur', function(e) {
+            emailInput.addEventListener('blur', function (e) {
                 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
                 const emailError = document.getElementById('email-error');
-                
+
                 if (e.target.value && !emailRegex.test(e.target.value)) {
                     e.target.classList.add('input-error');
                     emailError.textContent = 'Por favor, insira um e-mail válido.';
@@ -3230,7 +3304,7 @@
         // Adiciona listeners para os botões "Ver Detalhes" do portfólio
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.open-portfolio-modal').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const projectId = this.dataset.projectId;
                     openPortfolioModal(projectId);
                 });
@@ -3280,6 +3354,20 @@
         // Adiciona listener de evento de rolagem para acionar animações de revelação
         window.addEventListener('scroll', revealOnScroll);
     </script>
+
+    <!-- Tawk.to Chat -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/SEU_ID/1xxxxx';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
 </body>
 
 </html>
