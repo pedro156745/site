@@ -789,20 +789,32 @@
                 overflow-wrap: break-word;
             }
             
-            /* Correção específica para o badge de certificação */
+            /* Correção específica para o badge de certificação - Solução Robusta */
             .certification-badge {
-                position: absolute;
-                top: 0.5rem;
-                left: 0.5rem;
-                max-width: 100px;
-                font-size: 0.75rem;
-                padding: 0.25rem 0.5rem;
-                z-index: 40;
+                /* Removido completamente ou ajustado para fora da área visível se necessário */
+                display: none !important; /* Oculta o badge completamente em telas pequenas */
             }
             
             .certification-badge .fas {
-                font-size: 0.75rem;
-                margin-right: 0.25rem;
+                font-size: 0.65rem !important;
+                margin-right: 0.125rem !important;
+            }
+            
+            .certification-badge div {
+                line-height: 1 !important;
+            }
+            
+            /* Ajuste específico para telas muito pequenas */
+            @media (max-width: 480px) {
+                .certification-badge {
+                    max-width: 75px !important;
+                    font-size: 0.6rem !important;
+                    padding: 0.1rem 0.2rem !important;
+                }
+                
+                .certification-badge .fas {
+                    font-size: 0.6rem !important;
+                }
             }
             
             /* Ajuste para evitar sobreposição de elementos */
@@ -813,6 +825,20 @@
             
             .team-grid {
                 padding-top: 2rem;
+            }
+
+            /* Ajustes para o conteúdo da equipe sobre a imagem */
+            .team-overlay-content {
+                padding: 1rem !important; /* Reduz o padding para telas muito pequenas */
+            }
+
+            .team-overlay-content h4 {
+                font-size: 1.5rem !important; /* Reduz o tamanho da fonte do título */
+                line-height: 1.2; /* Ajusta a altura da linha */
+            }
+
+            .team-overlay-content p {
+                font-size: 0.875rem !important; /* Reduz o tamanho da fonte do parágrafo */
             }
         }
     </style>
@@ -1019,149 +1045,196 @@
     </section>
 
 
-    <!-- Seção "Sobre Nós": Destaca a experiência e os diferenciais da Anphaweb. -->
-    <section id="about" class="py-20 bg-dark-section-bg">
+    <!-- NOVA SEÇÃO SOBRE A ANPHAWEB -->
+    <section id="about" class="py-20">
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Cabeçalho da seção -->
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-anpha-blue font-semibold">SOBRE A ANPHAWEB</span>
-                <!-- Título da seção "Sobre Nós" alterado -->
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-header-text mt-2">
-                    Inovação e <span class="gradient-text">Parceria</span> para o Seu Sucesso
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 mt-2 text-dark-header-text">
+                    <span class="gradient-text">Transformando</span>
+                    <span class="text-dark-header-text">Visões em</span>
+                    <span class="gradient-text">Realidade Digital</span>
                 </h2>
-                <div
-                    class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full">
-                </div>
-                <p class="text-dark-text-medium mt-6 max-w-3xl mx-auto">
-                    Na Anphaweb, acreditamos que o sucesso digital é construído em parceria. Desde 2020, temos impulsionado
-                    negócios com soluções inovadoras e personalizadas, transformando desafios em oportunidades de crescimento
-                    e ajudando empresas a liderarem seus mercados.
+                <div class="w-20 h-1 bg-gradient-to-r from-anpha-blue via-anpha-purple to-anpha-orange mx-auto mt-4 rounded-full"></div>
+                <p class="text-lg sm:text-xl text-dark-text-medium max-w-4xl mx-auto leading-relaxed mt-6">
+                    Na Anphaweb, somos arquitetos do futuro digital. Combinamos criatividade, tecnologia de ponta e estratégia para criar soluções que não apenas atendem às necessidades de hoje, mas antecipam as oportunidades de amanhã.
                 </p>
             </div>
 
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-                <!-- Conteúdo da seção "Sobre Nós" alterado -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold text-dark-header-text mb-6">
-                        Construindo o Futuro Digital do Seu Negócio, Juntos
-                    </h3>
-
-                    <p class="text-dark-text-medium mb-6">
-                        Na Anphaweb, acreditamos que o sucesso digital é construído em parceria. Desde 2020, temos impulsionado
-                        negócios com soluções inovadoras e personalizadas, transformando desafios em oportunidades de crescimento
-                        e ajudando empresas a liderarem seus mercados.
-                    </p>
-
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
-                            <div class="text-3xl font-bold text-anpha-blue mb-2">500+</div>
-                            <div class="text-dark-text-light font-semibold">Soluções Implementadas</div>
-                            <div class="text-sm text-dark-text-medium">Com impacto real</div>
-                        </div>
-
-                        <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
-                            <div class="text-3xl font-bold text-anpha-green mb-2">150%</div>
-                            <div class="text-dark-text-light font-semibold">Crescimento Acelerado</div>
-                            <div class="text-sm text-dark-text-medium">Em vendas dos clientes</div>
-                        </div>
-
-                        <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
-                            <div class="text-3xl font-bold text-anpha-purple mb-2">4.9/5</div>
-                            <div class="text-dark-text-light font-semibold">Excelência Reconhecida</div>
-                            <div class="text-sm text-dark-text-medium">127 avaliações positivas</div>
-                        </div>
-
-                        <div class="bg-dark-card-bg border border-dark-border rounded-lg p-6">
-                            <div class="text-3xl font-bold text-anpha-orange mb-2">30</div>
-                            <div class="text-dark-text-light font-semibold">Dias de Compromisso</div>
-                            <div class="text-sm text-dark-text-medium">Com seu resultado</div>
+            <!-- Grid principal com imagem e conteúdo -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-20">
+                <!-- Imagem principal -->
+                <div class="relative scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                        <img src="sobre_anphaweb_hero.jpg" 
+                             alt="Transformação Digital e Inovação Tecnológica" 
+                             class="w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/70 to-transparent"></div>
+                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                            <div class="bg-dark-card-bg backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-dark-border">
+                                <p class="text-dark-header-text font-semibold text-sm sm:text-base">Liderando a Revolução Digital</p>
+                                <p class="text-dark-text-medium text-xs sm:text-sm">Desde 2020 transformando negócios</p>
+                            </div>
                         </div>
                     </div>
+                    <!-- Elementos decorativos ao redor da imagem -->
+                    <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full opacity-80 animate-bounce-slow"></div>
+                    <div class="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-anpha-orange to-anpha-purple rounded-full opacity-70 animate-pulse-slow"></div>
+                </div>
 
-                    <!-- Diferenciais alterados -->
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-anpha-green mr-3 mt-1"></i>
+                <!-- Conteúdo textual -->
+                <div class="space-y-6 lg:space-y-8 scroll-reveal">
+                    <div class="space-y-4 lg:space-y-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-dark-header-text mb-4">
+                            Pioneiros em <span class="gradient-text">Excelência Digital</span>
+                        </h3>
+                        <p class="text-dark-text-medium text-base sm:text-lg leading-relaxed">
+                            Nascemos da paixão por transformar ideias em experiências digitais extraordinárias. Nossa jornada começou com uma visão simples: democratizar o acesso à tecnologia de ponta e capacitar empresas de todos os tamanhos a competirem no cenário digital global.
+                        </p>
+                        <p class="text-dark-text-medium text-base sm:text-lg leading-relaxed">
+                            Cada projeto é uma oportunidade de superar limites, quebrar paradigmas e criar soluções que geram impacto real. Não somos apenas desenvolvedores ou designers - somos estrategistas digitais comprometidos com o sucesso dos nossos parceiros.
+                        </p>
+                    </div>
+
+                    <!-- Características distintivas -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                        <div class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-blue/50 transition-all duration-300">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-lg flex items-center justify-center mb-3 lg:mb-4">
+                                <i class="fas fa-rocket text-white text-lg lg:text-xl"></i>
+                            </div>
+                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Inovação Constante</h4>
+                            <p class="text-dark-text-medium text-xs lg:text-sm">Sempre na vanguarda das tecnologias emergentes</p>
+                        </div>
+                        <div class="bg-dark-card-bg backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-dark-border hover:border-anpha-purple/50 transition-all duration-300">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-lg flex items-center justify-center mb-3 lg:mb-4">
+                                <i class="fas fa-users text-white text-lg lg:text-xl"></i>
+                            </div>
+                            <h4 class="text-dark-header-text font-semibold mb-2 text-sm lg:text-base">Parceria Verdadeira</h4>
+                            <p class="text-dark-text-medium text-xs lg:text-sm">Seu sucesso é nossa maior conquista</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de valores e missão -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-20">
+                <!-- Missão -->
+                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-blue to-anpha-blue rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                        <i class="fas fa-bullseye text-white text-lg lg:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa Missão</h3>
+                    <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
+                        Capacitar empresas através de soluções digitais inovadoras que transformam desafios em oportunidades de crescimento sustentável e competitividade no mercado global.
+                    </p>
+                </div>
+
+                <!-- Visão -->
+                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-purple to-anpha-purple rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                        <i class="fas fa-eye text-white text-lg lg:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossa Visão</h3>
+                    <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
+                        Ser reconhecida como a principal referência em transformação digital, liderando a revolução tecnológica e inspirando uma nova geração de negócios digitais.
+                    </p>
+                </div>
+
+                <!-- Valores -->
+                <div class="bg-dark-card-bg backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-border scroll-reveal card-hover">
+                    <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-anpha-orange to-anpha-orange rounded-xl flex items-center justify-center mb-4 lg:mb-6 mx-auto">
+                        <i class="fas fa-heart text-white text-lg lg:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark-header-text text-center mb-3 lg:mb-4">Nossos Valores</h3>
+                    <p class="text-dark-text-medium text-center leading-relaxed text-sm lg:text-base">
+                        Excelência, transparência, inovação e compromisso com resultados. Acreditamos que a tecnologia deve servir às pessoas e gerar valor real para a sociedade.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Seção de metodologia -->
+            <div class="bg-dark-card-bg backdrop-blur-sm rounded-3xl p-6 lg:p-12 border border-dark-border scroll-reveal">
+                <div class="text-center mb-8 lg:mb-12">
+                    <h3 class="text-3xl lg:text-4xl font-bold text-dark-header-text mb-4 lg:mb-6">
+                        Nossa <span class="gradient-text">Metodologia Exclusiva</span>
+                    </h3>
+                    <p class="text-lg lg:text-xl text-dark-text-medium max-w-3xl mx-auto">
+                        Desenvolvemos uma abordagem única que combina design thinking, metodologias ágeis e tecnologias emergentes para entregar resultados excepcionais.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <!-- Imagem da metodologia -->
+                    <div class="relative order-2 md:order-1">
+                        <img src="Hgq1wyYMj2sS.jpg" 
+                             alt="Trabalho em equipe e colaboração" 
+                             class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/50 to-transparent rounded-2xl"></div>
+                    </div>
+
+                    <!-- Processo -->
+                    <div class="space-y-4 lg:space-y-6 order-1 md:order-2">
+                        <div class="flex items-start space-x-3 lg:space-x-4">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-blue to-anpha-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm lg:text-base">1</span>
+                            </div>
                             <div>
-                                <strong class="text-dark-header-text">Estratégias Inovadoras:</strong>
-                                <span class="text-dark-text-medium"> Soluções personalizadas para o seu mercado</span>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Descoberta e Estratégia</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Mergulhamos profundamente no seu negócio para entender desafios, oportunidades e objetivos únicos.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-anpha-green mr-3 mt-1"></i>
+                        <div class="flex items-start space-x-3 lg:space-x-4">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-purple to-anpha-orange rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm lg:text-base">2</span>
+                            </div>
                             <div>
-                                <strong class="text-dark-header-text">Desenvolvimento Ágil e Adaptável:</strong>
-                                <span class="text-dark-text-medium"> Projetos entregues com flexibilidade e eficiência</span>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Design e Prototipagem</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Criamos experiências intuitivas e envolventes que conectam sua marca com seu público-alvo.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-anpha-green mr-3 mt-1"></i>
+                        <div class="flex items-start space-x-3 lg:space-x-4">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-orange to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm lg:text-base">3</span>
+                            </div>
                             <div>
-                                <strong class="text-dark-header-text">Suporte Estratégico Contínuo:</strong>
-                                <span class="text-dark-text-medium"> Parceria de longo prazo para seu crescimento</span>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Desenvolvimento e Otimização</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Construímos soluções robustas, escaláveis e otimizadas para performance máxima.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 lg:space-x-4">
+                            <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-anpha-green to-anpha-blue rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white font-bold text-sm lg:text-base">4</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg lg:text-xl font-semibold text-dark-header-text mb-1 lg:mb-2">Lançamento e Crescimento</h4>
+                                <p class="text-dark-text-medium text-sm lg:text-base">Acompanhamos o lançamento e fornecemos suporte contínuo para garantir o sucesso a longo prazo.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Área visual da equipe atualizada com nova imagem e texto -->
-                <div class="mt-12 lg:mt-0 scroll-reveal">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                        <!-- Background abstrato com padrão animado -->
-                        <div class="abstract-about-bg w-full h-full relative z-0"></div>
-
-                        <!-- Nova Imagem da Equipe (substituindo o ícone) -->
-                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Equipe da Anphaweb colaborando em um ambiente de trabalho moderno"
-                            class="relative z-10 w-full h-full object-cover min-h-[300px] md:min-h-[400px] rounded-2xl" loading="lazy">
-
-                        <!-- Conteúdo da equipe sobre a imagem -->
-                        <div
-                            class="absolute inset-0 z-20 p-8 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-                            <div class="text-center mb-6">
-                                <h4 class="text-3xl font-bold">Time de Especialistas em Ação</h4>
-                                <p class="text-white/90">Conheça os profissionais que impulsionam seu negócio. Nossa equipe multidisciplinar é o coração da Anphaweb, unindo paixão por tecnologia e foco em resultados.</p>
-                            </div>
-
-                            <!-- Especialidades com hover (mantidas) -->
-                            <div class="grid grid-cols-2 gap-4 text-center w-full max-w-sm">
-                                <div
-                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
-                                    <i class="fas fa-code text-2xl mb-2 text-anpha-blue" aria-hidden="true"></i>
-                                    <div class="text-sm font-semibold text-white">Desenvolvimento</div>
-                                </div>
-                                <div
-                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
-                                    <i class="fas fa-paint-brush text-2xl mb-2 text-anpha-purple"
-                                        aria-hidden="true"></i>
-                                    <div class="text-sm font-semibold text-white">Design Criativo</div>
-                                </div>
-                                <div
-                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
-                                    <i class="fas fa-chart-line text-2xl mb-2 text-anpha-orange"
-                                        aria-hidden="true"></i>
-                                    <div class="text-sm font-semibold text-white">Marketing Digital</div>
-                                </div>
-                                <div
-                                    class="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors cursor-pointer">
-                                    <i class="fas fa-headset text-2xl mb-2 text-anpha-green" aria-hidden="true"></i>
-                                    <div class="text-sm font-semibold text-white">Suporte Dedicado</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Badge de certificação (corrigido para mobile) -->
-                        <div class="absolute top-2 left-2 md:top-4 md:left-4 bg-white rounded-lg p-2 md:p-3 shadow-lg z-30 max-w-[120px] md:max-w-none">
-                            <div class="flex items-center">
-                                <i class="fas fa-award text-anpha-blue mr-1 md:mr-2 text-sm md:text-base" aria-hidden="true"></i>
-                                <div>
-                                    <div class="text-xs md:text-sm font-bold text-gray-800">Certificados</div>
-                                    <div class="text-xs text-gray-600">Google & Meta</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Call to action final -->
+            <div class="text-center mt-12 lg:mt-16 scroll-reveal">
+                <h3 class="text-2xl sm:text-3xl font-bold text-dark-header-text mb-4 lg:mb-6">
+                    Pronto para <span class="gradient-text">Transformar Seu Negócio?</span>
+                </h3>
+                <p class="text-lg lg:text-xl text-dark-text-medium mb-6 lg:mb-8 max-w-2xl mx-auto">
+                    Junte-se a centenas de empresas que já descobriram o poder da transformação digital com a Anphaweb.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-gradient-primary px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 hover:shadow-2xl">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Iniciar Minha Transformação
+                    </button>
+                    <button class="bg-transparent border-2 border-anpha-blue text-anpha-blue hover:bg-anpha-blue hover:text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold text-base lg:text-lg transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>
+                        Ver Nossos Cases
+                    </button>
                 </div>
             </div>
         </div>
@@ -2385,7 +2458,7 @@
                         </div>
                     </div>
 
-                    <!-- Informações de contato direto -->
+                    <!-- Informações de Contato direto -->
                     <div class="bg-dark-card-bg border border-dark-border rounded-2xl p-8">
                         <h3 class="text-xl font-bold text-dark-header-text mb-6">
                             📞 Prefere Falar Diretamente?
