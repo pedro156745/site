@@ -913,7 +913,7 @@
 
     <!-- WhatsApp Floating Button: CTA de fácil acesso para contato direto. -->
     <!-- Link do WhatsApp corrigido conforme solicitado -->
-    <a href="https://wa.me/5543998656546?text=Olá!%20Vi%20seu%20site%20e%20quero%20um%20orçamento%20para%20criação%20de%20site%20ou%20sistema."
+    <a href="https://wa.me/5543998656546?text=Ol%C3%A1%21%20Vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site%20ou%20sistema."
         target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600"
         aria-label="Fale conosco pelo WhatsApp">
@@ -2354,7 +2354,7 @@
                         📞 Agendar Consultoria Gratuita
                     </a>
                     <!-- Link do WhatsApp corrigido conforme solicitado -->
-                    <a href="https://wa.me/5543998656546?text=Olá! Tenho algumas dúvidas sobre os serviços da Anphaweb."
+                    <a href="https://wa.me/5543998656546?text=Ol%C3%A1! Tenho algumas d%C3%BAvidas sobre os servi%C3%A7os da Anphaweb."
                         target="_blank"
                         class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
                         aria-label="Tirar Dúvidas no WhatsApp">
@@ -2579,7 +2579,7 @@
 
                         <div class="space-y-4">
                             <!-- Link do WhatsApp corrigido conforme solicitado -->
-                            <a href="https://wa.me/5543998656546?text=Olá! Quero agendar minha consultoria gratuita!"
+                            <a href="https://wa.me/5543998656546?text=Ol%C3%A1! Quero agendar minha consultoria gratuita!"
                                 target="_blank"
                                 class="flex items-center p-4 bg-green-500 hover:bg-green-600 rounded-lg transition-colors text-white"
                                 aria-label="WhatsApp da Anphaweb">
@@ -3203,10 +3203,11 @@
                             const name = formData.get('name');
                             const service = formData.get('service');
                             const serviceText = service === 'nao-sei' ? 'Consultoria Gratuita' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                            const message = `Olá! Sou ${name} e acabei de preencher o formulário no site da Anphaweb. Gostaria de agendar minha consultoria gratuita sobre ${serviceText}.`;
+                            const message = `Ol%C3%A1%21%20Sou%20${encodeURIComponent(name)}%20e%20acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site%20da%20Anphaweb.%20Gostaria%20de%20agendar%20minha%20consultoria%20gratuita%20sobre%20${encodeURIComponent(serviceText)}.`;
+
 
                             setTimeout(() => {
-                                window.open(`https://wa.me/5543998656546?text=${encodeURIComponent(message)}`, '_blank');
+                                window.open(`https://wa.me/5543998656546?text=${message}`, '_blank');
                             }, 1000);
                         } else {
                             showCustomAlert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'error');
