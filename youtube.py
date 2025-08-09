@@ -18,7 +18,7 @@ def click_restart_button():
             print("Vídeo reiniciado em:", time.strftime("%H:%M:%S"))
             
             # Espera 1 minuto (60 segundos)
-            time.sleep(60)
+            time.sleep(240)
             
     except KeyboardInterrupt:
         print("\nScript interrompido pelo usuário.")

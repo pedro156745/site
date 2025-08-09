@@ -128,7 +128,7 @@
         (function () {
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
-            s1.src = 'https://embed.tawk.to/67892abc4304e3196ae5c8b2/1iicvgkqj';
+            s1.src = 'https://embed.tawk.to/688e8a1aa597d7192a34f22f/1j1mcmu5d';
             s1.charset = 'UTF-8';
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
@@ -212,10 +212,15 @@
         /* Estilos globais para o corpo da página */
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            /* Evita rolagem horizontal indesejada */
             position: relative;
             transition: background-color 0.5s ease, color 0.5s ease;
+            /* Adicionado para garantir um comportamento de rolagem mais consistente em dispositivos de toque */
+            touch-action: pan-y;
+        }
+        
+        /* Regra para garantir que o overscroll não cause comportamento inesperado, especialmente em mobile */
+        html, body {
+            overscroll-behavior: contain;
         }
 
         /* Fundo 3D com partículas circulares: Posicionamento fixo para cobrir toda a tela */
@@ -235,7 +240,8 @@
             opacity: 0;
             pointer-events: none;
             /* Desabilita interações quando escondido */
-            display: none; /* Adicionado para garantir que não ocupe espaço ou seja renderizado */
+            display: none;
+            /* Adicionado para garantir que não ocupe espaço ou seja renderizado */
         }
 
         /* Estilo para texto com gradiente */
@@ -278,7 +284,8 @@
             /* Começa ligeiramente abaixo */
             transition: all 0.6s ease;
             /* Transição suave para a animação */
-            will-change: opacity, transform; /* Adicionado para otimização de performance */
+            will-change: opacity, transform;
+            /* Adicionado para otimização de performance */
         }
 
         /* Estado ativo da revelação ao rolar */
@@ -2831,7 +2838,7 @@
         // isThreeJSActive agora será sempre true para que o fundo 3D seja exibido em todas as telas.
         // CUIDADO: Habilitar o Three.js em mobile pode impactar a performance.
         // Se o site travar, considere otimizar as partículas ou manter desativado em mobile.
-        let isThreeJSActive = true; 
+        let isThreeJSActive = true;
 
         // Função para criar uma textura de círculo programaticamente
         function createCircleTexture() {
@@ -2942,7 +2949,7 @@
             camera.position.z = 1000;
 
             // Inicia o loop de animação se o Three.js estiver ativo
-            if (isThreeJSActive) { 
+            if (isThreeJSActive) {
                 animate();
             }
         }
@@ -2951,7 +2958,7 @@
         function animate() {
             // Para a animação se não estiver ativa ou se o renderizador não existir
             if (!isThreeJSActive || !renderer) {
-                return; 
+                return;
             }
             requestAnimationFrame(animate);
 
@@ -3536,7 +3543,7 @@
             // O Three.js agora é sempre inicializado para ser exibido em todas as telas.
             initThreeJS();
             // Garante que o botão de alternância do fundo 3D esteja sempre visível.
-            document.getElementById('toggle-threejs-btn').style.display = 'flex'; 
+            document.getElementById('toggle-threejs-btn').style.display = 'flex';
 
             animateTextCarousel(); // Inicia o carrossel de texto dinâmico
 
@@ -3549,7 +3556,7 @@
             // Lida com o redimensionamento da janela para o canvas do Three.js
             window.addEventListener('resize', function () {
                 // Redimensiona o renderer apenas se o Three.js estiver ativo.
-                if (renderer && camera && isThreeJSActive) { 
+                if (renderer && camera && isThreeJSActive) {
                     camera.aspect = window.innerWidth / window.innerHeight;
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
