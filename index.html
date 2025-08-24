@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título otimizado para SEO e conversão -->
-    <title>Anphaweb: Criação de sistes e sistemas</title>
+    <title>Anphaweb: Criação de sites e sistemas</title>
 
     <!-- Meta Description otimizada para conversão e SEO -->
     <meta name="description"
@@ -44,11 +44,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- CSS e JavaScript: Tailwind CSS e Font Awesome são carregados via CDN.
-         Three.js é carregado com 'defer' para não bloquear o DOM. -->
+    <!-- CSS e JavaScript: Tailwind CSS e Font Awesome são carregados via CDN. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js e a nova biblioteca de ondas são carregados via CDN. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three-waves@0.0.1" defer></script>
+
 
     <!-- Schema Markup otimizado para SEO local e rich snippets no Google -->
     <script type="application/ld+json">
@@ -193,7 +195,6 @@
             font-family: 'Poppins', sans-serif;
             position: relative;
             transition: background-color 0.5s ease, color 0.5s ease;
-            /* Adicionado para garantir um comportamento de rolagem mais consistente em dispositivos de toque */
             touch-action: pan-y;
         }
 
@@ -202,7 +203,7 @@
             overscroll-behavior: contain;
         }
 
-        /* Fundo 3D com partículas circulares: Posicionamento fixo para cobrir toda a tela */
+        /* Fundo animado com um padrão de ondas de gradiente */
         #three-bg {
             position: fixed;
             top: 0;
@@ -211,16 +212,17 @@
             height: 100%;
             z-index: -2;
             /* Garante que fique atrás do conteúdo */
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.4), rgba(13, 17, 23, 0.9));
+            /* Combinações de gradientes com a cor de fundo */
             transition: opacity 0.5s ease-in-out;
+            /* Transição suave para esconder/mostrar */
         }
-
-        /* Classe para esconder o fundo 3D */
+        
+        /* Classe para esconder o fundo animado */
         #three-bg.hidden {
             opacity: 0;
             pointer-events: none;
-            /* Desabilita interações quando escondido */
             display: none;
-            /* Adicionado para garantir que não ocupe espaço ou seja renderizado */
         }
 
         /* Estilo para texto com gradiente */
@@ -653,12 +655,9 @@
             left: 0;
             width: 100%;
             background-color: rgba(13, 17, 23, 0.95);
-            /* dark-section-bg */
             border-top: 1px solid #4a5568;
-            /* dark-border */
             padding: 1.5rem;
             color: #e2e8f0;
-            /* dark-text-light */
             z-index: 100;
             display: flex;
             flex-direction: column;
@@ -666,13 +665,11 @@
             justify-content: center;
             text-align: center;
             transform: translateY(100%);
-            /* Começa fora da tela */
             transition: transform 0.5s ease-out;
         }
 
         #cookie-banner.show {
             transform: translateY(0);
-            /* Desliza para dentro */
         }
 
         #cookie-banner p {
@@ -684,19 +681,16 @@
 
         #cookie-banner a {
             color: #2563eb;
-            /* anpha-blue */
             text-decoration: underline;
             transition: color 0.3s ease;
         }
 
         #cookie-banner a:hover {
             color: #7e22ce;
-            /* anpha-purple */
         }
 
         #cookie-banner button {
             background-color: #2563eb;
-            /* anpha-blue */
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
@@ -708,7 +702,6 @@
 
         #cookie-banner button:hover {
             background-color: #7e22ce;
-            /* anpha-purple */
             transform: scale(1.05);
         }
 
@@ -740,13 +733,11 @@
 
             .hero-title {
                 font-size: 1.875rem;
-                /* text-3xl */
                 line-height: 1.2;
             }
 
             .hero-description {
                 font-size: 1rem;
-                /* text-base */
                 line-height: 1.5;
             }
 
@@ -787,9 +778,7 @@
 
             /* Correção específica para o badge de certificação - Solução Robusta */
             .certification-badge {
-                /* Removido completamente ou ajustado para fora da área visível se necessário */
                 display: none !important;
-                /* Oculta o badge completamente em telas pequenas */
             }
 
             .certification-badge .fas {
@@ -827,19 +816,15 @@
             /* Ajustes para o conteúdo da equipe sobre a imagem */
             .team-overlay-content {
                 padding: 1rem !important;
-                /* Reduz o padding para telas muito pequenas */
             }
 
             .team-overlay-content h4 {
                 font-size: 1.5rem !important;
-                /* Reduz o tamanho da fonte do título */
                 line-height: 1.2;
-                /* Ajusta a altura da linha */
             }
 
             .team-overlay-content p {
                 font-size: 0.875rem !important;
-                /* Reduz o tamanho da fonte do parágrafo */
             }
         }
     </style>
@@ -857,7 +842,8 @@
     <meta property="og:title" content="Anphaweb - Criação de Sites e Sistemas">
     <meta property="og:description" content="Sites e sistemas sob medida que geram resultado real.">
     <!-- IMAGEM OG ADICIONADA -->
-    <meta property="og:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb+Solu%C3%A7%C3%B5es+Digitais">
+    <meta property="og:image"
+        content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb+Solu%C3%A7%C3%B5es+Digitais">
     <meta property="og:url" content="https://www.anphaweb.com.br">
     <meta property="og:type" content="website">
 
@@ -866,7 +852,8 @@
     <meta name="twitter:title" content="Anphaweb - Sites e Sistemas Profissionais">
     <meta name="twitter:description" content="Tenha um site ou sistema completo com alta conversão.">
     <!-- IMAGEM TWITTER ADICIONADA -->
-    <meta name="twitter:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb+Solu%C3%A7%C3%B5es+Digitais">
+    <meta name="twitter:image"
+        content="https://placehold.co/1200x630/2563eb/ffffff?text=Anphaweb+Solu%C3%A7%C3%B5es+Digitais">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://www.anphaweb.com.br" />
@@ -874,23 +861,10 @@
 </head>
 
 <body class="bg-dark-bg text-dark-text-light">
-    <!-- Canvas para o fundo 3D com partículas circulares -->
-    <canvas id="three-bg"></canvas>
-
-    <!-- Banner de Urgência: Destaca uma oferta limitada para criar senso de urgência. -->
-    <div class="urgency-banner text-white text-center py-2 px-4 text-sm font-semibold" role="alert" aria-live="polite">
-        🔥 OFERTA LIMITADA: Consultoria Gratuita + 20% OFF no primeiro projeto - Apenas 10 vagas restantes!
-    </div>
-
-    <!-- Botão para desativar/ativar o fundo 3D: Melhora a performance para usuários com dispositivos mais fracos. -->
-    <button id="toggle-threejs-btn"
-        class="fixed bottom-24 left-6 md:bottom-24 md:left-8 z-50 bg-gray-700 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-xl shadow-xl transition-all hover:bg-gray-600"
-        aria-label="Alternar fundo 3D">
-        <i class="fas fa-cube"></i>
-    </button>
+    <!-- Canvas para o fundo 3D com a esfera animada -->
+    <div id="three-bg"></div>
 
     <!-- WhatsApp Floating Button: CTA de fácil acesso para contato direto. -->
-    <!-- Link do WhatsApp corrigido conforme solicitado -->
     <a href="https://wa.me/5543998656546?text=Ol%C3%A1%21%20Vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site%20ou%20sistema."
         target="_blank"
         class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 whatsapp-btn bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl shadow-xl transition-all hover:bg-green-600"
@@ -1765,7 +1739,7 @@
                         class="p-6 text-white md:absolute md:inset-0 md:bg-gradient-to-t md:from-black md:via-black/50 md:to-transparent md:opacity-0 md:group-hover:opacity-90 md:flex md:items-end md:p-6 transition-opacity duration-300">
                         <div>
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">-70%
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">-70%
                                     Tempo</span>
                                 <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">4
                                     Meses</span>
@@ -1803,7 +1777,7 @@
                         class="p-6 text-white md:absolute md:inset-0 md:bg-gradient-to-t md:from-black md:via-black/50 md:to-transparent md:opacity-0 md:group-hover:opacity-90 md:flex md:items-end md:p-6 transition-opacity duration-300">
                         <div>
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+420%
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">+420%
                                     Leads</span>
                                 <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">2
                                     Meses</span>
@@ -1841,7 +1815,7 @@
                         class="p-6 text-white md:absolute md:inset-0 md:bg-gradient-to-t md:from-black md:via-black/50 md:to-transparent md:opacity-0 md:group-hover:opacity-90 md:flex md:items-end md:p-6 transition-opacity duration-300">
                         <div>
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">50K
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">50K
                                     Downloads</span>
                                 <span class="bg-anpha-blue text-white px-2 py-1 rounded text-xs font-bold">8
                                     Meses</span>
@@ -1879,7 +1853,7 @@
                         class="p-6 text-white md:absolute md:inset-0 md:bg-gradient-to-t md:from-black md:via-black/50 md:to-transparent md:opacity-0 md:group-hover:opacity-90 md:flex md:items-end md:p-6 transition-opacity duration-300">
                         <div>
                             <div class="flex items-center mb-2">
-                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold mr-2">+650%
+                                <span class="bg-anpha-green text-white px-2 py-1 rounded text-xs font-bold">+650%
                                     ROI</span>
                                 <span class="bg-anpha-purple text-white px-2 py-1 rounded text-xs font-bold">12
                                     Meses</span>
@@ -2244,7 +2218,7 @@
                     <button
                         class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-700/50 transition-colors rounded-xl"
                         onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="faq-content-3" id="faq-toggle-3">
-                        <h3 class="font-semibold text-dark-header-text">🚀 O que está incluído na consultoria gratuita?
+                        <h3 class="font-semibold text-dark-header-text">� O que está incluído na consultoria gratuita?
                         </h3>
                         <i class="fas fa-chevron-down text-anpha-blue transition-transform" id="faq-icon-3"></i>
                     </button>
@@ -2321,7 +2295,6 @@
                         aria-label="Agendar Consultoria Gratuita via formulário">
                         📞 Agendar Consultoria Gratuita
                     </a>
-                    <!-- Link do WhatsApp corrigido conforme solicitado -->
                     <a href="https://wa.me/5543998656546?text=Ol%C3%A1! Tenho algumas d%C3%BAvidas sobre os servi%C3%A7os da Anphaweb."
                         target="_blank"
                         class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
@@ -2567,7 +2540,7 @@
                                     <div class="font-semibold">E-mail</div>
                                     <div class="text-sm">contato@anphaweb.com.br</div>
                                 </div>
-                            </a> <!-- CORRIGIDO: Fechamento da tag <a> -->
+                            </a>
 
                             <div class="flex items-center p-4 bg-dark-bg border border-dark-border rounded-lg">
                                 <i class="fas fa-clock text-anpha-orange text-2xl mr-4" aria-hidden="true"></i>
@@ -2801,50 +2774,68 @@
 
     <!-- Scripts JavaScript -->
     <script defer>
-        // Variáveis globais para o Three.js
-        let scene, camera, renderer, particles;
-        // isThreeJSActive agora será sempre true para que o fundo 3D seja exibido em todas as telas.
-        // CUIDADO: Habilitar o Three.js em mobile pode impactar a performance.
-        // Se o site travar, considere otimizar as partículas ou manter desativado em mobile.
         let isThreeJSActive = true;
+        let waves = [];
 
-        // Função para criar uma textura de círculo programaticamente
-        function createCircleTexture() {
-            const size = 64; // Tamanho da textura (potência de 2 é ideal para texturas)
-            const canvas = document.createElement('canvas');
-            canvas.width = size;
-            canvas.height = size;
-            const context = canvas.getContext('2d');
+        // Função para inicializar o fundo animado de ondas
+        function initWaves() {
+            const container = document.getElementById('three-bg');
+            // Remove instâncias anteriores
+            if (waves.length > 0) {
+                waves.forEach(wave => wave.destroy());
+                waves = [];
+            }
+            if (!container) return;
+            
+            // Definições de cores e parâmetros para as ondas
+            const waveConfig = {
+                color: {
+                    r: 37, g: 99, b: 235
+                },
+                density: 0.1,
+                size: 0.8,
+                speed: 0.05
+            };
 
-            // Desenha um círculo branco no centro do canvas
-            context.beginPath();
-            context.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-            context.fillStyle = '#ffffff';
-            context.fill();
+            const waveConfig2 = {
+                color: {
+                    r: 126, g: 34, b: 206
+                },
+                density: 0.15,
+                size: 0.6,
+                speed: 0.07
+            };
 
-            // Retorna a textura do canvas
-            return new THREE.CanvasTexture(canvas);
+            const waveConfig3 = {
+                color: {
+                    r: 249, g: 115, b: 22
+                },
+                density: 0.12,
+                size: 0.7,
+                speed: 0.06
+            };
+            
+            // Adiciona as ondas no array
+            waves.push(new THREE.Waves({
+                container: container,
+                ...waveConfig,
+            }));
+            waves.push(new THREE.Waves({
+                container: container,
+                ...waveConfig2,
+            }));
+            waves.push(new THREE.Waves({
+                container: container,
+                ...waveConfig3,
+            }));
         }
 
-        // Função para descartar (limpar) os recursos do Three.js
+        // Função para descartar (limpar) os recursos das ondas
         function disposeThreeJS() {
-            if (renderer) {
-                renderer.dispose(); // Descarta o renderizador
-                renderer = null;
+            if (waves.length > 0) {
+                waves.forEach(wave => wave.destroy());
+                waves = [];
             }
-            if (scene) {
-                scene.clear(); // Limpa a cena
-                scene = null;
-            }
-            if (camera) {
-                camera = null;
-            }
-            if (particles) {
-                if (particles.geometry) particles.geometry.dispose(); // Descarta a geometria das partículas
-                if (particles.material) particles.material.dispose(); // Descarta o material das partículas
-                particles = null;
-            }
-            // Opcional: Limpa o contexto WebGL do canvas para garantir a liberação de recursos
             const canvas = document.getElementById('three-bg');
             if (canvas) {
                 const context = canvas.getContext('webgl');
@@ -2854,119 +2845,17 @@
             }
         }
 
-        // Função para inicializar o Three.js
-        function initThreeJS() {
-            const canvas = document.getElementById('three-bg');
-            // Garante que o canvas exista
-            if (!canvas) {
-                console.error("Elemento canvas com ID 'three-bg' não encontrado.");
-                return;
-            }
-
-            // Se o Three.js já estiver inicializado, descarte-o antes de reinicializar
-            if (renderer) {
-                disposeThreeJS();
-            }
-
-            // Procede com a inicialização limpa
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio); // Melhora a qualidade em telas de alta DPI
-
-            // Criação das partículas
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            const colors = [];
-
-            const particleCount = 1500;
-            for (let i = 0; i < particleCount; i++) {
-                vertices.push(
-                    (Math.random() - 0.5) * 2000, // Posição X
-                    (Math.random() - 0.5) * 2000, // Posição Y
-                    (Math.random() - 0.5) * 2000 // Posição Z
-                );
-                const color = new THREE.Color();
-                const colorChoices = [
-                    new THREE.Color('#2563eb'), // anpha-blue
-                    new THREE.Color('#7e22ce'), // anpha-purple
-                    new THREE.Color('#f97316'), // anpha-orange
-                    new THREE.Color('#10b981'), // anpha-green
-                    new THREE.Color('#e2e8f0') // dark-text-light (quase branco)
-                ];
-                color.copy(colorChoices[Math.floor(Math.random() * colorChoices.length)]);
-                colors.push(color.r, color.g, color.b);
-            }
-
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-
-            const circleTexture = createCircleTexture();
-            const material = new THREE.PointsMaterial({
-                size: 5,
-                vertexColors: true,
-                map: circleTexture,
-                transparent: true,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false
-            });
-            particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            camera.position.z = 1000;
-
-            // Inicia o loop de animação se o Three.js estiver ativo
-            if (isThreeJSActive) {
-                animate();
-            }
-        }
-
-        // Loop de animação
-        function animate() {
-            // Para a animação se não estiver ativa ou se o renderizador não existir
-            if (!isThreeJSActive || !renderer) {
-                return;
-            }
-            requestAnimationFrame(animate);
-
-            // Rotação sutil das partículas para um efeito mais orgânico
-            particles.rotation.x += 0.0002;
-            particles.rotation.y += 0.0005;
-
-            renderer.render(scene, camera);
-        }
-
-        // Alterna a visibilidade e animação do fundo 3D
-        document.getElementById('toggle-threejs-btn').addEventListener('click', function () {
-            const canvas = document.getElementById('three-bg');
-            isThreeJSActive = !isThreeJSActive; // Inverte o estado de ativo/inativo
-
-            if (isThreeJSActive) {
-                canvas.classList.remove('hidden'); // Mostra o canvas
-                initThreeJS(); // Sempre reinicializa ao ativar
-                this.innerHTML = '<i class="fas fa-cube"></i>'; // Altera o ícone para cubo
-            } else {
-                canvas.classList.add('hidden'); // Esconde o canvas
-                disposeThreeJS(); // Descarta os recursos ao desativar
-                this.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Altera o ícone para olho cortado
-            }
-        });
 
         // Animação de revelação ao rolar para elementos com a classe .scroll-reveal
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.scroll-reveal');
-
             reveals.forEach(element => {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150; // Pixels da parte inferior da viewport para acionar a revelação
-
-                // Se o elemento estiver dentro da viewport, adiciona a classe 'active' para acionar a animação
+                const elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
                 } else {
-                    // Opcionalmente remove a classe 'active' se o elemento sair da visualização
                     element.classList.remove('active');
                 }
             });
@@ -2975,15 +2864,14 @@
         // Rolagem suave para links de navegação
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Previne o comportamento padrão do clique no âncora
+                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth', // Animação de rolagem suave
-                        block: 'start' // Rola para o início do elemento alvo
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
-                // Fecha o menu mobile se estiver aberto após clicar em um link
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -2995,23 +2883,18 @@
         // Funcionalidade de alternar o menu mobile
         document.getElementById('menu-toggle').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden'); // Alterna a visibilidade do menu mobile
+            mobileMenu.classList.toggle('hidden');
             const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
-            this.setAttribute('aria-expanded', isExpanded); // Atualiza o atributo aria-expanded para acessibilidade
+            this.setAttribute('aria-expanded', isExpanded);
         });
 
         // Funcionalidade de alternar FAQ
         function toggleFAQ(id) {
             const content = document.getElementById(`faq-content-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
-            const button = document.getElementById(`faq-toggle-${id}`); // Usar ID para o botão
-
-            // Verifica se o conteúdo está atualmente ativo (aberto)
+            const button = document.getElementById(`faq-toggle-${id}`);
             const isActive = content.classList.contains('active');
-
-            // Se estiver ativo, queremos fechá-lo. Se não, abri-lo.
             if (isActive) {
-                // Força o cálculo da altura antes de definir para 0 para garantir a transição
                 content.style.maxHeight = content.scrollHeight + 'px';
                 requestAnimationFrame(() => {
                     content.style.maxHeight = '0';
@@ -3020,13 +2903,10 @@
                 icon.classList.remove('rotate-180');
                 button.setAttribute('aria-expanded', 'false');
             } else {
-                // Fecha quaisquer outras FAQs abertas antes de abrir a nova
                 document.querySelectorAll('.faq-content.active').forEach(openContent => {
                     const openId = openContent.id.split('-')[2];
                     const openIcon = document.getElementById(`faq-icon-${openId}`);
                     const openButton = document.getElementById(`faq-toggle-${openId}`);
-
-                    // Força o cálculo da altura antes de definir para 0 para garantir a transição
                     openContent.style.maxHeight = openContent.scrollHeight + 'px';
                     requestAnimationFrame(() => {
                         openContent.style.maxHeight = '0';
@@ -3035,14 +2915,10 @@
                     if (openIcon) openIcon.classList.remove('rotate-180');
                     if (openButton) openButton.setAttribute('aria-expanded', 'false');
                 });
-
-                // Abre a FAQ clicada
                 content.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px'; // Define a altura para a altura real do conteúdo
+                content.style.maxHeight = content.scrollHeight + 'px';
                 icon.classList.add('rotate-180');
                 button.setAttribute('aria-expanded', 'true');
-
-                // Após a transição, remove max-height para permitir que o conteúdo se adapte se a janela for redimensionada
                 content.addEventListener('transitionend', function handler() {
                     if (content.classList.contains('active')) {
                         content.style.maxHeight = 'none';
@@ -3054,9 +2930,7 @@
 
         // Validação e envio do formulário com melhorias de segurança
         document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Previne o envio padrão do formulário
-
-            // Reseta erros anteriores e mensagem de sucesso
+            e.preventDefault();
             document.querySelectorAll('.error-message').forEach(el => {
                 el.classList.add('hidden');
                 el.textContent = '';
@@ -3065,28 +2939,20 @@
                 el.classList.remove('input-error');
             });
             document.getElementById('form-success').classList.add('hidden');
-
             let isValid = true;
-
-            // Validação de segurança - verifica se o formulário foi preenchido muito rapidamente (possível bot)
             const formStartTime = this.dataset.startTime;
             if (formStartTime && (Date.now() - parseInt(formStartTime)) < 3000) {
                 showCustomAlert('Por favor, preencha o formulário com mais cuidado.', 'error');
                 return;
             }
-
-            // Validação de campos obrigatórios com sanitização
             const requiredFields = ['name', 'email', 'phone', 'service'];
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
                 const error = document.getElementById(`${field}-error`);
-
-                // Sanitiza o valor removendo caracteres perigosos
                 let value = input.value.trim();
-                value = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ''); // Remove scripts
-                value = value.replace(/[<>]/g, ''); // Remove < e >
+                value = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+                value = value.replace(/[<>]/g, '');
                 input.value = value;
-
                 if (!value) {
                     input.classList.add('input-error');
                     error.textContent = 'Este campo é obrigatório.';
@@ -3094,17 +2960,12 @@
                     isValid = false;
                 }
             });
-
-            // Validação avançada de e-mail
             const email = document.getElementById('email');
-            // Corrigido: Escapando o ponto na classe de caracteres para evitar "Range out of order"
             const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
             const disposableEmailDomains = ['10minutemail.com', 'tempmail.org', 'guerrillamail.com', 'mailinator.com'];
-
             if (email.value) {
                 const emailValue = email.value.toLowerCase();
                 const emailDomain = emailValue.split('@')[1];
-
                 if (!emailRegex.test(emailValue)) {
                     email.classList.add('input-error');
                     document.getElementById('email-error').textContent = 'Por favor, insira um e-mail válido.';
@@ -3117,12 +2978,8 @@
                     isValid = false;
                 }
             }
-
-            // Validação de telefone brasileiro
             const phone = document.getElementById('phone');
-            const phoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
             if (phone.value) {
-                // Remove formatação para validação
                 const phoneClean = phone.value.replace(/\D/g, '');
                 if (phoneClean.length < 10 || phoneClean.length > 11) {
                     phone.classList.add('input-error');
@@ -3131,8 +2988,6 @@
                     isValid = false;
                 }
             }
-
-            // Validação checkbox de consentimento
             const consent = document.getElementById('consent');
             const consentError = document.getElementById('consent-error');
             if (!consent.checked) {
@@ -3140,21 +2995,15 @@
                 consentError.classList.remove('hidden');
                 isValid = false;
             }
-
             if (isValid) {
-                // Mostra estado de carregamento
                 const submitBtn = document.getElementById('submit-btn');
                 const submitText = document.getElementById('submit-text');
                 const submitSpinner = document.getElementById('submit-spinner');
-
                 submitBtn.disabled = true;
                 submitText.textContent = 'Enviando...';
                 submitSpinner.classList.remove('hidden');
-
-                // Envio do formulário via FormSubmit
                 const form = document.getElementById('contact-form');
                 const formData = new FormData(form);
-
                 fetch(form.action, {
                     method: form.method,
                     body: formData,
@@ -3166,14 +3015,10 @@
                         if (response.ok) {
                             document.getElementById('form-success').classList.remove('hidden');
                             form.reset();
-
-                            // Prepara mensagem do WhatsApp
                             const name = formData.get('name');
                             const service = formData.get('service');
                             const serviceText = service === 'nao-sei' ? 'Consultoria Gratuita' : service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                             const message = `Ol%C3%A1%21%20Sou%20${encodeURIComponent(name)}%20e%20acabei%20de%20preencher%20o%20formul%C3%A1rio%20no%20site%20da%20Anphaweb.%20Gostaria%20de%20agendar%20minha%20consultoria%20gratuita%20sobre%20${encodeURIComponent(serviceText)}.`;
-
-
                             setTimeout(() => {
                                 window.open(`https://wa.me/5543998656546?text=${message}`, '_blank');
                             }, 1000);
@@ -3195,11 +3040,8 @@
 
         // Preenchimento automático e formatação de campos
         document.addEventListener('DOMContentLoaded', function () {
-            // Marca o tempo de início do formulário para validação de segurança
             const form = document.getElementById('contact-form');
             form.dataset.startTime = Date.now();
-
-            // Formatação automática do telefone
             const phoneInput = document.getElementById('phone');
             phoneInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, '');
@@ -3216,8 +3058,6 @@
                 }
                 e.target.value = value;
             });
-
-            // Capitalização automática do nome
             const nameInput = document.getElementById('name');
             nameInput.addEventListener('input', function (e) {
                 const words = e.target.value.split(' ');
@@ -3229,14 +3069,10 @@
                 });
                 e.target.value = capitalizedWords.join(' ');
             });
-
-            // Validação em tempo real do e-mail
             const emailInput = document.getElementById('email');
             emailInput.addEventListener('blur', function (e) {
-                // Corrigido: Escapando o ponto na classe de caracteres para evitar "Range out of order"
                 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
                 const emailError = document.getElementById('email-error');
-
                 if (e.target.value && !emailRegex.test(e.target.value)) {
                     e.target.classList.add('input-error');
                     emailError.textContent = 'Por favor, insira um e-mail válido.';
@@ -3246,8 +3082,6 @@
                     emailError.classList.add('hidden');
                 }
             });
-
-            // Preenchimento automático baseado em localStorage (se o usuário já preencheu antes)
             const savedData = localStorage.getItem('anphaweb_form_data');
             if (savedData) {
                 try {
@@ -3260,8 +3094,6 @@
                     console.log('Erro ao carregar dados salvos');
                 }
             }
-
-            // Salva dados do formulário no localStorage quando o usuário digita
             function saveFormData() {
                 const formData = {
                     name: nameInput.value,
@@ -3271,7 +3103,6 @@
                 };
                 localStorage.setItem('anphaweb_form_data', JSON.stringify(formData));
             }
-
             nameInput.addEventListener('input', saveFormData);
             emailInput.addEventListener('input', saveFormData);
             phoneInput.addEventListener('input', saveFormData);
@@ -3286,54 +3117,40 @@
             "Marketing Digital de Resultado"
         ];
         let currentTextIndex = 0;
-
         function animateTextCarousel() {
             const container = document.querySelector('.dynamic-text-container');
-            if (!container) return; // Sai se o container não for encontrado
-
+            if (!container) return;
             const items = container.querySelectorAll('.dynamic-text-item');
-
-            // Esconde o item atual com animação de saída
             if (items[currentTextIndex]) {
                 items[currentTextIndex].style.animation = 'textHide 1s forwards';
             }
-
-            // Atualiza o índice para o próximo item
             currentTextIndex = (currentTextIndex + 1) % textItems.length;
-
-            // Espera a animação de esconder completar antes de revelar o próximo
             setTimeout(() => {
-                // Esconde todos os itens (garantia, caso a animação anterior não tenha finalizado)
                 items.forEach(item => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(20px)';
-                    item.style.animation = 'none'; // Reseta a animação para o próximo ciclo
+                    item.style.animation = 'none';
                 });
-
-                // Mostra o próximo item com animação de entrada
                 const nextItem = items[currentTextIndex];
                 if (nextItem) {
                     nextItem.style.animation = 'textReveal 1s forwards';
                 }
-                setTimeout(animateTextCarousel, 3000); // Exibe cada texto por 3 segundos (tempo total: 1s hide + 3s display + 1s reveal)
-            }, 1000); // Espera 1 segundo (duração da animação textHide)
+                setTimeout(animateTextCarousel, 3000);
+            }, 1000);
         }
 
         // Funcionalidade do Banner de Cookies
         function showCookieBanner() {
             const cookieBanner = document.getElementById('cookie-banner');
             const consentGiven = localStorage.getItem('cookie_consent');
-
             if (!consentGiven) {
                 cookieBanner.classList.add('show');
             }
         }
-
         function acceptCookies() {
             localStorage.setItem('cookie_consent', 'true');
             const cookieBanner = document.getElementById('cookie-banner');
             cookieBanner.classList.remove('show');
-            // Opcional: Adiciona um pequeno atraso antes de remover do DOM para permitir que a transição seja concluída
             setTimeout(() => {
                 cookieBanner.style.display = 'none';
             }, 500);
@@ -3343,9 +3160,8 @@
         function showCustomAlert(message, type = 'info') {
             const modal = document.createElement('div');
             modal.classList.add('modal', 'show');
-            modal.setAttribute('role', 'alertdialog'); // Adicionado role para acessibilidade
-            modal.setAttribute('aria-modal', 'true'); // Indica que é um modal
-
+            modal.setAttribute('role', 'alertdialog');
+            modal.setAttribute('aria-modal', 'true');
             modal.innerHTML = `
                 <div class="modal-content" role="document">
                     <span class="close-button" role="button" aria-label="Fechar">&times;</span>
@@ -3357,24 +3173,21 @@
                 </div>
             `;
             document.body.appendChild(modal);
-
             modal.querySelector('.close-button').addEventListener('click', closeCustomAlert);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     closeCustomAlert();
                 }
             });
-            // Foca o botão OK para acessibilidade
             modal.querySelector('button.btn-gradient-primary').focus();
         }
-
         function closeCustomAlert() {
             const modal = document.querySelector('.modal.show');
             if (modal) {
                 modal.classList.remove('show');
                 setTimeout(() => {
                     modal.remove();
-                }, 300); // Tempo para a transição de saída
+                }, 300);
             }
         }
 
@@ -3437,14 +3250,12 @@
                 console.error('Projeto não encontrado:', projectId);
                 return;
             }
-
             document.getElementById('portfolio-modal-title').textContent = project.title;
             document.getElementById('modal-sector').textContent = project.sector;
             document.getElementById('modal-results').textContent = project.results;
             document.getElementById('modal-problem').textContent = project.problem;
             document.getElementById('modal-solution').textContent = project.solution;
             document.getElementById('modal-tech').textContent = project.technologies;
-
             const modal = document.getElementById('portfolio-modal');
             modal.classList.add('show');
         }
@@ -3463,10 +3274,7 @@
                     openPortfolioModal(projectId);
                 });
             });
-
-            // Adiciona listener para o botão de fechar do modal
             document.querySelector('#portfolio-modal .close-button').addEventListener('click', closePortfolioModal);
-            // Fecha o modal ao clicar fora dele
             document.getElementById('portfolio-modal').addEventListener('click', (e) => {
                 if (e.target.id === 'portfolio-modal') {
                     closePortfolioModal();
@@ -3476,69 +3284,44 @@
 
         // Pop-up de Intenção de Saída
         let exitIntentShown = false;
-
         function showExitIntentPopup() {
             if (!exitIntentShown && !localStorage.getItem('exit_intent_closed')) {
                 document.getElementById('exit-intent-popup').classList.add('show');
                 exitIntentShown = true;
             }
         }
-
         function closeExitIntentPopup() {
             document.getElementById('exit-intent-popup').classList.remove('show');
-            localStorage.setItem('exit_intent_closed', 'true'); // Evita que o pop-up apareça novamente
+            localStorage.setItem('exit_intent_closed', 'true');
         }
-
-        // Event listener para detectar intenção de saída
         document.addEventListener('mouseout', (e) => {
-            // Verifica se o mouse está saindo da parte superior da janela (indicando intenção de sair)
             if (e.clientY < 50 && !exitIntentShown) {
                 showExitIntentPopup();
             }
         });
-
-        // Adiciona listener para o botão de fechar do pop-up de intenção de saída
         document.querySelector('#exit-intent-popup .close-button').addEventListener('click', closeExitIntentPopup);
-        // Fecha o pop-up ao clicar fora dele
         document.getElementById('exit-intent-popup').addEventListener('click', (e) => {
             if (e.target.id === 'exit-intent-popup') {
                 closeExitIntentPopup();
             }
         });
 
-
         // Inicializa todas as funções necessárias quando o DOM é carregado
         document.addEventListener('DOMContentLoaded', function () {
-            // O Three.js agora é sempre inicializado para ser exibido em todas as telas.
-            initThreeJS();
-            // Garante que o botão de alternância do fundo 3D esteja sempre visível.
+            // Inicializa as ondas em vez da esfera Three.js
+            initWaves();
             document.getElementById('toggle-threejs-btn').style.display = 'flex';
-
-            animateTextCarousel(); // Inicia o carrossel de texto dinâmico
-
-            // Garante que todos os conteúdos de FAQ estejam inicialmente fechados
+            animateTextCarousel();
             document.querySelectorAll('.faq-content').forEach(content => {
                 content.style.maxHeight = '0';
-                content.classList.remove('active'); // Garante que nenhuma classe ativa inicialmente
+                content.classList.remove('active');
             });
-
-            // Lida com o redimensionamento da janela para o canvas do Three.js
             window.addEventListener('resize', function () {
-                // Redimensiona o renderer apenas se o Three.js estiver ativo.
-                if (renderer && camera && isThreeJSActive) {
-                    camera.aspect = window.innerWidth / window.innerHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                }
+                // A biblioteca THREE.Waves já lida com o redimensionamento internamente
+                // Não é necessário um listener de redimensionamento manual aqui
             });
-
-            // Verificação inicial para elementos de revelação ao rolar na carga da página
             revealOnScroll();
-
-            // Mostra o banner de cookies se o consentimento não foi dado
             showCookieBanner();
-
-            // Adiciona listener de evento para o botão de aceitar cookies
             document.getElementById('accept-cookies-btn').addEventListener('click', acceptCookies);
         });
 
